@@ -1,0 +1,52 @@
+version: 2.1
+
+jobs:
+  build-lib:
+    docker:
+      - image: circleci/golang:latest
+
+    environment:
+      TEST_RESULTS: /tmp/test-results # path to where test results will be saved
+      TEST_ARTIFACTS: /tmp/test-artifacts
+
+    steps:
+      - checkout
+      - run:
+          name: prepare directories
+          command: |
+            mkdir -p $TEST_RESULTS
+            mkdir -p $TEST_ARTIFACTS
+
+      - restore_cache: # restores saved cache if no changes are detected since last run
+          keys:
+            - go-mod-v1-{{ checksum "go.sum" }}
+
+      - run:
+          name: Run unit tests
+          # store the results of our tests in the $TEST_RESULTS directory
+          command: |
+            PACKAGE_NAMES=$(go list ./... | circleci tests split --split-by=timings --timings-type=classname)
+            gotestsum --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -coverprofile=cover.out $PACKAGE_NAMES
+            go tool cover -html=cover.out -o coverage.html
+            mv coverage.html $TEST_ARTIFACTS
+
+      - save_cache:
+          key: go-mod-v1-{{ checksum "go.sum" }}
+          paths:
+            - "/go/pkg/mod"
+
+      - store_artifacts: # upload test summary for display in Artifacts
+          path: /tmp/test-results
+          destination: raw-test-output
+
+      - store_test_results: # upload test results for display in Test Summary
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-artifacts
+          destination: test-coverage
+
+
+workflows:
+  build-workflow:
+    jobs:
+      - build-lib
