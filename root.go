@@ -88,7 +88,7 @@ func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, error) {
 	// skip first line
 	firstLine, err := reader.Read()
 	if err != nil {
-		return nil, nil, nil, err
+		return nil, nil, err
 	}
 	for k, v := range firstLine {
 		colMap[v] = k
