@@ -2,6 +2,8 @@ package eodhdapi
 
 import (
 	"context"
+	"encoding/csv"
+	"errors"
 	"fmt"
 	"github.com/gitu/eodhdapi/exchanges"
 	"io"
@@ -45,7 +47,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 			log.Println(res.Body)
 		}
 
-		reader, valMap, err := newCsvReaderMap(res.Body)
+		reader, valMap, values, err := newCsvReaderMap(res.Body)
 
 		fmt.Printf(" available fundamentals for exchange [%s]: %v", exchange.Code, valMap)
 
@@ -58,12 +60,21 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 
 			if err == io.EOF {
 				break
-			} else if err != nil {
-				log.Println(err)
+			} else if errors.Is(err, csv.ErrFieldCount) {
+				// occurs constantly
 				continue
+			} else if err != nil {
+				// should not occur
+				return err
 			}
 
 			fullTimeEmployees, _ := strconv.ParseInt(line[valMap["General_FullTimeEmployees"]], 10, 32)
+
+			data := make(map[string]string)
+
+			for k, v := range values {
+				data[v] = line[k]
+			}
 
 			ticker := line[valMap["General_Code"]] + "." + exchange.Code
 			f := Fundamentals{
@@ -86,6 +97,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 					FullTimeEmployees: int(fullTimeEmployees),
 					UpdatedAt:         line[valMap["General_UpdatedAt"]],
 				},
+				Data: data,
 			}
 
 			fundamentals <- f
@@ -98,9 +110,10 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 
 // Fundamentals for a ticker
 type Fundamentals struct {
-	Ticker     string    `bson:"ticker"`
-	LastUpdate time.Time `bson:"last_update"`
-	General    General   `bson:"general"`
+	Ticker     string            `bson:"ticker"`
+	LastUpdate time.Time         `bson:"last_update"`
+	General    General           `bson:"general"`
+	Data       map[string]string `bson:"data"`
 }
 
 // General information about an asset
