@@ -80,7 +80,7 @@ func newCsvReader(r io.Reader) (*csv.Reader, error) {
 	return reader, nil
 }
 
-func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, []string, error) {
+func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, error) {
 	colMap := make(map[string]int)
 	reader := csv.NewReader(r)
 	reader.Comma = ','
@@ -93,5 +93,5 @@ func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, []string, error)
 	for k, v := range firstLine {
 		colMap[v] = k
 	}
-	return reader, colMap, firstLine, nil
+	return reader, colMap, nil
 }

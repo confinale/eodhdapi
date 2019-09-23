@@ -47,7 +47,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 			log.Println(res.Body)
 		}
 
-		reader, valMap, values, err := newCsvReaderMap(res.Body)
+		reader, valMap, err := newCsvReaderMap(res.Body)
 
 		fmt.Printf(" available fundamentals for exchange [%s]: %v", exchange.Code, valMap)
 
@@ -68,14 +68,13 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				return err
 			}
 
-			fullTimeEmployees, _ := strconv.ParseInt(line[valMap["General_FullTimeEmployees"]], 10, 32)
-
 			data := make(map[string]string)
 
-			for k, v := range values {
-				data[v] = line[k]
+			for k, v := range valMap {
+				data[k] = line[v]
 			}
 
+			fullTimeEmployees, _ := strconv.ParseInt(line[valMap["General_FullTimeEmployees"]], 10, 32)
 			ticker := line[valMap["General_Code"]] + "." + exchange.Code
 			f := Fundamentals{
 				Ticker:     ticker,
