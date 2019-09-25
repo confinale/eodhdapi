@@ -124,6 +124,17 @@ type csvReaderMap struct {
 	lenient     bool
 }
 
+func (r *csvReaderMap) asOptionalStringLenient(value string) (*string, error) {
+	val, err := r.asString(value)
+	if err != nil {
+		return nil, nil
+	}
+	if len(val) == 0 {
+		return nil, nil
+	}
+	return &val, nil
+}
+
 func (r *csvReaderMap) asOptionalString(value string) (*string, error) {
 	val, err := r.asString(value)
 	if err != nil {
@@ -189,6 +200,21 @@ func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
 	return &val, err
 }
 
+func (r *csvReaderMap) asOptionalInt(value string) (*int, error) {
+	s, err := r.asOptionalString(value)
+	if err != nil || s == nil {
+		return nil, err
+	}
+	if r.lenient && len(*s) == 0 {
+		return nil, nil
+	}
+	i, err := strconv.Atoi(*s)
+	if err != nil {
+		return nil, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return &i, err
+}
+
 func (r *csvReaderMap) asInt(value string) (int, error) {
 	s, err := r.asString(value)
 	if err != nil {
@@ -197,7 +223,11 @@ func (r *csvReaderMap) asInt(value string) (int, error) {
 	if r.lenient && len(s) == 0 {
 		return 0, nil
 	}
-	return strconv.Atoi(s)
+	i, err := strconv.Atoi(s)
+	if err != nil {
+		return i, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return i, err
 }
 
 func (r *csvReaderMap) Next() bool {
@@ -223,10 +253,16 @@ func (r *csvReaderMap) markVisited(s string) {
 	r.visits[s] = true
 }
 
-func (r *csvReaderMap) checkAllVisited() error {
+func (r *csvReaderMap) checkAllVisited(ignored ...string) error {
 	notVisited := make([]string, 0)
+CORE:
 	for k := range r.fields {
 		if !r.visits[k] {
+			for _, i := range ignored {
+				if i == k {
+					continue CORE
+				}
+			}
 			if len(notVisited) > 10 {
 				notVisited = append(notVisited, "...")
 				break

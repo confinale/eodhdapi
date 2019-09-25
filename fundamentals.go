@@ -6,6 +6,7 @@ import (
 	"github.com/gitu/eodhdapi/exchanges"
 	"log"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -53,10 +54,14 @@ func (g *General) fill(reader *csvReaderMap, prefix string) error {
 	if g.Description, err = reader.asString(prefix + "Description"); err != nil {
 		return err
 	}
-	if g.FullTimeEmployees, err = reader.asInt(prefix + "FullTimeEmployees"); err != nil {
+	if g.FullTimeEmployees, err = reader.asOptionalInt(prefix + "FullTimeEmployees"); err != nil {
 		return err
 	}
-	if g.UpdatedAt, err = reader.asString(prefix + "UpdatedAt"); err != nil {
+	if g.UpdatedAt, err = reader.asOptionalStringLenient(prefix + "UpdatedAt"); err != nil {
+		return err
+	}
+
+	if g.Cusip, err = reader.asOptionalStringLenient(prefix + "CUSIP"); err != nil {
 		return err
 	}
 	return nil
@@ -64,7 +69,7 @@ func (g *General) fill(reader *csvReaderMap, prefix string) error {
 
 func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.MarketCapitalization, err = reader.asFloat64(prefix + "MarketCapitalization"); err != nil {
+	if g.MarketCapitalization, err = reader.asOptionalFloat64(prefix + "MarketCapitalization"); err != nil {
 		return err
 	}
 	if g.MarketCapitalizationMln, err = reader.asString(prefix + "MarketCapitalizationMln"); err != nil {
@@ -606,6 +611,9 @@ func buildEarningsInfo(reader *csvReaderMap, prefix string) (EarningsInfo, error
 // FetchFundamentals Fetches Fundamentals for the exchange
 func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundamentals, exchange *exchanges.Exchange, pagesize int, lenient bool) error {
 
+	if exchange.ForceLenient {
+		lenient = true
+	}
 	for _, e := range exchange.ExchangeCodeComponents {
 
 		offset := 0
@@ -624,7 +632,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 
 			defer res.Body.Close()
 			if res.StatusCode != 200 {
-				log.Printf("body for url: %s - code %d: %v\n", res.Request.URL, res.StatusCode, res.Body)
+				log.Printf("body for url: %s - code %d: %v\n", strings.ReplaceAll(res.Request.URL.String(), d.token, "******"), res.StatusCode, res.Body)
 				return fmt.Errorf("received non 200 error code: %d", res.StatusCode)
 			}
 
@@ -721,11 +729,12 @@ type General struct {
 	Sector            string  `json:"Sector"`
 	Industry          string  `json:"Industry"`
 	Description       string  `json:"Description"`
-	FullTimeEmployees int     `json:"FullTimeEmployees"`
-	UpdatedAt         string  `json:"UpdatedAt"`
+	FullTimeEmployees *int    `json:"FullTimeEmployees"`
+	UpdatedAt         *string `json:"UpdatedAt"`
+	Cusip             *string `json:"CUSIP"`
 }
 type Highlights struct {
-	MarketCapitalization       float64  `json:"MarketCapitalization"`
+	MarketCapitalization       *float64 `json:"MarketCapitalization"`
 	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
 	EBITDA                     *float64 `json:"EBITDA"`
 	PERatio                    string   `json:"PERatio"`

@@ -3,6 +3,8 @@ package eodhdapi
 import (
 	"context"
 	"fmt"
+	freshcache "github.com/gitu/eodhdapi/afr"
+	"github.com/gitu/eodhdapi/afr/diskcache"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -91,6 +93,36 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 			}
 
 			require.Equal(t, tt.wantFundamentalsCount, count)
+		})
+	}
+}
+
+func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
+	if os.Getenv("EODHD_TOKEN") == "" {
+		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
+		t.SkipNow()
+	}
+
+	c := diskcache.New("cache")
+	tr := freshcache.NewTransport(c)
+
+	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+
+	for _, e := range exchanges.All() {
+
+		t.Run(e.Code, func(t *testing.T) {
+			fundamentals := make(chan Fundamentals, 90000)
+			if err := d.FetchFundamentals(context.Background(), fundamentals, e, 1000, false); err != nil {
+				t.Errorf("FetchFundamentals() error = %v", err)
+			}
+			close(fundamentals)
+
+			count := 0
+
+			for range fundamentals {
+				count++
+			}
+			t.Logf("exchange %s had %d elements", e.Code, count)
 		})
 	}
 }
