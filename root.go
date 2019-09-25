@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"errors"
 	"fmt"
+	"github.com/texttheater/golang-levenshtein/levenshtein"
 	"io"
 	"log"
 	"net/http"
@@ -124,17 +125,10 @@ type csvReaderMap struct {
 }
 
 func (r *csvReaderMap) asOptionalString(value string) (*string, error) {
-	if r.trackVisits {
-		r.markVisited(value)
+	val, err := r.asString(value)
+	if err != nil {
+		return nil, err
 	}
-	i, ok := r.fields[value]
-	if !ok {
-		if !r.lenient {
-			return nil, fmt.Errorf("field: %s not found", value)
-		}
-		return nil, nil
-	}
-	val := r.current[i]
 	if len(val) == 0 {
 		return nil, nil
 	}
@@ -147,7 +141,17 @@ func (r *csvReaderMap) asString(value string) (string, error) {
 	i, ok := r.fields[value]
 	if !ok {
 		if !r.lenient {
-			return "", fmt.Errorf("field: %s not found", value)
+			closestMatch := "N/A"
+			minDistance := 99999
+			for v := range r.fields {
+				distance := levenshtein.DistanceForStrings([]rune(v), []rune(value), levenshtein.DefaultOptions)
+				if distance < minDistance {
+					minDistance = distance
+					closestMatch = v
+				}
+			}
+
+			return "", fmt.Errorf("field: %s not found - closest match: %s", value, closestMatch)
 		}
 		return "", nil
 	}
@@ -163,7 +167,11 @@ func (r *csvReaderMap) asFloat64(value string) (float64, error) {
 	if r.lenient && len(s) == 0 {
 		return 0, nil
 	}
-	return strconv.ParseFloat(s, 64)
+	f, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		return f, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return f, err
 }
 
 func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
@@ -175,6 +183,9 @@ func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
 		return nil, nil
 	}
 	val, err := strconv.ParseFloat(*s, 64)
+	if err != nil {
+		return nil, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
 	return &val, err
 }
 

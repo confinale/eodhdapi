@@ -222,31 +222,385 @@ func (g *SplitsDividends) fill(reader *csvReaderMap, prefix string) error {
 }
 
 func (g *Earnings) fill(reader *csvReaderMap, prefix string) error {
-	g.Last0 = EarningsInfo{}
-	g.Last1 = EarningsInfo{}
-	g.Last2 = EarningsInfo{}
-	g.Last3 = EarningsInfo{}
+	var err error
+	if g.Last0, err = buildEarningsInfo(reader, prefix+"Last_0_"); err != nil {
+		return err
+	}
+	if g.Last1, err = buildEarningsInfo(reader, prefix+"Last_1_"); err != nil {
+		return err
+	}
+	if g.Last2, err = buildEarningsInfo(reader, prefix+"Last_2_"); err != nil {
+		return err
+	}
+	if g.Last3, err = buildEarningsInfo(reader, prefix+"Last_3_"); err != nil {
+		return err
+	}
 	return nil
 }
 
-func (g *EarningsInfo) fill(reader *csvReaderMap, prefix string) error {
+func (g *Financials) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.Date, err = reader.asString(prefix + "Date"); err != nil {
+	if g.BalanceSheet, err = buildBalanceSheet(reader, prefix+"Balance_Sheet_"); err != nil {
 		return err
 	}
-	if g.EpsActual, err = reader.asFloat64(prefix + "EpsActual"); err != nil {
+	if g.CashFlow, err = buildCashFlow(reader, prefix+"Cash_Flow_"); err != nil {
 		return err
 	}
-	if g.EpsEstimate, err = reader.asFloat64(prefix + "EpsEstimate"); err != nil {
-		return err
-	}
-	if g.EpsDifference, err = reader.asFloat64(prefix + "EpsDifference"); err != nil {
-		return err
-	}
-	if g.SurprisePercent, err = reader.asFloat64(prefix + "SurprisePercent"); err != nil {
+	if g.IncomeStatement, err = buildIncomeStatement(reader, prefix+"Income_Statement_"); err != nil {
 		return err
 	}
 	return nil
+}
+func buildBalanceSheet(reader *csvReaderMap, prefix string) (BalanceSheet, error) {
+	var err error
+	g := BalanceSheet{}
+	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast0, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast1, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast2, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast3, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_3_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast0, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast1, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast2, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast3, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_3_"); err != nil {
+		return g, err
+	}
+	return g, nil
+}
+func buildBalanceSheetInfo(reader *csvReaderMap, prefix string) (BalanceSheetInfo, error) {
+	var err error
+	g := BalanceSheetInfo{}
+	if g.Date, err = reader.asString(prefix + "date"); err != nil {
+		return g, err
+	}
+	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
+		return g, err
+	}
+	if g.IntangibleAssets, err = reader.asOptionalFloat64(prefix + "intangibleAssets"); err != nil {
+		return g, err
+	}
+	if g.TotalLiab, err = reader.asString(prefix + "totalLiab"); err != nil {
+		return g, err
+	}
+	if g.TotalStockholderEquity, err = reader.asString(prefix + "totalStockholderEquity"); err != nil {
+		return g, err
+	}
+	if g.DeferredLongTermLiab, err = reader.asOptionalString(prefix + "deferredLongTermLiab"); err != nil {
+		return g, err
+	}
+	if g.OtherCurrentLiab, err = reader.asString(prefix + "otherCurrentLiab"); err != nil {
+		return g, err
+	}
+	if g.TotalAssets, err = reader.asString(prefix + "totalAssets"); err != nil {
+		return g, err
+	}
+	if g.CommonStock, err = reader.asString(prefix + "commonStock"); err != nil {
+		return g, err
+	}
+	if g.OtherCurrentAssets, err = reader.asString(prefix + "otherCurrentAssets"); err != nil {
+		return g, err
+	}
+	if g.RetainedEarnings, err = reader.asString(prefix + "retainedEarnings"); err != nil {
+		return g, err
+	}
+	if g.OtherLiab, err = reader.asString(prefix + "otherLiab"); err != nil {
+		return g, err
+	}
+	if g.GoodWill, err = reader.asString(prefix + "goodWill"); err != nil {
+		return g, err
+	}
+	if g.OtherAssets, err = reader.asString(prefix + "otherAssets"); err != nil {
+		return g, err
+	}
+	if g.Cash, err = reader.asString(prefix + "cash"); err != nil {
+		return g, err
+	}
+	if g.TotalCurrentLiabilities, err = reader.asString(prefix + "totalCurrentLiabilities"); err != nil {
+		return g, err
+	}
+	if g.ShortLongTermDebt, err = reader.asOptionalString(prefix + "shortLongTermDebt"); err != nil {
+		return g, err
+	}
+	if g.OtherStockholderEquity, err = reader.asString(prefix + "otherStockholderEquity"); err != nil {
+		return g, err
+	}
+	if g.PropertyPlantEquipment, err = reader.asString(prefix + "propertyPlantEquipment"); err != nil {
+		return g, err
+	}
+	if g.TotalCurrentAssets, err = reader.asString(prefix + "totalCurrentAssets"); err != nil {
+		return g, err
+	}
+	if g.LongTermInvestments, err = reader.asString(prefix + "longTermInvestments"); err != nil {
+		return g, err
+	}
+	if g.NetTangibleAssets, err = reader.asString(prefix + "netTangibleAssets"); err != nil {
+		return g, err
+	}
+	if g.ShortTermInvestments, err = reader.asOptionalString(prefix + "shortTermInvestments"); err != nil {
+		return g, err
+	}
+	if g.NetReceivables, err = reader.asString(prefix + "netReceivables"); err != nil {
+		return g, err
+	}
+	if g.LongTermDebt, err = reader.asOptionalString(prefix + "longTermDebt"); err != nil {
+		return g, err
+	}
+	if g.Inventory, err = reader.asString(prefix + "inventory"); err != nil {
+		return g, err
+	}
+	if g.AccountsPayable, err = reader.asOptionalString(prefix + "accountsPayable"); err != nil {
+		return g, err
+	}
+	return g, nil
+
+}
+func buildCashFlow(reader *csvReaderMap, prefix string) (CashFlow, error) {
+	var err error
+	g := CashFlow{}
+	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast0, err = buildCashFlowInfo(reader, prefix+"quarterly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast1, err = buildCashFlowInfo(reader, prefix+"quarterly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast2, err = buildCashFlowInfo(reader, prefix+"quarterly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast3, err = buildCashFlowInfo(reader, prefix+"quarterly_last_3_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast0, err = buildCashFlowInfo(reader, prefix+"yearly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast1, err = buildCashFlowInfo(reader, prefix+"yearly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast2, err = buildCashFlowInfo(reader, prefix+"yearly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast3, err = buildCashFlowInfo(reader, prefix+"yearly_last_3_"); err != nil {
+		return g, err
+	}
+	return g, nil
+
+}
+func buildCashFlowInfo(reader *csvReaderMap, prefix string) (CashFlowInfo, error) {
+	var err error
+	g := CashFlowInfo{}
+	if g.Date, err = reader.asString(prefix + "date"); err != nil {
+		return g, err
+	}
+	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
+		return g, err
+	}
+	if g.Investments, err = reader.asString(prefix + "investments"); err != nil {
+		return g, err
+	}
+	if g.ChangeToLiabilities, err = reader.asString(prefix + "changeToLiabilities"); err != nil {
+		return g, err
+	}
+	if g.TotalCashflowsFromInvestingActivities, err = reader.asString(prefix + "totalCashflowsFromInvestingActivities"); err != nil {
+		return g, err
+	}
+	if g.NetBorrowings, err = reader.asString(prefix + "netBorrowings"); err != nil {
+		return g, err
+	}
+	if g.TotalCashFromFinancingActivities, err = reader.asString(prefix + "totalCashFromFinancingActivities"); err != nil {
+		return g, err
+	}
+	if g.ChangeToOperatingActivities, err = reader.asString(prefix + "changeToOperatingActivities"); err != nil {
+		return g, err
+	}
+	if g.NetIncome, err = reader.asString(prefix + "netIncome"); err != nil {
+		return g, err
+	}
+	if g.ChangeInCash, err = reader.asString(prefix + "changeInCash"); err != nil {
+		return g, err
+	}
+	if g.TotalCashFromOperatingActivities, err = reader.asString(prefix + "totalCashFromOperatingActivities"); err != nil {
+		return g, err
+	}
+	if g.Depreciation, err = reader.asString(prefix + "depreciation"); err != nil {
+		return g, err
+	}
+	if g.OtherCashflowsFromInvestingActivities, err = reader.asString(prefix + "otherCashflowsFromInvestingActivities"); err != nil {
+		return g, err
+	}
+	if g.DividendsPaid, err = reader.asString(prefix + "dividendsPaid"); err != nil {
+		return g, err
+	}
+	if g.ChangeToInventory, err = reader.asString(prefix + "changeToInventory"); err != nil {
+		return g, err
+	}
+	if g.ChangeToAccountReceivables, err = reader.asString(prefix + "changeToAccountReceivables"); err != nil {
+		return g, err
+	}
+	if g.SalePurchaseOfStock, err = reader.asOptionalString(prefix + "salePurchaseOfStock"); err != nil {
+		return g, err
+	}
+	if g.OtherCashflowsFromFinancingActivities, err = reader.asOptionalString(prefix + "otherCashflowsFromFinancingActivities"); err != nil {
+		return g, err
+	}
+	if g.ChangeToNetincome, err = reader.asString(prefix + "changeToNetincome"); err != nil {
+		return g, err
+	}
+	if g.CapitalExpenditures, err = reader.asString(prefix + "capitalExpenditures"); err != nil {
+		return g, err
+	}
+	return g, nil
+
+}
+
+func buildIncomeStatement(reader *csvReaderMap, prefix string) (IncomeStatement, error) {
+	var err error
+	g := IncomeStatement{}
+	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast0, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast1, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast2, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.QuarterlyLast3, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_3_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast0, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_0_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast1, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_1_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast2, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_2_"); err != nil {
+		return g, err
+	}
+	if g.YearlyLast3, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_3_"); err != nil {
+		return g, err
+	}
+	return g, nil
+
+}
+func buildIncomeStatementInfo(reader *csvReaderMap, prefix string) (IncomeStatementInfo, error) {
+	var err error
+	g := IncomeStatementInfo{}
+	if g.Date, err = reader.asString(prefix + "date"); err != nil {
+		return g, err
+	}
+	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
+		return g, err
+	}
+	if g.ResearchDevelopment, err = reader.asOptionalString(prefix + "researchDevelopment"); err != nil {
+		return g, err
+	}
+	if g.EffectOfAccountingCharges, err = reader.asOptionalString(prefix + "effectOfAccountingCharges"); err != nil {
+		return g, err
+	}
+	if g.IncomeBeforeTax, err = reader.asString(prefix + "incomeBeforeTax"); err != nil {
+		return g, err
+	}
+	if g.MinorityInterest, err = reader.asString(prefix + "minorityInterest"); err != nil {
+		return g, err
+	}
+	if g.NetIncome, err = reader.asString(prefix + "netIncome"); err != nil {
+		return g, err
+	}
+	if g.SellingGeneralAdministrative, err = reader.asString(prefix + "sellingGeneralAdministrative"); err != nil {
+		return g, err
+	}
+	if g.GrossProfit, err = reader.asString(prefix + "grossProfit"); err != nil {
+		return g, err
+	}
+	if g.Ebit, err = reader.asString(prefix + "ebit"); err != nil {
+		return g, err
+	}
+	if g.OperatingIncome, err = reader.asString(prefix + "operatingIncome"); err != nil {
+		return g, err
+	}
+	if g.OtherOperatingExpenses, err = reader.asOptionalString(prefix + "otherOperatingExpenses"); err != nil {
+		return g, err
+	}
+	if g.InterestExpense, err = reader.asOptionalString(prefix + "interestExpense"); err != nil {
+		return g, err
+	}
+	if g.ExtraordinaryItems, err = reader.asOptionalString(prefix + "extraordinaryItems"); err != nil {
+		return g, err
+	}
+	if g.NonRecurring, err = reader.asOptionalString(prefix + "nonRecurring"); err != nil {
+		return g, err
+	}
+	if g.OtherItems, err = reader.asOptionalString(prefix + "otherItems"); err != nil {
+		return g, err
+	}
+	if g.IncomeTaxExpense, err = reader.asString(prefix + "incomeTaxExpense"); err != nil {
+		return g, err
+	}
+	if g.TotalRevenue, err = reader.asString(prefix + "totalRevenue"); err != nil {
+		return g, err
+	}
+	if g.TotalOperatingExpenses, err = reader.asString(prefix + "totalOperatingExpenses"); err != nil {
+		return g, err
+	}
+	if g.CostOfRevenue, err = reader.asString(prefix + "costOfRevenue"); err != nil {
+		return g, err
+	}
+	if g.TotalOtherIncomeExpenseNet, err = reader.asString(prefix + "totalOtherIncomeExpenseNet"); err != nil {
+		return g, err
+	}
+	if g.DiscontinuedOperations, err = reader.asOptionalString(prefix + "discontinuedOperations"); err != nil {
+		return g, err
+	}
+	if g.NetIncomeFromContinuingOps, err = reader.asString(prefix + "netIncomeFromContinuingOps"); err != nil {
+		return g, err
+	}
+	if g.NetIncomeApplicableToCommonShares, err = reader.asString(prefix + "netIncomeApplicableToCommonShares"); err != nil {
+		return g, err
+	}
+	return g, nil
+
+}
+
+func buildEarningsInfo(reader *csvReaderMap, prefix string) (EarningsInfo, error) {
+	var err error
+	g := EarningsInfo{}
+	if g.Date, err = reader.asString(prefix + "date"); err != nil {
+		return g, err
+	}
+	if g.EpsActual, err = reader.asOptionalFloat64(prefix + "epsActual"); err != nil {
+		return g, err
+	}
+	if g.EpsEstimate, err = reader.asOptionalFloat64(prefix + "epsEstimate"); err != nil {
+		return g, err
+	}
+	if g.EpsDifference, err = reader.asOptionalFloat64(prefix + "epsDifference"); err != nil {
+		return g, err
+	}
+	if g.SurprisePercent, err = reader.asOptionalFloat64(prefix + "surprisePercent"); err != nil {
+		return g, err
+	}
+	return g, nil
 }
 
 // FetchFundamentals Fetches Fundamentals for the exchange
@@ -274,7 +628,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				return fmt.Errorf("received non 200 error code: %d", res.StatusCode)
 			}
 
-			reader, err := newCsvReaderMap(res.Body, lenient, lenient)
+			reader, err := newCsvReaderMap(res.Body, lenient, !lenient)
 			if err != nil {
 				return err
 			}
@@ -315,6 +669,10 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				if err != nil {
 					return err
 				}
+				err = f.Financials.fill(reader, "Financials_")
+				if err != nil {
+					return err
+				}
 
 				f.Ticker = f.General.Code + "." + exchange.Code
 
@@ -323,7 +681,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				newElements++
 			}
 
-			if !lenient {
+			if !lenient && newElements > 0 {
 				err = reader.checkAllVisited()
 				if err != nil {
 					return err
@@ -421,11 +779,11 @@ type SplitsDividends struct {
 	LastSplitDate              string `json:"LastSplitDate"`
 }
 type EarningsInfo struct {
-	Date            string  `json:"date"`
-	EpsActual       float64 `json:"epsActual"`
-	EpsEstimate     float64 `json:"epsEstimate"`
-	EpsDifference   float64 `json:"epsDifference"`
-	SurprisePercent float64 `json:"surprisePercent"`
+	Date            string   `json:"date"`
+	EpsActual       *float64 `json:"epsActual"`
+	EpsEstimate     *float64 `json:"epsEstimate"`
+	EpsDifference   *float64 `json:"epsDifference"`
+	SurprisePercent *float64 `json:"surprisePercent"`
 }
 type Earnings struct {
 	Last0 EarningsInfo `json:"Last_0"`
