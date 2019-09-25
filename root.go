@@ -4,9 +4,11 @@ import (
 	"encoding/csv"
 	"errors"
 	"fmt"
+	"github.com/texttheater/golang-levenshtein/levenshtein"
 	"io"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 )
 
@@ -20,6 +22,17 @@ type EODhd struct {
 type urlParam struct {
 	Key   string
 	Value string
+}
+
+const DefaultURL = "https://eodhistoricaldata.com/api"
+
+// NewEOD initializes a new eod historical data client
+func NewDefaultEOD(eodHdToken string) *EODhd {
+	return &EODhd{
+		token:   eodHdToken,
+		baseURL: DefaultURL,
+		clt:     http.DefaultClient,
+	}
 }
 
 // NewEOD initializes a new eod historical data client
@@ -80,7 +93,7 @@ func newCsvReader(r io.Reader) (*csv.Reader, error) {
 	return reader, nil
 }
 
-func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, error) {
+func newCsvReaderMap(r io.Reader, lenient, trackVisits bool) (*csvReaderMap, error) {
 	colMap := make(map[string]int)
 	reader := csv.NewReader(r)
 	reader.Comma = ','
@@ -88,10 +101,142 @@ func newCsvReaderMap(r io.Reader) (*csv.Reader, map[string]int, error) {
 	// skip first line
 	firstLine, err := reader.Read()
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
 	for k, v := range firstLine {
 		colMap[v] = k
 	}
-	return reader, colMap, nil
+	return &csvReaderMap{
+		reader:      reader,
+		fields:      colMap,
+		visits:      make(map[string]bool),
+		trackVisits: trackVisits,
+		lenient:     lenient,
+	}, nil
+}
+
+type csvReaderMap struct {
+	reader      *csv.Reader
+	fields      map[string]int
+	trackVisits bool
+	visits      map[string]bool
+	current     []string
+	lenient     bool
+}
+
+func (r *csvReaderMap) asOptionalString(value string) (*string, error) {
+	val, err := r.asString(value)
+	if err != nil {
+		return nil, err
+	}
+	if len(val) == 0 {
+		return nil, nil
+	}
+	return &val, nil
+}
+func (r *csvReaderMap) asString(value string) (string, error) {
+	if r.trackVisits {
+		r.markVisited(value)
+	}
+	i, ok := r.fields[value]
+	if !ok {
+		if !r.lenient {
+			closestMatch := "N/A"
+			minDistance := 99999
+			for v := range r.fields {
+				distance := levenshtein.DistanceForStrings([]rune(v), []rune(value), levenshtein.DefaultOptions)
+				if distance < minDistance {
+					minDistance = distance
+					closestMatch = v
+				}
+			}
+
+			return "", fmt.Errorf("field: %s not found - closest match: %s", value, closestMatch)
+		}
+		return "", nil
+	}
+
+	return r.current[i], nil
+}
+
+func (r *csvReaderMap) asFloat64(value string) (float64, error) {
+	s, err := r.asString(value)
+	if err != nil {
+		return 0, err
+	}
+	if r.lenient && len(s) == 0 {
+		return 0, nil
+	}
+	f, err := strconv.ParseFloat(s, 64)
+	if err != nil {
+		return f, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return f, err
+}
+
+func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
+	s, err := r.asOptionalString(value)
+	if err != nil || s == nil {
+		return nil, err
+	}
+	if r.lenient && len(*s) == 0 {
+		return nil, nil
+	}
+	val, err := strconv.ParseFloat(*s, 64)
+	if err != nil {
+		return nil, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return &val, err
+}
+
+func (r *csvReaderMap) asInt(value string) (int, error) {
+	s, err := r.asString(value)
+	if err != nil {
+		return 0, err
+	}
+	if r.lenient && len(s) == 0 {
+		return 0, nil
+	}
+	return strconv.Atoi(s)
+}
+
+func (r *csvReaderMap) Next() bool {
+	for {
+		var err error
+		r.current, err = r.reader.Read()
+
+		if err == io.EOF {
+			return false
+		} else if errors.Is(err, csv.ErrFieldCount) {
+			// occurs constantly
+			continue
+		} else if err != nil {
+			// should not occur
+			return false
+		}
+
+		return true
+	}
+}
+
+func (r *csvReaderMap) markVisited(s string) {
+	r.visits[s] = true
+}
+
+func (r *csvReaderMap) checkAllVisited() error {
+	notVisited := make([]string, 0)
+	for k := range r.fields {
+		if !r.visits[k] {
+			if len(notVisited) > 10 {
+				notVisited = append(notVisited, "...")
+				break
+			}
+			notVisited = append(notVisited, k)
+		}
+	}
+
+	if len(notVisited) > 0 {
+		return fmt.Errorf("fields not visited: %+v", notVisited)
+	}
+	return nil
 }
