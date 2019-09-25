@@ -20,14 +20,14 @@ func (e *Exchange) setExchangeCodeComponents(codes ...string) *Exchange {
 // Exchanges is a list of exchanges
 type Exchanges []*Exchange
 
-// GetByCode returns exchanges by code
-func (e Exchanges) GetByCode(code string) (exchange *Exchange, ok bool) {
+// GetByCode returns exchanges by code - returns nil if not found
+func (e Exchanges) GetByCode(code string) *Exchange {
 	for _, v := range e {
 		if v.Code == code {
-			return v, true
+			return v
 		}
 	}
-	return nil, false
+	return nil
 }
 
 // All gives all known exchanges
