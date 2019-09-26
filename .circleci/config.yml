@@ -30,14 +30,22 @@ jobs:
           paths:
             - "/go/pkg/mod"
 
+
+      - restore_cache:
+          key: eodhd-cache-v1
+
       - run:
           name: Run unit tests
           # store the results of our tests in the $TEST_RESULTS directory
           command: |
-            gotestsum --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -coverprofile=cover.out ./...
+            gotestsum --format=short-verbose --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -coverprofile=cover.out ./...
             go tool cover -html=cover.out -o coverage.html
             mv coverage.html $TEST_ARTIFACTS
 
+      - save_cache:
+          key: eodhd-cache-v1
+          paths:
+            - "cache"
 
       - store_artifacts: # upload test summary for display in Artifacts
           path: /tmp/test-results
