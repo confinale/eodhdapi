@@ -4,7 +4,6 @@ import (
 	"encoding/csv"
 	"errors"
 	"fmt"
-	"github.com/texttheater/golang-levenshtein/levenshtein"
 	"io"
 	"log"
 	"net/http"
@@ -152,17 +151,7 @@ func (r *csvReaderMap) asString(value string) (string, error) {
 	i, ok := r.fields[value]
 	if !ok {
 		if !r.lenient {
-			closestMatch := "N/A"
-			minDistance := 99999
-			for v := range r.fields {
-				distance := levenshtein.DistanceForStrings([]rune(v), []rune(value), levenshtein.DefaultOptions)
-				if distance < minDistance {
-					minDistance = distance
-					closestMatch = v
-				}
-			}
-
-			return "", fmt.Errorf("field: %s not found - closest match: %s", value, closestMatch)
+			return "", fmt.Errorf("field: %s not found", value)
 		}
 		return "", nil
 	}
