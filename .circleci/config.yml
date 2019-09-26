@@ -29,7 +29,7 @@ jobs:
           key: go-mod-v1-{{ checksum "go.sum" }}
           paths:
             - "/go/pkg/mod"
-            -
+
       - run:
           name: Run unit tests
           # store the results of our tests in the $TEST_RESULTS directory
