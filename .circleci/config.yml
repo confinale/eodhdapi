@@ -41,6 +41,7 @@ jobs:
             gotestsum --format=standard-verbose --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -coverprofile=cover.out ./...
             go tool cover -html=cover.out -o coverage.html
             mv coverage.html $TEST_ARTIFACTS
+          no_output_timeout: 30m
 
       - save_cache:
           key: eodhd-cache-v1
