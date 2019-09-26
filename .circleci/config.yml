@@ -22,6 +22,15 @@ jobs:
             - go-mod-v1-{{ checksum "go.sum" }}
 
       - run:
+          name: download dependencies
+          command: go mod download
+
+      - save_cache:
+          key: go-mod-v1-{{ checksum "go.sum" }}
+          paths:
+            - "/go/pkg/mod"
+            -
+      - run:
           name: Run unit tests
           # store the results of our tests in the $TEST_RESULTS directory
           command: |
@@ -30,10 +39,6 @@ jobs:
             go tool cover -html=cover.out -o coverage.html
             mv coverage.html $TEST_ARTIFACTS
 
-      - save_cache:
-          key: go-mod-v1-{{ checksum "go.sum" }}
-          paths:
-            - "/go/pkg/mod"
 
       - store_artifacts: # upload test summary for display in Artifacts
           path: /tmp/test-results
@@ -44,7 +49,6 @@ jobs:
       - store_artifacts:
           path: /tmp/test-artifacts
           destination: test-coverage
-
 
 workflows:
   build-workflow:
