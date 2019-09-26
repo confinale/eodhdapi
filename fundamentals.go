@@ -78,7 +78,7 @@ func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	if g.EBITDA, err = reader.asOptionalFloat64(prefix + "EBITDA"); err != nil {
 		return err
 	}
-	if g.PERatio, err = reader.asString(prefix + "PERatio"); err != nil {
+	if g.PERatio, err = reader.asOptionalFloat64(prefix + "PERatio"); err != nil {
 		return err
 	}
 	if g.PEGRatio, err = reader.asOptionalFloat64(prefix + "PEGRatio"); err != nil {
@@ -87,16 +87,16 @@ func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	if g.WallStreetTargetPrice, err = reader.asOptionalFloat64(prefix + "WallStreetTargetPrice"); err != nil {
 		return err
 	}
-	if g.BookValue, err = reader.asString(prefix + "BookValue"); err != nil {
+	if g.BookValue, err = reader.asOptionalFloat64(prefix + "BookValue"); err != nil {
 		return err
 	}
-	if g.DividendShare, err = reader.asString(prefix + "DividendShare"); err != nil {
+	if g.DividendShare, err = reader.asOptionalFloat64(prefix + "DividendShare"); err != nil {
 		return err
 	}
-	if g.DividendYield, err = reader.asString(prefix + "DividendYield"); err != nil {
+	if g.DividendYield, err = reader.asOptionalFloat64(prefix + "DividendYield"); err != nil {
 		return err
 	}
-	if g.EarningsShare, err = reader.asString(prefix + "EarningsShare"); err != nil {
+	if g.EarningsShare, err = reader.asOptionalFloat64(prefix + "EarningsShare"); err != nil {
 		return err
 	}
 	if g.EPSEstimateCurrentYear, err = reader.asOptionalFloat64(prefix + "EPSEstimateCurrentYear"); err != nil {
@@ -111,34 +111,34 @@ func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	if g.MostRecentQuarter, err = reader.asString(prefix + "MostRecentQuarter"); err != nil {
 		return err
 	}
-	if g.ProfitMargin, err = reader.asString(prefix + "ProfitMargin"); err != nil {
+	if g.ProfitMargin, err = reader.asOptionalFloat64(prefix + "ProfitMargin"); err != nil {
 		return err
 	}
-	if g.OperatingMarginTTM, err = reader.asString(prefix + "OperatingMarginTTM"); err != nil {
+	if g.OperatingMarginTTM, err = reader.asOptionalFloat64(prefix + "OperatingMarginTTM"); err != nil {
 		return err
 	}
-	if g.ReturnOnAssetsTTM, err = reader.asString(prefix + "ReturnOnAssetsTTM"); err != nil {
+	if g.ReturnOnAssetsTTM, err = reader.asOptionalFloat64(prefix + "ReturnOnAssetsTTM"); err != nil {
 		return err
 	}
-	if g.ReturnOnEquityTTM, err = reader.asString(prefix + "ReturnOnEquityTTM"); err != nil {
+	if g.ReturnOnEquityTTM, err = reader.asOptionalFloat64(prefix + "ReturnOnEquityTTM"); err != nil {
 		return err
 	}
-	if g.RevenueTTM, err = reader.asOptionalString(prefix + "RevenueTTM"); err != nil {
+	if g.RevenueTTM, err = reader.asOptionalFloat64(prefix + "RevenueTTM"); err != nil {
 		return err
 	}
-	if g.RevenuePerShareTTM, err = reader.asOptionalString(prefix + "RevenuePerShareTTM"); err != nil {
+	if g.RevenuePerShareTTM, err = reader.asOptionalFloat64(prefix + "RevenuePerShareTTM"); err != nil {
 		return err
 	}
-	if g.QuarterlyRevenueGrowthYOY, err = reader.asString(prefix + "QuarterlyRevenueGrowthYOY"); err != nil {
+	if g.QuarterlyRevenueGrowthYOY, err = reader.asOptionalFloat64(prefix + "QuarterlyRevenueGrowthYOY"); err != nil {
 		return err
 	}
-	if g.GrossProfitTTM, err = reader.asString(prefix + "GrossProfitTTM"); err != nil {
+	if g.GrossProfitTTM, err = reader.asOptionalFloat64(prefix + "GrossProfitTTM"); err != nil {
 		return err
 	}
-	if g.DilutedEpsTTM, err = reader.asString(prefix + "DilutedEpsTTM"); err != nil {
+	if g.DilutedEpsTTM, err = reader.asOptionalFloat64(prefix + "DilutedEpsTTM"); err != nil {
 		return err
 	}
-	if g.QuarterlyEarningsGrowthYOY, err = reader.asString(prefix + "QuarterlyEarningsGrowthYOY"); err != nil {
+	if g.QuarterlyEarningsGrowthYOY, err = reader.asOptionalFloat64(prefix + "QuarterlyEarningsGrowthYOY"); err != nil {
 		return err
 	}
 	return nil
@@ -147,22 +147,22 @@ func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 
 func (g *Valuation) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.TrailingPE, err = reader.asString(prefix + "TrailingPE"); err != nil {
+	if g.TrailingPE, err = reader.asOptionalFloat64(prefix + "TrailingPE"); err != nil {
 		return err
 	}
-	if g.ForwardPE, err = reader.asOptionalString(prefix + "ForwardPE"); err != nil {
+	if g.ForwardPE, err = reader.asOptionalFloat64(prefix + "ForwardPE"); err != nil {
 		return err
 	}
-	if g.PriceSalesTTM, err = reader.asOptionalString(prefix + "PriceSalesTTM"); err != nil {
+	if g.PriceSalesTTM, err = reader.asOptionalFloat64(prefix + "PriceSalesTTM"); err != nil {
 		return err
 	}
-	if g.PriceBookMRQ, err = reader.asString(prefix + "PriceBookMRQ"); err != nil {
+	if g.PriceBookMRQ, err = reader.asOptionalFloat64(prefix + "PriceBookMRQ"); err != nil {
 		return err
 	}
-	if g.EnterpriseValueRevenue, err = reader.asOptionalString(prefix + "EnterpriseValueRevenue"); err != nil {
+	if g.EnterpriseValueRevenue, err = reader.asOptionalFloat64(prefix + "EnterpriseValueRevenue"); err != nil {
 		return err
 	}
-	if g.EnterpriseValueEbitda, err = reader.asOptionalString(prefix + "EnterpriseValueEbitda"); err != nil {
+	if g.EnterpriseValueEbitda, err = reader.asOptionalFloat64(prefix + "EnterpriseValueEbitda"); err != nil {
 		return err
 	}
 	return nil
@@ -170,19 +170,19 @@ func (g *Valuation) fill(reader *csvReaderMap, prefix string) error {
 
 func (g *Technicals) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.Beta, err = reader.asString(prefix + "Beta"); err != nil {
+	if g.Beta, err = reader.asOptionalFloat64(prefix + "Beta"); err != nil {
 		return err
 	}
-	if g.FiftyTwoWeekHigh, err = reader.asString(prefix + "52WeekHigh"); err != nil {
+	if g.FiftyTwoWeekHigh, err = reader.asOptionalFloat64(prefix + "52WeekHigh"); err != nil {
 		return err
 	}
-	if g.FiftyTwoWeekLow, err = reader.asString(prefix + "52WeekLow"); err != nil {
+	if g.FiftyTwoWeekLow, err = reader.asOptionalFloat64(prefix + "52WeekLow"); err != nil {
 		return err
 	}
-	if g.FiftyDayMA, err = reader.asString(prefix + "50DayMA"); err != nil {
+	if g.FiftyDayMA, err = reader.asOptionalFloat64(prefix + "50DayMA"); err != nil {
 		return err
 	}
-	if g.TwoHundredDayMA, err = reader.asString(prefix + "200DayMA"); err != nil {
+	if g.TwoHundredDayMA, err = reader.asOptionalFloat64(prefix + "200DayMA"); err != nil {
 		return err
 	}
 	if g.SharesShort, err = reader.asOptionalFloat64(prefix + "SharesShort"); err != nil {
@@ -202,13 +202,13 @@ func (g *Technicals) fill(reader *csvReaderMap, prefix string) error {
 
 func (g *SplitsDividends) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.ForwardAnnualDividendRate, err = reader.asString(prefix + "ForwardAnnualDividendRate"); err != nil {
+	if g.ForwardAnnualDividendRate, err = reader.asOptionalFloat64(prefix + "ForwardAnnualDividendRate"); err != nil {
 		return err
 	}
-	if g.ForwardAnnualDividendYield, err = reader.asString(prefix + "ForwardAnnualDividendYield"); err != nil {
+	if g.ForwardAnnualDividendYield, err = reader.asOptionalFloat64(prefix + "ForwardAnnualDividendYield"); err != nil {
 		return err
 	}
-	if g.PayoutRatio, err = reader.asString(prefix + "PayoutRatio"); err != nil {
+	if g.PayoutRatio, err = reader.asOptionalFloat64(prefix + "PayoutRatio"); err != nil {
 		return err
 	}
 	if g.DividendDate, err = reader.asString(prefix + "DividendDate"); err != nil {
@@ -300,76 +300,76 @@ func buildBalanceSheetInfo(reader *csvReaderMap, prefix string) (BalanceSheetInf
 	if g.IntangibleAssets, err = reader.asOptionalFloat64(prefix + "intangibleAssets"); err != nil {
 		return g, err
 	}
-	if g.TotalLiab, err = reader.asString(prefix + "totalLiab"); err != nil {
+	if g.TotalLiab, err = reader.asOptionalFloat64(prefix + "totalLiab"); err != nil {
 		return g, err
 	}
-	if g.TotalStockholderEquity, err = reader.asString(prefix + "totalStockholderEquity"); err != nil {
+	if g.TotalStockholderEquity, err = reader.asOptionalFloat64(prefix + "totalStockholderEquity"); err != nil {
 		return g, err
 	}
-	if g.DeferredLongTermLiab, err = reader.asOptionalString(prefix + "deferredLongTermLiab"); err != nil {
+	if g.DeferredLongTermLiab, err = reader.asOptionalFloat64(prefix + "deferredLongTermLiab"); err != nil {
 		return g, err
 	}
-	if g.OtherCurrentLiab, err = reader.asString(prefix + "otherCurrentLiab"); err != nil {
+	if g.OtherCurrentLiab, err = reader.asOptionalFloat64(prefix + "otherCurrentLiab"); err != nil {
 		return g, err
 	}
-	if g.TotalAssets, err = reader.asString(prefix + "totalAssets"); err != nil {
+	if g.TotalAssets, err = reader.asOptionalFloat64(prefix + "totalAssets"); err != nil {
 		return g, err
 	}
-	if g.CommonStock, err = reader.asString(prefix + "commonStock"); err != nil {
+	if g.CommonStock, err = reader.asOptionalFloat64(prefix + "commonStock"); err != nil {
 		return g, err
 	}
-	if g.OtherCurrentAssets, err = reader.asString(prefix + "otherCurrentAssets"); err != nil {
+	if g.OtherCurrentAssets, err = reader.asOptionalFloat64(prefix + "otherCurrentAssets"); err != nil {
 		return g, err
 	}
-	if g.RetainedEarnings, err = reader.asString(prefix + "retainedEarnings"); err != nil {
+	if g.RetainedEarnings, err = reader.asOptionalFloat64(prefix + "retainedEarnings"); err != nil {
 		return g, err
 	}
-	if g.OtherLiab, err = reader.asString(prefix + "otherLiab"); err != nil {
+	if g.OtherLiab, err = reader.asOptionalFloat64(prefix + "otherLiab"); err != nil {
 		return g, err
 	}
-	if g.GoodWill, err = reader.asString(prefix + "goodWill"); err != nil {
+	if g.GoodWill, err = reader.asOptionalFloat64(prefix + "goodWill"); err != nil {
 		return g, err
 	}
-	if g.OtherAssets, err = reader.asString(prefix + "otherAssets"); err != nil {
+	if g.OtherAssets, err = reader.asOptionalFloat64(prefix + "otherAssets"); err != nil {
 		return g, err
 	}
-	if g.Cash, err = reader.asString(prefix + "cash"); err != nil {
+	if g.Cash, err = reader.asOptionalFloat64(prefix + "cash"); err != nil {
 		return g, err
 	}
-	if g.TotalCurrentLiabilities, err = reader.asString(prefix + "totalCurrentLiabilities"); err != nil {
+	if g.TotalCurrentLiabilities, err = reader.asOptionalFloat64(prefix + "totalCurrentLiabilities"); err != nil {
 		return g, err
 	}
-	if g.ShortLongTermDebt, err = reader.asOptionalString(prefix + "shortLongTermDebt"); err != nil {
+	if g.ShortLongTermDebt, err = reader.asOptionalFloat64(prefix + "shortLongTermDebt"); err != nil {
 		return g, err
 	}
-	if g.OtherStockholderEquity, err = reader.asString(prefix + "otherStockholderEquity"); err != nil {
+	if g.OtherStockholderEquity, err = reader.asOptionalFloat64(prefix + "otherStockholderEquity"); err != nil {
 		return g, err
 	}
-	if g.PropertyPlantEquipment, err = reader.asString(prefix + "propertyPlantEquipment"); err != nil {
+	if g.PropertyPlantEquipment, err = reader.asOptionalFloat64(prefix + "propertyPlantEquipment"); err != nil {
 		return g, err
 	}
-	if g.TotalCurrentAssets, err = reader.asString(prefix + "totalCurrentAssets"); err != nil {
+	if g.TotalCurrentAssets, err = reader.asOptionalFloat64(prefix + "totalCurrentAssets"); err != nil {
 		return g, err
 	}
-	if g.LongTermInvestments, err = reader.asString(prefix + "longTermInvestments"); err != nil {
+	if g.LongTermInvestments, err = reader.asOptionalFloat64(prefix + "longTermInvestments"); err != nil {
 		return g, err
 	}
-	if g.NetTangibleAssets, err = reader.asString(prefix + "netTangibleAssets"); err != nil {
+	if g.NetTangibleAssets, err = reader.asOptionalFloat64(prefix + "netTangibleAssets"); err != nil {
 		return g, err
 	}
-	if g.ShortTermInvestments, err = reader.asOptionalString(prefix + "shortTermInvestments"); err != nil {
+	if g.ShortTermInvestments, err = reader.asOptionalFloat64(prefix + "shortTermInvestments"); err != nil {
 		return g, err
 	}
-	if g.NetReceivables, err = reader.asString(prefix + "netReceivables"); err != nil {
+	if g.NetReceivables, err = reader.asOptionalFloat64(prefix + "netReceivables"); err != nil {
 		return g, err
 	}
-	if g.LongTermDebt, err = reader.asOptionalString(prefix + "longTermDebt"); err != nil {
+	if g.LongTermDebt, err = reader.asOptionalFloat64(prefix + "longTermDebt"); err != nil {
 		return g, err
 	}
-	if g.Inventory, err = reader.asString(prefix + "inventory"); err != nil {
+	if g.Inventory, err = reader.asOptionalFloat64(prefix + "inventory"); err != nil {
 		return g, err
 	}
-	if g.AccountsPayable, err = reader.asOptionalString(prefix + "accountsPayable"); err != nil {
+	if g.AccountsPayable, err = reader.asOptionalFloat64(prefix + "accountsPayable"); err != nil {
 		return g, err
 	}
 	return g, nil
@@ -417,58 +417,58 @@ func buildCashFlowInfo(reader *csvReaderMap, prefix string) (CashFlowInfo, error
 	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
 		return g, err
 	}
-	if g.Investments, err = reader.asString(prefix + "investments"); err != nil {
+	if g.Investments, err = reader.asOptionalFloat64(prefix + "investments"); err != nil {
 		return g, err
 	}
-	if g.ChangeToLiabilities, err = reader.asString(prefix + "changeToLiabilities"); err != nil {
+	if g.ChangeToLiabilities, err = reader.asOptionalFloat64(prefix + "changeToLiabilities"); err != nil {
 		return g, err
 	}
-	if g.TotalCashflowsFromInvestingActivities, err = reader.asString(prefix + "totalCashflowsFromInvestingActivities"); err != nil {
+	if g.TotalCashflowsFromInvestingActivities, err = reader.asOptionalFloat64(prefix + "totalCashflowsFromInvestingActivities"); err != nil {
 		return g, err
 	}
-	if g.NetBorrowings, err = reader.asString(prefix + "netBorrowings"); err != nil {
+	if g.NetBorrowings, err = reader.asOptionalFloat64(prefix + "netBorrowings"); err != nil {
 		return g, err
 	}
-	if g.TotalCashFromFinancingActivities, err = reader.asString(prefix + "totalCashFromFinancingActivities"); err != nil {
+	if g.TotalCashFromFinancingActivities, err = reader.asOptionalFloat64(prefix + "totalCashFromFinancingActivities"); err != nil {
 		return g, err
 	}
-	if g.ChangeToOperatingActivities, err = reader.asString(prefix + "changeToOperatingActivities"); err != nil {
+	if g.ChangeToOperatingActivities, err = reader.asOptionalFloat64(prefix + "changeToOperatingActivities"); err != nil {
 		return g, err
 	}
-	if g.NetIncome, err = reader.asString(prefix + "netIncome"); err != nil {
+	if g.NetIncome, err = reader.asOptionalFloat64(prefix + "netIncome"); err != nil {
 		return g, err
 	}
-	if g.ChangeInCash, err = reader.asString(prefix + "changeInCash"); err != nil {
+	if g.ChangeInCash, err = reader.asOptionalFloat64(prefix + "changeInCash"); err != nil {
 		return g, err
 	}
-	if g.TotalCashFromOperatingActivities, err = reader.asString(prefix + "totalCashFromOperatingActivities"); err != nil {
+	if g.TotalCashFromOperatingActivities, err = reader.asOptionalFloat64(prefix + "totalCashFromOperatingActivities"); err != nil {
 		return g, err
 	}
-	if g.Depreciation, err = reader.asString(prefix + "depreciation"); err != nil {
+	if g.Depreciation, err = reader.asOptionalFloat64(prefix + "depreciation"); err != nil {
 		return g, err
 	}
-	if g.OtherCashflowsFromInvestingActivities, err = reader.asString(prefix + "otherCashflowsFromInvestingActivities"); err != nil {
+	if g.OtherCashflowsFromInvestingActivities, err = reader.asOptionalFloat64(prefix + "otherCashflowsFromInvestingActivities"); err != nil {
 		return g, err
 	}
-	if g.DividendsPaid, err = reader.asString(prefix + "dividendsPaid"); err != nil {
+	if g.DividendsPaid, err = reader.asOptionalFloat64(prefix + "dividendsPaid"); err != nil {
 		return g, err
 	}
-	if g.ChangeToInventory, err = reader.asString(prefix + "changeToInventory"); err != nil {
+	if g.ChangeToInventory, err = reader.asOptionalFloat64(prefix + "changeToInventory"); err != nil {
 		return g, err
 	}
-	if g.ChangeToAccountReceivables, err = reader.asString(prefix + "changeToAccountReceivables"); err != nil {
+	if g.ChangeToAccountReceivables, err = reader.asOptionalFloat64(prefix + "changeToAccountReceivables"); err != nil {
 		return g, err
 	}
-	if g.SalePurchaseOfStock, err = reader.asOptionalString(prefix + "salePurchaseOfStock"); err != nil {
+	if g.SalePurchaseOfStock, err = reader.asOptionalFloat64(prefix + "salePurchaseOfStock"); err != nil {
 		return g, err
 	}
-	if g.OtherCashflowsFromFinancingActivities, err = reader.asOptionalString(prefix + "otherCashflowsFromFinancingActivities"); err != nil {
+	if g.OtherCashflowsFromFinancingActivities, err = reader.asOptionalFloat64(prefix + "otherCashflowsFromFinancingActivities"); err != nil {
 		return g, err
 	}
-	if g.ChangeToNetincome, err = reader.asString(prefix + "changeToNetincome"); err != nil {
+	if g.ChangeToNetincome, err = reader.asOptionalFloat64(prefix + "changeToNetincome"); err != nil {
 		return g, err
 	}
-	if g.CapitalExpenditures, err = reader.asString(prefix + "capitalExpenditures"); err != nil {
+	if g.CapitalExpenditures, err = reader.asOptionalFloat64(prefix + "capitalExpenditures"); err != nil {
 		return g, err
 	}
 	return g, nil
@@ -517,70 +517,70 @@ func buildIncomeStatementInfo(reader *csvReaderMap, prefix string) (IncomeStatem
 	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
 		return g, err
 	}
-	if g.ResearchDevelopment, err = reader.asOptionalString(prefix + "researchDevelopment"); err != nil {
+	if g.ResearchDevelopment, err = reader.asOptionalFloat64(prefix + "researchDevelopment"); err != nil {
 		return g, err
 	}
-	if g.EffectOfAccountingCharges, err = reader.asOptionalString(prefix + "effectOfAccountingCharges"); err != nil {
+	if g.EffectOfAccountingCharges, err = reader.asOptionalFloat64(prefix + "effectOfAccountingCharges"); err != nil {
 		return g, err
 	}
-	if g.IncomeBeforeTax, err = reader.asString(prefix + "incomeBeforeTax"); err != nil {
+	if g.IncomeBeforeTax, err = reader.asOptionalFloat64(prefix + "incomeBeforeTax"); err != nil {
 		return g, err
 	}
-	if g.MinorityInterest, err = reader.asString(prefix + "minorityInterest"); err != nil {
+	if g.MinorityInterest, err = reader.asOptionalFloat64(prefix + "minorityInterest"); err != nil {
 		return g, err
 	}
-	if g.NetIncome, err = reader.asString(prefix + "netIncome"); err != nil {
+	if g.NetIncome, err = reader.asOptionalFloat64(prefix + "netIncome"); err != nil {
 		return g, err
 	}
-	if g.SellingGeneralAdministrative, err = reader.asString(prefix + "sellingGeneralAdministrative"); err != nil {
+	if g.SellingGeneralAdministrative, err = reader.asOptionalFloat64(prefix + "sellingGeneralAdministrative"); err != nil {
 		return g, err
 	}
-	if g.GrossProfit, err = reader.asString(prefix + "grossProfit"); err != nil {
+	if g.GrossProfit, err = reader.asOptionalFloat64(prefix + "grossProfit"); err != nil {
 		return g, err
 	}
-	if g.Ebit, err = reader.asString(prefix + "ebit"); err != nil {
+	if g.Ebit, err = reader.asOptionalFloat64(prefix + "ebit"); err != nil {
 		return g, err
 	}
-	if g.OperatingIncome, err = reader.asString(prefix + "operatingIncome"); err != nil {
+	if g.OperatingIncome, err = reader.asOptionalFloat64(prefix + "operatingIncome"); err != nil {
 		return g, err
 	}
-	if g.OtherOperatingExpenses, err = reader.asOptionalString(prefix + "otherOperatingExpenses"); err != nil {
+	if g.OtherOperatingExpenses, err = reader.asOptionalFloat64(prefix + "otherOperatingExpenses"); err != nil {
 		return g, err
 	}
-	if g.InterestExpense, err = reader.asOptionalString(prefix + "interestExpense"); err != nil {
+	if g.InterestExpense, err = reader.asOptionalFloat64(prefix + "interestExpense"); err != nil {
 		return g, err
 	}
-	if g.ExtraordinaryItems, err = reader.asOptionalString(prefix + "extraordinaryItems"); err != nil {
+	if g.ExtraordinaryItems, err = reader.asOptionalFloat64(prefix + "extraordinaryItems"); err != nil {
 		return g, err
 	}
-	if g.NonRecurring, err = reader.asOptionalString(prefix + "nonRecurring"); err != nil {
+	if g.NonRecurring, err = reader.asOptionalFloat64(prefix + "nonRecurring"); err != nil {
 		return g, err
 	}
-	if g.OtherItems, err = reader.asOptionalString(prefix + "otherItems"); err != nil {
+	if g.OtherItems, err = reader.asOptionalFloat64(prefix + "otherItems"); err != nil {
 		return g, err
 	}
-	if g.IncomeTaxExpense, err = reader.asString(prefix + "incomeTaxExpense"); err != nil {
+	if g.IncomeTaxExpense, err = reader.asOptionalFloat64(prefix + "incomeTaxExpense"); err != nil {
 		return g, err
 	}
-	if g.TotalRevenue, err = reader.asString(prefix + "totalRevenue"); err != nil {
+	if g.TotalRevenue, err = reader.asOptionalFloat64(prefix + "totalRevenue"); err != nil {
 		return g, err
 	}
-	if g.TotalOperatingExpenses, err = reader.asString(prefix + "totalOperatingExpenses"); err != nil {
+	if g.TotalOperatingExpenses, err = reader.asOptionalFloat64(prefix + "totalOperatingExpenses"); err != nil {
 		return g, err
 	}
-	if g.CostOfRevenue, err = reader.asString(prefix + "costOfRevenue"); err != nil {
+	if g.CostOfRevenue, err = reader.asOptionalFloat64(prefix + "costOfRevenue"); err != nil {
 		return g, err
 	}
-	if g.TotalOtherIncomeExpenseNet, err = reader.asString(prefix + "totalOtherIncomeExpenseNet"); err != nil {
+	if g.TotalOtherIncomeExpenseNet, err = reader.asOptionalFloat64(prefix + "totalOtherIncomeExpenseNet"); err != nil {
 		return g, err
 	}
-	if g.DiscontinuedOperations, err = reader.asOptionalString(prefix + "discontinuedOperations"); err != nil {
+	if g.DiscontinuedOperations, err = reader.asOptionalFloat64(prefix + "discontinuedOperations"); err != nil {
 		return g, err
 	}
-	if g.NetIncomeFromContinuingOps, err = reader.asString(prefix + "netIncomeFromContinuingOps"); err != nil {
+	if g.NetIncomeFromContinuingOps, err = reader.asOptionalFloat64(prefix + "netIncomeFromContinuingOps"); err != nil {
 		return g, err
 	}
-	if g.NetIncomeApplicableToCommonShares, err = reader.asString(prefix + "netIncomeApplicableToCommonShares"); err != nil {
+	if g.NetIncomeApplicableToCommonShares, err = reader.asOptionalFloat64(prefix + "netIncomeApplicableToCommonShares"); err != nil {
 		return g, err
 	}
 	return g, nil
@@ -686,6 +686,11 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 
 				fundamentals <- f
 
+				if reader.trackVisits {
+					// skip tracking after first visit
+					reader.trackVisits = false
+				}
+
 				newElements++
 			}
 
@@ -737,55 +742,55 @@ type Highlights struct {
 	MarketCapitalization       *float64 `json:"MarketCapitalization"`
 	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
 	EBITDA                     *float64 `json:"EBITDA"`
-	PERatio                    string   `json:"PERatio"`
+	PERatio                    *float64 `json:"PERatio"`
 	PEGRatio                   *float64 `json:"PEGRatio"`
 	WallStreetTargetPrice      *float64 `json:"WallStreetTargetPrice"`
-	BookValue                  string   `json:"BookValue"`
-	DividendShare              string   `json:"DividendShare"`
-	DividendYield              string   `json:"DividendYield"`
-	EarningsShare              string   `json:"EarningsShare"`
+	BookValue                  *float64 `json:"BookValue"`
+	DividendShare              *float64 `json:"DividendShare"`
+	DividendYield              *float64 `json:"DividendYield"`
+	EarningsShare              *float64 `json:"EarningsShare"`
 	EPSEstimateCurrentYear     *float64 `json:"EPSEstimateCurrentYear"`
 	EPSEstimateNextYear        *float64 `json:"EPSEstimateNextYear"`
 	EPSEstimateNextQuarter     *float64 `json:"EPSEstimateNextQuarter"`
 	MostRecentQuarter          string   `json:"MostRecentQuarter"`
-	ProfitMargin               string   `json:"ProfitMargin"`
-	OperatingMarginTTM         string   `json:"OperatingMarginTTM"`
-	ReturnOnAssetsTTM          string   `json:"ReturnOnAssetsTTM"`
-	ReturnOnEquityTTM          string   `json:"ReturnOnEquityTTM"`
-	RevenueTTM                 *string  `json:"RevenueTTM"`
-	RevenuePerShareTTM         *string  `json:"RevenuePerShareTTM"`
-	QuarterlyRevenueGrowthYOY  string   `json:"QuarterlyRevenueGrowthYOY"`
-	GrossProfitTTM             string   `json:"GrossProfitTTM"`
-	DilutedEpsTTM              string   `json:"DilutedEpsTTM"`
-	QuarterlyEarningsGrowthYOY string   `json:"QuarterlyEarningsGrowthYOY"`
+	ProfitMargin               *float64 `json:"ProfitMargin"`
+	OperatingMarginTTM         *float64 `json:"OperatingMarginTTM"`
+	ReturnOnAssetsTTM          *float64 `json:"ReturnOnAssetsTTM"`
+	ReturnOnEquityTTM          *float64 `json:"ReturnOnEquityTTM"`
+	RevenueTTM                 *float64 `json:"RevenueTTM"`
+	RevenuePerShareTTM         *float64 `json:"RevenuePerShareTTM"`
+	QuarterlyRevenueGrowthYOY  *float64 `json:"QuarterlyRevenueGrowthYOY"`
+	GrossProfitTTM             *float64 `json:"GrossProfitTTM"`
+	DilutedEpsTTM              *float64 `json:"DilutedEpsTTM"`
+	QuarterlyEarningsGrowthYOY *float64 `json:"QuarterlyEarningsGrowthYOY"`
 }
 type Valuation struct {
-	TrailingPE             string  `json:"TrailingPE"`
-	ForwardPE              *string `json:"ForwardPE"`
-	PriceSalesTTM          *string `json:"PriceSalesTTM"`
-	PriceBookMRQ           string  `json:"PriceBookMRQ"`
-	EnterpriseValueRevenue *string `json:"EnterpriseValueRevenue"`
-	EnterpriseValueEbitda  *string `json:"EnterpriseValueEbitda"`
+	TrailingPE             *float64 `json:"TrailingPE"`
+	ForwardPE              *float64 `json:"ForwardPE"`
+	PriceSalesTTM          *float64 `json:"PriceSalesTTM"`
+	PriceBookMRQ           *float64 `json:"PriceBookMRQ"`
+	EnterpriseValueRevenue *float64 `json:"EnterpriseValueRevenue"`
+	EnterpriseValueEbitda  *float64 `json:"EnterpriseValueEbitda"`
 }
 type Technicals struct {
-	Beta                  string   `json:"Beta"`
-	FiftyTwoWeekHigh      string   `json:"52WeekHigh"`
-	FiftyTwoWeekLow       string   `json:"52WeekLow"`
-	FiftyDayMA            string   `json:"50DayMA"`
-	TwoHundredDayMA       string   `json:"200DayMA"`
+	Beta                  *float64 `json:"Beta"`
+	FiftyTwoWeekHigh      *float64 `json:"52WeekHigh"`
+	FiftyTwoWeekLow       *float64 `json:"52WeekLow"`
+	FiftyDayMA            *float64 `json:"50DayMA"`
+	TwoHundredDayMA       *float64 `json:"200DayMA"`
 	SharesShort           *float64 `json:"SharesShort"`
 	SharesShortPriorMonth *float64 `json:"SharesShortPriorMonth"`
 	ShortRatio            *float64 `json:"ShortRatio"`
 	ShortPercent          *float64 `json:"ShortPercent"`
 }
 type SplitsDividends struct {
-	ForwardAnnualDividendRate  string `json:"ForwardAnnualDividendRate"`
-	ForwardAnnualDividendYield string `json:"ForwardAnnualDividendYield"`
-	PayoutRatio                string `json:"PayoutRatio"`
-	DividendDate               string `json:"DividendDate"`
-	ExDividendDate             string `json:"ExDividendDate"`
-	LastSplitFactor            string `json:"LastSplitFactor"`
-	LastSplitDate              string `json:"LastSplitDate"`
+	ForwardAnnualDividendRate  *float64 `json:"ForwardAnnualDividendRate"`
+	ForwardAnnualDividendYield *float64 `json:"ForwardAnnualDividendYield"`
+	PayoutRatio                *float64 `json:"PayoutRatio"`
+	DividendDate               string   `json:"DividendDate"`
+	ExDividendDate             string   `json:"ExDividendDate"`
+	LastSplitFactor            string   `json:"LastSplitFactor"`
+	LastSplitDate              string   `json:"LastSplitDate"`
 }
 type EarningsInfo struct {
 	Date            string   `json:"date"`
@@ -804,30 +809,30 @@ type BalanceSheetInfo struct {
 	Date                    string   `json:"date"`
 	FilingDate              *string  `json:"filing_date"`
 	IntangibleAssets        *float64 `json:"intangibleAssets"`
-	TotalLiab               string   `json:"totalLiab"`
-	TotalStockholderEquity  string   `json:"totalStockholderEquity"`
-	DeferredLongTermLiab    *string  `json:"deferredLongTermLiab"`
-	OtherCurrentLiab        string   `json:"otherCurrentLiab"`
-	TotalAssets             string   `json:"totalAssets"`
-	CommonStock             string   `json:"commonStock"`
-	OtherCurrentAssets      string   `json:"otherCurrentAssets"`
-	RetainedEarnings        string   `json:"retainedEarnings"`
-	OtherLiab               string   `json:"otherLiab"`
-	GoodWill                string   `json:"goodWill"`
-	OtherAssets             string   `json:"otherAssets"`
-	Cash                    string   `json:"cash"`
-	TotalCurrentLiabilities string   `json:"totalCurrentLiabilities"`
-	ShortLongTermDebt       *string  `json:"shortLongTermDebt"`
-	OtherStockholderEquity  string   `json:"otherStockholderEquity"`
-	PropertyPlantEquipment  string   `json:"propertyPlantEquipment"`
-	TotalCurrentAssets      string   `json:"totalCurrentAssets"`
-	LongTermInvestments     string   `json:"longTermInvestments"`
-	NetTangibleAssets       string   `json:"netTangibleAssets"`
-	ShortTermInvestments    *string  `json:"shortTermInvestments"`
-	NetReceivables          string   `json:"netReceivables"`
-	LongTermDebt            *string  `json:"longTermDebt"`
-	Inventory               string   `json:"inventory"`
-	AccountsPayable         *string  `json:"accountsPayable"`
+	TotalLiab               *float64 `json:"totalLiab"`
+	TotalStockholderEquity  *float64 `json:"totalStockholderEquity"`
+	DeferredLongTermLiab    *float64 `json:"deferredLongTermLiab"`
+	OtherCurrentLiab        *float64 `json:"otherCurrentLiab"`
+	TotalAssets             *float64 `json:"totalAssets"`
+	CommonStock             *float64 `json:"commonStock"`
+	OtherCurrentAssets      *float64 `json:"otherCurrentAssets"`
+	RetainedEarnings        *float64 `json:"retainedEarnings"`
+	OtherLiab               *float64 `json:"otherLiab"`
+	GoodWill                *float64 `json:"goodWill"`
+	OtherAssets             *float64 `json:"otherAssets"`
+	Cash                    *float64 `json:"cash"`
+	TotalCurrentLiabilities *float64 `json:"totalCurrentLiabilities"`
+	ShortLongTermDebt       *float64 `json:"shortLongTermDebt"`
+	OtherStockholderEquity  *float64 `json:"otherStockholderEquity"`
+	PropertyPlantEquipment  *float64 `json:"propertyPlantEquipment"`
+	TotalCurrentAssets      *float64 `json:"totalCurrentAssets"`
+	LongTermInvestments     *float64 `json:"longTermInvestments"`
+	NetTangibleAssets       *float64 `json:"netTangibleAssets"`
+	ShortTermInvestments    *float64 `json:"shortTermInvestments"`
+	NetReceivables          *float64 `json:"netReceivables"`
+	LongTermDebt            *float64 `json:"longTermDebt"`
+	Inventory               *float64 `json:"inventory"`
+	AccountsPayable         *float64 `json:"accountsPayable"`
 }
 type BalanceSheet struct {
 	CurrencySymbol string           `json:"currency_symbol"`
@@ -841,26 +846,26 @@ type BalanceSheet struct {
 	YearlyLast3    BalanceSheetInfo `json:"yearly_last_3"`
 }
 type CashFlowInfo struct {
-	Date                                  string  `json:"date"`
-	FilingDate                            *string `json:"filing_date"`
-	Investments                           string  `json:"investments"`
-	ChangeToLiabilities                   string  `json:"changeToLiabilities"`
-	TotalCashflowsFromInvestingActivities string  `json:"totalCashflowsFromInvestingActivities"`
-	NetBorrowings                         string  `json:"netBorrowings"`
-	TotalCashFromFinancingActivities      string  `json:"totalCashFromFinancingActivities"`
-	ChangeToOperatingActivities           string  `json:"changeToOperatingActivities"`
-	NetIncome                             string  `json:"netIncome"`
-	ChangeInCash                          string  `json:"changeInCash"`
-	TotalCashFromOperatingActivities      string  `json:"totalCashFromOperatingActivities"`
-	Depreciation                          string  `json:"depreciation"`
-	OtherCashflowsFromInvestingActivities string  `json:"otherCashflowsFromInvestingActivities"`
-	DividendsPaid                         string  `json:"dividendsPaid"`
-	ChangeToInventory                     string  `json:"changeToInventory"`
-	ChangeToAccountReceivables            string  `json:"changeToAccountReceivables"`
-	SalePurchaseOfStock                   *string `json:"salePurchaseOfStock"`
-	OtherCashflowsFromFinancingActivities *string `json:"otherCashflowsFromFinancingActivities"`
-	ChangeToNetincome                     string  `json:"changeToNetincome"`
-	CapitalExpenditures                   string  `json:"capitalExpenditures"`
+	Date                                  string   `json:"date"`
+	FilingDate                            *string  `json:"filing_date"`
+	Investments                           *float64 `json:"investments"`
+	ChangeToLiabilities                   *float64 `json:"changeToLiabilities"`
+	TotalCashflowsFromInvestingActivities *float64 `json:"totalCashflowsFromInvestingActivities"`
+	NetBorrowings                         *float64 `json:"netBorrowings"`
+	TotalCashFromFinancingActivities      *float64 `json:"totalCashFromFinancingActivities"`
+	ChangeToOperatingActivities           *float64 `json:"changeToOperatingActivities"`
+	NetIncome                             *float64 `json:"netIncome"`
+	ChangeInCash                          *float64 `json:"changeInCash"`
+	TotalCashFromOperatingActivities      *float64 `json:"totalCashFromOperatingActivities"`
+	Depreciation                          *float64 `json:"depreciation"`
+	OtherCashflowsFromInvestingActivities *float64 `json:"otherCashflowsFromInvestingActivities"`
+	DividendsPaid                         *float64 `json:"dividendsPaid"`
+	ChangeToInventory                     *float64 `json:"changeToInventory"`
+	ChangeToAccountReceivables            *float64 `json:"changeToAccountReceivables"`
+	SalePurchaseOfStock                   *float64 `json:"salePurchaseOfStock"`
+	OtherCashflowsFromFinancingActivities *float64 `json:"otherCashflowsFromFinancingActivities"`
+	ChangeToNetincome                     *float64 `json:"changeToNetincome"`
+	CapitalExpenditures                   *float64 `json:"capitalExpenditures"`
 }
 type CashFlow struct {
 	CurrencySymbol string       `json:"currency_symbol"`
@@ -875,30 +880,30 @@ type CashFlow struct {
 }
 
 type IncomeStatementInfo struct {
-	Date                              string      `json:"date"`
-	FilingDate                        interface{} `json:"filing_date"`
-	ResearchDevelopment               interface{} `json:"researchDevelopment"`
-	EffectOfAccountingCharges         interface{} `json:"effectOfAccountingCharges"`
-	IncomeBeforeTax                   string      `json:"incomeBeforeTax"`
-	MinorityInterest                  string      `json:"minorityInterest"`
-	NetIncome                         string      `json:"netIncome"`
-	SellingGeneralAdministrative      string      `json:"sellingGeneralAdministrative"`
-	GrossProfit                       string      `json:"grossProfit"`
-	Ebit                              string      `json:"ebit"`
-	OperatingIncome                   string      `json:"operatingIncome"`
-	OtherOperatingExpenses            *string     `json:"otherOperatingExpenses"`
-	InterestExpense                   *string     `json:"interestExpense"`
-	ExtraordinaryItems                *string     `json:"extraordinaryItems"`
-	NonRecurring                      *string     `json:"nonRecurring"`
-	OtherItems                        *string     `json:"otherItems"`
-	IncomeTaxExpense                  string      `json:"incomeTaxExpense"`
-	TotalRevenue                      string      `json:"totalRevenue"`
-	TotalOperatingExpenses            string      `json:"totalOperatingExpenses"`
-	CostOfRevenue                     string      `json:"costOfRevenue"`
-	TotalOtherIncomeExpenseNet        string      `json:"totalOtherIncomeExpenseNet"`
-	DiscontinuedOperations            *string     `json:"discontinuedOperations"`
-	NetIncomeFromContinuingOps        string      `json:"netIncomeFromContinuingOps"`
-	NetIncomeApplicableToCommonShares string      `json:"netIncomeApplicableToCommonShares"`
+	Date                              string   `json:"date"`
+	FilingDate                        *string  `json:"filing_date"`
+	ResearchDevelopment               *float64 `json:"researchDevelopment"`
+	EffectOfAccountingCharges         *float64 `json:"effectOfAccountingCharges"`
+	IncomeBeforeTax                   *float64 `json:"incomeBeforeTax"`
+	MinorityInterest                  *float64 `json:"minorityInterest"`
+	NetIncome                         *float64 `json:"netIncome"`
+	SellingGeneralAdministrative      *float64 `json:"sellingGeneralAdministrative"`
+	GrossProfit                       *float64 `json:"grossProfit"`
+	Ebit                              *float64 `json:"ebit"`
+	OperatingIncome                   *float64 `json:"operatingIncome"`
+	OtherOperatingExpenses            *float64 `json:"otherOperatingExpenses"`
+	InterestExpense                   *float64 `json:"interestExpense"`
+	ExtraordinaryItems                *float64 `json:"extraordinaryItems"`
+	NonRecurring                      *float64 `json:"nonRecurring"`
+	OtherItems                        *float64 `json:"otherItems"`
+	IncomeTaxExpense                  *float64 `json:"incomeTaxExpense"`
+	TotalRevenue                      *float64 `json:"totalRevenue"`
+	TotalOperatingExpenses            *float64 `json:"totalOperatingExpenses"`
+	CostOfRevenue                     *float64 `json:"costOfRevenue"`
+	TotalOtherIncomeExpenseNet        *float64 `json:"totalOtherIncomeExpenseNet"`
+	DiscontinuedOperations            *float64 `json:"discontinuedOperations"`
+	NetIncomeFromContinuingOps        *float64 `json:"netIncomeFromContinuingOps"`
+	NetIncomeApplicableToCommonShares *float64 `json:"netIncomeApplicableToCommonShares"`
 }
 type IncomeStatement struct {
 	CurrencySymbol string              `json:"currency_symbol"`

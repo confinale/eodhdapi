@@ -38,7 +38,7 @@ jobs:
           name: Run unit tests
           # store the results of our tests in the $TEST_RESULTS directory
           command: |
-            gotestsum --format=standard-verbose --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -coverprofile=cover.out ./...
+            gotestsum --format=standard-verbose --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -timeout 25m -coverprofile=cover.out ./...
             go tool cover -html=cover.out -o coverage.html
             mv coverage.html $TEST_ARTIFACTS
           no_output_timeout: 30m

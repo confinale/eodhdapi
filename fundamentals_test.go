@@ -80,17 +80,22 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 				clt:     tt.fields.clt,
 			}
 
-			fundamentals := make(chan Fundamentals, 20000)
+			fundamentals := make(chan Fundamentals)
+			done := make(chan int, 1)
+
+			go func(f chan Fundamentals, d chan int) {
+				count := 0
+				for range fundamentals {
+					count++
+				}
+				d <- count
+			}(fundamentals, done)
 			if err := d.FetchFundamentals(tt.args.ctx, fundamentals, tt.args.exchange, tt.args.pagesize, false); (err != nil) != tt.wantErr {
 				t.Errorf("FetchFundamentals() error = %v, wantErr %v", err, tt.wantErr)
 			}
 			close(fundamentals)
 
-			count := 0
-
-			for range fundamentals {
-				count++
-			}
+			count := <-done
 
 			require.Equal(t, tt.wantFundamentalsCount, count)
 		})
@@ -111,17 +116,25 @@ func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
 	for _, e := range exchanges.All() {
 
 		t.Run(e.Code, func(t *testing.T) {
-			fundamentals := make(chan Fundamentals, 90000)
+
+			fundamentals := make(chan Fundamentals)
+			done := make(chan int, 1)
+
+			go func(f chan Fundamentals, d chan int) {
+				count := 0
+				for range fundamentals {
+					count++
+				}
+				d <- count
+			}(fundamentals, done)
+
 			if err := d.FetchFundamentals(context.Background(), fundamentals, e, 1000, false); err != nil {
 				t.Errorf("FetchFundamentals() error = %v", err)
 			}
 			close(fundamentals)
 
-			count := 0
+			count := <-done
 
-			for range fundamentals {
-				count++
-			}
 			t.Logf("exchange %s had %d elements", e.Code, count)
 		})
 	}
