@@ -17,7 +17,6 @@ import (
 )
 
 func TestEODhd_FetchEOD(t *testing.T) {
-
 	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
 		if req.URL.Path != "/api/eod-bulk-last-day/F" {
 			rw.WriteHeader(404)
@@ -48,7 +47,8 @@ func TestEODhd_FetchEOD(t *testing.T) {
 	type args struct {
 		ctx      context.Context
 		exchange *exchanges.Exchange
-		pagesize int
+		date     time.Time
+		symbols  []string
 	}
 	tests := []struct {
 		name             string
@@ -67,10 +67,26 @@ func TestEODhd_FetchEOD(t *testing.T) {
 			args: args{
 				ctx:      context.Background(),
 				exchange: exchanges.All().GetByCode("F"),
-				pagesize: 10,
+				date:     time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC),
 			},
 			wantErr:          false,
 			wantEodInfoCount: 20,
+		},
+		{
+			name: "F - two tickers",
+			fields: fields{
+				token:   "TOKEN",
+				baseURL: server.URL + "/api",
+				clt:     server.Client(),
+			},
+			args: args{
+				ctx:      context.Background(),
+				exchange: exchanges.All().GetByCode("F"),
+				date:     time.Date(2019, 9, 24, 0, 0, 0, 0, time.UTC),
+				symbols:  []string{"CON", "BAYN"},
+			},
+			wantErr:          false,
+			wantEodInfoCount: 2,
 		},
 	}
 	for _, tt := range tests {
@@ -91,7 +107,7 @@ func TestEODhd_FetchEOD(t *testing.T) {
 				}
 				d <- count
 			}(infos, done)
-			if err := d.FetchEOD(tt.args.ctx, infos, tt.args.exchange, time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC)); (err != nil) != tt.wantErr {
+			if err := d.FetchEOD(tt.args.ctx, infos, tt.args.exchange, tt.args.date, tt.args.symbols...); (err != nil) != tt.wantErr {
 				t.Errorf("FetchFundamentals() error = %v, wantErr %v", err, tt.wantErr)
 			}
 			close(infos)
