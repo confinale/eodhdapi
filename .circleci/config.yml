@@ -32,7 +32,8 @@ jobs:
 
 
       - restore_cache:
-          key: eodhd-cache-v1
+          keys:
+            - eodhd-cache-v2
 
       - run:
           name: Run unit tests
@@ -44,7 +45,7 @@ jobs:
           no_output_timeout: 30m
 
       - save_cache:
-          key: eodhd-cache-v1
+          key: eodhd-cache-v2
           paths:
             - "cache"
 
