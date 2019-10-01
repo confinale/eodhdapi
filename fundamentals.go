@@ -4,11 +4,338 @@ import (
 	"context"
 	"fmt"
 	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/pkg/errors"
 	"log"
 	"strconv"
 	"strings"
 	"time"
 )
+
+// Fundamentals for a ticker
+type Fundamentals struct {
+	LastUpdate      time.Time
+	Ticker          string
+	General         General         `json:"General"`
+	Highlights      Highlights      `json:"Highlights"`
+	Valuation       Valuation       `json:"Valuation"`
+	Technicals      Technicals      `json:"Technicals"`
+	SplitsDividends SplitsDividends `json:"SplitsDividends"`
+	Earnings        Earnings        `json:"Earnings"`
+	Financials      Financials      `json:"Financials"`
+}
+
+type General struct {
+	Code              string  `json:"Code"`
+	Type              string  `json:"Type"`
+	Name              string  `json:"Name"`
+	Exchange          string  `json:"Exchange"`
+	CurrencyCode      string  `json:"CurrencyCode"`
+	CurrencyName      string  `json:"CurrencyName"`
+	CurrencySymbol    string  `json:"CurrencySymbol"`
+	CountryName       string  `json:"CountryName"`
+	CountryISO        string  `json:"CountryISO"`
+	ISIN              *string `json:"ISIN"`
+	Sector            string  `json:"Sector"`
+	Industry          string  `json:"Industry"`
+	Description       string  `json:"Description"`
+	FullTimeEmployees *int    `json:"FullTimeEmployees"`
+	UpdatedAt         *string `json:"UpdatedAt"`
+	Cusip             *string `json:"CUSIP"`
+}
+type Highlights struct {
+	MarketCapitalization       *float64 `json:"MarketCapitalization"`
+	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
+	EBITDA                     *float64 `json:"EBITDA"`
+	PERatio                    *float64 `json:"PERatio"`
+	PEGRatio                   *float64 `json:"PEGRatio"`
+	WallStreetTargetPrice      *float64 `json:"WallStreetTargetPrice"`
+	BookValue                  *float64 `json:"BookValue"`
+	DividendShare              *float64 `json:"DividendShare"`
+	DividendYield              *float64 `json:"DividendYield"`
+	EarningsShare              *float64 `json:"EarningsShare"`
+	EPSEstimateCurrentYear     *float64 `json:"EPSEstimateCurrentYear"`
+	EPSEstimateNextYear        *float64 `json:"EPSEstimateNextYear"`
+	EPSEstimateNextQuarter     *float64 `json:"EPSEstimateNextQuarter"`
+	MostRecentQuarter          string   `json:"MostRecentQuarter"`
+	ProfitMargin               *float64 `json:"ProfitMargin"`
+	OperatingMarginTTM         *float64 `json:"OperatingMarginTTM"`
+	ReturnOnAssetsTTM          *float64 `json:"ReturnOnAssetsTTM"`
+	ReturnOnEquityTTM          *float64 `json:"ReturnOnEquityTTM"`
+	RevenueTTM                 *float64 `json:"RevenueTTM"`
+	RevenuePerShareTTM         *float64 `json:"RevenuePerShareTTM"`
+	QuarterlyRevenueGrowthYOY  *float64 `json:"QuarterlyRevenueGrowthYOY"`
+	GrossProfitTTM             *float64 `json:"GrossProfitTTM"`
+	DilutedEpsTTM              *float64 `json:"DilutedEpsTTM"`
+	QuarterlyEarningsGrowthYOY *float64 `json:"QuarterlyEarningsGrowthYOY"`
+}
+type Valuation struct {
+	TrailingPE             *float64 `json:"TrailingPE"`
+	ForwardPE              *float64 `json:"ForwardPE"`
+	PriceSalesTTM          *float64 `json:"PriceSalesTTM"`
+	PriceBookMRQ           *float64 `json:"PriceBookMRQ"`
+	EnterpriseValueRevenue *float64 `json:"EnterpriseValueRevenue"`
+	EnterpriseValueEbitda  *float64 `json:"EnterpriseValueEbitda"`
+}
+type Technicals struct {
+	Beta                  *float64 `json:"Beta"`
+	FiftyTwoWeekHigh      *float64 `json:"52WeekHigh"`
+	FiftyTwoWeekLow       *float64 `json:"52WeekLow"`
+	FiftyDayMA            *float64 `json:"50DayMA"`
+	TwoHundredDayMA       *float64 `json:"200DayMA"`
+	SharesShort           *float64 `json:"SharesShort"`
+	SharesShortPriorMonth *float64 `json:"SharesShortPriorMonth"`
+	ShortRatio            *float64 `json:"ShortRatio"`
+	ShortPercent          *float64 `json:"ShortPercent"`
+}
+type SplitsDividends struct {
+	ForwardAnnualDividendRate  *float64 `json:"ForwardAnnualDividendRate"`
+	ForwardAnnualDividendYield *float64 `json:"ForwardAnnualDividendYield"`
+	PayoutRatio                *float64 `json:"PayoutRatio"`
+	DividendDate               string   `json:"DividendDate"`
+	ExDividendDate             string   `json:"ExDividendDate"`
+	LastSplitFactor            string   `json:"LastSplitFactor"`
+	LastSplitDate              string   `json:"LastSplitDate"`
+}
+type EarningsInfo struct {
+	Date            string   `json:"date"`
+	EpsActual       *float64 `json:"epsActual"`
+	EpsEstimate     *float64 `json:"epsEstimate"`
+	EpsDifference   *float64 `json:"epsDifference"`
+	SurprisePercent *float64 `json:"surprisePercent"`
+}
+type Earnings struct {
+	Last0 EarningsInfo `json:"Last_0"`
+	Last1 EarningsInfo `json:"Last_1"`
+	Last2 EarningsInfo `json:"Last_2"`
+	Last3 EarningsInfo `json:"Last_3"`
+}
+type BalanceSheetInfo struct {
+	Date                    string   `json:"date"`
+	FilingDate              *string  `json:"filing_date"`
+	IntangibleAssets        *float64 `json:"intangibleAssets"`
+	TotalLiab               *float64 `json:"totalLiab"`
+	TotalStockholderEquity  *float64 `json:"totalStockholderEquity"`
+	DeferredLongTermLiab    *float64 `json:"deferredLongTermLiab"`
+	OtherCurrentLiab        *float64 `json:"otherCurrentLiab"`
+	TotalAssets             *float64 `json:"totalAssets"`
+	CommonStock             *float64 `json:"commonStock"`
+	OtherCurrentAssets      *float64 `json:"otherCurrentAssets"`
+	RetainedEarnings        *float64 `json:"retainedEarnings"`
+	OtherLiab               *float64 `json:"otherLiab"`
+	GoodWill                *float64 `json:"goodWill"`
+	OtherAssets             *float64 `json:"otherAssets"`
+	Cash                    *float64 `json:"cash"`
+	TotalCurrentLiabilities *float64 `json:"totalCurrentLiabilities"`
+	ShortLongTermDebt       *float64 `json:"shortLongTermDebt"`
+	OtherStockholderEquity  *float64 `json:"otherStockholderEquity"`
+	PropertyPlantEquipment  *float64 `json:"propertyPlantEquipment"`
+	TotalCurrentAssets      *float64 `json:"totalCurrentAssets"`
+	LongTermInvestments     *float64 `json:"longTermInvestments"`
+	NetTangibleAssets       *float64 `json:"netTangibleAssets"`
+	ShortTermInvestments    *float64 `json:"shortTermInvestments"`
+	NetReceivables          *float64 `json:"netReceivables"`
+	LongTermDebt            *float64 `json:"longTermDebt"`
+	Inventory               *float64 `json:"inventory"`
+	AccountsPayable         *float64 `json:"accountsPayable"`
+}
+type BalanceSheet struct {
+	CurrencySymbol string           `json:"currency_symbol"`
+	QuarterlyLast0 BalanceSheetInfo `json:"quarterly_last_0"`
+	QuarterlyLast1 BalanceSheetInfo `json:"quarterly_last_1"`
+	QuarterlyLast2 BalanceSheetInfo `json:"quarterly_last_2"`
+	QuarterlyLast3 BalanceSheetInfo `json:"quarterly_last_3"`
+	YearlyLast0    BalanceSheetInfo `json:"yearly_last_0"`
+	YearlyLast1    BalanceSheetInfo `json:"yearly_last_1"`
+	YearlyLast2    BalanceSheetInfo `json:"yearly_last_2"`
+	YearlyLast3    BalanceSheetInfo `json:"yearly_last_3"`
+}
+type CashFlowInfo struct {
+	Date                                  string   `json:"date"`
+	FilingDate                            *string  `json:"filing_date"`
+	Investments                           *float64 `json:"investments"`
+	ChangeToLiabilities                   *float64 `json:"changeToLiabilities"`
+	TotalCashflowsFromInvestingActivities *float64 `json:"totalCashflowsFromInvestingActivities"`
+	NetBorrowings                         *float64 `json:"netBorrowings"`
+	TotalCashFromFinancingActivities      *float64 `json:"totalCashFromFinancingActivities"`
+	ChangeToOperatingActivities           *float64 `json:"changeToOperatingActivities"`
+	NetIncome                             *float64 `json:"netIncome"`
+	ChangeInCash                          *float64 `json:"changeInCash"`
+	TotalCashFromOperatingActivities      *float64 `json:"totalCashFromOperatingActivities"`
+	Depreciation                          *float64 `json:"depreciation"`
+	OtherCashflowsFromInvestingActivities *float64 `json:"otherCashflowsFromInvestingActivities"`
+	DividendsPaid                         *float64 `json:"dividendsPaid"`
+	ChangeToInventory                     *float64 `json:"changeToInventory"`
+	ChangeToAccountReceivables            *float64 `json:"changeToAccountReceivables"`
+	SalePurchaseOfStock                   *float64 `json:"salePurchaseOfStock"`
+	OtherCashflowsFromFinancingActivities *float64 `json:"otherCashflowsFromFinancingActivities"`
+	ChangeToNetincome                     *float64 `json:"changeToNetincome"`
+	CapitalExpenditures                   *float64 `json:"capitalExpenditures"`
+}
+type CashFlow struct {
+	CurrencySymbol string       `json:"currency_symbol"`
+	QuarterlyLast0 CashFlowInfo `json:"quarterly_last_0"`
+	QuarterlyLast1 CashFlowInfo `json:"quarterly_last_1"`
+	QuarterlyLast2 CashFlowInfo `json:"quarterly_last_2"`
+	QuarterlyLast3 CashFlowInfo `json:"quarterly_last_3"`
+	YearlyLast0    CashFlowInfo `json:"yearly_last_0"`
+	YearlyLast1    CashFlowInfo `json:"yearly_last_1"`
+	YearlyLast2    CashFlowInfo `json:"yearly_last_2"`
+	YearlyLast3    CashFlowInfo `json:"yearly_last_3"`
+}
+
+type IncomeStatementInfo struct {
+	Date                              string   `json:"date"`
+	FilingDate                        *string  `json:"filing_date"`
+	ResearchDevelopment               *float64 `json:"researchDevelopment"`
+	EffectOfAccountingCharges         *float64 `json:"effectOfAccountingCharges"`
+	IncomeBeforeTax                   *float64 `json:"incomeBeforeTax"`
+	MinorityInterest                  *float64 `json:"minorityInterest"`
+	NetIncome                         *float64 `json:"netIncome"`
+	SellingGeneralAdministrative      *float64 `json:"sellingGeneralAdministrative"`
+	GrossProfit                       *float64 `json:"grossProfit"`
+	Ebit                              *float64 `json:"ebit"`
+	OperatingIncome                   *float64 `json:"operatingIncome"`
+	OtherOperatingExpenses            *float64 `json:"otherOperatingExpenses"`
+	InterestExpense                   *float64 `json:"interestExpense"`
+	ExtraordinaryItems                *float64 `json:"extraordinaryItems"`
+	NonRecurring                      *float64 `json:"nonRecurring"`
+	OtherItems                        *float64 `json:"otherItems"`
+	IncomeTaxExpense                  *float64 `json:"incomeTaxExpense"`
+	TotalRevenue                      *float64 `json:"totalRevenue"`
+	TotalOperatingExpenses            *float64 `json:"totalOperatingExpenses"`
+	CostOfRevenue                     *float64 `json:"costOfRevenue"`
+	TotalOtherIncomeExpenseNet        *float64 `json:"totalOtherIncomeExpenseNet"`
+	DiscontinuedOperations            *float64 `json:"discontinuedOperations"`
+	NetIncomeFromContinuingOps        *float64 `json:"netIncomeFromContinuingOps"`
+	NetIncomeApplicableToCommonShares *float64 `json:"netIncomeApplicableToCommonShares"`
+}
+type IncomeStatement struct {
+	CurrencySymbol string              `json:"currency_symbol"`
+	QuarterlyLast0 IncomeStatementInfo `json:"quarterly_last_0"`
+	QuarterlyLast1 IncomeStatementInfo `json:"quarterly_last_1"`
+	QuarterlyLast2 IncomeStatementInfo `json:"quarterly_last_2"`
+	QuarterlyLast3 IncomeStatementInfo `json:"quarterly_last_3"`
+	YearlyLast0    IncomeStatementInfo `json:"yearly_last_0"`
+	YearlyLast1    IncomeStatementInfo `json:"yearly_last_1"`
+	YearlyLast2    IncomeStatementInfo `json:"yearly_last_2"`
+	YearlyLast3    IncomeStatementInfo `json:"yearly_last_3"`
+}
+type Financials struct {
+	BalanceSheet    BalanceSheet    `json:"Balance_Sheet"`
+	CashFlow        CashFlow        `json:"Cash_Flow"`
+	IncomeStatement IncomeStatement `json:"Income_Statement"`
+}
+
+// FetchFundamentals Fetches Fundamentals for the exchange
+func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundamentals, exchange *exchanges.Exchange, pagesize int, lenient bool) error {
+
+	if exchange.ForceLenient {
+		lenient = true
+	}
+	for _, e := range exchange.ExchangeCodeComponents {
+
+		offset := 0
+
+		newElements := pagesize
+		for newElements == pagesize {
+			newElements = 0
+			res, err := d.readPath("/bulk-fundamentals/"+e,
+				urlParam{"fmt", "csv"},
+				urlParam{"offset", strconv.Itoa(offset)},
+				urlParam{"limit", strconv.Itoa(pagesize)})
+
+			if err != nil {
+				return err
+			}
+
+			defer res.Body.Close()
+			if res.StatusCode != 200 {
+				log.Printf("body for url: %s - code %d: %v\n", strings.ReplaceAll(res.Request.URL.String(), d.token, "******"), res.StatusCode, res.Body)
+				return fmt.Errorf("received non 200 error code: %d", res.StatusCode)
+			}
+
+			reader, err := newCsvReaderMap(res.Body, lenient, !lenient)
+			if err != nil {
+				return err
+			}
+			reader.skipMissingFields = 600
+			for reader.Next() {
+
+				f, err := buildFundamental(reader, exchange)
+				if err != nil {
+					if !lenient {
+						return errors.Wrap(err, fmt.Sprintf("while parsing line: %.5s", strings.Join(reader.current, ",")))
+					}
+					log.Println(err, strings.Join(reader.current, ","))
+					continue
+				}
+
+				fundamentals <- f
+
+				if reader.trackVisits {
+					// skip tracking after first visit
+					reader.trackVisits = false
+				}
+
+				newElements++
+			}
+
+			if !lenient && newElements > 0 {
+				err = reader.checkAllVisited()
+				if err != nil {
+					return err
+				}
+			}
+			offset += newElements
+		}
+	}
+
+	return nil
+}
+
+func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Fundamentals, error) {
+	var err error
+	f := Fundamentals{
+		LastUpdate:      time.Now(),
+		General:         General{},
+		Highlights:      Highlights{},
+		Valuation:       Valuation{},
+		Technicals:      Technicals{},
+		SplitsDividends: SplitsDividends{},
+		Earnings:        Earnings{},
+		Financials:      Financials{},
+	}
+	err = f.General.fill(reader, "General_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.Highlights.fill(reader, "Highlights_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.Valuation.fill(reader, "Valuation_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.Technicals.fill(reader, "Technicals_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.SplitsDividends.fill(reader, "SplitsDividends_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.Earnings.fill(reader, "Earnings_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	err = f.Financials.fill(reader, "Financials_")
+	if err != nil {
+		return Fundamentals{}, err
+	}
+	f.Ticker = f.General.Code + "." + exchange.Code
+	return f, err
+}
 
 func (g *General) fill(reader *csvReaderMap, prefix string) error {
 	var err error
@@ -66,7 +393,6 @@ func (g *General) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
-
 func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.MarketCapitalization, err = reader.asOptionalFloat64(prefix + "MarketCapitalization"); err != nil {
@@ -144,7 +470,6 @@ func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
 	return nil
 
 }
-
 func (g *Valuation) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.TrailingPE, err = reader.asOptionalFloat64(prefix + "TrailingPE"); err != nil {
@@ -167,7 +492,6 @@ func (g *Valuation) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
-
 func (g *Technicals) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.Beta, err = reader.asOptionalFloat64(prefix + "Beta"); err != nil {
@@ -199,7 +523,6 @@ func (g *Technicals) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
-
 func (g *SplitsDividends) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.ForwardAnnualDividendRate, err = reader.asOptionalFloat64(prefix + "ForwardAnnualDividendRate"); err != nil {
@@ -225,7 +548,6 @@ func (g *SplitsDividends) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
-
 func (g *Earnings) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.Last0, err = buildEarningsInfo(reader, prefix+"Last_0_"); err != nil {
@@ -242,7 +564,6 @@ func (g *Earnings) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
-
 func (g *Financials) fill(reader *csvReaderMap, prefix string) error {
 	var err error
 	if g.BalanceSheet, err = buildBalanceSheet(reader, prefix+"Balance_Sheet_"); err != nil {
@@ -256,6 +577,7 @@ func (g *Financials) fill(reader *csvReaderMap, prefix string) error {
 	}
 	return nil
 }
+
 func buildBalanceSheet(reader *csvReaderMap, prefix string) (BalanceSheet, error) {
 	var err error
 	g := BalanceSheet{}
@@ -474,7 +796,6 @@ func buildCashFlowInfo(reader *csvReaderMap, prefix string) (CashFlowInfo, error
 	return g, nil
 
 }
-
 func buildIncomeStatement(reader *csvReaderMap, prefix string) (IncomeStatement, error) {
 	var err error
 	g := IncomeStatement{}
@@ -586,7 +907,6 @@ func buildIncomeStatementInfo(reader *csvReaderMap, prefix string) (IncomeStatem
 	return g, nil
 
 }
-
 func buildEarningsInfo(reader *csvReaderMap, prefix string) (EarningsInfo, error) {
 	var err error
 	g := EarningsInfo{}
@@ -606,318 +926,4 @@ func buildEarningsInfo(reader *csvReaderMap, prefix string) (EarningsInfo, error
 		return g, err
 	}
 	return g, nil
-}
-
-// FetchFundamentals Fetches Fundamentals for the exchange
-func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundamentals, exchange *exchanges.Exchange, pagesize int, lenient bool) error {
-
-	if exchange.ForceLenient {
-		lenient = true
-	}
-	for _, e := range exchange.ExchangeCodeComponents {
-
-		offset := 0
-
-		newElements := pagesize
-		for newElements == pagesize {
-			newElements = 0
-			res, err := d.readPath("/bulk-fundamentals/"+e,
-				urlParam{"fmt", "csv"},
-				urlParam{"offset", strconv.Itoa(offset)},
-				urlParam{"limit", strconv.Itoa(pagesize)})
-
-			if err != nil {
-				return err
-			}
-
-			defer res.Body.Close()
-			if res.StatusCode != 200 {
-				log.Printf("body for url: %s - code %d: %v\n", strings.ReplaceAll(res.Request.URL.String(), d.token, "******"), res.StatusCode, res.Body)
-				return fmt.Errorf("received non 200 error code: %d", res.StatusCode)
-			}
-
-			reader, err := newCsvReaderMap(res.Body, lenient, !lenient)
-			if err != nil {
-				return err
-			}
-			for reader.Next() {
-
-				f := Fundamentals{
-					LastUpdate:      time.Now(),
-					General:         General{},
-					Highlights:      Highlights{},
-					Valuation:       Valuation{},
-					Technicals:      Technicals{},
-					SplitsDividends: SplitsDividends{},
-					Earnings:        Earnings{},
-					Financials:      Financials{},
-				}
-				err = f.General.fill(reader, "General_")
-				if err != nil {
-					return err
-				}
-
-				err = f.Highlights.fill(reader, "Highlights_")
-				if err != nil {
-					return err
-				}
-				err = f.Valuation.fill(reader, "Valuation_")
-				if err != nil {
-					return err
-				}
-				err = f.Technicals.fill(reader, "Technicals_")
-				if err != nil {
-					return err
-				}
-				err = f.SplitsDividends.fill(reader, "SplitsDividends_")
-				if err != nil {
-					return err
-				}
-				err = f.Earnings.fill(reader, "Earnings_")
-				if err != nil {
-					return err
-				}
-				err = f.Financials.fill(reader, "Financials_")
-				if err != nil {
-					return err
-				}
-
-				f.Ticker = f.General.Code + "." + exchange.Code
-
-				fundamentals <- f
-
-				if reader.trackVisits {
-					// skip tracking after first visit
-					reader.trackVisits = false
-				}
-
-				newElements++
-			}
-
-			if !lenient && newElements > 0 {
-				err = reader.checkAllVisited()
-				if err != nil {
-					return err
-				}
-			}
-			offset += newElements
-		}
-	}
-
-	return nil
-}
-
-// Fundamentals for a ticker
-type Fundamentals struct {
-	LastUpdate      time.Time
-	Ticker          string
-	General         General         `json:"General"`
-	Highlights      Highlights      `json:"Highlights"`
-	Valuation       Valuation       `json:"Valuation"`
-	Technicals      Technicals      `json:"Technicals"`
-	SplitsDividends SplitsDividends `json:"SplitsDividends"`
-	Earnings        Earnings        `json:"Earnings"`
-	Financials      Financials      `json:"Financials"`
-}
-
-type General struct {
-	Code              string  `json:"Code"`
-	Type              string  `json:"Type"`
-	Name              string  `json:"Name"`
-	Exchange          string  `json:"Exchange"`
-	CurrencyCode      string  `json:"CurrencyCode"`
-	CurrencyName      string  `json:"CurrencyName"`
-	CurrencySymbol    string  `json:"CurrencySymbol"`
-	CountryName       string  `json:"CountryName"`
-	CountryISO        string  `json:"CountryISO"`
-	ISIN              *string `json:"ISIN"`
-	Sector            string  `json:"Sector"`
-	Industry          string  `json:"Industry"`
-	Description       string  `json:"Description"`
-	FullTimeEmployees *int    `json:"FullTimeEmployees"`
-	UpdatedAt         *string `json:"UpdatedAt"`
-	Cusip             *string `json:"CUSIP"`
-}
-type Highlights struct {
-	MarketCapitalization       *float64 `json:"MarketCapitalization"`
-	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
-	EBITDA                     *float64 `json:"EBITDA"`
-	PERatio                    *float64 `json:"PERatio"`
-	PEGRatio                   *float64 `json:"PEGRatio"`
-	WallStreetTargetPrice      *float64 `json:"WallStreetTargetPrice"`
-	BookValue                  *float64 `json:"BookValue"`
-	DividendShare              *float64 `json:"DividendShare"`
-	DividendYield              *float64 `json:"DividendYield"`
-	EarningsShare              *float64 `json:"EarningsShare"`
-	EPSEstimateCurrentYear     *float64 `json:"EPSEstimateCurrentYear"`
-	EPSEstimateNextYear        *float64 `json:"EPSEstimateNextYear"`
-	EPSEstimateNextQuarter     *float64 `json:"EPSEstimateNextQuarter"`
-	MostRecentQuarter          string   `json:"MostRecentQuarter"`
-	ProfitMargin               *float64 `json:"ProfitMargin"`
-	OperatingMarginTTM         *float64 `json:"OperatingMarginTTM"`
-	ReturnOnAssetsTTM          *float64 `json:"ReturnOnAssetsTTM"`
-	ReturnOnEquityTTM          *float64 `json:"ReturnOnEquityTTM"`
-	RevenueTTM                 *float64 `json:"RevenueTTM"`
-	RevenuePerShareTTM         *float64 `json:"RevenuePerShareTTM"`
-	QuarterlyRevenueGrowthYOY  *float64 `json:"QuarterlyRevenueGrowthYOY"`
-	GrossProfitTTM             *float64 `json:"GrossProfitTTM"`
-	DilutedEpsTTM              *float64 `json:"DilutedEpsTTM"`
-	QuarterlyEarningsGrowthYOY *float64 `json:"QuarterlyEarningsGrowthYOY"`
-}
-type Valuation struct {
-	TrailingPE             *float64 `json:"TrailingPE"`
-	ForwardPE              *float64 `json:"ForwardPE"`
-	PriceSalesTTM          *float64 `json:"PriceSalesTTM"`
-	PriceBookMRQ           *float64 `json:"PriceBookMRQ"`
-	EnterpriseValueRevenue *float64 `json:"EnterpriseValueRevenue"`
-	EnterpriseValueEbitda  *float64 `json:"EnterpriseValueEbitda"`
-}
-type Technicals struct {
-	Beta                  *float64 `json:"Beta"`
-	FiftyTwoWeekHigh      *float64 `json:"52WeekHigh"`
-	FiftyTwoWeekLow       *float64 `json:"52WeekLow"`
-	FiftyDayMA            *float64 `json:"50DayMA"`
-	TwoHundredDayMA       *float64 `json:"200DayMA"`
-	SharesShort           *float64 `json:"SharesShort"`
-	SharesShortPriorMonth *float64 `json:"SharesShortPriorMonth"`
-	ShortRatio            *float64 `json:"ShortRatio"`
-	ShortPercent          *float64 `json:"ShortPercent"`
-}
-type SplitsDividends struct {
-	ForwardAnnualDividendRate  *float64 `json:"ForwardAnnualDividendRate"`
-	ForwardAnnualDividendYield *float64 `json:"ForwardAnnualDividendYield"`
-	PayoutRatio                *float64 `json:"PayoutRatio"`
-	DividendDate               string   `json:"DividendDate"`
-	ExDividendDate             string   `json:"ExDividendDate"`
-	LastSplitFactor            string   `json:"LastSplitFactor"`
-	LastSplitDate              string   `json:"LastSplitDate"`
-}
-type EarningsInfo struct {
-	Date            string   `json:"date"`
-	EpsActual       *float64 `json:"epsActual"`
-	EpsEstimate     *float64 `json:"epsEstimate"`
-	EpsDifference   *float64 `json:"epsDifference"`
-	SurprisePercent *float64 `json:"surprisePercent"`
-}
-type Earnings struct {
-	Last0 EarningsInfo `json:"Last_0"`
-	Last1 EarningsInfo `json:"Last_1"`
-	Last2 EarningsInfo `json:"Last_2"`
-	Last3 EarningsInfo `json:"Last_3"`
-}
-type BalanceSheetInfo struct {
-	Date                    string   `json:"date"`
-	FilingDate              *string  `json:"filing_date"`
-	IntangibleAssets        *float64 `json:"intangibleAssets"`
-	TotalLiab               *float64 `json:"totalLiab"`
-	TotalStockholderEquity  *float64 `json:"totalStockholderEquity"`
-	DeferredLongTermLiab    *float64 `json:"deferredLongTermLiab"`
-	OtherCurrentLiab        *float64 `json:"otherCurrentLiab"`
-	TotalAssets             *float64 `json:"totalAssets"`
-	CommonStock             *float64 `json:"commonStock"`
-	OtherCurrentAssets      *float64 `json:"otherCurrentAssets"`
-	RetainedEarnings        *float64 `json:"retainedEarnings"`
-	OtherLiab               *float64 `json:"otherLiab"`
-	GoodWill                *float64 `json:"goodWill"`
-	OtherAssets             *float64 `json:"otherAssets"`
-	Cash                    *float64 `json:"cash"`
-	TotalCurrentLiabilities *float64 `json:"totalCurrentLiabilities"`
-	ShortLongTermDebt       *float64 `json:"shortLongTermDebt"`
-	OtherStockholderEquity  *float64 `json:"otherStockholderEquity"`
-	PropertyPlantEquipment  *float64 `json:"propertyPlantEquipment"`
-	TotalCurrentAssets      *float64 `json:"totalCurrentAssets"`
-	LongTermInvestments     *float64 `json:"longTermInvestments"`
-	NetTangibleAssets       *float64 `json:"netTangibleAssets"`
-	ShortTermInvestments    *float64 `json:"shortTermInvestments"`
-	NetReceivables          *float64 `json:"netReceivables"`
-	LongTermDebt            *float64 `json:"longTermDebt"`
-	Inventory               *float64 `json:"inventory"`
-	AccountsPayable         *float64 `json:"accountsPayable"`
-}
-type BalanceSheet struct {
-	CurrencySymbol string           `json:"currency_symbol"`
-	QuarterlyLast0 BalanceSheetInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 BalanceSheetInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 BalanceSheetInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 BalanceSheetInfo `json:"quarterly_last_3"`
-	YearlyLast0    BalanceSheetInfo `json:"yearly_last_0"`
-	YearlyLast1    BalanceSheetInfo `json:"yearly_last_1"`
-	YearlyLast2    BalanceSheetInfo `json:"yearly_last_2"`
-	YearlyLast3    BalanceSheetInfo `json:"yearly_last_3"`
-}
-type CashFlowInfo struct {
-	Date                                  string   `json:"date"`
-	FilingDate                            *string  `json:"filing_date"`
-	Investments                           *float64 `json:"investments"`
-	ChangeToLiabilities                   *float64 `json:"changeToLiabilities"`
-	TotalCashflowsFromInvestingActivities *float64 `json:"totalCashflowsFromInvestingActivities"`
-	NetBorrowings                         *float64 `json:"netBorrowings"`
-	TotalCashFromFinancingActivities      *float64 `json:"totalCashFromFinancingActivities"`
-	ChangeToOperatingActivities           *float64 `json:"changeToOperatingActivities"`
-	NetIncome                             *float64 `json:"netIncome"`
-	ChangeInCash                          *float64 `json:"changeInCash"`
-	TotalCashFromOperatingActivities      *float64 `json:"totalCashFromOperatingActivities"`
-	Depreciation                          *float64 `json:"depreciation"`
-	OtherCashflowsFromInvestingActivities *float64 `json:"otherCashflowsFromInvestingActivities"`
-	DividendsPaid                         *float64 `json:"dividendsPaid"`
-	ChangeToInventory                     *float64 `json:"changeToInventory"`
-	ChangeToAccountReceivables            *float64 `json:"changeToAccountReceivables"`
-	SalePurchaseOfStock                   *float64 `json:"salePurchaseOfStock"`
-	OtherCashflowsFromFinancingActivities *float64 `json:"otherCashflowsFromFinancingActivities"`
-	ChangeToNetincome                     *float64 `json:"changeToNetincome"`
-	CapitalExpenditures                   *float64 `json:"capitalExpenditures"`
-}
-type CashFlow struct {
-	CurrencySymbol string       `json:"currency_symbol"`
-	QuarterlyLast0 CashFlowInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 CashFlowInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 CashFlowInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 CashFlowInfo `json:"quarterly_last_3"`
-	YearlyLast0    CashFlowInfo `json:"yearly_last_0"`
-	YearlyLast1    CashFlowInfo `json:"yearly_last_1"`
-	YearlyLast2    CashFlowInfo `json:"yearly_last_2"`
-	YearlyLast3    CashFlowInfo `json:"yearly_last_3"`
-}
-
-type IncomeStatementInfo struct {
-	Date                              string   `json:"date"`
-	FilingDate                        *string  `json:"filing_date"`
-	ResearchDevelopment               *float64 `json:"researchDevelopment"`
-	EffectOfAccountingCharges         *float64 `json:"effectOfAccountingCharges"`
-	IncomeBeforeTax                   *float64 `json:"incomeBeforeTax"`
-	MinorityInterest                  *float64 `json:"minorityInterest"`
-	NetIncome                         *float64 `json:"netIncome"`
-	SellingGeneralAdministrative      *float64 `json:"sellingGeneralAdministrative"`
-	GrossProfit                       *float64 `json:"grossProfit"`
-	Ebit                              *float64 `json:"ebit"`
-	OperatingIncome                   *float64 `json:"operatingIncome"`
-	OtherOperatingExpenses            *float64 `json:"otherOperatingExpenses"`
-	InterestExpense                   *float64 `json:"interestExpense"`
-	ExtraordinaryItems                *float64 `json:"extraordinaryItems"`
-	NonRecurring                      *float64 `json:"nonRecurring"`
-	OtherItems                        *float64 `json:"otherItems"`
-	IncomeTaxExpense                  *float64 `json:"incomeTaxExpense"`
-	TotalRevenue                      *float64 `json:"totalRevenue"`
-	TotalOperatingExpenses            *float64 `json:"totalOperatingExpenses"`
-	CostOfRevenue                     *float64 `json:"costOfRevenue"`
-	TotalOtherIncomeExpenseNet        *float64 `json:"totalOtherIncomeExpenseNet"`
-	DiscontinuedOperations            *float64 `json:"discontinuedOperations"`
-	NetIncomeFromContinuingOps        *float64 `json:"netIncomeFromContinuingOps"`
-	NetIncomeApplicableToCommonShares *float64 `json:"netIncomeApplicableToCommonShares"`
-}
-type IncomeStatement struct {
-	CurrencySymbol string              `json:"currency_symbol"`
-	QuarterlyLast0 IncomeStatementInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 IncomeStatementInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 IncomeStatementInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 IncomeStatementInfo `json:"quarterly_last_3"`
-	YearlyLast0    IncomeStatementInfo `json:"yearly_last_0"`
-	YearlyLast1    IncomeStatementInfo `json:"yearly_last_1"`
-	YearlyLast2    IncomeStatementInfo `json:"yearly_last_2"`
-	YearlyLast3    IncomeStatementInfo `json:"yearly_last_3"`
-}
-type Financials struct {
-	BalanceSheet    BalanceSheet    `json:"Balance_Sheet"`
-	CashFlow        CashFlow        `json:"Cash_Flow"`
-	IncomeStatement IncomeStatement `json:"Income_Statement"`
 }

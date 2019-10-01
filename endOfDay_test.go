@@ -10,23 +10,24 @@ import (
 	"net/http/httptest"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/gitu/eodhdapi/exchanges"
 	"github.com/stretchr/testify/require"
 )
 
-func TestEODhd_FetchFundamentals(t *testing.T) {
+func TestEODhd_FetchEOD(t *testing.T) {
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
-		if req.URL.Path != "/api/bulk-fundamentals/F" {
+		if req.URL.Path != "/api/eod-bulk-last-day/F" {
 			rw.WriteHeader(404)
 			return
 		}
-		limit := req.URL.Query().Get("limit")
-		offset := req.URL.Query().Get("offset")
+		date := req.URL.Query().Get("date")
+		symbols := req.URL.Query().Get("symbols")
 		format := req.URL.Query().Get("fmt")
 
-		filename := fmt.Sprintf("test-data/bulk-fundamentals/F_limit_%s_offset_%s.%s", limit, offset, format)
+		filename := fmt.Sprintf("test-data/eod-bulk-last-day/F_date_%s_%s.%s", date, symbols, format)
 		if _, err := os.Stat(filename); os.IsNotExist(err) {
 			t.Logf("file does not exist: %s", filename)
 			rw.WriteHeader(404)
@@ -50,11 +51,11 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 		pagesize int
 	}
 	tests := []struct {
-		name                  string
-		fields                fields
-		args                  args
-		wantErr               bool
-		wantFundamentalsCount int
+		name             string
+		fields           fields
+		args             args
+		wantErr          bool
+		wantEodInfoCount int
 	}{
 		{
 			name: "F",
@@ -68,8 +69,8 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 				exchange: exchanges.All().GetByCode("F"),
 				pagesize: 10,
 			},
-			wantErr:               false,
-			wantFundamentalsCount: 20,
+			wantErr:          false,
+			wantEodInfoCount: 20,
 		},
 	}
 	for _, tt := range tests {
@@ -80,29 +81,29 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 				clt:     tt.fields.clt,
 			}
 
-			fundamentals := make(chan Fundamentals)
+			infos := make(chan EODInfo)
 			done := make(chan int, 1)
 
-			go func(f chan Fundamentals, d chan int) {
+			go func(f chan EODInfo, d chan int) {
 				count := 0
 				for range f {
 					count++
 				}
 				d <- count
-			}(fundamentals, done)
-			if err := d.FetchFundamentals(tt.args.ctx, fundamentals, tt.args.exchange, tt.args.pagesize, false); (err != nil) != tt.wantErr {
+			}(infos, done)
+			if err := d.FetchEOD(tt.args.ctx, infos, tt.args.exchange, time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC)); (err != nil) != tt.wantErr {
 				t.Errorf("FetchFundamentals() error = %v, wantErr %v", err, tt.wantErr)
 			}
-			close(fundamentals)
+			close(infos)
 
 			count := <-done
 
-			require.Equal(t, tt.wantFundamentalsCount, count)
+			require.Equal(t, tt.wantEodInfoCount, count)
 		})
 	}
 }
 
-func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
+func TestEODhd_FetchEOD_TestAll(t *testing.T) {
 	if os.Getenv("EODHD_TOKEN") == "" {
 		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
 		t.SkipNow()
@@ -117,21 +118,21 @@ func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
 
 		t.Run(e.Code, func(t *testing.T) {
 
-			fundamentals := make(chan Fundamentals)
+			infos := make(chan EODInfo)
 			done := make(chan int, 1)
 
-			go func(f chan Fundamentals, d chan int) {
+			go func(f chan EODInfo, d chan int) {
 				count := 0
 				for range f {
 					count++
 				}
 				d <- count
-			}(fundamentals, done)
+			}(infos, done)
 
-			if err := d.FetchFundamentals(context.Background(), fundamentals, e, 1000, false); err != nil {
-				t.Errorf("FetchFundamentals() error = %v", err)
+			if err := d.FetchEOD(context.Background(), infos, e, time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC)); err != nil {
+				t.Errorf("FetchEOD() error = %v", err)
 			}
-			close(fundamentals)
+			close(infos)
 
 			count := <-done
 

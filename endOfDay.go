@@ -2,32 +2,47 @@ package eodhdapi
 
 import (
 	"context"
-	"encoding/csv"
 	"github.com/gitu/eodhdapi/exchanges"
-	"io"
-	"strconv"
+	"strings"
 	"time"
 )
 
 // EODInfo is the price information for a single Asset
 type EODInfo struct {
-	Code              string    `json:"code,omitempty" bson:"code"`
-	ExchangeShortName string    `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
-	Date              time.Time `json:"date,omitempty" bson:"date"`
-	Open              float64   `json:"open,omitempty" bson:"open"`
-	High              float64   `json:"hig,omitemptyh" bson:"high"`
-	Low               float64   `json:"low,omitempty" bson:"low"`
-	Close             float64   `json:"close,omitempty" bson:"close"`
-	AdjustedClose     float64   `json:"adjusted_close,omitempty" bson:"adjusted_close"`
-	Volume            float64   `json:"volume,omitempty" bson:"volume"`
-	Ticker            string    `json:"tickers,omitempty" bson:"ticker"`
+	Code          string `json:"code,omitempty" bson:"code"`
+	Ex            string `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
+	Name          string
+	Date          string  `json:"date,omitempty" bson:"date"`
+	Open          float64 `json:"open,omitempty" bson:"open"`
+	High          float64 `json:"high,omitempty" bson:"high"`
+	Low           float64 `json:"low,omitempty" bson:"low"`
+	Close         float64 `json:"close,omitempty" bson:"close"`
+	AdjustedClose float64 `json:"adjusted_close,omitempty" bson:"adjusted_close"`
+	Volume        float64 `json:"volume,omitempty" bson:"volume"`
+
+	MarketCapitalization *float64
+	EMA_50               *float64
+	EMA_200              *float64
+	High_250             *float64
+	Low_250              *float64
+	Prev_close           *float64
+	Change               *float64
+	ChangePercent        *float64
+
+	Ticker string `json:"tickers,omitempty" bson:"ticker"`
 }
 
 const dateFormat = "2006-01-02"
 
-// FetchEOD Fetches End of day for the exchange
-func (d *EODhd) FetchEOD(ctx context.Context, info chan EODInfo, exchange *exchanges.Exchange, date time.Time) error {
-	res, err := d.readPath("/eod-bulk-last-day/"+exchange.Code, urlParam{"fmt", "csv"}, urlParam{"date", date.Format(dateFormat)})
+// FetchEOD Fetches End of day for the exchange only date part of time will be used
+func (d *EODhd) FetchEOD(ctx context.Context, info chan EODInfo, exchange *exchanges.Exchange, date time.Time, symbols ...string) error {
+
+	urlParams := []urlParam{{"fmt", "csv"}, {"filter", "extended"}, {"date", date.Format(dateFormat)}}
+	if len(symbols) > 0 {
+		urlParams = append(urlParams, urlParam{"symbols", strings.Join(symbols, ",")})
+	}
+
+	res, err := d.readPath("/eod-bulk-last-day/"+exchange.Code, urlParams...)
 
 	if err != nil {
 		return err
@@ -35,143 +50,92 @@ func (d *EODhd) FetchEOD(ctx context.Context, info chan EODInfo, exchange *excha
 
 	defer res.Body.Close()
 
-	reader, err := newCsvReaderWithFirstLine(res.Body, "Code,Ex,Date,Open,High,Low,Close,Adjusted_close,Volume,Prev_close,Change,Change_%")
-
+	reader, err := newCsvReaderMap(res.Body, false, true)
 	if err != nil {
 		return err
 	}
+	reader.skipMissingFields = 7
 
-	for {
-
-		line, err := reader.Read()
-
-		if err == io.EOF {
-			break
-		} else if err != nil && !(err == csv.ErrFieldCount && len(line) > 8) {
-			//log.Println(err)
-			continue
+	for reader.Next() {
+		i, err := buildInfo(reader)
+		if err != nil {
+			return err
 		}
 
-		date, err := time.Parse(dateFormat, line[2])
-		if err != nil {
-			continue
+		info <- i
+		if reader.trackVisits {
+			// skip tracking after first visit
+			reader.trackVisits = false
 		}
-		open, err := strconv.ParseFloat(line[3], 64)
-		if err != nil {
-			continue
-		}
-		high, err := strconv.ParseFloat(line[4], 64)
-		if err != nil {
-			continue
-		}
-		low, err := strconv.ParseFloat(line[5], 64)
-		if err != nil {
-			continue
-		}
-		origClose, err := strconv.ParseFloat(line[6], 64)
-		if err != nil {
-			continue
-		}
-		adjustedClose, err := strconv.ParseFloat(line[7], 64)
-		if err != nil {
-			continue
-		}
-		volume, err := strconv.ParseFloat(line[8], 64)
-		if err != nil {
-			continue
-		}
-
-		v := EODInfo{
-			Code:              line[0],
-			ExchangeShortName: line[1],
-			Date:              date,
-			Open:              open,
-			High:              high,
-			Low:               low,
-			Close:             origClose,
-			AdjustedClose:     adjustedClose,
-			Volume:            volume,
-			Ticker:            line[0] + "." + line[1],
-		}
-
-		info <- v
+	}
+	err = reader.checkAllVisited()
+	if err != nil {
+		return err
 	}
 
 	return nil
 }
 
-// FetchEODForTicker Fetches End of day for a single ticker
-func (d *EODhd) FetchEODForTicker(ctx context.Context, info chan EODInfo, code, exchange string) error {
-	ticker := code + "." + exchange
+func buildInfo(r *csvReaderMap) (EODInfo, error) {
+	g := EODInfo{}
+	var err error
 
-	res, err := d.readPath("/eod/"+ticker, urlParam{"fmt", "csv"}, urlParam{"period", "d"}, urlParam{"from", "2000-01-01"})
-
-	if err != nil {
-		return err
+	if g.Code, err = r.asString("Code"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Ex, err = r.asString("Ex"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Name, err = r.asString("Name"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Date, err = r.asString("Date"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Open, err = r.asFloat64("Open"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.High, err = r.asFloat64("High"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Low, err = r.asFloat64("Low"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Close, err = r.asFloat64("Close"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.AdjustedClose, err = r.asFloat64("Adjusted_close"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Volume, err = r.asFloat64("Volume"); err != nil {
+		return EODInfo{}, err
 	}
 
-	defer res.Body.Close()
-
-	reader, err := newCsvReaderWithFirstLine(res.Body, "Date,Open,High,Low,Close,Adjusted_close,Volume")
-
-	if err != nil {
-		return err
+	if g.MarketCapitalization, err = r.asOptionalFloat64("MarketCapitalization"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.EMA_50, err = r.asOptionalFloat64("EMA_50"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.EMA_200, err = r.asOptionalFloat64("EMA_200"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.High_250, err = r.asOptionalFloat64("High_250"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Low_250, err = r.asOptionalFloat64("Low_250"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Prev_close, err = r.asOptionalFloat64("Prev_close"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.Change, err = r.asOptionalFloat64("Change"); err != nil {
+		return EODInfo{}, err
+	}
+	if g.ChangePercent, err = r.asOptionalFloat64("Change_%"); err != nil {
+		return EODInfo{}, err
 	}
 
-	for {
-
-		line, err := reader.Read()
-
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			continue
-		}
-
-		open, err := strconv.ParseFloat(line[1], 64)
-		if err != nil {
-			continue
-		}
-		high, err := strconv.ParseFloat(line[2], 64)
-		if err != nil {
-			continue
-		}
-		low, err := strconv.ParseFloat(line[3], 64)
-		if err != nil {
-			continue
-		}
-		origClose, err := strconv.ParseFloat(line[4], 64)
-		if err != nil {
-			continue
-		}
-		adjustedClose, err := strconv.ParseFloat(line[5], 64)
-		if err != nil {
-			continue
-		}
-		volume, err := strconv.ParseFloat(line[5], 64)
-		if err != nil {
-			continue
-		}
-		date, err := time.Parse(dateFormat, line[0])
-		if err != nil {
-			continue
-		}
-
-		v := EODInfo{
-			Code:              code,
-			ExchangeShortName: exchange,
-			Date:              date,
-			Open:              open,
-			High:              high,
-			Low:               low,
-			Close:             origClose,
-			AdjustedClose:     adjustedClose,
-			Volume:            volume,
-			Ticker:            ticker,
-		}
-
-		info <- v
-	}
-
-	return nil
+	g.Ticker = g.Code + "." + g.Ex
+	return g, nil
 }
