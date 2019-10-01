@@ -22,11 +22,12 @@ func newCsvReaderMap(r io.Reader, lenient, trackVisits bool) (*csvReaderMap, err
 		colMap[v] = k
 	}
 	return &csvReaderMap{
-		reader:      reader,
-		fields:      colMap,
-		visits:      make(map[string]bool),
-		trackVisits: trackVisits,
-		lenient:     lenient,
+		reader:            reader,
+		fields:            colMap,
+		visits:            make(map[string]bool),
+		trackVisits:       trackVisits,
+		lenient:           lenient,
+		skipMissingFields: len(firstLine),
 	}, nil
 }
 
@@ -39,6 +40,7 @@ type csvReaderMap struct {
 	lenient     bool
 	// only skips missing fields if at least X fields found (some generators remove duplicate delimiters at the end
 	skipMissingFields int
+	linesSkipped      int
 }
 
 func (r *csvReaderMap) asOptionalStringLenient(value string) (*string, error) {
@@ -55,7 +57,7 @@ func (r *csvReaderMap) asOptionalStringLenient(value string) (*string, error) {
 func (r *csvReaderMap) asOptionalString(value string) (*string, error) {
 	val, err := r.asString(value)
 	if err != nil {
-		return nil, err
+		return nil, nil
 	}
 	if len(val) == 0 {
 		return nil, nil

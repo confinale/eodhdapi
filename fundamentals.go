@@ -110,33 +110,34 @@ type Earnings struct {
 	Last3 EarningsInfo `json:"Last_3"`
 }
 type BalanceSheetInfo struct {
-	Date                    string   `json:"date"`
-	FilingDate              *string  `json:"filing_date"`
-	IntangibleAssets        *float64 `json:"intangibleAssets"`
-	TotalLiab               *float64 `json:"totalLiab"`
-	TotalStockholderEquity  *float64 `json:"totalStockholderEquity"`
-	DeferredLongTermLiab    *float64 `json:"deferredLongTermLiab"`
-	OtherCurrentLiab        *float64 `json:"otherCurrentLiab"`
-	TotalAssets             *float64 `json:"totalAssets"`
-	CommonStock             *float64 `json:"commonStock"`
-	OtherCurrentAssets      *float64 `json:"otherCurrentAssets"`
-	RetainedEarnings        *float64 `json:"retainedEarnings"`
-	OtherLiab               *float64 `json:"otherLiab"`
-	GoodWill                *float64 `json:"goodWill"`
-	OtherAssets             *float64 `json:"otherAssets"`
-	Cash                    *float64 `json:"cash"`
-	TotalCurrentLiabilities *float64 `json:"totalCurrentLiabilities"`
-	ShortLongTermDebt       *float64 `json:"shortLongTermDebt"`
-	OtherStockholderEquity  *float64 `json:"otherStockholderEquity"`
-	PropertyPlantEquipment  *float64 `json:"propertyPlantEquipment"`
-	TotalCurrentAssets      *float64 `json:"totalCurrentAssets"`
-	LongTermInvestments     *float64 `json:"longTermInvestments"`
-	NetTangibleAssets       *float64 `json:"netTangibleAssets"`
-	ShortTermInvestments    *float64 `json:"shortTermInvestments"`
-	NetReceivables          *float64 `json:"netReceivables"`
-	LongTermDebt            *float64 `json:"longTermDebt"`
-	Inventory               *float64 `json:"inventory"`
-	AccountsPayable         *float64 `json:"accountsPayable"`
+	Date                         string   `json:"date"`
+	FilingDate                   *string  `json:"filing_date"`
+	IntangibleAssets             *float64 `json:"intangibleAssets"`
+	TotalLiab                    *float64 `json:"totalLiab"`
+	TotalStockholderEquity       *float64 `json:"totalStockholderEquity"`
+	DeferredLongTermLiab         *float64 `json:"deferredLongTermLiab"`
+	OtherCurrentLiab             *float64 `json:"otherCurrentLiab"`
+	TotalAssets                  *float64 `json:"totalAssets"`
+	CommonStock                  *float64 `json:"commonStock"`
+	CommonStockSharesOutstanding *float64 `json:"commonStockSharesOutStanding"`
+	OtherCurrentAssets           *float64 `json:"otherCurrentAssets"`
+	RetainedEarnings             *float64 `json:"retainedEarnings"`
+	OtherLiab                    *float64 `json:"otherLiab"`
+	GoodWill                     *float64 `json:"goodWill"`
+	OtherAssets                  *float64 `json:"otherAssets"`
+	Cash                         *float64 `json:"cash"`
+	TotalCurrentLiabilities      *float64 `json:"totalCurrentLiabilities"`
+	ShortLongTermDebt            *float64 `json:"shortLongTermDebt"`
+	OtherStockholderEquity       *float64 `json:"otherStockholderEquity"`
+	PropertyPlantEquipment       *float64 `json:"propertyPlantEquipment"`
+	TotalCurrentAssets           *float64 `json:"totalCurrentAssets"`
+	LongTermInvestments          *float64 `json:"longTermInvestments"`
+	NetTangibleAssets            *float64 `json:"netTangibleAssets"`
+	ShortTermInvestments         *float64 `json:"shortTermInvestments"`
+	NetReceivables               *float64 `json:"netReceivables"`
+	LongTermDebt                 *float64 `json:"longTermDebt"`
+	Inventory                    *float64 `json:"inventory"`
+	AccountsPayable              *float64 `json:"accountsPayable"`
 }
 type BalanceSheet struct {
 	CurrencySymbol string           `json:"currency_symbol"`
@@ -258,13 +259,11 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 			if err != nil {
 				return err
 			}
-			reader.skipMissingFields = 600
 			for reader.Next() {
-
 				f, err := buildFundamental(reader, exchange)
 				if err != nil {
 					if !lenient {
-						return errors.Wrap(err, fmt.Sprintf("while parsing line: %.5s", strings.Join(reader.current, ",")))
+						return errors.Wrap(err, fmt.Sprintf("while parsing line: %.50s", strings.Join(reader.current, ",")))
 					}
 					log.Println(err, strings.Join(reader.current, ","))
 					continue
@@ -638,6 +637,9 @@ func buildBalanceSheetInfo(reader *csvReaderMap, prefix string) (BalanceSheetInf
 		return g, err
 	}
 	if g.CommonStock, err = reader.asOptionalFloat64(prefix + "commonStock"); err != nil {
+		return g, err
+	}
+	if g.CommonStockSharesOutstanding, err = reader.asOptionalFloat64(prefix + "commonStockSharesOutstanding"); err != nil {
 		return g, err
 	}
 	if g.OtherCurrentAssets, err = reader.asOptionalFloat64(prefix + "otherCurrentAssets"); err != nil {
