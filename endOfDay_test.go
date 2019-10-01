@@ -156,3 +156,79 @@ func TestEODhd_FetchEOD_TestAll(t *testing.T) {
 		})
 	}
 }
+
+func TestEODhd_FetchDividends_TestAll(t *testing.T) {
+	if os.Getenv("EODHD_TOKEN") == "" {
+		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
+		t.SkipNow()
+	}
+
+	c := diskcache.New("cache")
+	tr := freshcache.NewTransport(c)
+
+	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+
+	for _, e := range exchanges.All() {
+
+		t.Run(e.Code, func(t *testing.T) {
+
+			infos := make(chan EODDividend)
+			done := make(chan int, 1)
+
+			go func(f chan EODDividend, d chan int) {
+				count := 0
+				for range f {
+					count++
+				}
+				d <- count
+			}(infos, done)
+
+			if err := d.FetchDividends(context.Background(), infos, e, time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC)); err != nil {
+				t.Errorf("FetchDividends() error = %v", err)
+			}
+			close(infos)
+
+			count := <-done
+
+			t.Logf("exchange %s had %d elements", e.Code, count)
+		})
+	}
+}
+
+func TestEODhd_FetchSplits_TestAll(t *testing.T) {
+	if os.Getenv("EODHD_TOKEN") == "" {
+		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
+		t.SkipNow()
+	}
+
+	c := diskcache.New("cache")
+	tr := freshcache.NewTransport(c)
+
+	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+
+	for _, e := range exchanges.All() {
+
+		t.Run(e.Code, func(t *testing.T) {
+
+			infos := make(chan EODSplit)
+			done := make(chan int, 1)
+
+			go func(f chan EODSplit, d chan int) {
+				count := 0
+				for range f {
+					count++
+				}
+				d <- count
+			}(infos, done)
+
+			if err := d.FetchSplits(context.Background(), infos, e, time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC)); err != nil {
+				t.Errorf("FetchSplits() error = %v", err)
+			}
+			close(infos)
+
+			count := <-done
+
+			t.Logf("exchange %s had %d elements", e.Code, count)
+		})
+	}
+}
