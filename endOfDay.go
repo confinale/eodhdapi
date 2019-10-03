@@ -3,6 +3,7 @@ package eodhdapi
 import (
 	"context"
 	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/pkg/errors"
 	"strings"
 	"time"
 )
@@ -113,7 +114,7 @@ func (d *EODhd) FetchSplits(ctx context.Context, info chan EODSplit, exchange *e
 	if err != nil {
 		return err
 	}
-	reader.skipMissingFields = 7
+	reader.skipMissingFields = 4
 
 	for reader.Next() {
 		i, err := buildSplit(reader)
@@ -122,6 +123,53 @@ func (d *EODhd) FetchSplits(ctx context.Context, info chan EODSplit, exchange *e
 		}
 
 		info <- i
+		if reader.trackVisits {
+			// skip tracking after first visit
+			reader.trackVisits = false
+		}
+	}
+	if !reader.trackVisits {
+		err = reader.checkAllVisited()
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+// FetchDividendsTicker fetches the dividends of a single ticker
+func (d *EODhd) FetchDividendsTicker(context context.Context, dividends chan EODDividend, ticker string, from time.Time) interface{} {
+
+	urlParams := []urlParam{{"fmt", "csv"}, {"type", "dividends"}, {"filter", "extended"}, {"date", from.Format(dateFormat)}}
+
+	res, err := d.readPath("/div/"+ticker, urlParams...)
+
+	if err != nil {
+		return err
+	}
+
+	defer res.Body.Close()
+
+	reader, err := newCsvReaderMap(res.Body, false, true)
+	if err != nil {
+		return err
+	}
+	reader.skipMissingFields = 2
+
+	splitTicker := strings.Split(ticker, ".")
+
+	if len(splitTicker) != 2 {
+		return errors.New("expected ticker to be in format CODE.EX")
+	}
+
+	for reader.Next() {
+		i, err := buildDividendSingle(reader, splitTicker[0], splitTicker[1])
+		if err != nil {
+			return err
+		}
+
+		dividends <- i
 		if reader.trackVisits {
 			// skip tracking after first visit
 			reader.trackVisits = false
@@ -157,7 +205,7 @@ func (d *EODhd) FetchDividends(ctx context.Context, info chan EODDividend, excha
 	if err != nil {
 		return err
 	}
-	reader.skipMissingFields = 7
+	reader.skipMissingFields = 4
 
 	for reader.Next() {
 		i, err := buildDividend(reader)
@@ -283,6 +331,23 @@ func buildDividend(r *csvReaderMap) (EODDividend, error) {
 		return EODDividend{}, err
 	}
 
+	g.Ticker = g.Code + "." + g.Ex
+	return g, nil
+}
+
+func buildDividendSingle(r *csvReaderMap, code, exchange string) (EODDividend, error) {
+	g := EODDividend{}
+	var err error
+
+	if g.Date, err = r.asString("Date"); err != nil {
+		return EODDividend{}, err
+	}
+	if g.Dividend, err = r.asFloat64("Dividends"); err != nil {
+		return EODDividend{}, err
+	}
+
+	g.Code = code
+	g.Ex = exchange
 	g.Ticker = g.Code + "." + g.Ex
 	return g, nil
 }
