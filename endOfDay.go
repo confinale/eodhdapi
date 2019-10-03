@@ -83,9 +83,11 @@ func (d *EODhd) FetchEOD(ctx context.Context, info chan EODInfo, exchange *excha
 			reader.trackVisits = false
 		}
 	}
-	err = reader.checkAllVisited()
-	if err != nil {
-		return err
+	if !reader.trackVisits {
+		err = reader.checkAllVisited()
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -125,9 +127,11 @@ func (d *EODhd) FetchSplits(ctx context.Context, info chan EODSplit, exchange *e
 			reader.trackVisits = false
 		}
 	}
-	err = reader.checkAllVisited()
-	if err != nil {
-		return err
+	if !reader.trackVisits {
+		err = reader.checkAllVisited()
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
@@ -167,9 +171,11 @@ func (d *EODhd) FetchDividends(ctx context.Context, info chan EODDividend, excha
 			reader.trackVisits = false
 		}
 	}
-	err = reader.checkAllVisited()
-	if err != nil {
-		return err
+	if !reader.trackVisits {
+		err = reader.checkAllVisited()
+		if err != nil {
+			return err
+		}
 	}
 
 	return nil
