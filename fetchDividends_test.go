@@ -55,7 +55,7 @@ func TestEODhd_FetchDividendsTicker(t *testing.T) {
 		wantEodDividendCount int
 	}{
 		{
-			name: "F",
+			name: "AAAPL.US",
 			fields: fields{
 				token:   "TOKEN",
 				baseURL: server.URL + "/api",
