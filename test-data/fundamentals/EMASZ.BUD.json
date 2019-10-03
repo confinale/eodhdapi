@@ -1,0 +1,125 @@
+{
+  "General": {
+    "Code": "EMASZ",
+    "Type": "Common Stock",
+    "Name": "Eszak-Magyarorszagi Aramszolgaltato Nyrt.",
+    "Exchange": "BUD",
+    "CurrencyCode": "HUF",
+    "CurrencyName": "Hungarian forin",
+    "CurrencySymbol": "Ft",
+    "CountryName": "Hungary",
+    "CountryISO": "HU",
+    "ISIN": null,
+    "CIK": null,
+    "EmployerIdNumber": null,
+    "FiscalYearEnd": null,
+    "IPODate": null,
+    "InternationalDomestic": null,
+    "Sector": "Other",
+    "Industry": "Other",
+    "GicSector": null,
+    "GicGroup": null,
+    "GicIndustry": null,
+    "GicSubIndustry": null,
+    "Description": null,
+    "Address": null,
+    "Phone": null,
+    "WebURL": null,
+    "LogoURL": "",
+    "FullTimeEmployees": null,
+    "UpdatedAt": "2018-06-06"
+  },
+  "Highlights": {
+    "MarketCapitalization": null,
+    "MarketCapitalizationMln": null,
+    "EBITDA": null,
+    "PERatio": null,
+    "PEGRatio": null,
+    "WallStreetTargetPrice": null,
+    "BookValue": null,
+    "DividendShare": null,
+    "DividendYield": null,
+    "EarningsShare": null,
+    "EPSEstimateCurrentYear": null,
+    "EPSEstimateNextYear": null,
+    "EPSEstimateNextQuarter": null,
+    "EPSEstimateCurrentQuarter": null,
+    "MostRecentQuarter": null,
+    "ProfitMargin": null,
+    "OperatingMarginTTM": null,
+    "ReturnOnAssetsTTM": null,
+    "ReturnOnEquityTTM": null,
+    "RevenueTTM": null,
+    "RevenuePerShareTTM": null,
+    "QuarterlyRevenueGrowthYOY": null,
+    "GrossProfitTTM": null,
+    "DilutedEpsTTM": null,
+    "QuarterlyEarningsGrowthYOY": null
+  },
+  "Valuation": {
+    "TrailingPE": null,
+    "ForwardPE": null,
+    "PriceSalesTTM": null,
+    "PriceBookMRQ": null,
+    "EnterpriseValueRevenue": null,
+    "EnterpriseValueEbitda": null
+  },
+  "SharesStats": {
+    "SharesOutstanding": null,
+    "SharesFloat": null,
+    "PercentInsiders": null,
+    "PercentInstitutions": null,
+    "SharesShort": null,
+    "SharesShortPriorMonth": null,
+    "ShortRatio": null,
+    "ShortPercentOutstanding": null,
+    "ShortPercentFloat": null
+  },
+  "Technicals": {
+    "Beta": null,
+    "52WeekHigh": null,
+    "52WeekLow": null,
+    "50DayMA": null,
+    "200DayMA": null,
+    "SharesShort": null,
+    "SharesShortPriorMonth": null,
+    "ShortRatio": null,
+    "ShortPercent": null
+  },
+  "SplitsDividends": {
+    "ForwardAnnualDividendRate": null,
+    "ForwardAnnualDividendYield": null,
+    "PayoutRatio": null,
+    "DividendDate": null,
+    "ExDividendDate": null,
+    "LastSplitFactor": null,
+    "LastSplitDate": null,
+    "NumberDividendsByYear": {}
+  },
+  "outstandingShares": {
+    "annual": {},
+    "quarterly": {}
+  },
+  "Earnings": {
+    "History": {},
+    "Trend": {},
+    "Annual": {}
+  },
+  "Financials": {
+    "Balance_Sheet": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    },
+    "Cash_Flow": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    },
+    "Income_Statement": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    }
+  }
+}

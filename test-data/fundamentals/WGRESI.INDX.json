@@ -1,0 +1,14 @@
+{
+  "General": {
+    "Code": "WGRESI",
+    "Type": "INDEX",
+    "Name": "Wilshire Global Real Estate Securities  Index",
+    "Exchange": "INDX",
+    "CurrencyCode": "NA",
+    "CurrencyName": "NA",
+    "CurrencySymbol": "NA",
+    "CountryName": "NA",
+    "CountryISO": "NA"
+  },
+  "Components": {}
+}
