@@ -1,5 +1,7 @@
 package eodhdapi
 
+//go:generate go run github.com/mailru/easyjson/easyjson -all fundamentals.go
+
 import (
 	"context"
 	"fmt"
@@ -34,13 +36,27 @@ type General struct {
 	CurrencySymbol    string  `json:"CurrencySymbol"`
 	CountryName       string  `json:"CountryName"`
 	CountryISO        string  `json:"CountryISO"`
-	ISIN              *string `json:"ISIN"`
 	Sector            string  `json:"Sector"`
 	Industry          string  `json:"Industry"`
 	Description       string  `json:"Description"`
+	ISIN              *string `json:"ISIN"`
 	FullTimeEmployees *int    `json:"FullTimeEmployees"`
 	UpdatedAt         *string `json:"UpdatedAt"`
 	Cusip             *string `json:"CUSIP"`
+	LogoURL           *string `json:"LogoURL"`
+
+	CIK                   *string `json:"CIK"`
+	EmployerIDNumber      *string `json:"EmployerIdNumber"`
+	FiscalYearEnd         *string `json:"FiscalYearEnd"`
+	IPODate               *string `json:"IPODate"`
+	InternationalDomestic *string `json:"InternationalDomestic"`
+	GicSector             *string `json:"GicSector"`
+	GicGroup              *string `json:"GicGroup"`
+	GicIndustry           *string `json:"GicIndustry"`
+	GicSubIndustry        *string `json:"GicSubIndustry"`
+	Address               *string `json:"Address"`
+	Phone                 *string `json:"Phone"`
+	WebURL                *string `json:"WebURL"`
 }
 type Highlights struct {
 	MarketCapitalization       *float64 `json:"MarketCapitalization"`
@@ -67,6 +83,32 @@ type Highlights struct {
 	GrossProfitTTM             *float64 `json:"GrossProfitTTM"`
 	DilutedEpsTTM              *float64 `json:"DilutedEpsTTM"`
 	QuarterlyEarningsGrowthYOY *float64 `json:"QuarterlyEarningsGrowthYOY"`
+}
+
+type ETFData struct {
+	ISIN                    string               `json:"ISIN"`
+	CompanyName             string               `json:"Company_Name"`
+	CompanyURL              string               `json:"Company_URL"`
+	ETFURL                  string               `json:"ETF_URL"`
+	Yield                   string               `json:"Yield"`
+	DividendPayingFrequency string               `json:"Dividend_Paying_Frequency"`
+	InceptionDate           string               `json:"Inception_Date"`
+	MaxAnnualMgmtCharge     string               `json:"Max_Annual_Mgmt_Charge"`
+	OngoingCharge           string               `json:"Ongoing_Charge"`
+	DateOngoingCharge       string               `json:"Date_Ongoing_Charge"`
+	NetExpenseRatio         string               `json:"NetExpenseRatio"`
+	AnnualHoldingsTurnover  string               `json:"AnnualHoldingsTurnover"`
+	TotalAssets             string               `json:"TotalAssets"`
+	AverageMktCapMil        string               `json:"Average_Mkt_Cap_Mil"`
+	MarketCapitalisation    MarketCapitalisation `json:"Market_Capitalisation"`
+	AssetAllocation         AssetAllocation      `json:"Asset_Allocation"`
+	WorldRegions            WorldRegions         `json:"World_Regions"`
+	SectorWeights           SectorWeights        `json:"Sector_Weights"`
+	Top10Holdings           Top10Holdings        `json:"Top_10_Holdings"`
+	Holdings                Holdings             `json:"Holdings"`
+	ValuationsGrowth        ValuationsGrowth     `json:"Valuations_Growth"`
+	MorningStar             MorningStar          `json:"MorningStar"`
+	Performance             Performance          `json:"Performance"`
 }
 type Valuation struct {
 	TrailingPE             *float64 `json:"TrailingPE"`

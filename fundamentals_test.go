@@ -15,6 +15,39 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestJsonParsing(t *testing.T) {
+	root := "test-data/fundamentals"
+	files, err := ioutil.ReadDir(root)
+	if err != nil {
+		t.Log(err)
+		t.FailNow()
+	}
+
+	for _, f := range files {
+		t.Run(f.Name(), func(t *testing.T) {
+			if f.IsDir() {
+				t.Log("is dir", f.Name())
+				t.Skipped()
+				return
+			}
+
+			data, err := ioutil.ReadFile(root + "/" + f.Name())
+			if err != nil {
+				t.Log(err)
+				t.FailNow()
+			}
+
+			fu := Fundamentals{}
+			err = fu.UnmarshalJSON(data)
+
+			if err != nil {
+				t.Log(err)
+				t.FailNow()
+			}
+		})
+	}
+}
+
 func TestEODhd_FetchFundamentals(t *testing.T) {
 
 	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
