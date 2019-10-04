@@ -49,7 +49,7 @@ func New(basePath string) *Cache {
 	return &Cache{
 		d: diskv.New(diskv.Options{
 			BasePath:     basePath,
-			CacheSizeMax: 1024* 1024 * 1024, // 1024MB
+			CacheSizeMax: 1024 * 1024 * 1024, // 1024MB
 		}),
 	}
 }

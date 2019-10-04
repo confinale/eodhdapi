@@ -32,7 +32,9 @@ jobs:
 
 
       - restore_cache:
-          key: eodhd-cache-v1
+          keys:
+            - eodhd-cache-{{ .Environment.VCACHE }}-{{ .Branch }}
+            - eodhd-cache-{{ .Environment.VCACHE }}-
 
       - run:
           name: Run unit tests
@@ -44,7 +46,7 @@ jobs:
           no_output_timeout: 30m
 
       - save_cache:
-          key: eodhd-cache-v1
+          key: eodhd-cache-{{ .Environment.VCACHE }}-{{ .Branch }}
           paths:
             - "cache"
 

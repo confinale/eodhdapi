@@ -1,0 +1,4 @@
+Code,Name,Ex,Date,MarketCapitalization,Open,High,Low,Close,Adjusted_close,Volume,EMA_50,EMA_200,High_250,Low_250,Prev_close,Change,Change_%
+CON,"Continental AG",US,2019-06-07,0,5850,5850,5850,5850,5850,0,2597.275,0,0,0,,5850,0,0,0,0
+BAYN,"Bay National Corporation",US,2019-07-22,0,0.0147,0.0147,0.0147,0.0147,0.0147,100,0.014,0,0,0,0.0147,0,0,7.14,2.22,0
+355
