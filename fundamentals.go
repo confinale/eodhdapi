@@ -1,6 +1,6 @@
 package eodhdapi
 
-//go:generate go run github.com/mailru/easyjson/easyjson -all fundamentals.go
+//go:generate go run github.com/mailru/easyjson/easyjson -omit_empty -disallow_unknown_fields -all fundamentals.go
 
 import (
 	"context"
@@ -16,36 +16,40 @@ import (
 
 // Fundamentals for a ticker
 type Fundamentals struct {
-	LastUpdate      time.Time
-	Ticker          string
-	General         General         `json:"General"`
-	Highlights      Highlights      `json:"Highlights"`
-	Valuation       Valuation       `json:"Valuation"`
-	Technicals      Technicals      `json:"Technicals"`
-	SplitsDividends SplitsDividends `json:"SplitsDividends"`
-	Earnings        Earnings        `json:"Earnings"`
-	Financials      Financials      `json:"Financials"`
+	LastUpdate        time.Time
+	Ticker            string
+	General           General              `json:"General"`
+	Highlights        *Highlights          `json:"Highlights"`
+	Valuation         *Valuation           `json:"Valuation"`
+	Technicals        *Technicals          `json:"Technicals"`
+	SplitsDividends   *SplitsDividends     `json:"SplitsDividends"`
+	Earnings          *Earnings            `json:"Earnings"`
+	Financials        *Financials          `json:"Financials"`
+	ETFData           *ETFData             `json:"ETF_Data"`
+	SharesStats       *SharesStats         `json:"SharesStats"`
+	OutstandingShares *OutstandingShares   `json:"outstandingShares"`
+	Components        map[string]Component `json:"Components"`
+	MutualFundData    *MutualFundData      `json:"MutualFund_Data"`
 }
 
 type General struct {
-	Code              string  `json:"Code"`
-	Type              string  `json:"Type"`
-	Name              string  `json:"Name"`
-	Exchange          string  `json:"Exchange"`
-	CurrencyCode      string  `json:"CurrencyCode"`
-	CurrencyName      string  `json:"CurrencyName"`
-	CurrencySymbol    string  `json:"CurrencySymbol"`
-	CountryName       string  `json:"CountryName"`
-	CountryISO        string  `json:"CountryISO"`
-	Sector            string  `json:"Sector"`
-	Industry          string  `json:"Industry"`
-	Description       string  `json:"Description"`
-	ISIN              *string `json:"ISIN"`
-	FullTimeEmployees *int    `json:"FullTimeEmployees"`
-	UpdatedAt         *string `json:"UpdatedAt"`
-	Cusip             *string `json:"CUSIP"`
-	LogoURL           *string `json:"LogoURL"`
-
+	Code                  string  `json:"Code"`
+	Type                  string  `json:"Type"`
+	Name                  string  `json:"Name"`
+	Exchange              string  `json:"Exchange"`
+	CurrencyCode          string  `json:"CurrencyCode"`
+	CurrencyName          string  `json:"CurrencyName"`
+	CurrencySymbol        string  `json:"CurrencySymbol"`
+	CountryName           string  `json:"CountryName"`
+	CountryISO            string  `json:"CountryISO"`
+	Sector                string  `json:"Sector"`
+	Industry              string  `json:"Industry"`
+	Description           string  `json:"Description"`
+	ISIN                  *string `json:"ISIN"`
+	FullTimeEmployees     *int    `json:"FullTimeEmployees"`
+	UpdatedAt             *string `json:"UpdatedAt"`
+	Cusip                 *string `json:"CUSIP"`
+	LogoURL               *string `json:"LogoURL"`
 	CIK                   *string `json:"CIK"`
 	EmployerIDNumber      *string `json:"EmployerIdNumber"`
 	FiscalYearEnd         *string `json:"FiscalYearEnd"`
@@ -58,10 +62,14 @@ type General struct {
 	Address               *string `json:"Address"`
 	Phone                 *string `json:"Phone"`
 	WebURL                *string `json:"WebURL"`
+	Category              *string `json:"Category"`
+	FundSummary           *string `json:"Fund_Summary"`
+	FundFamily            *string `json:"Fund_Family"`
+	FundFiscalYearEnd     *string `json:"Fiscal_Year_End"`
 }
 type Highlights struct {
 	MarketCapitalization       *decimal.Decimal `json:"MarketCapitalization"`
-	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
+	MarketCapitalizationMln    string           `json:"MarketCapitalizationMln"`
 	EBITDA                     *decimal.Decimal `json:"EBITDA"`
 	PERatio                    *decimal.Decimal `json:"PERatio"`
 	PEGRatio                   *decimal.Decimal `json:"PEGRatio"`
@@ -73,7 +81,7 @@ type Highlights struct {
 	EPSEstimateCurrentYear     *decimal.Decimal `json:"EPSEstimateCurrentYear"`
 	EPSEstimateNextYear        *decimal.Decimal `json:"EPSEstimateNextYear"`
 	EPSEstimateNextQuarter     *decimal.Decimal `json:"EPSEstimateNextQuarter"`
-	MostRecentQuarter          string   `json:"MostRecentQuarter"`
+	MostRecentQuarter          string           `json:"MostRecentQuarter"`
 	ProfitMargin               *decimal.Decimal `json:"ProfitMargin"`
 	OperatingMarginTTM         *decimal.Decimal `json:"OperatingMarginTTM"`
 	ReturnOnAssetsTTM          *decimal.Decimal `json:"ReturnOnAssetsTTM"`
@@ -108,20 +116,33 @@ type ETFData struct {
 	Holdings                map[string]Holding    `json:"Holdings"`
 	MorningStar             MorningStar           `json:"MorningStar"`
 	//ValuationsGrowth        ValuationsGrowth     `json:"Valuations_Growth"`
-	//Performance             Performance          `json:"Performance"`map[string]Weight
+	Performance          Performance `json:"Performance"`
+	MarketCapitalisation interface{} `json:"Market_Capitalisation"`
+	ValuationsGrowth     interface{} `json:"Valuations_Growth"`
 }
+
+type Performance struct {
+	ThreeYVolatility *decimal.Decimal `json:"3y_Volatility"`
+	ThreeYExpReturn  *decimal.Decimal `json:"3y_ExpReturn"`
+	ThreeYSharpRatio *decimal.Decimal `json:"3y_SharpRatio"`
+	ReturnsYTD       *decimal.Decimal `json:"Returns_YTD"`
+	Returns3Y        *decimal.Decimal `json:"Returns_3Y"`
+	Returns5Y        *decimal.Decimal `json:"Returns_5Y"`
+	Returns10Y       *decimal.Decimal `json:"Returns_10Y"`
+}
+
 type MorningStar struct {
-	Ratio               int    `json:"Ratio"`
+	Ratio               int    `json:"Ratio,string"`
 	CategoryBenchmark   string `json:"Category_Benchmark"`
-	SustainabilityRatio int    `json:"Sustainability_Ratio"`
+	SustainabilityRatio int    `json:"Sustainability_Ratio,string"`
 }
 
 type Holding struct {
-	Name          string  `json:"Name"`
+	Name          string           `json:"Name"`
 	AssetsPercent *decimal.Decimal `json:"Assets_%"`
 }
 type Weight struct {
-	EquityPercent      string  `json:"Equity_%"`
+	EquityPercent      string           `json:"Equity_%"`
 	RelativeToCategory *decimal.Decimal `json:"Relative_to_Category"`
 }
 
@@ -151,71 +172,132 @@ type Technicals struct {
 	ShortPercent          *decimal.Decimal `json:"ShortPercent"`
 }
 type SplitsDividends struct {
-	ForwardAnnualDividendRate  *decimal.Decimal `json:"ForwardAnnualDividendRate"`
-	ForwardAnnualDividendYield *decimal.Decimal `json:"ForwardAnnualDividendYield"`
-	PayoutRatio                *decimal.Decimal `json:"PayoutRatio"`
-	DividendDate               string   `json:"DividendDate"`
-	ExDividendDate             string   `json:"ExDividendDate"`
-	LastSplitFactor            string   `json:"LastSplitFactor"`
-	LastSplitDate              string   `json:"LastSplitDate"`
+	ForwardAnnualDividendRate  *decimal.Decimal     `json:"ForwardAnnualDividendRate"`
+	ForwardAnnualDividendYield *decimal.Decimal     `json:"ForwardAnnualDividendYield"`
+	PayoutRatio                *decimal.Decimal     `json:"PayoutRatio"`
+	DividendDate               string               `json:"DividendDate"`
+	ExDividendDate             string               `json:"ExDividendDate"`
+	LastSplitFactor            string               `json:"LastSplitFactor"`
+	LastSplitDate              string               `json:"LastSplitDate"`
+	NumberDividendsByYear      map[string]YearCount `json:"NumberDividendsByYear"`
 }
+
+type OutstandingShares struct {
+	Annual    map[string]SharesOutstanding `json:"annual"`
+	Quarterly map[string]SharesOutstanding `json:"quarterly"`
+}
+
+type SharesOutstanding struct {
+	Date      string `json:"date"`
+	SharesMln string `json:"sharesMln"`
+}
+
+type YearCount struct {
+	Year  int `json:"Year"`
+	Count int `json:"Count"`
+}
+
 type EarningsInfo struct {
-	Date            string   `json:"date"`
+	Date            string           `json:"date"`
+	ReportDate      string           `json:"reportDate"`
 	EpsActual       *decimal.Decimal `json:"epsActual"`
 	EpsEstimate     *decimal.Decimal `json:"epsEstimate"`
 	EpsDifference   *decimal.Decimal `json:"epsDifference"`
 	SurprisePercent *decimal.Decimal `json:"surprisePercent"`
 }
+type EarningsEstimateInfo struct {
+	Date                             string           `json:"date"`
+	Period                           string           `json:"period"`
+	Growth                           *decimal.Decimal `json:"growth"`
+	EarningsEstimateAvg              *decimal.Decimal `json:"earningsEstimateAvg"`
+	EarningsEstimateLow              *decimal.Decimal `json:"earningsEstimateLow"`
+	EarningsEstimateHigh             *decimal.Decimal `json:"earningsEstimateHigh"`
+	EarningsEstimateYearAgoEps       *decimal.Decimal `json:"earningsEstimateYearAgoEps"`
+	EarningsEstimateNumberOfAnalysts *decimal.Decimal `json:"earningsEstimateNumberOfAnalysts"`
+	EarningsEstimateGrowth           *decimal.Decimal `json:"earningsEstimateGrowth"`
+	RevenueEstimateAvg               *decimal.Decimal `json:"revenueEstimateAvg"`
+	RevenueEstimateLow               *decimal.Decimal `json:"revenueEstimateLow"`
+	RevenueEstimateHigh              *decimal.Decimal `json:"revenueEstimateHigh"`
+	RevenueEstimateYearAgoEps        *decimal.Decimal `json:"revenueEstimateYearAgoEps"`
+	RevenueEstimateNumberOfAnalysts  *decimal.Decimal `json:"revenueEstimateNumberOfAnalysts"`
+	RevenueEstimateGrowth            *decimal.Decimal `json:"revenueEstimateGrowth"`
+	EpsTrendCurrent                  *decimal.Decimal `json:"epsTrendCurrent"`
+	EpsTrend7DaysAgo                 *decimal.Decimal `json:"epsTrend7daysAgo"`
+	EpsTrend30DaysAgo                *decimal.Decimal `json:"epsTrend30daysAgo"`
+	EpsTrend60DaysAgo                *decimal.Decimal `json:"epsTrend60daysAgo"`
+	EpsTrend90DaysAgo                *decimal.Decimal `json:"epsTrend90daysAgo"`
+	EpsRevisionsUpLast7Days          *decimal.Decimal `json:"epsRevisionsUpLast7days"`
+	EpsRevisionsUpLast30Days         *decimal.Decimal `json:"epsRevisionsUpLast30days"`
+	EpsRevisionsDownLast30Days       *decimal.Decimal `json:"epsRevisionsDownLast30days"`
+	EpsRevisionsDownLast90Days       *decimal.Decimal `json:"epsRevisionsDownLast90days"`
+}
+
 type Earnings struct {
-	Last0 EarningsInfo `json:"Last_0"`
-	Last1 EarningsInfo `json:"Last_1"`
-	Last2 EarningsInfo `json:"Last_2"`
-	Last3 EarningsInfo `json:"Last_3"`
+	History map[string]EarningsInfo         `json:"History"`
+	Trend   map[string]EarningsEstimateInfo `json:"Trend"`
+	Annual  map[string]EarningsInfo         `json:"Annual"`
 }
+
 type BalanceSheetInfo struct {
-	Date                         string   `json:"date"`
-	FilingDate                   *string  `json:"filing_date"`
-	IntangibleAssets             *decimal.Decimal `json:"intangibleAssets"`
-	TotalLiab                    *decimal.Decimal `json:"totalLiab"`
-	TotalStockholderEquity       *decimal.Decimal `json:"totalStockholderEquity"`
-	DeferredLongTermLiab         *decimal.Decimal `json:"deferredLongTermLiab"`
-	OtherCurrentLiab             *decimal.Decimal `json:"otherCurrentLiab"`
-	TotalAssets                  *decimal.Decimal `json:"totalAssets"`
-	CommonStock                  *decimal.Decimal `json:"commonStock"`
-	CommonStockSharesOutstanding *decimal.Decimal `json:"commonStockSharesOutStanding"`
-	OtherCurrentAssets           *decimal.Decimal `json:"otherCurrentAssets"`
-	RetainedEarnings             *decimal.Decimal `json:"retainedEarnings"`
-	OtherLiab                    *decimal.Decimal `json:"otherLiab"`
-	GoodWill                     *decimal.Decimal `json:"goodWill"`
-	OtherAssets                  *decimal.Decimal `json:"otherAssets"`
-	Cash                         *decimal.Decimal `json:"cash"`
-	TotalCurrentLiabilities      *decimal.Decimal `json:"totalCurrentLiabilities"`
-	ShortLongTermDebt            *decimal.Decimal `json:"shortLongTermDebt"`
-	OtherStockholderEquity       *decimal.Decimal `json:"otherStockholderEquity"`
-	PropertyPlantEquipment       *decimal.Decimal `json:"propertyPlantEquipment"`
-	TotalCurrentAssets           *decimal.Decimal `json:"totalCurrentAssets"`
-	LongTermInvestments          *decimal.Decimal `json:"longTermInvestments"`
-	NetTangibleAssets            *decimal.Decimal `json:"netTangibleAssets"`
-	ShortTermInvestments         *decimal.Decimal `json:"shortTermInvestments"`
-	NetReceivables               *decimal.Decimal `json:"netReceivables"`
-	LongTermDebt                 *decimal.Decimal `json:"longTermDebt"`
-	Inventory                    *decimal.Decimal `json:"inventory"`
-	AccountsPayable              *decimal.Decimal `json:"accountsPayable"`
-}
-type BalanceSheet struct {
-	CurrencySymbol string           `json:"currency_symbol"`
-	QuarterlyLast0 BalanceSheetInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 BalanceSheetInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 BalanceSheetInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 BalanceSheetInfo `json:"quarterly_last_3"`
-	YearlyLast0    BalanceSheetInfo `json:"yearly_last_0"`
-	YearlyLast1    BalanceSheetInfo `json:"yearly_last_1"`
-	YearlyLast2    BalanceSheetInfo `json:"yearly_last_2"`
-	YearlyLast3    BalanceSheetInfo `json:"yearly_last_3"`
+	Date       string  `json:"date"`
+	FilingDate *string `json:"filing_date"`
+
+	IntangibleAssets                                 *decimal.Decimal `json:"intangibleAssets"`
+	TotalLiab                                        *decimal.Decimal `json:"totalLiab"`
+	TotalStockholderEquity                           *decimal.Decimal `json:"totalStockholderEquity"`
+	DeferredLongTermLiab                             *decimal.Decimal `json:"deferredLongTermLiab"`
+	OtherCurrentLiab                                 *decimal.Decimal `json:"otherCurrentLiab"`
+	TotalAssets                                      *decimal.Decimal `json:"totalAssets"`
+	CommonStock                                      *decimal.Decimal `json:"commonStock"`
+	OtherCurrentAssets                               *decimal.Decimal `json:"otherCurrentAssets"`
+	RetainedEarnings                                 *decimal.Decimal `json:"retainedEarnings"`
+	OtherLiab                                        *decimal.Decimal `json:"otherLiab"`
+	GoodWill                                         *decimal.Decimal `json:"goodWill"`
+	OtherAssets                                      *decimal.Decimal `json:"otherAssets"`
+	Cash                                             *decimal.Decimal `json:"cash"`
+	TotalCurrentLiabilities                          *decimal.Decimal `json:"totalCurrentLiabilities"`
+	ShortLongTermDebt                                *decimal.Decimal `json:"shortLongTermDebt"`
+	OtherStockholderEquity                           *decimal.Decimal `json:"otherStockholderEquity"`
+	PropertyPlantEquipment                           *decimal.Decimal `json:"propertyPlantEquipment"`
+	TotalCurrentAssets                               *decimal.Decimal `json:"totalCurrentAssets"`
+	LongTermInvestments                              *decimal.Decimal `json:"longTermInvestments"`
+	NetTangibleAssets                                *decimal.Decimal `json:"netTangibleAssets"`
+	ShortTermInvestments                             *decimal.Decimal `json:"shortTermInvestments"`
+	NetReceivables                                   *decimal.Decimal `json:"netReceivables"`
+	LongTermDebt                                     *decimal.Decimal `json:"longTermDebt"`
+	Inventory                                        *decimal.Decimal `json:"inventory"`
+	AccountsPayable                                  *decimal.Decimal `json:"accountsPayable"`
+	TotalPermanentEquity                             *decimal.Decimal `json:"totalPermanentEquity"`
+	NoncontrollingInterestInConsolidatedEntity       *decimal.Decimal `json:"noncontrollingInterestInConsolidatedEntity"`
+	TemporaryEquityRedeemableNoncontrollingInterests *decimal.Decimal `json:"temporaryEquityRedeemableNoncontrollingInterests"`
+	AccumulatedOtherComprehensiveIncome              *decimal.Decimal `json:"accumulatedOtherComprehensiveIncome"`
+	AdditionalPaidInCapital                          *decimal.Decimal `json:"additionalPaidInCapital"`
+	CommonStockTotalEquity                           *decimal.Decimal `json:"commonStockTotalEquity"`
+	PreferredStockTotalEquity                        *decimal.Decimal `json:"preferredStockTotalEquity"`
+	RetainedEarningsTotalEquity                      *decimal.Decimal `json:"retainedEarningsTotalEquity"`
+	TreasuryStock                                    *decimal.Decimal `json:"treasuryStock"`
+	AccumulatedAmortization                          *decimal.Decimal `json:"accumulatedAmortization"`
+	NonCurrrentAssetsOther                           *decimal.Decimal `json:"nonCurrrentAssetsOther"`
+	DeferredLongTermAssetCharges                     *decimal.Decimal `json:"deferredLongTermAssetCharges"`
+	NonCurrentAssetsTotal                            *decimal.Decimal `json:"nonCurrentAssetsTotal"`
+	ShortTermDebt                                    *decimal.Decimal `json:"shortTermDebt"`
+	CapitalLeaseObligations                          *decimal.Decimal `json:"capitalLeaseObligations"`
+	LongTermDebtTotal                                *decimal.Decimal `json:"longTermDebtTotal"`
+	NonCurrentLiabilitiesOther                       *decimal.Decimal `json:"nonCurrentLiabilitiesOther"`
+	NonCurrentLiabilitiesTotal                       *decimal.Decimal `json:"nonCurrentLiabilitiesTotal"`
+	NegativeGoodwill                                 *decimal.Decimal `json:"negativeGoodwill"`
+	Warrants                                         *decimal.Decimal `json:"warrants"`
+	PreferredStockRedeemable                         *decimal.Decimal `json:"preferredStockRedeemable"`
+	CapitalSurpluse                                  *decimal.Decimal `json:"capitalSurpluse"`
+	LiabilitiesAndStockholdersEquity                 *decimal.Decimal `json:"liabilitiesAndStockholdersEquity"`
+	CashAndShortTermInvestments                      *decimal.Decimal `json:"cashAndShortTermInvestments"`
+	PropertyPlantAndEquipmentGross                   *decimal.Decimal `json:"propertyPlantAndEquipmentGross"`
+	AccumulatedDepreciation                          *decimal.Decimal `json:"accumulatedDepreciation"`
+	CommonStockSharesOutstanding                     *decimal.Decimal `json:"commonStockSharesOutstanding"`
 }
 type CashFlowInfo struct {
-	Date                                  string   `json:"date"`
-	FilingDate                            *string  `json:"filing_date"`
+	Date                                  string           `json:"date"`
+	FilingDate                            *string          `json:"filing_date"`
 	Investments                           *decimal.Decimal `json:"investments"`
 	ChangeToLiabilities                   *decimal.Decimal `json:"changeToLiabilities"`
 	TotalCashflowsFromInvestingActivities *decimal.Decimal `json:"totalCashflowsFromInvestingActivities"`
@@ -234,22 +316,15 @@ type CashFlowInfo struct {
 	OtherCashflowsFromFinancingActivities *decimal.Decimal `json:"otherCashflowsFromFinancingActivities"`
 	ChangeToNetincome                     *decimal.Decimal `json:"changeToNetincome"`
 	CapitalExpenditures                   *decimal.Decimal `json:"capitalExpenditures"`
-}
-type CashFlow struct {
-	CurrencySymbol string       `json:"currency_symbol"`
-	QuarterlyLast0 CashFlowInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 CashFlowInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 CashFlowInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 CashFlowInfo `json:"quarterly_last_3"`
-	YearlyLast0    CashFlowInfo `json:"yearly_last_0"`
-	YearlyLast1    CashFlowInfo `json:"yearly_last_1"`
-	YearlyLast2    CashFlowInfo `json:"yearly_last_2"`
-	YearlyLast3    CashFlowInfo `json:"yearly_last_3"`
+	ChangeReceivables                     *decimal.Decimal `json:"changeReceivables"`
+	CashFlowsOtherOperating               *decimal.Decimal `json:"cashFlowsOtherOperating"`
+	ExchangeRateChanges                   *decimal.Decimal `json:"exchangeRateChanges"`
+	CashAndCashEquivalentsChanges         *decimal.Decimal `json:"cashAndCashEquivalentsChanges"`
 }
 
 type IncomeStatementInfo struct {
-	Date                              string   `json:"date"`
-	FilingDate                        *string  `json:"filing_date"`
+	Date                              string           `json:"date"`
+	FilingDate                        *string          `json:"filing_date"`
 	ResearchDevelopment               *decimal.Decimal `json:"researchDevelopment"`
 	EffectOfAccountingCharges         *decimal.Decimal `json:"effectOfAccountingCharges"`
 	IncomeBeforeTax                   *decimal.Decimal `json:"incomeBeforeTax"`
@@ -258,6 +333,7 @@ type IncomeStatementInfo struct {
 	SellingGeneralAdministrative      *decimal.Decimal `json:"sellingGeneralAdministrative"`
 	GrossProfit                       *decimal.Decimal `json:"grossProfit"`
 	Ebit                              *decimal.Decimal `json:"ebit"`
+	NonOperatingIncomeNetOther        *decimal.Decimal `json:"nonOperatingIncomeNetOther"`
 	OperatingIncome                   *decimal.Decimal `json:"operatingIncome"`
 	OtherOperatingExpenses            *decimal.Decimal `json:"otherOperatingExpenses"`
 	InterestExpense                   *decimal.Decimal `json:"interestExpense"`
@@ -272,22 +348,125 @@ type IncomeStatementInfo struct {
 	DiscontinuedOperations            *decimal.Decimal `json:"discontinuedOperations"`
 	NetIncomeFromContinuingOps        *decimal.Decimal `json:"netIncomeFromContinuingOps"`
 	NetIncomeApplicableToCommonShares *decimal.Decimal `json:"netIncomeApplicableToCommonShares"`
+	PreferredStockAndOtherAdjustments *decimal.Decimal `json:"preferredStockAndOtherAdjustments"`
 }
-type IncomeStatement struct {
-	CurrencySymbol string              `json:"currency_symbol"`
-	QuarterlyLast0 IncomeStatementInfo `json:"quarterly_last_0"`
-	QuarterlyLast1 IncomeStatementInfo `json:"quarterly_last_1"`
-	QuarterlyLast2 IncomeStatementInfo `json:"quarterly_last_2"`
-	QuarterlyLast3 IncomeStatementInfo `json:"quarterly_last_3"`
-	YearlyLast0    IncomeStatementInfo `json:"yearly_last_0"`
-	YearlyLast1    IncomeStatementInfo `json:"yearly_last_1"`
-	YearlyLast2    IncomeStatementInfo `json:"yearly_last_2"`
-	YearlyLast3    IncomeStatementInfo `json:"yearly_last_3"`
-}
+
 type Financials struct {
 	BalanceSheet    BalanceSheet    `json:"Balance_Sheet"`
 	CashFlow        CashFlow        `json:"Cash_Flow"`
 	IncomeStatement IncomeStatement `json:"Income_Statement"`
+}
+
+type IncomeStatement struct {
+	CurrencySymbol string                         `json:"currency_symbol"`
+	Quarterly      map[string]IncomeStatementInfo `json:"quarterly"`
+	Yearly         map[string]IncomeStatementInfo `json:"yearly"`
+}
+type BalanceSheet struct {
+	CurrencySymbol string                      `json:"currency_symbol"`
+	Quarterly      map[string]BalanceSheetInfo `json:"quarterly"`
+	Yearly         map[string]BalanceSheetInfo `json:"yearly"`
+}
+type CashFlow struct {
+	CurrencySymbol string                  `json:"currency_symbol"`
+	Quarterly      map[string]CashFlowInfo `json:"quarterly"`
+	Yearly         map[string]CashFlowInfo `json:"yearly"`
+}
+type SharesStats struct {
+	SharesOutstanding       *decimal.Decimal `json:"SharesOutstanding"`
+	SharesFloat             *decimal.Decimal `json:"SharesFloat"`
+	PercentInsiders         *decimal.Decimal `json:"PercentInsiders"`
+	PercentInstitutions     *decimal.Decimal `json:"PercentInstitutions"`
+	SharesShort             *decimal.Decimal `json:"SharesShort"`
+	SharesShortPriorMonth   *decimal.Decimal `json:"SharesShortPriorMonth"`
+	ShortRatio              *decimal.Decimal `json:"ShortRatio"`
+	ShortPercentOutstanding *decimal.Decimal `json:"ShortPercentOutstanding"`
+	ShortPercentFloat       *decimal.Decimal `json:"ShortPercentFloat"`
+}
+
+type Component struct {
+	Code     string `json:"Code"`
+	Exchange string `json:"Exchange"`
+	Name     string `json:"Name"`
+	Sector   string `json:"Sector"`
+	Industry string `json:"Industry"`
+}
+
+type MutualFundData struct {
+	Nav                   string                             `json:"Nav"`
+	PrevClosePrice        string                             `json:"Prev_Close_Price"`
+	UpdateDate            string                             `json:"Update_Date"`
+	PortfolioNetAssets    string                             `json:"Portfolio_Net_Assets"`
+	ShareClassNetAssets   string                             `json:"Share_Class_Net_Assets"`
+	MorningStarRating     int                                `json:"Morning_Star_Rating"`
+	MorningStarRiskRating int                                `json:"Morning_Star_Risk_Rating"`
+	MorningStarCategory   string                             `json:"Morning_Star_Category"`
+	InceptonDate          string                             `json:"Incepton_Date"`
+	Currency              string                             `json:"Currency"`
+	Domicile              string                             `json:"Domicile"`
+	Yield                 string                             `json:"Yield"`
+	YieldYTD              string                             `json:"Yield_YTD"`
+	Yield1YearYTD         string                             `json:"Yield_1Year_YTD"`
+	Yield3YearYTD         string                             `json:"Yield_3Year_YTD"`
+	Yield5YearYTD         string                             `json:"Yield_5Year_YTD"`
+	ExpenseRatio          string                             `json:"Expense_Ratio"`
+	ExpenseRatioDate      string                             `json:"Expense_Ratio_Date"`
+	AssetAllocation       map[string]AssetAllocation         `json:"Asset_Allocation"`
+	ValueGrowth           map[string]ValueGrowth             `json:"Value_Growth"`
+	TopHoldings           map[string]TopHoldings             `json:"Top_Holdings"`
+	MarketCapitalization  map[string]MarketCapitalization    `json:"Market_Capitalization"`
+	SectorWeights         SectorWeights                      `json:"Sector_Weights"`
+	WorldRegions          map[string]map[string]RegionWeight `json:"World_Regions"`
+}
+
+type SectorWeights struct {
+	Cyclical  map[string]SectorWeight `json:"Cyclical"`
+	Defensive map[string]SectorWeight `json:"Defensive"`
+	Sensitive map[string]SectorWeight `json:"Sensitive"`
+}
+
+type SectorWeight struct {
+	Type            string `json:"Type"`
+	CategoryAverage string `json:"Category_Average"`
+	Amount          string `json:"Amount_%"`
+	Benchmark       string `json:"Benchmark"`
+}
+
+type RegionWeight struct {
+	Name            string `json:"Name"`
+	CategoryAverage string `json:"Category_Average"`
+	Stocks          string `json:"Stocks_%"`
+	Benchmark       string `json:"Benchmark"`
+}
+
+type MarketCapitalization struct {
+	Size            string           `json:"Size"`
+	CategoryAverage *decimal.Decimal `json:"Category_Average"`
+	Benchmark       *decimal.Decimal `json:"Benchmark"`
+	Portfolio       *decimal.Decimal `json:"Portfolio_%"`
+}
+
+type TopHoldings struct {
+	Name   string  `json:"Name"`
+	Owned  *string `json:"Owned"`
+	Change *string `json:"Change"`
+	Weight *string `json:"Weight"`
+}
+
+type ValueGrowth struct {
+	Name            string           `json:"Name"`
+	CategoryAverage *decimal.Decimal `json:"Category_Average"`
+	Benchmark       *decimal.Decimal `json:"Benchmark"`
+	StockPortfolio  *decimal.Decimal `json:"Stock_Portfolio"`
+}
+
+type AssetAllocation struct {
+	Type            string           `json:"Type"`
+	Net             *decimal.Decimal `json:"Net_%"`
+	Long            *decimal.Decimal `json:"Long_%"`
+	Short           *decimal.Decimal `json:"Short_%"`
+	CategoryAverage *decimal.Decimal `json:"Category_Average"`
+	Benchmark       *decimal.Decimal `json:"Benchmark"`
 }
 
 // FetchFundamentals Fetches Fundamentals for the exchange
@@ -358,40 +537,10 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Fundamentals, error) {
 	var err error
 	f := Fundamentals{
-		LastUpdate:      time.Now(),
-		General:         General{},
-		Highlights:      Highlights{},
-		Valuation:       Valuation{},
-		Technicals:      Technicals{},
-		SplitsDividends: SplitsDividends{},
-		Earnings:        Earnings{},
-		Financials:      Financials{},
+		LastUpdate: time.Now(),
+		General:    General{},
 	}
 	err = f.General.fill(reader, "General_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.Highlights.fill(reader, "Highlights_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.Valuation.fill(reader, "Valuation_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.Technicals.fill(reader, "Technicals_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.SplitsDividends.fill(reader, "SplitsDividends_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.Earnings.fill(reader, "Earnings_")
-	if err != nil {
-		return Fundamentals{}, err
-	}
-	err = f.Financials.fill(reader, "Financials_")
 	if err != nil {
 		return Fundamentals{}, err
 	}
@@ -454,541 +603,4 @@ func (g *General) fill(reader *csvReaderMap, prefix string) error {
 		return err
 	}
 	return nil
-}
-func (g *Highlights) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.MarketCapitalization, err = reader.asOptionalDecimal(prefix + "MarketCapitalization"); err != nil {
-		return err
-	}
-	if g.MarketCapitalizationMln, err = reader.asString(prefix + "MarketCapitalizationMln"); err != nil {
-		return err
-	}
-	if g.EBITDA, err = reader.asOptionalDecimal(prefix + "EBITDA"); err != nil {
-		return err
-	}
-	if g.PERatio, err = reader.asOptionalDecimal(prefix + "PERatio"); err != nil {
-		return err
-	}
-	if g.PEGRatio, err = reader.asOptionalDecimal(prefix + "PEGRatio"); err != nil {
-		return err
-	}
-	if g.WallStreetTargetPrice, err = reader.asOptionalDecimal(prefix + "WallStreetTargetPrice"); err != nil {
-		return err
-	}
-	if g.BookValue, err = reader.asOptionalDecimal(prefix + "BookValue"); err != nil {
-		return err
-	}
-	if g.DividendShare, err = reader.asOptionalDecimal(prefix + "DividendShare"); err != nil {
-		return err
-	}
-	if g.DividendYield, err = reader.asOptionalDecimal(prefix + "DividendYield"); err != nil {
-		return err
-	}
-	if g.EarningsShare, err = reader.asOptionalDecimal(prefix + "EarningsShare"); err != nil {
-		return err
-	}
-	if g.EPSEstimateCurrentYear, err = reader.asOptionalDecimal(prefix + "EPSEstimateCurrentYear"); err != nil {
-		return err
-	}
-	if g.EPSEstimateNextYear, err = reader.asOptionalDecimal(prefix + "EPSEstimateNextYear"); err != nil {
-		return err
-	}
-	if g.EPSEstimateNextQuarter, err = reader.asOptionalDecimal(prefix + "EPSEstimateNextQuarter"); err != nil {
-		return err
-	}
-	if g.MostRecentQuarter, err = reader.asString(prefix + "MostRecentQuarter"); err != nil {
-		return err
-	}
-	if g.ProfitMargin, err = reader.asOptionalDecimal(prefix + "ProfitMargin"); err != nil {
-		return err
-	}
-	if g.OperatingMarginTTM, err = reader.asOptionalDecimal(prefix + "OperatingMarginTTM"); err != nil {
-		return err
-	}
-	if g.ReturnOnAssetsTTM, err = reader.asOptionalDecimal(prefix + "ReturnOnAssetsTTM"); err != nil {
-		return err
-	}
-	if g.ReturnOnEquityTTM, err = reader.asOptionalDecimal(prefix + "ReturnOnEquityTTM"); err != nil {
-		return err
-	}
-	if g.RevenueTTM, err = reader.asOptionalDecimal(prefix + "RevenueTTM"); err != nil {
-		return err
-	}
-	if g.RevenuePerShareTTM, err = reader.asOptionalDecimal(prefix + "RevenuePerShareTTM"); err != nil {
-		return err
-	}
-	if g.QuarterlyRevenueGrowthYOY, err = reader.asOptionalDecimal(prefix + "QuarterlyRevenueGrowthYOY"); err != nil {
-		return err
-	}
-	if g.GrossProfitTTM, err = reader.asOptionalDecimal(prefix + "GrossProfitTTM"); err != nil {
-		return err
-	}
-	if g.DilutedEpsTTM, err = reader.asOptionalDecimal(prefix + "DilutedEpsTTM"); err != nil {
-		return err
-	}
-	if g.QuarterlyEarningsGrowthYOY, err = reader.asOptionalDecimal(prefix + "QuarterlyEarningsGrowthYOY"); err != nil {
-		return err
-	}
-	return nil
-
-}
-func (g *Valuation) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.TrailingPE, err = reader.asOptionalDecimal(prefix + "TrailingPE"); err != nil {
-		return err
-	}
-	if g.ForwardPE, err = reader.asOptionalDecimal(prefix + "ForwardPE"); err != nil {
-		return err
-	}
-	if g.PriceSalesTTM, err = reader.asOptionalDecimal(prefix + "PriceSalesTTM"); err != nil {
-		return err
-	}
-	if g.PriceBookMRQ, err = reader.asOptionalDecimal(prefix + "PriceBookMRQ"); err != nil {
-		return err
-	}
-	if g.EnterpriseValueRevenue, err = reader.asOptionalDecimal(prefix + "EnterpriseValueRevenue"); err != nil {
-		return err
-	}
-	if g.EnterpriseValueEbitda, err = reader.asOptionalDecimal(prefix + "EnterpriseValueEbitda"); err != nil {
-		return err
-	}
-	return nil
-}
-func (g *Technicals) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.Beta, err = reader.asOptionalDecimal(prefix + "Beta"); err != nil {
-		return err
-	}
-	if g.FiftyTwoWeekHigh, err = reader.asOptionalDecimal(prefix + "52WeekHigh"); err != nil {
-		return err
-	}
-	if g.FiftyTwoWeekLow, err = reader.asOptionalDecimal(prefix + "52WeekLow"); err != nil {
-		return err
-	}
-	if g.FiftyDayMA, err = reader.asOptionalDecimal(prefix + "50DayMA"); err != nil {
-		return err
-	}
-	if g.TwoHundredDayMA, err = reader.asOptionalDecimal(prefix + "200DayMA"); err != nil {
-		return err
-	}
-	if g.SharesShort, err = reader.asOptionalDecimal(prefix + "SharesShort"); err != nil {
-		return err
-	}
-	if g.SharesShortPriorMonth, err = reader.asOptionalDecimal(prefix + "SharesShortPriorMonth"); err != nil {
-		return err
-	}
-	if g.ShortRatio, err = reader.asOptionalDecimal(prefix + "ShortRatio"); err != nil {
-		return err
-	}
-	if g.ShortPercent, err = reader.asOptionalDecimal(prefix + "ShortPercent"); err != nil {
-		return err
-	}
-	return nil
-}
-func (g *SplitsDividends) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.ForwardAnnualDividendRate, err = reader.asOptionalDecimal(prefix + "ForwardAnnualDividendRate"); err != nil {
-		return err
-	}
-	if g.ForwardAnnualDividendYield, err = reader.asOptionalDecimal(prefix + "ForwardAnnualDividendYield"); err != nil {
-		return err
-	}
-	if g.PayoutRatio, err = reader.asOptionalDecimal(prefix + "PayoutRatio"); err != nil {
-		return err
-	}
-	if g.DividendDate, err = reader.asString(prefix + "DividendDate"); err != nil {
-		return err
-	}
-	if g.ExDividendDate, err = reader.asString(prefix + "ExDividendDate"); err != nil {
-		return err
-	}
-	if g.LastSplitFactor, err = reader.asString(prefix + "LastSplitFactor"); err != nil {
-		return err
-	}
-	if g.LastSplitDate, err = reader.asString(prefix + "LastSplitDate"); err != nil {
-		return err
-	}
-	return nil
-}
-func (g *Earnings) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.Last0, err = buildEarningsInfo(reader, prefix+"Last_0_"); err != nil {
-		return err
-	}
-	if g.Last1, err = buildEarningsInfo(reader, prefix+"Last_1_"); err != nil {
-		return err
-	}
-	if g.Last2, err = buildEarningsInfo(reader, prefix+"Last_2_"); err != nil {
-		return err
-	}
-	if g.Last3, err = buildEarningsInfo(reader, prefix+"Last_3_"); err != nil {
-		return err
-	}
-	return nil
-}
-func (g *Financials) fill(reader *csvReaderMap, prefix string) error {
-	var err error
-	if g.BalanceSheet, err = buildBalanceSheet(reader, prefix+"Balance_Sheet_"); err != nil {
-		return err
-	}
-	if g.CashFlow, err = buildCashFlow(reader, prefix+"Cash_Flow_"); err != nil {
-		return err
-	}
-	if g.IncomeStatement, err = buildIncomeStatement(reader, prefix+"Income_Statement_"); err != nil {
-		return err
-	}
-	return nil
-}
-
-func buildBalanceSheet(reader *csvReaderMap, prefix string) (BalanceSheet, error) {
-	var err error
-	g := BalanceSheet{}
-	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast0, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast1, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast2, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast3, err = buildBalanceSheetInfo(reader, prefix+"quarterly_last_3_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast0, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast1, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast2, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast3, err = buildBalanceSheetInfo(reader, prefix+"yearly_last_3_"); err != nil {
-		return g, err
-	}
-	return g, nil
-}
-func buildBalanceSheetInfo(reader *csvReaderMap, prefix string) (BalanceSheetInfo, error) {
-	var err error
-	g := BalanceSheetInfo{}
-	if g.Date, err = reader.asString(prefix + "date"); err != nil {
-		return g, err
-	}
-	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
-		return g, err
-	}
-	if g.IntangibleAssets, err = reader.asOptionalDecimal(prefix + "intangibleAssets"); err != nil {
-		return g, err
-	}
-	if g.TotalLiab, err = reader.asOptionalDecimal(prefix + "totalLiab"); err != nil {
-		return g, err
-	}
-	if g.TotalStockholderEquity, err = reader.asOptionalDecimal(prefix + "totalStockholderEquity"); err != nil {
-		return g, err
-	}
-	if g.DeferredLongTermLiab, err = reader.asOptionalDecimal(prefix + "deferredLongTermLiab"); err != nil {
-		return g, err
-	}
-	if g.OtherCurrentLiab, err = reader.asOptionalDecimal(prefix + "otherCurrentLiab"); err != nil {
-		return g, err
-	}
-	if g.TotalAssets, err = reader.asOptionalDecimal(prefix + "totalAssets"); err != nil {
-		return g, err
-	}
-	if g.CommonStock, err = reader.asOptionalDecimal(prefix + "commonStock"); err != nil {
-		return g, err
-	}
-	if g.CommonStockSharesOutstanding, err = reader.asOptionalDecimal(prefix + "commonStockSharesOutstanding"); err != nil {
-		return g, err
-	}
-	if g.OtherCurrentAssets, err = reader.asOptionalDecimal(prefix + "otherCurrentAssets"); err != nil {
-		return g, err
-	}
-	if g.RetainedEarnings, err = reader.asOptionalDecimal(prefix + "retainedEarnings"); err != nil {
-		return g, err
-	}
-	if g.OtherLiab, err = reader.asOptionalDecimal(prefix + "otherLiab"); err != nil {
-		return g, err
-	}
-	if g.GoodWill, err = reader.asOptionalDecimal(prefix + "goodWill"); err != nil {
-		return g, err
-	}
-	if g.OtherAssets, err = reader.asOptionalDecimal(prefix + "otherAssets"); err != nil {
-		return g, err
-	}
-	if g.Cash, err = reader.asOptionalDecimal(prefix + "cash"); err != nil {
-		return g, err
-	}
-	if g.TotalCurrentLiabilities, err = reader.asOptionalDecimal(prefix + "totalCurrentLiabilities"); err != nil {
-		return g, err
-	}
-	if g.ShortLongTermDebt, err = reader.asOptionalDecimal(prefix + "shortLongTermDebt"); err != nil {
-		return g, err
-	}
-	if g.OtherStockholderEquity, err = reader.asOptionalDecimal(prefix + "otherStockholderEquity"); err != nil {
-		return g, err
-	}
-	if g.PropertyPlantEquipment, err = reader.asOptionalDecimal(prefix + "propertyPlantEquipment"); err != nil {
-		return g, err
-	}
-	if g.TotalCurrentAssets, err = reader.asOptionalDecimal(prefix + "totalCurrentAssets"); err != nil {
-		return g, err
-	}
-	if g.LongTermInvestments, err = reader.asOptionalDecimal(prefix + "longTermInvestments"); err != nil {
-		return g, err
-	}
-	if g.NetTangibleAssets, err = reader.asOptionalDecimal(prefix + "netTangibleAssets"); err != nil {
-		return g, err
-	}
-	if g.ShortTermInvestments, err = reader.asOptionalDecimal(prefix + "shortTermInvestments"); err != nil {
-		return g, err
-	}
-	if g.NetReceivables, err = reader.asOptionalDecimal(prefix + "netReceivables"); err != nil {
-		return g, err
-	}
-	if g.LongTermDebt, err = reader.asOptionalDecimal(prefix + "longTermDebt"); err != nil {
-		return g, err
-	}
-	if g.Inventory, err = reader.asOptionalDecimal(prefix + "inventory"); err != nil {
-		return g, err
-	}
-	if g.AccountsPayable, err = reader.asOptionalDecimal(prefix + "accountsPayable"); err != nil {
-		return g, err
-	}
-	return g, nil
-
-}
-func buildCashFlow(reader *csvReaderMap, prefix string) (CashFlow, error) {
-	var err error
-	g := CashFlow{}
-	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast0, err = buildCashFlowInfo(reader, prefix+"quarterly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast1, err = buildCashFlowInfo(reader, prefix+"quarterly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast2, err = buildCashFlowInfo(reader, prefix+"quarterly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast3, err = buildCashFlowInfo(reader, prefix+"quarterly_last_3_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast0, err = buildCashFlowInfo(reader, prefix+"yearly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast1, err = buildCashFlowInfo(reader, prefix+"yearly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast2, err = buildCashFlowInfo(reader, prefix+"yearly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast3, err = buildCashFlowInfo(reader, prefix+"yearly_last_3_"); err != nil {
-		return g, err
-	}
-	return g, nil
-
-}
-func buildCashFlowInfo(reader *csvReaderMap, prefix string) (CashFlowInfo, error) {
-	var err error
-	g := CashFlowInfo{}
-	if g.Date, err = reader.asString(prefix + "date"); err != nil {
-		return g, err
-	}
-	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
-		return g, err
-	}
-	if g.Investments, err = reader.asOptionalDecimal(prefix + "investments"); err != nil {
-		return g, err
-	}
-	if g.ChangeToLiabilities, err = reader.asOptionalDecimal(prefix + "changeToLiabilities"); err != nil {
-		return g, err
-	}
-	if g.TotalCashflowsFromInvestingActivities, err = reader.asOptionalDecimal(prefix + "totalCashflowsFromInvestingActivities"); err != nil {
-		return g, err
-	}
-	if g.NetBorrowings, err = reader.asOptionalDecimal(prefix + "netBorrowings"); err != nil {
-		return g, err
-	}
-	if g.TotalCashFromFinancingActivities, err = reader.asOptionalDecimal(prefix + "totalCashFromFinancingActivities"); err != nil {
-		return g, err
-	}
-	if g.ChangeToOperatingActivities, err = reader.asOptionalDecimal(prefix + "changeToOperatingActivities"); err != nil {
-		return g, err
-	}
-	if g.NetIncome, err = reader.asOptionalDecimal(prefix + "netIncome"); err != nil {
-		return g, err
-	}
-	if g.ChangeInCash, err = reader.asOptionalDecimal(prefix + "changeInCash"); err != nil {
-		return g, err
-	}
-	if g.TotalCashFromOperatingActivities, err = reader.asOptionalDecimal(prefix + "totalCashFromOperatingActivities"); err != nil {
-		return g, err
-	}
-	if g.Depreciation, err = reader.asOptionalDecimal(prefix + "depreciation"); err != nil {
-		return g, err
-	}
-	if g.OtherCashflowsFromInvestingActivities, err = reader.asOptionalDecimal(prefix + "otherCashflowsFromInvestingActivities"); err != nil {
-		return g, err
-	}
-	if g.DividendsPaid, err = reader.asOptionalDecimal(prefix + "dividendsPaid"); err != nil {
-		return g, err
-	}
-	if g.ChangeToInventory, err = reader.asOptionalDecimal(prefix + "changeToInventory"); err != nil {
-		return g, err
-	}
-	if g.ChangeToAccountReceivables, err = reader.asOptionalDecimal(prefix + "changeToAccountReceivables"); err != nil {
-		return g, err
-	}
-	if g.SalePurchaseOfStock, err = reader.asOptionalDecimal(prefix + "salePurchaseOfStock"); err != nil {
-		return g, err
-	}
-	if g.OtherCashflowsFromFinancingActivities, err = reader.asOptionalDecimal(prefix + "otherCashflowsFromFinancingActivities"); err != nil {
-		return g, err
-	}
-	if g.ChangeToNetincome, err = reader.asOptionalDecimal(prefix + "changeToNetincome"); err != nil {
-		return g, err
-	}
-	if g.CapitalExpenditures, err = reader.asOptionalDecimal(prefix + "capitalExpenditures"); err != nil {
-		return g, err
-	}
-	return g, nil
-
-}
-func buildIncomeStatement(reader *csvReaderMap, prefix string) (IncomeStatement, error) {
-	var err error
-	g := IncomeStatement{}
-	if g.CurrencySymbol, err = reader.asString(prefix + "currency_symbol"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast0, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast1, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast2, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.QuarterlyLast3, err = buildIncomeStatementInfo(reader, prefix+"quarterly_last_3_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast0, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_0_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast1, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_1_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast2, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_2_"); err != nil {
-		return g, err
-	}
-	if g.YearlyLast3, err = buildIncomeStatementInfo(reader, prefix+"yearly_last_3_"); err != nil {
-		return g, err
-	}
-	return g, nil
-
-}
-func buildIncomeStatementInfo(reader *csvReaderMap, prefix string) (IncomeStatementInfo, error) {
-	var err error
-	g := IncomeStatementInfo{}
-	if g.Date, err = reader.asString(prefix + "date"); err != nil {
-		return g, err
-	}
-	if g.FilingDate, err = reader.asOptionalString(prefix + "filing_date"); err != nil {
-		return g, err
-	}
-	if g.ResearchDevelopment, err = reader.asOptionalDecimal(prefix + "researchDevelopment"); err != nil {
-		return g, err
-	}
-	if g.EffectOfAccountingCharges, err = reader.asOptionalDecimal(prefix + "effectOfAccountingCharges"); err != nil {
-		return g, err
-	}
-	if g.IncomeBeforeTax, err = reader.asOptionalDecimal(prefix + "incomeBeforeTax"); err != nil {
-		return g, err
-	}
-	if g.MinorityInterest, err = reader.asOptionalDecimal(prefix + "minorityInterest"); err != nil {
-		return g, err
-	}
-	if g.NetIncome, err = reader.asOptionalDecimal(prefix + "netIncome"); err != nil {
-		return g, err
-	}
-	if g.SellingGeneralAdministrative, err = reader.asOptionalDecimal(prefix + "sellingGeneralAdministrative"); err != nil {
-		return g, err
-	}
-	if g.GrossProfit, err = reader.asOptionalDecimal(prefix + "grossProfit"); err != nil {
-		return g, err
-	}
-	if g.Ebit, err = reader.asOptionalDecimal(prefix + "ebit"); err != nil {
-		return g, err
-	}
-	if g.OperatingIncome, err = reader.asOptionalDecimal(prefix + "operatingIncome"); err != nil {
-		return g, err
-	}
-	if g.OtherOperatingExpenses, err = reader.asOptionalDecimal(prefix + "otherOperatingExpenses"); err != nil {
-		return g, err
-	}
-	if g.InterestExpense, err = reader.asOptionalDecimal(prefix + "interestExpense"); err != nil {
-		return g, err
-	}
-	if g.ExtraordinaryItems, err = reader.asOptionalDecimal(prefix + "extraordinaryItems"); err != nil {
-		return g, err
-	}
-	if g.NonRecurring, err = reader.asOptionalDecimal(prefix + "nonRecurring"); err != nil {
-		return g, err
-	}
-	if g.OtherItems, err = reader.asOptionalDecimal(prefix + "otherItems"); err != nil {
-		return g, err
-	}
-	if g.IncomeTaxExpense, err = reader.asOptionalDecimal(prefix + "incomeTaxExpense"); err != nil {
-		return g, err
-	}
-	if g.TotalRevenue, err = reader.asOptionalDecimal(prefix + "totalRevenue"); err != nil {
-		return g, err
-	}
-	if g.TotalOperatingExpenses, err = reader.asOptionalDecimal(prefix + "totalOperatingExpenses"); err != nil {
-		return g, err
-	}
-	if g.CostOfRevenue, err = reader.asOptionalDecimal(prefix + "costOfRevenue"); err != nil {
-		return g, err
-	}
-	if g.TotalOtherIncomeExpenseNet, err = reader.asOptionalDecimal(prefix + "totalOtherIncomeExpenseNet"); err != nil {
-		return g, err
-	}
-	if g.DiscontinuedOperations, err = reader.asOptionalDecimal(prefix + "discontinuedOperations"); err != nil {
-		return g, err
-	}
-	if g.NetIncomeFromContinuingOps, err = reader.asOptionalDecimal(prefix + "netIncomeFromContinuingOps"); err != nil {
-		return g, err
-	}
-	if g.NetIncomeApplicableToCommonShares, err = reader.asOptionalDecimal(prefix + "netIncomeApplicableToCommonShares"); err != nil {
-		return g, err
-	}
-	return g, nil
-
-}
-func buildEarningsInfo(reader *csvReaderMap, prefix string) (EarningsInfo, error) {
-	var err error
-	g := EarningsInfo{}
-	if g.Date, err = reader.asString(prefix + "date"); err != nil {
-		return g, err
-	}
-	if g.EpsActual, err = reader.asOptionalDecimal(prefix + "epsActual"); err != nil {
-		return g, err
-	}
-	if g.EpsEstimate, err = reader.asOptionalDecimal(prefix + "epsEstimate"); err != nil {
-		return g, err
-	}
-	if g.EpsDifference, err = reader.asOptionalDecimal(prefix + "epsDifference"); err != nil {
-		return g, err
-	}
-	if g.SurprisePercent, err = reader.asOptionalDecimal(prefix + "surprisePercent"); err != nil {
-		return g, err
-	}
-	return g, nil
 }

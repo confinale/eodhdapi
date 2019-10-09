@@ -1,6 +1,5 @@
 {
   "LastUpdate": "0001-01-01T00:00:00Z",
-  "Ticker": "",
   "General": {
     "Code": "GSPC",
     "Type": "INDEX",
@@ -10,745 +9,3543 @@
     "CurrencyName": "NA",
     "CurrencySymbol": "NA",
     "CountryName": "NA",
-    "CountryISO": "NA",
-    "Sector": "",
-    "Industry": "",
-    "Description": "",
-    "ISIN": null,
-    "FullTimeEmployees": null,
-    "UpdatedAt": null,
-    "CUSIP": null,
-    "LogoURL": null,
-    "CIK": null,
-    "EmployerIdNumber": null,
-    "FiscalYearEnd": null,
-    "IPODate": null,
-    "InternationalDomestic": null,
-    "GicSector": null,
-    "GicGroup": null,
-    "GicIndustry": null,
-    "GicSubIndustry": null,
-    "Address": null,
-    "Phone": null,
-    "WebURL": null
+    "CountryISO": "NA"
   },
-  "Highlights": {
-    "MarketCapitalization": null,
-    "MarketCapitalizationMln": "",
-    "EBITDA": null,
-    "PERatio": null,
-    "PEGRatio": null,
-    "WallStreetTargetPrice": null,
-    "BookValue": null,
-    "DividendShare": null,
-    "DividendYield": null,
-    "EarningsShare": null,
-    "EPSEstimateCurrentYear": null,
-    "EPSEstimateNextYear": null,
-    "EPSEstimateNextQuarter": null,
-    "MostRecentQuarter": "",
-    "ProfitMargin": null,
-    "OperatingMarginTTM": null,
-    "ReturnOnAssetsTTM": null,
-    "ReturnOnEquityTTM": null,
-    "RevenueTTM": null,
-    "RevenuePerShareTTM": null,
-    "QuarterlyRevenueGrowthYOY": null,
-    "GrossProfitTTM": null,
-    "DilutedEpsTTM": null,
-    "QuarterlyEarningsGrowthYOY": null
-  },
-  "Valuation": {
-    "TrailingPE": null,
-    "ForwardPE": null,
-    "PriceSalesTTM": null,
-    "PriceBookMRQ": null,
-    "EnterpriseValueRevenue": null,
-    "EnterpriseValueEbitda": null
-  },
-  "Technicals": {
-    "Beta": null,
-    "52WeekHigh": null,
-    "52WeekLow": null,
-    "50DayMA": null,
-    "200DayMA": null,
-    "SharesShort": null,
-    "SharesShortPriorMonth": null,
-    "ShortRatio": null,
-    "ShortPercent": null
-  },
-  "SplitsDividends": {
-    "ForwardAnnualDividendRate": null,
-    "ForwardAnnualDividendYield": null,
-    "PayoutRatio": null,
-    "DividendDate": "",
-    "ExDividendDate": "",
-    "LastSplitFactor": "",
-    "LastSplitDate": ""
-  },
-  "Earnings": {
-    "Last_0": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
+  "Components": {
+    "55": {
+      "Code": "HRB",
+      "Exchange": "US",
+      "Name": "H\u0026R Block, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Personal Services"
     },
-    "Last_1": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
+    "62": {
+      "Code": "NKE",
+      "Exchange": "US",
+      "Name": "NIKE, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Footwear \u0026 Accessories"
     },
-    "Last_2": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
+    "193": {
+      "Code": "COST",
+      "Exchange": "US",
+      "Name": "Costco Wholesale Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Discount Stores"
     },
-    "Last_3": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
-    }
-  },
-  "Financials": {
-    "Balance_Sheet": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      }
+    "305": {
+      "Code": "IBM",
+      "Exchange": "US",
+      "Name": "International Business Machines Corporation",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
     },
-    "Cash_Flow": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      }
+    "467": {
+      "Code": "KEYS",
+      "Exchange": "US",
+      "Name": "Keysight Technologies, Inc",
+      "Sector": "Technology",
+      "Industry": "Scientific \u0026 Technical Instruments"
     },
-    "Income_Statement": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
-      }
+    "474": {
+      "Code": "ZBH",
+      "Exchange": "US",
+      "Name": "Zimmer Biomet Holdings, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "38": {
+      "Code": "AVGO",
+      "Exchange": "US",
+      "Name": "Broadcom Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "140": {
+      "Code": "HRL",
+      "Exchange": "US",
+      "Name": "Hormel Foods Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "377": {
+      "Code": "XEL",
+      "Exchange": "US",
+      "Name": "Xcel Energy Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "29": {
+      "Code": "GIS",
+      "Exchange": "US",
+      "Name": "General Mills, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "117": {
+      "Code": "A",
+      "Exchange": "US",
+      "Name": "Agilent Technologies, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "32": {
+      "Code": "MLM",
+      "Exchange": "US",
+      "Name": "Martin Marietta Materials, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Building Materials"
+    },
+    "226": {
+      "Code": "VLO",
+      "Exchange": "US",
+      "Name": "Valero Energy Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Refining \u0026 Marketing"
+    },
+    "294": {
+      "Code": "WFC",
+      "Exchange": "US",
+      "Name": "Wells Fargo \u0026 Company",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    "297": {
+      "Code": "AZO",
+      "Exchange": "US",
+      "Name": "AutoZone, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "325": {
+      "Code": "F",
+      "Exchange": "US",
+      "Name": "Ford Motor Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto Manufacturers"
+    },
+    "352": {
+      "Code": "STZ",
+      "Exchange": "US",
+      "Name": "Constellation Brands, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Wineries \u0026 Distilleries"
+    },
+    "355": {
+      "Code": "FTNT",
+      "Exchange": "US",
+      "Name": "Fortinet, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "17": {
+      "Code": "VAR",
+      "Exchange": "US",
+      "Name": "Varian Medical Systems, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "366": {
+      "Code": "UPS",
+      "Exchange": "US",
+      "Name": "United Parcel Service, Inc",
+      "Sector": "Industrials",
+      "Industry": "Integrated Shipping \u0026 Logistics"
+    },
+    "103": {
+      "Code": "SWKS",
+      "Exchange": "US",
+      "Name": "Skyworks Solutions, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "107": {
+      "Code": "RF",
+      "Exchange": "US",
+      "Name": "Regions Financial Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "108": {
+      "Code": "FBHS",
+      "Exchange": "US",
+      "Name": "Fortune Brands Home \u0026 Security, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Furnishings \u0026 Fixtures"
+    },
+    "137": {
+      "Code": "LUV",
+      "Exchange": "US",
+      "Name": "Southwest Airlines Co",
+      "Sector": "Industrials",
+      "Industry": "Airlines"
+    },
+    "204": {
+      "Code": "MKC",
+      "Exchange": "US",
+      "Name": "McCormick \u0026 Company, Incorporated",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "347": {
+      "Code": "ATO",
+      "Exchange": "US",
+      "Name": "Atmos Energy Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Gas"
+    },
+    "381": {
+      "Code": "VRSN",
+      "Exchange": "US",
+      "Name": "VeriSign, Inc",
+      "Sector": "Technology",
+      "Industry": "Internet Content \u0026 Information"
+    },
+    "45": {
+      "Code": "WAT",
+      "Exchange": "US",
+      "Name": "Waters Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "401": {
+      "Code": "ADS",
+      "Exchange": "US",
+      "Name": "Alliance Data Systems Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "166": {
+      "Code": "T",
+      "Exchange": "US",
+      "Name": "AT\u0026T Inc",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    "118": {
+      "Code": "IFF",
+      "Exchange": "US",
+      "Name": "International Flavors \u0026 Fragrances Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "424": {
+      "Code": "MAC",
+      "Exchange": "US",
+      "Name": "Macerich Company",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "50": {
+      "Code": "HON",
+      "Exchange": "US",
+      "Name": "Honeywell International Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "244": {
+      "Code": "DG",
+      "Exchange": "US",
+      "Name": "Dollar General Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Discount Stores"
+    },
+    "144": {
+      "Code": "AEE",
+      "Exchange": "US",
+      "Name": "Ameren Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "27": {
+      "Code": "NDAQ",
+      "Exchange": "US",
+      "Name": "Nasdaq, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Financial Exchanges"
+    },
+    "278": {
+      "Code": "DISCA",
+      "Exchange": "US",
+      "Name": "Discovery, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "4": {
+      "Code": "PGR",
+      "Exchange": "US",
+      "Name": "The Progressive Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "429": {
+      "Code": "CMI",
+      "Exchange": "US",
+      "Name": "Cummins Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "135": {
+      "Code": "UHS",
+      "Exchange": "US",
+      "Name": "Universal Health Services, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Care"
+    },
+    "169": {
+      "Code": "APH",
+      "Exchange": "US",
+      "Name": "Amphenol Corporation",
+      "Sector": "Technology",
+      "Industry": "Electronic Components"
+    },
+    "238": {
+      "Code": "LYB",
+      "Exchange": "US",
+      "Name": "LyondellBasell Industries N.V",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "435": {
+      "Code": "WAB",
+      "Exchange": "US",
+      "Name": "Wabtec Corporation",
+      "Sector": "Industrials",
+      "Industry": "Railroads"
+    },
+    "465": {
+      "Code": "ANTM",
+      "Exchange": "US",
+      "Name": "Anthem, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "39": {
+      "Code": "AMT",
+      "Exchange": "US",
+      "Name": "American Tower Corporation (REIT)",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    "387": {
+      "Code": "SJM",
+      "Exchange": "US",
+      "Name": "The J. M. Smucker Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "403": {
+      "Code": "NUE",
+      "Exchange": "US",
+      "Name": "Nucor Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Steel"
+    },
+    "267": {
+      "Code": "AVB",
+      "Exchange": "US",
+      "Name": "AvalonBay Communities, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "160": {
+      "Code": "EXR",
+      "Exchange": "US",
+      "Name": "Extra Space Storage Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Industrial"
+    },
+    "112": {
+      "Code": "CCI",
+      "Exchange": "US",
+      "Name": "Crown Castle International Corp. (REIT)",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Diversified"
+    },
+    "129": {
+      "Code": "CME",
+      "Exchange": "US",
+      "Name": "CME Group Inc",
+      "Sector": "Financial Services",
+      "Industry": "Financial Exchanges"
+    },
+    "370": {
+      "Code": "MKTX",
+      "Exchange": "US",
+      "Name": "MarketAxess Holdings Inc",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "422": {
+      "Code": "ALLE",
+      "Exchange": "US",
+      "Name": "Allegion plc",
+      "Sector": "Industrials",
+      "Industry": "Security \u0026 Protection Services"
+    },
+    "20": {
+      "Code": "WHR",
+      "Exchange": "US",
+      "Name": "Whirlpool Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Furnishings \u0026 Fixtures"
+    },
+    "31": {
+      "Code": "CNC",
+      "Exchange": "US",
+      "Name": "Centene Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "221": {
+      "Code": "NSC",
+      "Exchange": "US",
+      "Name": "Norfolk Southern Corporation",
+      "Sector": "Industrials",
+      "Industry": "Railroads"
+    },
+    "70": {
+      "Code": "WEC",
+      "Exchange": "US",
+      "Name": "WEC Energy Group, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "362": {
+      "Code": "GPC",
+      "Exchange": "US",
+      "Name": "Genuine Parts Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "485": {
+      "Code": "HD",
+      "Exchange": "US",
+      "Name": "The Home Depot, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Improvement Stores"
+    },
+    "151": {
+      "Code": "AOS",
+      "Exchange": "US",
+      "Name": "A. O. Smith Corporation",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "242": {
+      "Code": "FOX",
+      "Exchange": "US",
+      "Name": "Fox Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Broadcasting - TV"
+    },
+    "153": {
+      "Code": "MXIM",
+      "Exchange": "US",
+      "Name": "Maxim Integrated Products, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "210": {
+      "Code": "MA",
+      "Exchange": "US",
+      "Name": "Mastercard Incorporated",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "211": {
+      "Code": "CELG",
+      "Exchange": "US",
+      "Name": "Celgene Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "163": {
+      "Code": "BBY",
+      "Exchange": "US",
+      "Name": "Best Buy Co., Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "313": {
+      "Code": "ETR",
+      "Exchange": "US",
+      "Name": "Entergy Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "353": {
+      "Code": "NFLX",
+      "Exchange": "US",
+      "Name": "Netflix, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "101": {
+      "Code": "RJF",
+      "Exchange": "US",
+      "Name": "Raymond James Financial, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "92": {
+      "Code": "DLTR",
+      "Exchange": "US",
+      "Name": "Dollar Tree, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Discount Stores"
+    },
+    "95": {
+      "Code": "XLNX",
+      "Exchange": "US",
+      "Name": "Xilinx, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "133": {
+      "Code": "NWL",
+      "Exchange": "US",
+      "Name": "Newell Brands Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "469": {
+      "Code": "CFG",
+      "Exchange": "US",
+      "Name": "Citizens Financial Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "68": {
+      "Code": "INFO",
+      "Exchange": "US",
+      "Name": "IHS Markit Ltd",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "111": {
+      "Code": "AMAT",
+      "Exchange": "US",
+      "Name": "Applied Materials, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductor Equipment \u0026 Materials"
+    },
+    "156": {
+      "Code": "HIG",
+      "Exchange": "US",
+      "Name": "The Hartford Financial Services Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    "205": {
+      "Code": "FLIR",
+      "Exchange": "US",
+      "Name": "FLIR Systems, Inc",
+      "Sector": "Technology",
+      "Industry": "Scientific \u0026 Technical Instruments"
+    },
+    "243": {
+      "Code": "UAL",
+      "Exchange": "US",
+      "Name": "United Airlines Holdings, Inc",
+      "Sector": "Industrials",
+      "Industry": "Airlines"
+    },
+    "256": {
+      "Code": "CAT",
+      "Exchange": "US",
+      "Name": "Caterpillar Inc",
+      "Sector": "Industrials",
+      "Industry": "Farm \u0026 Construction Equipment"
+    },
+    "379": {
+      "Code": "IVZ",
+      "Exchange": "US",
+      "Name": "Invesco Ltd",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "409": {
+      "Code": "YUM",
+      "Exchange": "US",
+      "Name": "YUM! Brands, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Restaurants"
+    },
+    "67": {
+      "Code": "IT",
+      "Exchange": "US",
+      "Name": "Gartner, Inc",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "430": {
+      "Code": "DOV",
+      "Exchange": "US",
+      "Name": "Dover Corporation",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "480": {
+      "Code": "ARNC",
+      "Exchange": "US",
+      "Name": "Arconic Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "167": {
+      "Code": "KLAC",
+      "Exchange": "US",
+      "Name": "KLA Corporation",
+      "Sector": "Technology",
+      "Industry": "Semiconductor Equipment \u0026 Materials"
+    },
+    "110": {
+      "Code": "CE",
+      "Exchange": "US",
+      "Name": "Celanese Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Chemicals"
+    },
+    "179": {
+      "Code": "AIV",
+      "Exchange": "US",
+      "Name": "Apartment Investment and Management Company",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "450": {
+      "Code": "HP",
+      "Exchange": "US",
+      "Name": "Helmerich \u0026 Payne, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Drilling"
+    },
+    "14": {
+      "Code": "EIX",
+      "Exchange": "US",
+      "Name": "Edison International",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "49": {
+      "Code": "SNPS",
+      "Exchange": "US",
+      "Name": "Synopsys, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "423": {
+      "Code": "ARE",
+      "Exchange": "US",
+      "Name": "Alexandria Real Estate Equities, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Office"
+    },
+    "456": {
+      "Code": "ABBV",
+      "Exchange": "US",
+      "Name": "AbbVie Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "194": {
+      "Code": "AAPL",
+      "Exchange": "US",
+      "Name": "Apple Inc",
+      "Sector": "Technology",
+      "Industry": "Consumer Electronics"
+    },
+    "24": {
+      "Code": "CTAS",
+      "Exchange": "US",
+      "Name": "Cintas Corporation",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "114": {
+      "Code": "PPG",
+      "Exchange": "US",
+      "Name": "PPG Industries, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "209": {
+      "Code": "VNO",
+      "Exchange": "US",
+      "Name": "Vornado Realty Trust",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Office"
+    },
+    "413": {
+      "Code": "UNH",
+      "Exchange": "US",
+      "Name": "UnitedHealth Group Incorporated",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "13": {
+      "Code": "BMY",
+      "Exchange": "US",
+      "Name": "Bristol-Myers Squibb Company",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "175": {
+      "Code": "SPG",
+      "Exchange": "US",
+      "Name": "Simon Property Group, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "306": {
+      "Code": "ISRG",
+      "Exchange": "US",
+      "Name": "Intuitive Surgical, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "389": {
+      "Code": "CVS",
+      "Exchange": "US",
+      "Name": "CVS Health Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "405": {
+      "Code": "VZ",
+      "Exchange": "US",
+      "Name": "Verizon Communications Inc",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    "442": {
+      "Code": "HPQ",
+      "Exchange": "US",
+      "Name": "HP Inc",
+      "Sector": "Technology",
+      "Industry": "Computer Systems"
+    },
+    "461": {
+      "Code": "PYPL",
+      "Exchange": "US",
+      "Name": "PayPal Holdings, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "478": {
+      "Code": "SPGI",
+      "Exchange": "US",
+      "Name": "S\u0026P Global Inc",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "10": {
+      "Code": "SO",
+      "Exchange": "US",
+      "Name": "The Southern Company",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "346": {
+      "Code": "DIS",
+      "Exchange": "US",
+      "Name": "The Walt Disney Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "44": {
+      "Code": "RCL",
+      "Exchange": "US",
+      "Name": "Royal Caribbean Cruises Ltd",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "251": {
+      "Code": "NTRS",
+      "Exchange": "US",
+      "Name": "Northern Trust Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "259": {
+      "Code": "JNJ",
+      "Exchange": "US",
+      "Name": "Johnson \u0026 Johnson",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "280": {
+      "Code": "NWSA",
+      "Exchange": "US",
+      "Name": "News Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Broadcasting - TV"
+    },
+    "367": {
+      "Code": "BK",
+      "Exchange": "US",
+      "Name": "The Bank of New York Mellon Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "415": {
+      "Code": "PRGO",
+      "Exchange": "US",
+      "Name": "Perrigo Company plc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Specialty \u0026 Generic"
+    },
+    "439": {
+      "Code": "WM",
+      "Exchange": "US",
+      "Name": "Waste Management, Inc",
+      "Sector": "Industrials",
+      "Industry": "Waste Management"
+    },
+    "139": {
+      "Code": "FFIV",
+      "Exchange": "US",
+      "Name": "F5 Networks, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Infrastructure"
+    },
+    "438": {
+      "Code": "ZION",
+      "Exchange": "US",
+      "Name": "Zions Bancorporation, National Association",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    "145": {
+      "Code": "CL",
+      "Exchange": "US",
+      "Name": "Colgate-Palmolive Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "272": {
+      "Code": "EFX",
+      "Exchange": "US",
+      "Name": "Equifax Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "380": {
+      "Code": "PH",
+      "Exchange": "US",
+      "Name": "Parker-Hannifin Corporation",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "123": {
+      "Code": "UNP",
+      "Exchange": "US",
+      "Name": "Union Pacific Corporation",
+      "Sector": "Industrials",
+      "Industry": "Railroads"
+    },
+    "277": {
+      "Code": "MRK",
+      "Exchange": "US",
+      "Name": "Merck \u0026 Co., Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "357": {
+      "Code": "V",
+      "Exchange": "US",
+      "Name": "Visa Inc",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "426": {
+      "Code": "MGM",
+      "Exchange": "US",
+      "Name": "MGM Resorts International",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Resorts \u0026 Casinos"
+    },
+    "470": {
+      "Code": "KHC",
+      "Exchange": "US",
+      "Name": "The Kraft Heinz Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "488": {
+      "Code": "MTD",
+      "Exchange": "US",
+      "Name": "Mettler-Toledo International Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "128": {
+      "Code": "GLW",
+      "Exchange": "US",
+      "Name": "Corning Incorporated",
+      "Sector": "Technology",
+      "Industry": "Electronic Components"
+    },
+    "319": {
+      "Code": "XRAY",
+      "Exchange": "US",
+      "Name": "DENTSPLY SIRONA Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "66": {
+      "Code": "HES",
+      "Exchange": "US",
+      "Name": "Hess Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "33": {
+      "Code": "NBL",
+      "Exchange": "US",
+      "Name": "Noble Energy, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "54": {
+      "Code": "MYL",
+      "Exchange": "US",
+      "Name": "Mylan N.V",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Specialty \u0026 Generic"
+    },
+    "365": {
+      "Code": "AMG",
+      "Exchange": "US",
+      "Name": "Affiliated Managers Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "391": {
+      "Code": "XRX",
+      "Exchange": "US",
+      "Name": "Xerox Holdings Corporation",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "399": {
+      "Code": "RHI",
+      "Exchange": "US",
+      "Name": "Robert Half International Inc",
+      "Sector": "Industrials",
+      "Industry": "Staffing \u0026 Outsourcing Services"
+    },
+    "498": {
+      "Code": "EVRG",
+      "Exchange": "US",
+      "Name": "Evergy, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "23": {
+      "Code": "WCG",
+      "Exchange": "US",
+      "Name": "WellCare Health Plans, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "230": {
+      "Code": "ETFC",
+      "Exchange": "US",
+      "Name": "E*TRADE Financial Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "279": {
+      "Code": "VRSK",
+      "Exchange": "US",
+      "Name": "Verisk Analytics, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "344": {
+      "Code": "MOS",
+      "Exchange": "US",
+      "Name": "The Mosaic Company",
+      "Sector": "Basic Materials",
+      "Industry": "Agricultural Inputs"
+    },
+    "410": {
+      "Code": "HAS",
+      "Exchange": "US",
+      "Name": "Hasbro, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "460": {
+      "Code": "AGN",
+      "Exchange": "US",
+      "Name": "Allergan plc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Specialty \u0026 Generic"
+    },
+    "482": {
+      "Code": "UAA",
+      "Exchange": "US",
+      "Name": "Under Armour, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "159": {
+      "Code": "EQIX",
+      "Exchange": "US",
+      "Name": "Equinix, Inc. (REIT)",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Diversified"
+    },
+    "255": {
+      "Code": "KIM",
+      "Exchange": "US",
+      "Name": "Kimco Realty Corporation",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "360": {
+      "Code": "JBHT",
+      "Exchange": "US",
+      "Name": "J.B. Hunt Transport Services, Inc",
+      "Sector": "Industrials",
+      "Industry": "Integrated Shipping \u0026 Logistics"
+    },
+    "378": {
+      "Code": "DTE",
+      "Exchange": "US",
+      "Name": "DTE Energy Company",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "190": {
+      "Code": "HOG",
+      "Exchange": "US",
+      "Name": "Harley-Davidson, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Recreational Vehicles"
+    },
+    "239": {
+      "Code": "EBAY",
+      "Exchange": "US",
+      "Name": "eBay Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "374": {
+      "Code": "PBCT",
+      "Exchange": "US",
+      "Name": "People's United Financial, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "220": {
+      "Code": "IPGP",
+      "Exchange": "US",
+      "Name": "IPG Photonics Corporation",
+      "Sector": "Technology",
+      "Industry": "Semiconductor Equipment \u0026 Materials"
+    },
+    "141": {
+      "Code": "TSCO",
+      "Exchange": "US",
+      "Name": "Tractor Supply Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "214": {
+      "Code": "BAC",
+      "Exchange": "US",
+      "Name": "Bank of America Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    "285": {
+      "Code": "IEX",
+      "Exchange": "US",
+      "Name": "IDEX Corporation",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "302": {
+      "Code": "FOXA",
+      "Exchange": "US",
+      "Name": "Fox Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Broadcasting - TV"
+    },
+    "449": {
+      "Code": "TTWO",
+      "Exchange": "US",
+      "Name": "Take-Two Interactive Software, Inc",
+      "Sector": "Technology",
+      "Industry": "Electronic Gaming \u0026 Multimedia"
+    },
+    "51": {
+      "Code": "EW",
+      "Exchange": "US",
+      "Name": "Edwards Lifesciences Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "487": {
+      "Code": "LH",
+      "Exchange": "US",
+      "Name": "Laboratory Corporation of America Holdings",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "284": {
+      "Code": "LKQ",
+      "Exchange": "US",
+      "Name": "LKQ Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto Parts"
+    },
+    "104": {
+      "Code": "HBI",
+      "Exchange": "US",
+      "Name": "Hanesbrands Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "173": {
+      "Code": "EMN",
+      "Exchange": "US",
+      "Name": "Eastman Chemical Company",
+      "Sector": "Basic Materials",
+      "Industry": "Chemicals"
+    },
+    "215": {
+      "Code": "MO",
+      "Exchange": "US",
+      "Name": "Altria Group, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Tobacco"
+    },
+    "223": {
+      "Code": "ABT",
+      "Exchange": "US",
+      "Name": "Abbott Laboratories",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "264": {
+      "Code": "TAP",
+      "Exchange": "US",
+      "Name": "Molson Coors Brewing Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Brewers"
+    },
+    "288": {
+      "Code": "NOC",
+      "Exchange": "US",
+      "Name": "Northrop Grumman Corporation",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "351": {
+      "Code": "CMCSA",
+      "Exchange": "US",
+      "Name": "Comcast Corporation",
+      "Sector": "Communication Services",
+      "Industry": "Pay TV"
+    },
+    "96": {
+      "Code": "CB",
+      "Exchange": "US",
+      "Name": "Chubb Limited",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "471": {
+      "Code": "HPE",
+      "Exchange": "US",
+      "Name": "Hewlett Packard Enterprise Company",
+      "Sector": "Technology",
+      "Industry": "Communication Equipment"
+    },
+    "441": {
+      "Code": "FDX",
+      "Exchange": "US",
+      "Name": "FedEx Corporation",
+      "Sector": "Industrials",
+      "Industry": "Integrated Shipping \u0026 Logistics"
+    },
+    "453": {
+      "Code": "STT",
+      "Exchange": "US",
+      "Name": "State Street Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "262": {
+      "Code": "MDLZ",
+      "Exchange": "US",
+      "Name": "Mondelez International, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Confectioners"
+    },
+    "176": {
+      "Code": "COF",
+      "Exchange": "US",
+      "Name": "Capital One Financial Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "207": {
+      "Code": "ALK",
+      "Exchange": "US",
+      "Name": "Alaska Air Group, Inc",
+      "Sector": "Industrials",
+      "Industry": "Airlines"
+    },
+    "236": {
+      "Code": "ALGN",
+      "Exchange": "US",
+      "Name": "Align Technology, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "268": {
+      "Code": "MDT",
+      "Exchange": "US",
+      "Name": "Medtronic plc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "308": {
+      "Code": "NOV",
+      "Exchange": "US",
+      "Name": "National Oilwell Varco, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Equipment \u0026 Services"
+    },
+    "18": {
+      "Code": "FAST",
+      "Exchange": "US",
+      "Name": "Fastenal Company",
+      "Sector": "Industrials",
+      "Industry": "Industrial Distribution"
+    },
+    "164": {
+      "Code": "PLD",
+      "Exchange": "US",
+      "Name": "Prologis, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Industrial"
+    },
+    "77": {
+      "Code": "EOG",
+      "Exchange": "US",
+      "Name": "EOG Resources, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "64": {
+      "Code": "ROL",
+      "Exchange": "US",
+      "Name": "Rollins, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "147": {
+      "Code": "NKTR",
+      "Exchange": "US",
+      "Name": "Nektar Therapeutics",
+      "Sector": "Healthcare",
+      "Industry": "Biotechnology"
+    },
+    "326": {
+      "Code": "DAL",
+      "Exchange": "US",
+      "Name": "Delta Air Lines, Inc",
+      "Sector": "Industrials",
+      "Industry": "Airlines"
+    },
+    "385": {
+      "Code": "JCI",
+      "Exchange": "US",
+      "Name": "Johnson Controls International plc",
+      "Sector": "Industrials",
+      "Industry": "Engineering \u0026 Construction"
+    },
+    "21": {
+      "Code": "INTC",
+      "Exchange": "US",
+      "Name": "Intel Corporation",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "65": {
+      "Code": "BBT",
+      "Exchange": "US",
+      "Name": "BB\u0026T Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "100": {
+      "Code": "EQR",
+      "Exchange": "US",
+      "Name": "Equity Residential",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "331": {
+      "Code": "LNT",
+      "Exchange": "US",
+      "Name": "Alliant Energy Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "332": {
+      "Code": "INCY",
+      "Exchange": "US",
+      "Name": "Incyte Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Biotechnology"
+    },
+    "395": {
+      "Code": "ROP",
+      "Exchange": "US",
+      "Name": "Roper Technologies, Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "416": {
+      "Code": "FRC",
+      "Exchange": "US",
+      "Name": "First Republic Bank",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "57": {
+      "Code": "CERN",
+      "Exchange": "US",
+      "Name": "Cerner Corporation",
+      "Sector": "Technology",
+      "Industry": "Health Information Services"
+    },
+    "157": {
+      "Code": "HFC",
+      "Exchange": "US",
+      "Name": "HollyFrontier Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Refining \u0026 Marketing"
+    },
+    "311": {
+      "Code": "AES",
+      "Exchange": "US",
+      "Name": "The AES Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "9": {
+      "Code": "AFL",
+      "Exchange": "US",
+      "Name": "Aflac Incorporated",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "88": {
+      "Code": "KSS",
+      "Exchange": "US",
+      "Name": "Kohl's Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Department Stores"
+    },
+    "161": {
+      "Code": "CVX",
+      "Exchange": "US",
+      "Name": "Chevron Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Integrated"
+    },
+    "249": {
+      "Code": "TRIP",
+      "Exchange": "US",
+      "Name": "TripAdvisor, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "290": {
+      "Code": "PXD",
+      "Exchange": "US",
+      "Name": "Pioneer Natural Resources Company",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "343": {
+      "Code": "COG",
+      "Exchange": "US",
+      "Name": "Cabot Oil \u0026 Gas Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "436": {
+      "Code": "TMUS",
+      "Exchange": "US",
+      "Name": "T-Mobile US, Inc",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    "447": {
+      "Code": "REGN",
+      "Exchange": "US",
+      "Name": "Regeneron Pharmaceuticals, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Biotechnology"
+    },
+    "3": {
+      "Code": "UNM",
+      "Exchange": "US",
+      "Name": "Unum Group",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "229": {
+      "Code": "WMT",
+      "Exchange": "US",
+      "Name": "Walmart Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Discount Stores"
+    },
+    "275": {
+      "Code": "RSG",
+      "Exchange": "US",
+      "Name": "Republic Services, Inc",
+      "Sector": "Industrials",
+      "Industry": "Waste Management"
+    },
+    "452": {
+      "Code": "WU",
+      "Exchange": "US",
+      "Name": "The Western Union Company",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "479": {
+      "Code": "FTV",
+      "Exchange": "US",
+      "Name": "Fortive Corporation",
+      "Sector": "Technology",
+      "Industry": "Scientific \u0026 Technical Instruments"
+    },
+    "178": {
+      "Code": "BLL",
+      "Exchange": "US",
+      "Name": "Ball Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "420": {
+      "Code": "IR",
+      "Exchange": "US",
+      "Name": "Ingersoll-Rand Plc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "36": {
+      "Code": "VMC",
+      "Exchange": "US",
+      "Name": "Vulcan Materials Company",
+      "Sector": "Basic Materials",
+      "Industry": "Building Materials"
+    },
+    "16": {
+      "Code": "JEC",
+      "Exchange": "US",
+      "Name": "Jacobs Engineering Group Inc",
+      "Sector": "Industrials",
+      "Industry": "Engineering \u0026 Construction"
+    },
+    "73": {
+      "Code": "SNA",
+      "Exchange": "US",
+      "Name": "Snap-on Incorporated",
+      "Sector": "Industrials",
+      "Industry": "Tools \u0026 Accessories"
+    },
+    "119": {
+      "Code": "LNC",
+      "Exchange": "US",
+      "Name": "Lincoln National Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "180": {
+      "Code": "M",
+      "Exchange": "US",
+      "Name": "Macy's, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Department Stores"
+    },
+    "334": {
+      "Code": "FB",
+      "Exchange": "US",
+      "Name": "Facebook, Inc",
+      "Sector": "Technology",
+      "Industry": "Internet Content \u0026 Information"
+    },
+    "8": {
+      "Code": "ANSS",
+      "Exchange": "US",
+      "Name": "ANSYS, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "318": {
+      "Code": "GRMN",
+      "Exchange": "US",
+      "Name": "Garmin Ltd",
+      "Sector": "Technology",
+      "Industry": "Scientific \u0026 Technical Instruments"
+    },
+    "333": {
+      "Code": "HBAN",
+      "Exchange": "US",
+      "Name": "Huntington Bancshares Incorporated",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "397": {
+      "Code": "DHR",
+      "Exchange": "US",
+      "Name": "Danaher Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "316": {
+      "Code": "MCK",
+      "Exchange": "US",
+      "Name": "McKesson Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Medical Distribution"
+    },
+    "115": {
+      "Code": "INTU",
+      "Exchange": "US",
+      "Name": "Intuit Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "136": {
+      "Code": "ILMN",
+      "Exchange": "US",
+      "Name": "Illumina, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "289": {
+      "Code": "PFG",
+      "Exchange": "US",
+      "Name": "Principal Financial Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    "396": {
+      "Code": "SYK",
+      "Exchange": "US",
+      "Name": "Stryker Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "41": {
+      "Code": "CPB",
+      "Exchange": "US",
+      "Name": "Campbell Soup Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "102": {
+      "Code": "HCP",
+      "Exchange": "US",
+      "Name": "HCP, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Healthcare Facilities"
+    },
+    "241": {
+      "Code": "XOM",
+      "Exchange": "US",
+      "Name": "Exxon Mobil Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Integrated"
+    },
+    "1": {
+      "Code": "MNST",
+      "Exchange": "US",
+      "Name": "Monster Beverage Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Soft Drinks"
+    },
+    "228": {
+      "Code": "SHW",
+      "Exchange": "US",
+      "Name": "The Sherwin-Williams Company",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "315": {
+      "Code": "HAL",
+      "Exchange": "US",
+      "Name": "Halliburton Company",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Equipment \u0026 Services"
+    },
+    "330": {
+      "Code": "ADI",
+      "Exchange": "US",
+      "Name": "Analog Devices, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "342": {
+      "Code": "TMO",
+      "Exchange": "US",
+      "Name": "Thermo Fisher Scientific Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "375": {
+      "Code": "DVA",
+      "Exchange": "US",
+      "Name": "DaVita Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Care"
+    },
+    "494": {
+      "Code": "IQV",
+      "Exchange": "US",
+      "Name": "IQVIA Holdings Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "121": {
+      "Code": "CNP",
+      "Exchange": "US",
+      "Name": "CenterPoint Energy, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Gas"
+    },
+    "120": {
+      "Code": "EL",
+      "Exchange": "US",
+      "Name": "The Estee Lauder Companies Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "281": {
+      "Code": "MSFT",
+      "Exchange": "US",
+      "Name": "Microsoft Corporation",
+      "Sector": "Technology",
+      "Industry": "Software - Infrastructure"
+    },
+    "386": {
+      "Code": "EXPE",
+      "Exchange": "US",
+      "Name": "Expedia Group, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "90": {
+      "Code": "CF",
+      "Exchange": "US",
+      "Name": "CF Industries Holdings, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Agricultural Inputs"
+    },
+    "177": {
+      "Code": "CHD",
+      "Exchange": "US",
+      "Name": "Church \u0026 Dwight Co., Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "291": {
+      "Code": "WDC",
+      "Exchange": "US",
+      "Name": "Western Digital Corporation",
+      "Sector": "Technology",
+      "Industry": "Data Storage"
+    },
+    "309": {
+      "Code": "DLR",
+      "Exchange": "US",
+      "Name": "Digital Realty Trust, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Office"
+    },
+    "359": {
+      "Code": "GE",
+      "Exchange": "US",
+      "Name": "General Electric Company",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "388": {
+      "Code": "MTB",
+      "Exchange": "US",
+      "Name": "M\u0026T Bank Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "99": {
+      "Code": "TGT",
+      "Exchange": "US",
+      "Name": "Target Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Discount Stores"
+    },
+    "184": {
+      "Code": "FRT",
+      "Exchange": "US",
+      "Name": "Federal Realty Investment Trust",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "293": {
+      "Code": "AKAM",
+      "Exchange": "US",
+      "Name": "Akamai Technologies, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "321": {
+      "Code": "TROW",
+      "Exchange": "US",
+      "Name": "T. Rowe Price Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "322": {
+      "Code": "HSY",
+      "Exchange": "US",
+      "Name": "The Hershey Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Confectioners"
+    },
+    "183": {
+      "Code": "ORCL",
+      "Exchange": "US",
+      "Name": "Oracle Corporation",
+      "Sector": "Technology",
+      "Industry": "Software - Infrastructure"
+    },
+    "189": {
+      "Code": "ZTS",
+      "Exchange": "US",
+      "Name": "Zoetis Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Specialty \u0026 Generic"
+    },
+    "393": {
+      "Code": "BEN",
+      "Exchange": "US",
+      "Name": "Franklin Resources, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "63": {
+      "Code": "KMB",
+      "Exchange": "US",
+      "Name": "Kimberly-Clark Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "131": {
+      "Code": "SBUX",
+      "Exchange": "US",
+      "Name": "Starbucks Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Restaurants"
+    },
+    "201": {
+      "Code": "K",
+      "Exchange": "US",
+      "Name": "Kellogg Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "354": {
+      "Code": "FANG",
+      "Exchange": "US",
+      "Name": "Diamondback Energy, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "481": {
+      "Code": "LW",
+      "Exchange": "US",
+      "Name": "Lamb Weston Holdings, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "499": {
+      "Code": "LIN",
+      "Exchange": "US",
+      "Name": "Linde plc",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "69": {
+      "Code": "CTSH",
+      "Exchange": "US",
+      "Name": "Cognizant Technology Solutions Corporation",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "298": {
+      "Code": "HLT",
+      "Exchange": "US",
+      "Name": "Hilton Worldwide Holdings Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Lodging"
+    },
+    "407": {
+      "Code": "TWTR",
+      "Exchange": "US",
+      "Name": "Twitter, Inc",
+      "Sector": "Technology",
+      "Industry": "Internet Content \u0026 Information"
+    },
+    "489": {
+      "Code": "SLB",
+      "Exchange": "US",
+      "Name": "Schlumberger Limited",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Equipment \u0026 Services"
+    },
+    "276": {
+      "Code": "PWR",
+      "Exchange": "US",
+      "Name": "Quanta Services, Inc",
+      "Sector": "Industrials",
+      "Industry": "Engineering \u0026 Construction"
+    },
+    "234": {
+      "Code": "AWK",
+      "Exchange": "US",
+      "Name": "American Water Works Company, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Water"
+    },
+    "124": {
+      "Code": "JWN",
+      "Exchange": "US",
+      "Name": "Nordstrom, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Department Stores"
+    },
+    "181": {
+      "Code": "PCAR",
+      "Exchange": "US",
+      "Name": "PACCAR Inc",
+      "Sector": "Industrials",
+      "Industry": "Truck Manufacturing"
+    },
+    "260": {
+      "Code": "EXPD",
+      "Exchange": "US",
+      "Name": "Expeditors International of Washington, Inc",
+      "Sector": "Industrials",
+      "Industry": "Integrated Shipping \u0026 Logistics"
+    },
+    "369": {
+      "Code": "SEE",
+      "Exchange": "US",
+      "Name": "Sealed Air Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "372": {
+      "Code": "CHTR",
+      "Exchange": "US",
+      "Name": "Charter Communications, Inc",
+      "Sector": "Communication Services",
+      "Industry": "Pay TV"
+    },
+    "454": {
+      "Code": "TFX",
+      "Exchange": "US",
+      "Name": "Teleflex Incorporated",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "28": {
+      "Code": "NRG",
+      "Exchange": "US",
+      "Name": "NRG Energy, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Independent Power Producers"
+    },
+    "222": {
+      "Code": "LEN",
+      "Exchange": "US",
+      "Name": "Lennar Corporation",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    "364": {
+      "Code": "O",
+      "Exchange": "US",
+      "Name": "Realty Income Corporation",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "417": {
+      "Code": "CI",
+      "Exchange": "US",
+      "Name": "Cigna Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "444": {
+      "Code": "PFE",
+      "Exchange": "US",
+      "Name": "Pfizer Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "492": {
+      "Code": "JEF",
+      "Exchange": "US",
+      "Name": "Jefferies Financial Group Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "170": {
+      "Code": "PRU",
+      "Exchange": "US",
+      "Name": "Prudential Financial, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "484": {
+      "Code": "BHGE",
+      "Exchange": "US",
+      "Name": "Baker Hughes, a GE company",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Equipment \u0026 Services"
+    },
+    "491": {
+      "Code": "CBRE",
+      "Exchange": "US",
+      "Name": "CBRE Group, Inc",
+      "Sector": "Real Estate",
+      "Industry": "Real Estate Services"
+    },
+    "171": {
+      "Code": "ATVI",
+      "Exchange": "US",
+      "Name": "Activision Blizzard, Inc",
+      "Sector": "Technology",
+      "Industry": "Electronic Gaming \u0026 Multimedia"
+    },
+    "158": {
+      "Code": "CDNS",
+      "Exchange": "US",
+      "Name": "Cadence Design Systems, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "246": {
+      "Code": "ULTA",
+      "Exchange": "US",
+      "Name": "Ulta Beauty, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "412": {
+      "Code": "RMD",
+      "Exchange": "US",
+      "Name": "ResMed Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "458": {
+      "Code": "NEE",
+      "Exchange": "US",
+      "Name": "NextEra Energy, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "466": {
+      "Code": "MAA",
+      "Exchange": "US",
+      "Name": "Mid-America Apartment Communities, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "80": {
+      "Code": "AON",
+      "Exchange": "US",
+      "Name": "Aon plc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance Brokers"
+    },
+    "283": {
+      "Code": "BSX",
+      "Exchange": "US",
+      "Name": "Boston Scientific Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "468": {
+      "Code": "BRK-B",
+      "Exchange": "US",
+      "Name": "Berkshire Hathaway Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    "202": {
+      "Code": "PAYX",
+      "Exchange": "US",
+      "Name": "Paychex, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "71": {
+      "Code": "FTI",
+      "Exchange": "US",
+      "Name": "TechnipFMC plc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Equipment \u0026 Services"
+    },
+    "86": {
+      "Code": "MSCI",
+      "Exchange": "US",
+      "Name": "MSCI Inc",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "105": {
+      "Code": "MS",
+      "Exchange": "US",
+      "Name": "Morgan Stanley",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "199": {
+      "Code": "PNR",
+      "Exchange": "US",
+      "Name": "Pentair plc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "60": {
+      "Code": "STI",
+      "Exchange": "US",
+      "Name": "SunTrust Banks, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "433": {
+      "Code": "BXP",
+      "Exchange": "US",
+      "Name": "Boston Properties, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Office"
+    },
+    "486": {
+      "Code": "EXC",
+      "Exchange": "US",
+      "Name": "Exelon Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "303": {
+      "Code": "ECL",
+      "Exchange": "US",
+      "Name": "Ecolab Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "122": {
+      "Code": "AVY",
+      "Exchange": "US",
+      "Name": "Avery Dennison Corporation",
+      "Sector": "Industrials",
+      "Industry": "Business Equipment"
+    },
+    "149": {
+      "Code": "AME",
+      "Exchange": "US",
+      "Name": "AMETEK, Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "286": {
+      "Code": "DE",
+      "Exchange": "US",
+      "Name": "Deere \u0026 Company",
+      "Sector": "Industrials",
+      "Industry": "Farm \u0026 Construction Equipment"
+    },
+    "11": {
+      "Code": "REG",
+      "Exchange": "US",
+      "Name": "Regency Centers Corporation",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Retail"
+    },
+    "455": {
+      "Code": "ABMD",
+      "Exchange": "US",
+      "Name": "Abiomed, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Devices"
+    },
+    "225": {
+      "Code": "TRV",
+      "Exchange": "US",
+      "Name": "The Travelers Companies, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "186": {
+      "Code": "RL",
+      "Exchange": "US",
+      "Name": "Ralph Lauren Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "240": {
+      "Code": "COO",
+      "Exchange": "US",
+      "Name": "The Cooper Companies, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "335": {
+      "Code": "AMGN",
+      "Exchange": "US",
+      "Name": "Amgen Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "146": {
+      "Code": "ALXN",
+      "Exchange": "US",
+      "Name": "Alexion Pharmaceuticals, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Biotechnology"
+    },
+    "292": {
+      "Code": "IDXX",
+      "Exchange": "US",
+      "Name": "IDEXX Laboratories, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "314": {
+      "Code": "L",
+      "Exchange": "US",
+      "Name": "Loews Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "25": {
+      "Code": "ALL",
+      "Exchange": "US",
+      "Name": "The Allstate Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "81": {
+      "Code": "CHRW",
+      "Exchange": "US",
+      "Name": "C.H. Robinson Worldwide, Inc",
+      "Sector": "Industrials",
+      "Industry": "Integrated Shipping \u0026 Logistics"
+    },
+    "125": {
+      "Code": "CTL",
+      "Exchange": "US",
+      "Name": "CenturyLink, Inc",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    "143": {
+      "Code": "CSCO",
+      "Exchange": "US",
+      "Name": "Cisco Systems, Inc",
+      "Sector": "Technology",
+      "Industry": "Communication Equipment"
+    },
+    "216": {
+      "Code": "VIAB",
+      "Exchange": "US",
+      "Name": "Viacom Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "245": {
+      "Code": "ETN",
+      "Exchange": "US",
+      "Name": "Eaton Corporation plc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "340": {
+      "Code": "OMC",
+      "Exchange": "US",
+      "Name": "Omnicom Group Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Advertising Agencies"
+    },
+    "382": {
+      "Code": "GILD",
+      "Exchange": "US",
+      "Name": "Gilead Sciences, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "37": {
+      "Code": "MRO",
+      "Exchange": "US",
+      "Name": "Marathon Oil Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "493": {
+      "Code": "TPR",
+      "Exchange": "US",
+      "Name": "Tapestry, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Luxury Goods"
+    },
+    "349": {
+      "Code": "DD",
+      "Exchange": "US",
+      "Name": "DuPont de Nemours, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Chemicals"
+    },
+    "350": {
+      "Code": "ORLY",
+      "Exchange": "US",
+      "Name": "O'Reilly Automotive, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "411": {
+      "Code": "XEC",
+      "Exchange": "US",
+      "Name": "Cimarex Energy Co",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "462": {
+      "Code": "BF-B",
+      "Exchange": "US",
+      "Name": "Brown-Forman Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Wineries \u0026 Distilleries"
+    },
+    "299": {
+      "Code": "LEG",
+      "Exchange": "US",
+      "Name": "Leggett \u0026 Platt, Incorporated",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Furnishings \u0026 Fixtures"
+    },
+    "345": {
+      "Code": "MPC",
+      "Exchange": "US",
+      "Name": "Marathon Petroleum Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Refining \u0026 Marketing"
+    },
+    "406": {
+      "Code": "AMP",
+      "Exchange": "US",
+      "Name": "Ameriprise Financial, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "477": {
+      "Code": "WLTW",
+      "Exchange": "US",
+      "Name": "Willis Towers Watson Public Limited Company",
+      "Sector": "Financial Services",
+      "Industry": "Insurance Brokers"
+    },
+    "254": {
+      "Code": "ADSK",
+      "Exchange": "US",
+      "Name": "Autodesk, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "132": {
+      "Code": "CAG",
+      "Exchange": "US",
+      "Name": "Conagra Brands, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Packaged Foods"
+    },
+    "233": {
+      "Code": "KMX",
+      "Exchange": "US",
+      "Name": "CarMax, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto \u0026 Truck Dealerships"
+    },
+    "428": {
+      "Code": "SYMC",
+      "Exchange": "US",
+      "Name": "Symantec Corporation",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "97": {
+      "Code": "KEY",
+      "Exchange": "US",
+      "Name": "KeyCorp",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "195": {
+      "Code": "BA",
+      "Exchange": "US",
+      "Name": "The Boeing Company",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "208": {
+      "Code": "UDR",
+      "Exchange": "US",
+      "Name": "UDR, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "336": {
+      "Code": "AIG",
+      "Exchange": "US",
+      "Name": "American International Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    "43": {
+      "Code": "FMC",
+      "Exchange": "US",
+      "Name": "FMC Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Agricultural Inputs"
+    },
+    "94": {
+      "Code": "JPM",
+      "Exchange": "US",
+      "Name": "JPMorgan Chase \u0026 Co",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    "312": {
+      "Code": "ED",
+      "Exchange": "US",
+      "Name": "Consolidated Edison, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "384": {
+      "Code": "PSA",
+      "Exchange": "US",
+      "Name": "Public Storage",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Industrial"
+    },
+    "425": {
+      "Code": "KR",
+      "Exchange": "US",
+      "Name": "The Kroger Co",
+      "Sector": "Consumer Defensive",
+      "Industry": "Grocery Stores"
+    },
+    "53": {
+      "Code": "MCD",
+      "Exchange": "US",
+      "Name": "McDonald's Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Restaurants"
+    },
+    "218": {
+      "Code": "FE",
+      "Exchange": "US",
+      "Name": "FirstEnergy Corp",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "6": {
+      "Code": "CSX",
+      "Exchange": "US",
+      "Name": "CSX Corporation",
+      "Sector": "Industrials",
+      "Industry": "Railroads"
+    },
+    "231": {
+      "Code": "MMM",
+      "Exchange": "US",
+      "Name": "3M Company",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "270": {
+      "Code": "MHK",
+      "Exchange": "US",
+      "Name": "Mohawk Industries, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Furnishings \u0026 Fixtures"
+    },
+    "432": {
+      "Code": "FLS",
+      "Exchange": "US",
+      "Name": "Flowserve Corporation",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "191": {
+      "Code": "CDW",
+      "Exchange": "US",
+      "Name": "CDW Corporation",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "253": {
+      "Code": "AMZN",
+      "Exchange": "US",
+      "Name": "Amazon.com, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "274": {
+      "Code": "SCHW",
+      "Exchange": "US",
+      "Name": "The Charles Schwab Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "376": {
+      "Code": "PKI",
+      "Exchange": "US",
+      "Name": "PerkinElmer, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "503": {
+      "Code": "AMCR",
+      "Exchange": "US",
+      "Name": "Amcor plc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "87": {
+      "Code": "DRE",
+      "Exchange": "US",
+      "Name": "Duke Realty Corporation",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Industrial"
+    },
+    "324": {
+      "Code": "BLK",
+      "Exchange": "US",
+      "Name": "BlackRock, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    "295": {
+      "Code": "JNPR",
+      "Exchange": "US",
+      "Name": "Juniper Networks, Inc",
+      "Sector": "Technology",
+      "Industry": "Communication Equipment"
+    },
+    "48": {
+      "Code": "DISH",
+      "Exchange": "US",
+      "Name": "DISH Network Corporation",
+      "Sector": "Communication Services",
+      "Industry": "Pay TV"
+    },
+    "150": {
+      "Code": "RTN",
+      "Exchange": "US",
+      "Name": "Raytheon Company",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "219": {
+      "Code": "HII",
+      "Exchange": "US",
+      "Name": "Huntington Ingalls Industries, Inc",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "434": {
+      "Code": "RE",
+      "Exchange": "US",
+      "Name": "Everest Re Group, Ltd",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Reinsurance"
+    },
+    "7": {
+      "Code": "ADP",
+      "Exchange": "US",
+      "Name": "Automatic Data Processing, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "257": {
+      "Code": "PM",
+      "Exchange": "US",
+      "Name": "Philip Morris International Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Tobacco"
+    },
+    "83": {
+      "Code": "CMG",
+      "Exchange": "US",
+      "Name": "Chipotle Mexican Grill, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Restaurants"
+    },
+    "338": {
+      "Code": "DVN",
+      "Exchange": "US",
+      "Name": "Devon Energy Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "341": {
+      "Code": "LDOS",
+      "Exchange": "US",
+      "Name": "Leidos Holdings, Inc",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "82": {
+      "Code": "GPN",
+      "Exchange": "US",
+      "Name": "Global Payments Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "418": {
+      "Code": "WY",
+      "Exchange": "US",
+      "Name": "Weyerhaeuser Company",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Diversified"
+    },
+    "443": {
+      "Code": "NLSN",
+      "Exchange": "US",
+      "Name": "Nielsen Holdings plc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "483": {
+      "Code": "DXC",
+      "Exchange": "US",
+      "Name": "DXC Technology Company",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "76": {
+      "Code": "IRM",
+      "Exchange": "US",
+      "Name": "Iron Mountain Incorporated",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Diversified"
+    },
+    "348": {
+      "Code": "CMS",
+      "Exchange": "US",
+      "Name": "CMS Energy Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "448": {
+      "Code": "STX",
+      "Exchange": "US",
+      "Name": "Seagate Technology plc",
+      "Sector": "Technology",
+      "Industry": "Data Storage"
+    },
+    "258": {
+      "Code": "PNC",
+      "Exchange": "US",
+      "Name": "The PNC Financial Services Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "198": {
+      "Code": "SLG",
+      "Exchange": "US",
+      "Name": "SL Green Realty Corp",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Office"
+    },
+    "320": {
+      "Code": "PVH",
+      "Exchange": "US",
+      "Name": "PVH Corp",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "185": {
+      "Code": "PNW",
+      "Exchange": "US",
+      "Name": "Pinnacle West Capital Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "437": {
+      "Code": "USB",
+      "Exchange": "US",
+      "Name": "U.S. Bancorp",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "472": {
+      "Code": "WBA",
+      "Exchange": "US",
+      "Name": "Walgreens Boots Alliance, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Pharmaceutical Retailers"
+    },
+    "46": {
+      "Code": "PPL",
+      "Exchange": "US",
+      "Name": "PPL Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "212": {
+      "Code": "GOOGL",
+      "Exchange": "US",
+      "Name": "Alphabet Inc",
+      "Sector": "Technology",
+      "Industry": "Internet Content \u0026 Information"
+    },
+    "457": {
+      "Code": "BR",
+      "Exchange": "US",
+      "Name": "Broadridge Financial Solutions, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "91": {
+      "Code": "TJX",
+      "Exchange": "US",
+      "Name": "The TJX Companies, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Stores"
+    },
+    "282": {
+      "Code": "TSN",
+      "Exchange": "US",
+      "Name": "Tyson Foods, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Farm Products"
+    },
+    "501": {
+      "Code": "GL",
+      "Exchange": "US",
+      "Name": "Globe Life Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "232": {
+      "Code": "NWS",
+      "Exchange": "US",
+      "Name": "News Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Broadcasting - TV"
+    },
+    "154": {
+      "Code": "MSI",
+      "Exchange": "US",
+      "Name": "Motorola Solutions, Inc",
+      "Sector": "Technology",
+      "Industry": "Communication Equipment"
+    },
+    "213": {
+      "Code": "HOLX",
+      "Exchange": "US",
+      "Name": "Hologic, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "496": {
+      "Code": "BKNG",
+      "Exchange": "US",
+      "Name": "Booking Holdings Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "35": {
+      "Code": "ACN",
+      "Exchange": "US",
+      "Name": "Accenture plc",
+      "Sector": "Technology",
+      "Industry": "Information Technology Services"
+    },
+    "473": {
+      "Code": "ES",
+      "Exchange": "US",
+      "Name": "Eversource Energy",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "162": {
+      "Code": "HUM",
+      "Exchange": "US",
+      "Name": "Humana Inc",
+      "Sector": "Healthcare",
+      "Industry": "Health Care Plans"
+    },
+    "30": {
+      "Code": "SIVB",
+      "Exchange": "US",
+      "Name": "SVB Financial Group",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "93": {
+      "Code": "DRI",
+      "Exchange": "US",
+      "Name": "Darden Restaurants, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Restaurants"
+    },
+    "126": {
+      "Code": "MAS",
+      "Exchange": "US",
+      "Name": "Masco Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Building Materials"
+    },
+    "152": {
+      "Code": "BIIB",
+      "Exchange": "US",
+      "Name": "Biogen Inc",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "168": {
+      "Code": "LLY",
+      "Exchange": "US",
+      "Name": "Eli Lilly and Company",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    "329": {
+      "Code": "WYNN",
+      "Exchange": "US",
+      "Name": "Wynn Resorts, Limited",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Resorts \u0026 Casinos"
+    },
+    "414": {
+      "Code": "FLT",
+      "Exchange": "US",
+      "Name": "FleetCor Technologies, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "431": {
+      "Code": "SYY",
+      "Exchange": "US",
+      "Name": "Sysco Corporation",
+      "Sector": "Consumer Defensive",
+      "Industry": "Food Distribution"
+    },
+    "58": {
+      "Code": "KO",
+      "Exchange": "US",
+      "Name": "The Coca-Cola Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Soft Drinks"
+    },
+    "265": {
+      "Code": "AXP",
+      "Exchange": "US",
+      "Name": "American Express Company",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "356": {
+      "Code": "GM",
+      "Exchange": "US",
+      "Name": "General Motors Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto Manufacturers"
+    },
+    "495": {
+      "Code": "APTV",
+      "Exchange": "US",
+      "Name": "Aptiv PLC",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto Parts"
+    },
+    "252": {
+      "Code": "EMR",
+      "Exchange": "US",
+      "Name": "Emerson Electric Co",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "165": {
+      "Code": "OXY",
+      "Exchange": "US",
+      "Name": "Occidental Petroleum Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "497": {
+      "Code": "WELL",
+      "Exchange": "US",
+      "Name": "Welltower Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Healthcare Facilities"
+    },
+    "0": {
+      "Code": "AIZ",
+      "Exchange": "US",
+      "Name": "Assurant, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Specialty"
+    },
+    "172": {
+      "Code": "VFC",
+      "Exchange": "US",
+      "Name": "V.F. Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "445": {
+      "Code": "DOW",
+      "Exchange": "US",
+      "Name": "Dow Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Chemicals"
+    },
+    "5": {
+      "Code": "FISV",
+      "Exchange": "US",
+      "Name": "Fiserv, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "206": {
+      "Code": "PEG",
+      "Exchange": "US",
+      "Name": "Public Service Enterprise Group Incorporated",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "459": {
+      "Code": "MCHP",
+      "Exchange": "US",
+      "Name": "Microchip Technology Incorporated",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "19": {
+      "Code": "PHM",
+      "Exchange": "US",
+      "Name": "PulteGroup, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Residential Construction"
+    },
+    "89": {
+      "Code": "CTXS",
+      "Exchange": "US",
+      "Name": "Citrix Systems, Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Infrastructure"
+    },
+    "307": {
+      "Code": "CPRT",
+      "Exchange": "US",
+      "Name": "Copart, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto \u0026 Truck Dealerships"
+    },
+    "56": {
+      "Code": "NTAP",
+      "Exchange": "US",
+      "Name": "NetApp, Inc",
+      "Sector": "Technology",
+      "Industry": "Data Storage"
+    },
+    "250": {
+      "Code": "ADM",
+      "Exchange": "US",
+      "Name": "Archer-Daniels-Midland Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Farm Products"
+    },
+    "400": {
+      "Code": "ITW",
+      "Exchange": "US",
+      "Name": "Illinois Tool Works Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "134": {
+      "Code": "CLX",
+      "Exchange": "US",
+      "Name": "The Clorox Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "130": {
+      "Code": "NCLH",
+      "Exchange": "US",
+      "Name": "Norwegian Cruise Line Holdings Ltd",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "287": {
+      "Code": "ROK",
+      "Exchange": "US",
+      "Name": "Rockwell Automation, Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "339": {
+      "Code": "PEP",
+      "Exchange": "US",
+      "Name": "PepsiCo, Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Beverages - Soft Drinks"
+    },
+    "476": {
+      "Code": "WRK",
+      "Exchange": "US",
+      "Name": "WestRock Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "504": {
+      "Code": "LHX",
+      "Exchange": "US",
+      "Name": "L3Harris Technologies, Inc",
+      "Sector": "Technology",
+      "Industry": "Communication Equipment"
+    },
+    "79": {
+      "Code": "TXN",
+      "Exchange": "US",
+      "Name": "Texas Instruments Incorporated",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "74": {
+      "Code": "CMA",
+      "Exchange": "US",
+      "Name": "Comerica Incorporated",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "127": {
+      "Code": "PSX",
+      "Exchange": "US",
+      "Name": "Phillips 66",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Refining \u0026 Marketing"
+    },
+    "269": {
+      "Code": "AAP",
+      "Exchange": "US",
+      "Name": "Advance Auto Parts, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Specialty Retail"
+    },
+    "310": {
+      "Code": "TDG",
+      "Exchange": "US",
+      "Name": "TransDigm Group Incorporated",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "323": {
+      "Code": "DHI",
+      "Exchange": "US",
+      "Name": "D.R. Horton, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Residential Construction"
+    },
+    "361": {
+      "Code": "MET",
+      "Exchange": "US",
+      "Name": "MetLife, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Life"
+    },
+    "373": {
+      "Code": "MU",
+      "Exchange": "US",
+      "Name": "Micron Technology, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductor Memory"
+    },
+    "12": {
+      "Code": "LMT",
+      "Exchange": "US",
+      "Name": "Lockheed Martin Corporation",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "394": {
+      "Code": "TIF",
+      "Exchange": "US",
+      "Name": "Tiffany \u0026 Co",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Luxury Goods"
+    },
+    "47": {
+      "Code": "FITB",
+      "Exchange": "US",
+      "Name": "Fifth Third Bancorp",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Regional - US"
+    },
+    "109": {
+      "Code": "AEP",
+      "Exchange": "US",
+      "Name": "American Electric Power Company, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "227": {
+      "Code": "CRM",
+      "Exchange": "US",
+      "Name": "salesforce.com, inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "237": {
+      "Code": "NVDA",
+      "Exchange": "US",
+      "Name": "NVIDIA Corporation",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "404": {
+      "Code": "BWA",
+      "Exchange": "US",
+      "Name": "BorgWarner Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Auto Parts"
+    },
+    "446": {
+      "Code": "SRE",
+      "Exchange": "US",
+      "Name": "Sempra Energy",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "26": {
+      "Code": "CBOE",
+      "Exchange": "US",
+      "Name": "Cboe Global Markets, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Financial Exchanges"
+    },
+    "61": {
+      "Code": "AJG",
+      "Exchange": "US",
+      "Name": "Arthur J. Gallagher \u0026 Co",
+      "Sector": "Financial Services",
+      "Industry": "Insurance Brokers"
+    },
+    "182": {
+      "Code": "UA",
+      "Exchange": "US",
+      "Name": "Under Armour, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "368": {
+      "Code": "OKE",
+      "Exchange": "US",
+      "Name": "ONEOK, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Midstream"
+    },
+    "42": {
+      "Code": "LB",
+      "Exchange": "US",
+      "Name": "L Brands, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Stores"
+    },
+    "304": {
+      "Code": "HST",
+      "Exchange": "US",
+      "Name": "Host Hotels \u0026 Resorts, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Hotel \u0026 Motel"
+    },
+    "500": {
+      "Code": "CPRI",
+      "Exchange": "US",
+      "Name": "Capri Holdings Limited",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Manufacturing"
+    },
+    "174": {
+      "Code": "IP",
+      "Exchange": "US",
+      "Name": "International Paper Company",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "451": {
+      "Code": "ABC",
+      "Exchange": "US",
+      "Name": "AmerisourceBergen Corporation",
+      "Sector": "Healthcare",
+      "Industry": "Medical Distribution"
+    },
+    "301": {
+      "Code": "GOOG",
+      "Exchange": "US",
+      "Name": "Alphabet Inc",
+      "Sector": "Technology",
+      "Industry": "Internet Content \u0026 Information"
+    },
+    "188": {
+      "Code": "FIS",
+      "Exchange": "US",
+      "Name": "Fidelity National Information Services, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "383": {
+      "Code": "APA",
+      "Exchange": "US",
+      "Name": "Apache Corporation",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "402": {
+      "Code": "JKHY",
+      "Exchange": "US",
+      "Name": "Jack Henry \u0026 Associates, Inc",
+      "Sector": "Industrials",
+      "Industry": "Business Services"
+    },
+    "490": {
+      "Code": "UTX",
+      "Exchange": "US",
+      "Name": "United Technologies Corporation",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "148": {
+      "Code": "DGX",
+      "Exchange": "US",
+      "Name": "Quest Diagnostics Incorporated",
+      "Sector": "Healthcare",
+      "Industry": "Diagnostics \u0026 Research"
+    },
+    "317": {
+      "Code": "BAX",
+      "Exchange": "US",
+      "Name": "Baxter International Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "392": {
+      "Code": "XYL",
+      "Exchange": "US",
+      "Name": "Xylem Inc",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    "475": {
+      "Code": "QRVO",
+      "Exchange": "US",
+      "Name": "Qorvo, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "196": {
+      "Code": "DUK",
+      "Exchange": "US",
+      "Name": "Duke Energy Corporation",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Electric"
+    },
+    "224": {
+      "Code": "WMB",
+      "Exchange": "US",
+      "Name": "The Williams Companies, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Midstream"
+    },
+    "371": {
+      "Code": "VRTX",
+      "Exchange": "US",
+      "Name": "Vertex Pharmaceuticals Incorporated",
+      "Sector": "Healthcare",
+      "Industry": "Biotechnology"
+    },
+    "200": {
+      "Code": "CBS",
+      "Exchange": "US",
+      "Name": "CBS Corporation",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "440": {
+      "Code": "ICE",
+      "Exchange": "US",
+      "Name": "Intercontinental Exchange, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Financial Exchanges"
+    },
+    "113": {
+      "Code": "VTR",
+      "Exchange": "US",
+      "Name": "Ventas, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Healthcare Facilities"
+    },
+    "328": {
+      "Code": "HSIC",
+      "Exchange": "US",
+      "Name": "Henry Schein, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Distribution"
+    },
+    "337": {
+      "Code": "NI",
+      "Exchange": "US",
+      "Name": "NiSource Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Regulated Gas"
+    },
+    "421": {
+      "Code": "AMD",
+      "Exchange": "US",
+      "Name": "Advanced Micro Devices, Inc",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "22": {
+      "Code": "NEM",
+      "Exchange": "US",
+      "Name": "Newmont Goldcorp Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Gold"
+    },
+    "78": {
+      "Code": "FCX",
+      "Exchange": "US",
+      "Name": "Freeport-McMoRan Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Copper"
+    },
+    "138": {
+      "Code": "ROST",
+      "Exchange": "US",
+      "Name": "Ross Stores, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Stores"
+    },
+    "192": {
+      "Code": "URI",
+      "Exchange": "US",
+      "Name": "United Rentals, Inc",
+      "Sector": "Industrials",
+      "Industry": "Rental \u0026 Leasing Services"
+    },
+    "203": {
+      "Code": "CAH",
+      "Exchange": "US",
+      "Name": "Cardinal Health, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Distribution"
+    },
+    "235": {
+      "Code": "DFS",
+      "Exchange": "US",
+      "Name": "Discover Financial Services",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "247": {
+      "Code": "DISCK",
+      "Exchange": "US",
+      "Name": "Discovery, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Media - Diversified"
+    },
+    "327": {
+      "Code": "LRCX",
+      "Exchange": "US",
+      "Name": "Lam Research Corporation",
+      "Sector": "Technology",
+      "Industry": "Semiconductor Equipment \u0026 Materials"
+    },
+    "2": {
+      "Code": "GPS",
+      "Exchange": "US",
+      "Name": "The Gap, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Apparel Stores"
+    },
+    "390": {
+      "Code": "D",
+      "Exchange": "US",
+      "Name": "Dominion Energy, Inc",
+      "Sector": "Utilities",
+      "Industry": "Utilities - Diversified"
+    },
+    "187": {
+      "Code": "HCA",
+      "Exchange": "US",
+      "Name": "HCA Healthcare, Inc",
+      "Sector": "Healthcare",
+      "Industry": "Medical Care"
+    },
+    "261": {
+      "Code": "C",
+      "Exchange": "US",
+      "Name": "Citigroup Inc",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    "271": {
+      "Code": "EA",
+      "Exchange": "US",
+      "Name": "Electronic Arts Inc",
+      "Sector": "Technology",
+      "Industry": "Electronic Gaming \u0026 Multimedia"
+    },
+    "363": {
+      "Code": "MAR",
+      "Exchange": "US",
+      "Name": "Marriott International, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Lodging"
+    },
+    "84": {
+      "Code": "TEL",
+      "Exchange": "US",
+      "Name": "TE Connectivity Ltd",
+      "Sector": "Technology",
+      "Industry": "Electronic Components"
+    },
+    "300": {
+      "Code": "SBAC",
+      "Exchange": "US",
+      "Name": "SBA Communications Corporation",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Diversified"
+    },
+    "427": {
+      "Code": "CINF",
+      "Exchange": "US",
+      "Name": "Cincinnati Financial Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Property \u0026 Casualty"
+    },
+    "116": {
+      "Code": "IPG",
+      "Exchange": "US",
+      "Name": "The Interpublic Group of Companies, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Advertising Agencies"
+    },
+    "408": {
+      "Code": "MCO",
+      "Exchange": "US",
+      "Name": "Moody's Corporation",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "34": {
+      "Code": "QCOM",
+      "Exchange": "US",
+      "Name": "QUALCOMM Incorporated",
+      "Sector": "Technology",
+      "Industry": "Semiconductors"
+    },
+    "217": {
+      "Code": "KMI",
+      "Exchange": "US",
+      "Name": "Kinder Morgan, Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas Midstream"
+    },
+    "266": {
+      "Code": "ALB",
+      "Exchange": "US",
+      "Name": "Albemarle Corporation",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    "15": {
+      "Code": "GWW",
+      "Exchange": "US",
+      "Name": "W.W. Grainger, Inc",
+      "Sector": "Industrials",
+      "Industry": "Industrial Distribution"
+    },
+    "98": {
+      "Code": "GD",
+      "Exchange": "US",
+      "Name": "General Dynamics Corporation",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "106": {
+      "Code": "AAL",
+      "Exchange": "US",
+      "Name": "American Airlines Group Inc",
+      "Sector": "Industrials",
+      "Industry": "Airlines"
+    },
+    "197": {
+      "Code": "BDX",
+      "Exchange": "US",
+      "Name": "Becton, Dickinson and Company",
+      "Sector": "Healthcare",
+      "Industry": "Medical Instruments \u0026 Supplies"
+    },
+    "273": {
+      "Code": "ADBE",
+      "Exchange": "US",
+      "Name": "Adobe Inc",
+      "Sector": "Technology",
+      "Industry": "Software - Application"
+    },
+    "296": {
+      "Code": "CCL",
+      "Exchange": "US",
+      "Name": "Carnival Corporation \u0026 Plc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Leisure"
+    },
+    "358": {
+      "Code": "SWK",
+      "Exchange": "US",
+      "Name": "Stanley Black \u0026 Decker, Inc",
+      "Sector": "Industrials",
+      "Industry": "Tools \u0026 Accessories"
+    },
+    "464": {
+      "Code": "ANET",
+      "Exchange": "US",
+      "Name": "Arista Networks, Inc",
+      "Sector": "Technology",
+      "Industry": "Computer Systems"
+    },
+    "59": {
+      "Code": "GS",
+      "Exchange": "US",
+      "Name": "The Goldman Sachs Group, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Capital Markets"
+    },
+    "502": {
+      "Code": "CTVA",
+      "Exchange": "US",
+      "Name": "Corteva, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Agricultural Inputs"
+    },
+    "75": {
+      "Code": "COTY",
+      "Exchange": "US",
+      "Name": "Coty Inc",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
+    },
+    "85": {
+      "Code": "CXO",
+      "Exchange": "US",
+      "Name": "Concho Resources Inc",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "142": {
+      "Code": "COP",
+      "Exchange": "US",
+      "Name": "ConocoPhillips",
+      "Sector": "Energy",
+      "Industry": "Oil \u0026 Gas E\u0026P"
+    },
+    "248": {
+      "Code": "LOW",
+      "Exchange": "US",
+      "Name": "Lowe's Companies, Inc",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Home Improvement Stores"
+    },
+    "40": {
+      "Code": "PKG",
+      "Exchange": "US",
+      "Name": "Packaging Corporation of America",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Packaging \u0026 Containers"
+    },
+    "155": {
+      "Code": "ESS",
+      "Exchange": "US",
+      "Name": "Essex Property Trust, Inc",
+      "Sector": "Real Estate",
+      "Industry": "REIT - Residential"
+    },
+    "52": {
+      "Code": "APD",
+      "Exchange": "US",
+      "Name": "Air Products and Chemicals, Inc",
+      "Sector": "Basic Materials",
+      "Industry": "Chemicals"
+    },
+    "263": {
+      "Code": "KSU",
+      "Exchange": "US",
+      "Name": "Kansas City Southern",
+      "Sector": "Industrials",
+      "Industry": "Railroads"
+    },
+    "398": {
+      "Code": "TXT",
+      "Exchange": "US",
+      "Name": "Textron Inc",
+      "Sector": "Industrials",
+      "Industry": "Aerospace \u0026 Defense"
+    },
+    "419": {
+      "Code": "MMC",
+      "Exchange": "US",
+      "Name": "Marsh \u0026 McLennan Companies, Inc",
+      "Sector": "Financial Services",
+      "Industry": "Insurance Brokers"
+    },
+    "463": {
+      "Code": "SYF",
+      "Exchange": "US",
+      "Name": "Synchrony Financial",
+      "Sector": "Financial Services",
+      "Industry": "Credit Services"
+    },
+    "72": {
+      "Code": "PG",
+      "Exchange": "US",
+      "Name": "The Procter \u0026 Gamble Company",
+      "Sector": "Consumer Defensive",
+      "Industry": "Household \u0026 Personal Products"
     }
   }
 }

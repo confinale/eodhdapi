@@ -1,6 +1,5 @@
 {
   "LastUpdate": "0001-01-01T00:00:00Z",
-  "Ticker": "",
   "General": {
     "Code": "VTI",
     "Type": "ETF",
@@ -11,744 +10,596 @@
     "CurrencySymbol": "$",
     "CountryName": "USA",
     "CountryISO": "US",
-    "Sector": "",
-    "Industry": "",
     "Description": "The investment seeks to track the performance of a benchmark index that measures the investment return of the overall stock market. The fund employs an indexing investment approach designed to track the performance of the CRSP US Total Market Index, which represents approximately 100% of the investable U.S. stock market and includes large-, mid-, small-, and micro-cap stocks regularly traded on the New York Stock Exchange and Nasdaq. It invests by sampling the index, meaning that it holds a broadly diversified collection of securities that, in the aggregate, approximates the full index in terms of key characteristics.",
-    "ISIN": null,
-    "FullTimeEmployees": null,
     "UpdatedAt": "2019-10-02",
-    "CUSIP": null,
-    "LogoURL": null,
-    "CIK": null,
-    "EmployerIdNumber": null,
-    "FiscalYearEnd": null,
-    "IPODate": null,
-    "InternationalDomestic": null,
-    "GicSector": null,
-    "GicGroup": null,
-    "GicIndustry": null,
-    "GicSubIndustry": null,
-    "Address": null,
-    "Phone": null,
-    "WebURL": null
-  },
-  "Highlights": {
-    "MarketCapitalization": null,
-    "MarketCapitalizationMln": "",
-    "EBITDA": null,
-    "PERatio": null,
-    "PEGRatio": null,
-    "WallStreetTargetPrice": null,
-    "BookValue": null,
-    "DividendShare": null,
-    "DividendYield": null,
-    "EarningsShare": null,
-    "EPSEstimateCurrentYear": null,
-    "EPSEstimateNextYear": null,
-    "EPSEstimateNextQuarter": null,
-    "MostRecentQuarter": "",
-    "ProfitMargin": null,
-    "OperatingMarginTTM": null,
-    "ReturnOnAssetsTTM": null,
-    "ReturnOnEquityTTM": null,
-    "RevenueTTM": null,
-    "RevenuePerShareTTM": null,
-    "QuarterlyRevenueGrowthYOY": null,
-    "GrossProfitTTM": null,
-    "DilutedEpsTTM": null,
-    "QuarterlyEarningsGrowthYOY": null
-  },
-  "Valuation": {
-    "TrailingPE": null,
-    "ForwardPE": null,
-    "PriceSalesTTM": null,
-    "PriceBookMRQ": null,
-    "EnterpriseValueRevenue": null,
-    "EnterpriseValueEbitda": null
+    "Category": "Large Blend"
   },
   "Technicals": {
     "Beta": "1.02",
     "52WeekHigh": "154.51",
     "52WeekLow": "119.35",
     "50DayMA": "149.976",
-    "200DayMA": "148.6852",
-    "SharesShort": null,
-    "SharesShortPriorMonth": null,
-    "ShortRatio": null,
-    "ShortPercent": null
+    "200DayMA": "148.6852"
   },
-  "SplitsDividends": {
-    "ForwardAnnualDividendRate": null,
-    "ForwardAnnualDividendYield": null,
-    "PayoutRatio": null,
-    "DividendDate": "",
-    "ExDividendDate": "",
-    "LastSplitFactor": "",
-    "LastSplitDate": ""
-  },
-  "Earnings": {
-    "Last_0": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
-    },
-    "Last_1": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
-    },
-    "Last_2": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
-    },
-    "Last_3": {
-      "date": "",
-      "epsActual": null,
-      "epsEstimate": null,
-      "epsDifference": null,
-      "surprisePercent": null
-    }
-  },
-  "Financials": {
-    "Balance_Sheet": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+  "ETF_Data": {
+    "ISIN": "US9229087690",
+    "Company_Name": "Vanguard",
+    "Company_URL": "http://www.vanguard.com",
+    "ETF_URL": "https://personal.vanguard.com/us/funds/snapshot?FundIntExt=INT\u0026FundId=0970",
+    "Yield": "0.0187",
+    "Dividend_Paying_Frequency": "NA",
+    "Inception_Date": "1994-12-31",
+    "Max_Annual_Mgmt_Charge": "0.00",
+    "Ongoing_Charge": "0.00",
+    "Date_Ongoing_Charge": "0000-00-00",
+    "NetExpenseRatio": "0.00030",
+    "AnnualHoldingsTurnover": "0.03000",
+    "TotalAssets": "813485195264.00",
+    "Average_Mkt_Cap_Mil": "No data",
+    "Asset_Allocation": {
+      "Cash": {
+        "Long_%": "0.75105",
+        "Short_%": "0",
+        "Net_Assets_%": "0.75105"
       },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+      "NotClassified": {
+        "Long_%": "0.00001",
+        "Short_%": "0",
+        "Net_Assets_%": "0.00001"
       },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+      "Stock US": {
+        "Long_%": "0.91137",
+        "Short_%": "0",
+        "Net_Assets_%": "0.91137"
       },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+      "Other": {
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
       },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+      "Stock non-US": {
+        "Long_%": "98.33758",
+        "Short_%": "0",
+        "Net_Assets_%": "98.33758"
       },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
-      },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "intangibleAssets": null,
-        "totalLiab": null,
-        "totalStockholderEquity": null,
-        "deferredLongTermLiab": null,
-        "otherCurrentLiab": null,
-        "totalAssets": null,
-        "commonStock": null,
-        "commonStockSharesOutStanding": null,
-        "otherCurrentAssets": null,
-        "retainedEarnings": null,
-        "otherLiab": null,
-        "goodWill": null,
-        "otherAssets": null,
-        "cash": null,
-        "totalCurrentLiabilities": null,
-        "shortLongTermDebt": null,
-        "otherStockholderEquity": null,
-        "propertyPlantEquipment": null,
-        "totalCurrentAssets": null,
-        "longTermInvestments": null,
-        "netTangibleAssets": null,
-        "shortTermInvestments": null,
-        "netReceivables": null,
-        "longTermDebt": null,
-        "inventory": null,
-        "accountsPayable": null
+      "Bond": {
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
       }
     },
-    "Cash_Flow": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
+    "World_Regions": {
+      "United States": {
+        "Equity_%": "99.914192544821",
+        "Relative_to_Category": "99.916556968236"
       },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
-      },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "investments": null,
-        "changeToLiabilities": null,
-        "totalCashflowsFromInvestingActivities": null,
-        "netBorrowings": null,
-        "totalCashFromFinancingActivities": null,
-        "changeToOperatingActivities": null,
-        "netIncome": null,
-        "changeInCash": null,
-        "totalCashFromOperatingActivities": null,
-        "depreciation": null,
-        "otherCashflowsFromInvestingActivities": null,
-        "dividendsPaid": null,
-        "changeToInventory": null,
-        "changeToAccountReceivables": null,
-        "salePurchaseOfStock": null,
-        "otherCashflowsFromFinancingActivities": null,
-        "changeToNetincome": null,
-        "capitalExpenditures": null
+      "Canada": {
+        "Equity_%": "0.08580745517921",
+        "Relative_to_Category": "0.083443031764334"
       }
     },
-    "Income_Statement": {
-      "currency_symbol": "",
-      "quarterly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+    "Sector_Weights": {
+      "Consumer Cyclicals": {
+        "Equity_%": "13.552820152001",
+        "Relative_to_Category": "13.585537968085"
       },
-      "quarterly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Healthcare": {
+        "Equity_%": "13.343153387125",
+        "Relative_to_Category": "13.348494496459"
       },
-      "quarterly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Industrials": {
+        "Equity_%": "10.832852677515",
+        "Relative_to_Category": "10.510672711862"
       },
-      "quarterly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Consumer Non-Cyclicals": {
+        "Equity_%": "6.9356000724179",
+        "Relative_to_Category": "6.9728346017409"
       },
-      "yearly_last_0": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Utilities": {
+        "Equity_%": "3.4729233909913",
+        "Relative_to_Category": "3.4455289815193"
       },
-      "yearly_last_1": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Telecommunications Services": {
+        "Equity_%": "2.0211566340018",
+        "Relative_to_Category": "2.0254153171992"
       },
-      "yearly_last_2": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Technology": {
+        "Equity_%": "25.541640396328",
+        "Relative_to_Category": "25.862692952495"
       },
-      "yearly_last_3": {
-        "date": "",
-        "filing_date": null,
-        "researchDevelopment": null,
-        "effectOfAccountingCharges": null,
-        "incomeBeforeTax": null,
-        "minorityInterest": null,
-        "netIncome": null,
-        "sellingGeneralAdministrative": null,
-        "grossProfit": null,
-        "ebit": null,
-        "operatingIncome": null,
-        "otherOperatingExpenses": null,
-        "interestExpense": null,
-        "extraordinaryItems": null,
-        "nonRecurring": null,
-        "otherItems": null,
-        "incomeTaxExpense": null,
-        "totalRevenue": null,
-        "totalOperatingExpenses": null,
-        "costOfRevenue": null,
-        "totalOtherIncomeExpenseNet": null,
-        "discontinuedOperations": null,
-        "netIncomeFromContinuingOps": null,
-        "netIncomeApplicableToCommonShares": null
+      "Financials": {
+        "Equity_%": "17.320262760816",
+        "Relative_to_Category": "17.101704918154"
+      },
+      "Energy": {
+        "Equity_%": "4.1603566350794",
+        "Relative_to_Category": "4.2604838048629"
+      },
+      "Basic Materials": {
+        "Equity_%": "2.8192338869813",
+        "Relative_to_Category": "2.8866342476228"
       }
+    },
+    "Top_10_Holdings": {
+      "Berkshire Hathaway Inc": {
+        "Name": "Berkshire Hathaway Inc",
+        "Assets_%": "1.37"
+      },
+      "Exxon Mobil Corp": {
+        "Name": "Exxon Mobil Corp",
+        "Assets_%": "1.03"
+      },
+      "Amazon.com Inc": {
+        "Name": "Amazon.com Inc",
+        "Assets_%": "2.47"
+      },
+      "Facebook Inc": {
+        "Name": "Facebook Inc",
+        "Assets_%": "1.46"
+      },
+      "Alphabet Inc": {
+        "Name": "Alphabet Inc",
+        "Assets_%": "1.13"
+      },
+      "JPMorgan Chase": {
+        "Name": "JPMorgan Chase",
+        "Assets_%": "1.22"
+      },
+      "Johnson": {
+        "Name": "Johnson",
+        "Assets_%": "1.16"
+      },
+      "Procter": {
+        "Name": "Procter",
+        "Assets_%": "1.05"
+      },
+      "Microsoft Corp": {
+        "Name": "Microsoft Corp",
+        "Assets_%": "3.59"
+      },
+      "Apple Inc": {
+        "Name": "Apple Inc",
+        "Assets_%": "3.04"
+      }
+    },
+    "Holdings": {
+      "Altria Group Inc": {
+        "Name": "Altria Group Inc",
+        "Assets_%": "0.26"
+      },
+      "Dominion Energy Inc": {
+        "Name": "Dominion Energy Inc",
+        "Assets_%": "0.22"
+      },
+      "Apple Inc": {
+        "Name": "Apple Inc",
+        "Assets_%": "3.04"
+      },
+      "Berkshire Hathaway Inc": {
+        "Name": "Berkshire Hathaway Inc",
+        "Assets_%": "1.37"
+      },
+      "Wells Fargo": {
+        "Name": "Wells Fargo",
+        "Assets_%": "0.66"
+      },
+      "Philip Morris International Inc": {
+        "Name": "Philip Morris International Inc",
+        "Assets_%": "0.4"
+      },
+      "Lockheed Martin Corp": {
+        "Name": "Lockheed Martin Corp",
+        "Assets_%": "0.31"
+      },
+      "United Parcel Service Inc": {
+        "Name": "United Parcel Service Inc",
+        "Assets_%": "0.28"
+      },
+      "Raytheon Co": {
+        "Name": "Raytheon Co",
+        "Assets_%": "0.19"
+      },
+      "Facebook Inc": {
+        "Name": "Facebook Inc",
+        "Assets_%": "1.46"
+      },
+      "Mastercard Inc": {
+        "Name": "Mastercard Inc",
+        "Assets_%": "0.83"
+      },
+      "3M Co": {
+        "Name": "3M Co",
+        "Assets_%": "0.32"
+      },
+      "Qualcomm Inc": {
+        "Name": "Qualcomm Inc",
+        "Assets_%": "0.32"
+      },
+      "Booking Holdings Inc": {
+        "Name": "Booking Holdings Inc",
+        "Assets_%": "0.28"
+      },
+      "Intuitive Surgical Inc": {
+        "Name": "Intuitive Surgical Inc",
+        "Assets_%": "0.21"
+      },
+      "Stryker Corp": {
+        "Name": "Stryker Corp",
+        "Assets_%": "0.22"
+      },
+      "Chubb Ltd": {
+        "Name": "Chubb Ltd",
+        "Assets_%": "0.18"
+      },
+      "Verizon Communications Inc": {
+        "Name": "Verizon Communications Inc",
+        "Assets_%": "0.86"
+      },
+      "Union Pacific Corp": {
+        "Name": "Union Pacific Corp",
+        "Assets_%": "0.39"
+      },
+      "Starbucks Corp": {
+        "Name": "Starbucks Corp",
+        "Assets_%": "0.34"
+      },
+      "Bristol": {
+        "Name": "Bristol",
+        "Assets_%": "0.28"
+      },
+      "Gilead Sciences Inc": {
+        "Name": "Gilead Sciences Inc",
+        "Assets_%": "0.28"
+      },
+      "U.S. Bancorp": {
+        "Name": "U.S. Bancorp",
+        "Assets_%": "0.25"
+      },
+      "AT": {
+        "Name": "AT",
+        "Assets_%": "0.93"
+      },
+      "Mcdonald": {
+        "Name": "Mcdonald",
+        "Assets_%": "0.55"
+      },
+      "Boeing Co": {
+        "Name": "Boeing Co",
+        "Assets_%": "0.7"
+      },
+      "Texas Instruments Inc": {
+        "Name": "Texas Instruments Inc",
+        "Assets_%": "0.4"
+      },
+      "Eli Lilly and Co": {
+        "Name": "Eli Lilly and Co",
+        "Assets_%": "0.33"
+      },
+      "CVS": {
+        "Name": "CVS",
+        "Assets_%": "0.28"
+      },
+      "Zoetis Inc": {
+        "Name": "Zoetis Inc",
+        "Assets_%": "0.21"
+      },
+      "Automatic Data Processing Inc": {
+        "Name": "Automatic Data Processing Inc",
+        "Assets_%": "0.22"
+      },
+      "S": {
+        "Name": "S",
+        "Assets_%": "0.2"
+      },
+      "Walt Disney Co": {
+        "Name": "Walt Disney Co",
+        "Assets_%": "0.8"
+      },
+      "Citigroup Inc": {
+        "Name": "Citigroup Inc",
+        "Assets_%": "0.54"
+      },
+      "Salesforce.Com Inc": {
+        "Name": "Salesforce.Com Inc",
+        "Assets_%": "0.41"
+      },
+      "Oracle Corp": {
+        "Name": "Oracle Corp",
+        "Assets_%": "0.41"
+      },
+      "Netflix Inc": {
+        "Name": "Netflix Inc",
+        "Assets_%": "0.39"
+      },
+      "Intuit Inc": {
+        "Name": "Intuit Inc",
+        "Assets_%": "0.22"
+      },
+      "Allergan plc": {
+        "Name": "Allergan plc",
+        "Assets_%": "0.18"
+      },
+      "Home Depot Inc": {
+        "Name": "Home Depot Inc",
+        "Assets_%": "0.86"
+      },
+      "Chevron Corp": {
+        "Name": "Chevron Corp",
+        "Assets_%": "0.77"
+      },
+      "Merck": {
+        "Name": "Merck",
+        "Assets_%": "0.72"
+      },
+      "Fidelity National Information Services Inc": {
+        "Name": "Fidelity National Information Services Inc",
+        "Assets_%": "0.27"
+      },
+      "Becton Dickinson and Co": {
+        "Name": "Becton Dickinson and Co",
+        "Assets_%": "0.23"
+      },
+      "CME": {
+        "Name": "CME",
+        "Assets_%": "0.26"
+      },
+      "American Express Co": {
+        "Name": "American Express Co",
+        "Assets_%": "0.24"
+      },
+      "JPMorgan Chase": {
+        "Name": "JPMorgan Chase",
+        "Assets_%": "1.22"
+      },
+      "Johnson": {
+        "Name": "Johnson",
+        "Assets_%": "1.16"
+      },
+      "Intel Corp": {
+        "Name": "Intel Corp",
+        "Assets_%": "0.77"
+      },
+      "Cisco Systems Inc": {
+        "Name": "Cisco Systems Inc",
+        "Assets_%": "0.7"
+      },
+      "Broadcom Inc": {
+        "Name": "Broadcom Inc",
+        "Assets_%": "0.35"
+      },
+      "General Electric Co": {
+        "Name": "General Electric Co",
+        "Assets_%": "0.27"
+      },
+      "TJX": {
+        "Name": "TJX",
+        "Assets_%": "0.2"
+      },
+      "Target Corp": {
+        "Name": "Target Corp",
+        "Assets_%": "0.19"
+      },
+      "Deere": {
+        "Name": "Deere",
+        "Assets_%": "0.18"
+      },
+      "Coca": {
+        "Name": "Coca",
+        "Assets_%": "0.71"
+      },
+      "Comcast Corp": {
+        "Name": "Comcast Corp",
+        "Assets_%": "0.69"
+      },
+      "Abbvie Inc": {
+        "Name": "Abbvie Inc",
+        "Assets_%": "0.38"
+      },
+      "Charter Communications Inc": {
+        "Name": "Charter Communications Inc",
+        "Assets_%": "0.21"
+      },
+      "Duke Energy Corp": {
+        "Name": "Duke Energy Corp",
+        "Assets_%": "0.21"
+      },
+      "Cigna Corp": {
+        "Name": "Cigna Corp",
+        "Assets_%": "0.2"
+      },
+      "Goldman Sachs Group Inc": {
+        "Name": "Goldman Sachs Group Inc",
+        "Assets_%": "0.24"
+      },
+      "ConocoPhillips": {
+        "Name": "ConocoPhillips",
+        "Assets_%": "0.23"
+      },
+      "Procter": {
+        "Name": "Procter",
+        "Assets_%": "1.05"
+      },
+      "PepsiCo Inc": {
+        "Name": "PepsiCo Inc",
+        "Assets_%": "0.63"
+      },
+      "Abbott Laboratories": {
+        "Name": "Abbott Laboratories",
+        "Assets_%": "0.49"
+      },
+      "Adobe Inc": {
+        "Name": "Adobe Inc",
+        "Assets_%": "0.45"
+      },
+      "United Technologies Corp": {
+        "Name": "United Technologies Corp",
+        "Assets_%": "0.4"
+      },
+      "Mondelez International Inc": {
+        "Name": "Mondelez International Inc",
+        "Assets_%": "0.26"
+      },
+      "Caterpillar Inc": {
+        "Name": "Caterpillar Inc",
+        "Assets_%": "0.24"
+      },
+      "Anthem Inc": {
+        "Name": "Anthem Inc",
+        "Assets_%": "0.21"
+      },
+      "Visa Inc": {
+        "Name": "Visa Inc",
+        "Assets_%": "1.02"
+      },
+      "Bank of America Corp": {
+        "Name": "Bank of America Corp",
+        "Assets_%": "0.83"
+      },
+      "Pfizer Inc": {
+        "Name": "Pfizer Inc",
+        "Assets_%": "0.68"
+      },
+      "Amgen Inc": {
+        "Name": "Amgen Inc",
+        "Assets_%": "0.4"
+      },
+      "Linde": {
+        "Name": "Linde",
+        "Assets_%": "0.35"
+      },
+      "Danaher Corp": {
+        "Name": "Danaher Corp",
+        "Assets_%": "0.31"
+      },
+      "Fiserv Inc": {
+        "Name": "Fiserv Inc",
+        "Assets_%": "0.2"
+      },
+      "UnitedHealth Group Inc": {
+        "Name": "UnitedHealth Group Inc",
+        "Assets_%": "0.69"
+      },
+      "Walmart Inc": {
+        "Name": "Walmart Inc",
+        "Assets_%": "0.58"
+      },
+      "Honeywell International Inc": {
+        "Name": "Honeywell International Inc",
+        "Assets_%": "0.4"
+      },
+      "PayPal Holdings Inc": {
+        "Name": "PayPal Holdings Inc",
+        "Assets_%": "0.39"
+      },
+      "Lowe": {
+        "Name": "Lowe",
+        "Assets_%": "0.29"
+      },
+      "Prologis Inc": {
+        "Name": "Prologis Inc",
+        "Assets_%": "0.18"
+      },
+      "Microsoft Corp": {
+        "Name": "Microsoft Corp",
+        "Assets_%": "3.59"
+      },
+      "Exxon Mobil Corp": {
+        "Name": "Exxon Mobil Corp",
+        "Assets_%": "1.03"
+      },
+      "Thermo Fisher Scientific Inc": {
+        "Name": "Thermo Fisher Scientific Inc",
+        "Assets_%": "0.39"
+      },
+      "Dupont De Nemours Inc": {
+        "Name": "Dupont De Nemours Inc",
+        "Assets_%": "0.18"
+      },
+      "Nike Inc": {
+        "Name": "Nike Inc",
+        "Assets_%": "0.38"
+      },
+      "NVIDIA": {
+        "Name": "NVIDIA",
+        "Assets_%": "0.34"
+      },
+      "American Tower Corp": {
+        "Name": "American Tower Corp",
+        "Assets_%": "0.33"
+      },
+      "Southern Co": {
+        "Name": "Southern Co",
+        "Assets_%": "0.21"
+      },
+      "Crown Castle International Corp": {
+        "Name": "Crown Castle International Corp",
+        "Assets_%": "0.19"
+      },
+      "Amazon.com Inc": {
+        "Name": "Amazon.com Inc",
+        "Assets_%": "2.47"
+      },
+      "Medtronic": {
+        "Name": "Medtronic",
+        "Assets_%": "0.49"
+      },
+      "Costco Wholesale Corp": {
+        "Name": "Costco Wholesale Corp",
+        "Assets_%": "0.43"
+      },
+      "Celgene Corp": {
+        "Name": "Celgene Corp",
+        "Assets_%": "0.24"
+      },
+      "Boston Scientific Corp": {
+        "Name": "Boston Scientific Corp",
+        "Assets_%": "0.19"
+      },
+      "Alphabet Inc": {
+        "Name": "Alphabet Inc",
+        "Assets_%": "1.13"
+      },
+      "International Business Machines Corp": {
+        "Name": "International Business Machines Corp",
+        "Assets_%": "0.43"
+      },
+      "Accenture": {
+        "Name": "Accenture",
+        "Assets_%": "0.41"
+      },
+      "Nextera Energy Inc": {
+        "Name": "Nextera Energy Inc",
+        "Assets_%": "0.37"
+      },
+      "Colgate": {
+        "Name": "Colgate",
+        "Assets_%": "0.21"
+      },
+      "Northrop Grumman Corp": {
+        "Name": "Northrop Grumman Corp",
+        "Assets_%": "0.2"
+      }
+    },
+    "MorningStar": {
+      "Ratio": "4",
+      "Category_Benchmark": "S\u0026P 500 TR USD",
+      "Sustainability_Ratio": "2"
+    },
+    "Performance": {
+      "3y_Volatility": "12.53",
+      "3y_ExpReturn": "0",
+      "3y_SharpRatio": "0.9",
+      "Returns_YTD": "16.45",
+      "Returns_3Y": "11.72",
+      "Returns_5Y": "10.06",
+      "Returns_10Y": "13.14"
+    },
+    "Market_Capitalisation": {},
+    "Valuations_Growth": {
+      "Growth_Rates_Portfolio": {},
+      "Growth_Rates_To_Category": {},
+      "Valuations_Rates_Portfolio": {},
+      "Valuations_Rates_To_Category": {}
     }
   }
 }

@@ -8,6 +8,7 @@ import (
 	freshcache "github.com/gitu/eodhdapi/util/afr"
 	"github.com/gitu/eodhdapi/util/afr/diskcache"
 	"github.com/mailru/easyjson/jlexer"
+	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -18,6 +19,22 @@ import (
 	"github.com/gitu/eodhdapi/exchanges"
 	"github.com/stretchr/testify/require"
 )
+
+// Max returns the larger of x or y.
+func Max(x, y int) int {
+	if x < y {
+		return y
+	}
+	return x
+}
+
+// Min returns the smaller of x or y.
+func Min(x, y int) int {
+	if x > y {
+		return y
+	}
+	return x
+}
 
 func TestJsonParsing(t *testing.T) {
 	root := "test-data/fundamentals"
@@ -48,6 +65,7 @@ func TestJsonParsing(t *testing.T) {
 			fu.UnmarshalEasyJSON(&r)
 
 			if r.Error() != nil {
+				t.Log(string(r.Data[Max(0, r.GetPos()-20):Min(len(r.Data), r.GetPos()+20)]))
 				t.Log(r.Error())
 				t.FailNow()
 			}
@@ -59,7 +77,7 @@ func TestJsonParsing(t *testing.T) {
 
 			gp := filepath.Join("test-data/fundamentals_golden", f.Name())
 
-			if _, err := os.Stat(gp); os.IsNotExist(err) {
+			if _, err := os.Stat(gp); os.IsNotExist(err) || true {
 				t.Log("create golden file")
 				if err := ioutil.WriteFile(gp, b, 0644); err != nil {
 					t.Fatalf("failed to create golden file: %s", err)
@@ -74,6 +92,17 @@ func TestJsonParsing(t *testing.T) {
 				t.Errorf("writtein json does not match .golden file")
 			}
 
+			fu2 := Fundamentals{}
+			r2 := jlexer.Lexer{
+				Data: g,
+			}
+			fu2.UnmarshalEasyJSON(&r2)
+			if r.Error() != nil {
+				t.Log(r.Error())
+				t.FailNow()
+			}
+
+			assert.Equal(t, fu, fu2)
 		})
 	}
 }
