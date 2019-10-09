@@ -36,550 +36,568 @@
     "AnnualHoldingsTurnover": "0.03000",
     "TotalAssets": "813485195264.00",
     "Average_Mkt_Cap_Mil": "No data",
-    "Asset_Allocation": {
-      "Cash": {
+    "Asset_Allocation": [
+      {
+        "Category": "Cash",
         "Long_%": "0.75105",
         "Short_%": "0",
         "Net_Assets_%": "0.75105"
       },
-      "NotClassified": {
+      {
+        "Category": "NotClassified",
         "Long_%": "0.00001",
         "Short_%": "0",
         "Net_Assets_%": "0.00001"
       },
-      "Stock US": {
+      {
+        "Category": "Stock US",
         "Long_%": "0.91137",
         "Short_%": "0",
         "Net_Assets_%": "0.91137"
       },
-      "Other": {
+      {
+        "Category": "Other",
         "Long_%": "0",
         "Short_%": "0",
         "Net_Assets_%": "0"
       },
-      "Stock non-US": {
+      {
+        "Category": "Stock non-US",
         "Long_%": "98.33758",
         "Short_%": "0",
         "Net_Assets_%": "98.33758"
       },
-      "Bond": {
+      {
+        "Category": "Bond",
         "Long_%": "0",
         "Short_%": "0",
         "Net_Assets_%": "0"
       }
-    },
-    "World_Regions": {
-      "United States": {
+    ],
+    "World_Regions": [
+      {
+        "Category": "United States",
         "Equity_%": "99.914192544821",
         "Relative_to_Category": "99.916556968236"
       },
-      "Canada": {
+      {
+        "Category": "Canada",
         "Equity_%": "0.08580745517921",
         "Relative_to_Category": "0.083443031764334"
       }
-    },
-    "Sector_Weights": {
-      "Consumer Cyclicals": {
-        "Equity_%": "13.552820152001",
-        "Relative_to_Category": "13.585537968085"
-      },
-      "Healthcare": {
-        "Equity_%": "13.343153387125",
-        "Relative_to_Category": "13.348494496459"
-      },
-      "Industrials": {
-        "Equity_%": "10.832852677515",
-        "Relative_to_Category": "10.510672711862"
-      },
-      "Consumer Non-Cyclicals": {
-        "Equity_%": "6.9356000724179",
-        "Relative_to_Category": "6.9728346017409"
-      },
-      "Utilities": {
-        "Equity_%": "3.4729233909913",
-        "Relative_to_Category": "3.4455289815193"
-      },
-      "Telecommunications Services": {
-        "Equity_%": "2.0211566340018",
-        "Relative_to_Category": "2.0254153171992"
-      },
-      "Technology": {
+    ],
+    "Sector_Weights": [
+      {
+        "Category": "Technology",
         "Equity_%": "25.541640396328",
         "Relative_to_Category": "25.862692952495"
       },
-      "Financials": {
+      {
+        "Category": "Financials",
         "Equity_%": "17.320262760816",
         "Relative_to_Category": "17.101704918154"
       },
-      "Energy": {
+      {
+        "Category": "Consumer Cyclicals",
+        "Equity_%": "13.552820152001",
+        "Relative_to_Category": "13.585537968085"
+      },
+      {
+        "Category": "Healthcare",
+        "Equity_%": "13.343153387125",
+        "Relative_to_Category": "13.348494496459"
+      },
+      {
+        "Category": "Industrials",
+        "Equity_%": "10.832852677515",
+        "Relative_to_Category": "10.510672711862"
+      },
+      {
+        "Category": "Consumer Non-Cyclicals",
+        "Equity_%": "6.9356000724179",
+        "Relative_to_Category": "6.9728346017409"
+      },
+      {
+        "Category": "Energy",
         "Equity_%": "4.1603566350794",
         "Relative_to_Category": "4.2604838048629"
       },
-      "Basic Materials": {
+      {
+        "Category": "Utilities",
+        "Equity_%": "3.4729233909913",
+        "Relative_to_Category": "3.4455289815193"
+      },
+      {
+        "Category": "Basic Materials",
         "Equity_%": "2.8192338869813",
         "Relative_to_Category": "2.8866342476228"
+      },
+      {
+        "Category": "Telecommunications Services",
+        "Equity_%": "2.0211566340018",
+        "Relative_to_Category": "2.0254153171992"
       }
-    },
-    "Top_10_Holdings": {
-      "Berkshire Hathaway Inc": {
-        "Name": "Berkshire Hathaway Inc",
-        "Assets_%": "1.37"
-      },
-      "Exxon Mobil Corp": {
-        "Name": "Exxon Mobil Corp",
-        "Assets_%": "1.03"
-      },
-      "Amazon.com Inc": {
-        "Name": "Amazon.com Inc",
-        "Assets_%": "2.47"
-      },
-      "Facebook Inc": {
-        "Name": "Facebook Inc",
-        "Assets_%": "1.46"
-      },
-      "Alphabet Inc": {
-        "Name": "Alphabet Inc",
-        "Assets_%": "1.13"
-      },
-      "JPMorgan Chase": {
-        "Name": "JPMorgan Chase",
-        "Assets_%": "1.22"
-      },
-      "Johnson": {
-        "Name": "Johnson",
-        "Assets_%": "1.16"
-      },
-      "Procter": {
-        "Name": "Procter",
-        "Assets_%": "1.05"
-      },
-      "Microsoft Corp": {
+    ],
+    "Top_10_Holdings": [
+      {
         "Name": "Microsoft Corp",
         "Assets_%": "3.59"
       },
-      "Apple Inc": {
-        "Name": "Apple Inc",
-        "Assets_%": "3.04"
-      }
-    },
-    "Holdings": {
-      "Altria Group Inc": {
-        "Name": "Altria Group Inc",
-        "Assets_%": "0.26"
-      },
-      "Dominion Energy Inc": {
-        "Name": "Dominion Energy Inc",
-        "Assets_%": "0.22"
-      },
-      "Apple Inc": {
+      {
         "Name": "Apple Inc",
         "Assets_%": "3.04"
       },
-      "Berkshire Hathaway Inc": {
-        "Name": "Berkshire Hathaway Inc",
-        "Assets_%": "1.37"
+      {
+        "Name": "Amazon.com Inc",
+        "Assets_%": "2.47"
       },
-      "Wells Fargo": {
-        "Name": "Wells Fargo",
-        "Assets_%": "0.66"
-      },
-      "Philip Morris International Inc": {
-        "Name": "Philip Morris International Inc",
-        "Assets_%": "0.4"
-      },
-      "Lockheed Martin Corp": {
-        "Name": "Lockheed Martin Corp",
-        "Assets_%": "0.31"
-      },
-      "United Parcel Service Inc": {
-        "Name": "United Parcel Service Inc",
-        "Assets_%": "0.28"
-      },
-      "Raytheon Co": {
-        "Name": "Raytheon Co",
-        "Assets_%": "0.19"
-      },
-      "Facebook Inc": {
+      {
         "Name": "Facebook Inc",
         "Assets_%": "1.46"
       },
-      "Mastercard Inc": {
-        "Name": "Mastercard Inc",
-        "Assets_%": "0.83"
+      {
+        "Name": "Berkshire Hathaway Inc",
+        "Assets_%": "1.37"
       },
-      "3M Co": {
-        "Name": "3M Co",
-        "Assets_%": "0.32"
+      {
+        "Name": "Alphabet Inc",
+        "Assets_%": "1.13"
       },
-      "Qualcomm Inc": {
-        "Name": "Qualcomm Inc",
-        "Assets_%": "0.32"
-      },
-      "Booking Holdings Inc": {
-        "Name": "Booking Holdings Inc",
-        "Assets_%": "0.28"
-      },
-      "Intuitive Surgical Inc": {
-        "Name": "Intuitive Surgical Inc",
-        "Assets_%": "0.21"
-      },
-      "Stryker Corp": {
-        "Name": "Stryker Corp",
-        "Assets_%": "0.22"
-      },
-      "Chubb Ltd": {
-        "Name": "Chubb Ltd",
-        "Assets_%": "0.18"
-      },
-      "Verizon Communications Inc": {
-        "Name": "Verizon Communications Inc",
-        "Assets_%": "0.86"
-      },
-      "Union Pacific Corp": {
-        "Name": "Union Pacific Corp",
-        "Assets_%": "0.39"
-      },
-      "Starbucks Corp": {
-        "Name": "Starbucks Corp",
-        "Assets_%": "0.34"
-      },
-      "Bristol": {
-        "Name": "Bristol",
-        "Assets_%": "0.28"
-      },
-      "Gilead Sciences Inc": {
-        "Name": "Gilead Sciences Inc",
-        "Assets_%": "0.28"
-      },
-      "U.S. Bancorp": {
-        "Name": "U.S. Bancorp",
-        "Assets_%": "0.25"
-      },
-      "AT": {
-        "Name": "AT",
-        "Assets_%": "0.93"
-      },
-      "Mcdonald": {
-        "Name": "Mcdonald",
-        "Assets_%": "0.55"
-      },
-      "Boeing Co": {
-        "Name": "Boeing Co",
-        "Assets_%": "0.7"
-      },
-      "Texas Instruments Inc": {
-        "Name": "Texas Instruments Inc",
-        "Assets_%": "0.4"
-      },
-      "Eli Lilly and Co": {
-        "Name": "Eli Lilly and Co",
-        "Assets_%": "0.33"
-      },
-      "CVS": {
-        "Name": "CVS",
-        "Assets_%": "0.28"
-      },
-      "Zoetis Inc": {
-        "Name": "Zoetis Inc",
-        "Assets_%": "0.21"
-      },
-      "Automatic Data Processing Inc": {
-        "Name": "Automatic Data Processing Inc",
-        "Assets_%": "0.22"
-      },
-      "S": {
-        "Name": "S",
-        "Assets_%": "0.2"
-      },
-      "Walt Disney Co": {
-        "Name": "Walt Disney Co",
-        "Assets_%": "0.8"
-      },
-      "Citigroup Inc": {
-        "Name": "Citigroup Inc",
-        "Assets_%": "0.54"
-      },
-      "Salesforce.Com Inc": {
-        "Name": "Salesforce.Com Inc",
-        "Assets_%": "0.41"
-      },
-      "Oracle Corp": {
-        "Name": "Oracle Corp",
-        "Assets_%": "0.41"
-      },
-      "Netflix Inc": {
-        "Name": "Netflix Inc",
-        "Assets_%": "0.39"
-      },
-      "Intuit Inc": {
-        "Name": "Intuit Inc",
-        "Assets_%": "0.22"
-      },
-      "Allergan plc": {
-        "Name": "Allergan plc",
-        "Assets_%": "0.18"
-      },
-      "Home Depot Inc": {
-        "Name": "Home Depot Inc",
-        "Assets_%": "0.86"
-      },
-      "Chevron Corp": {
-        "Name": "Chevron Corp",
-        "Assets_%": "0.77"
-      },
-      "Merck": {
-        "Name": "Merck",
-        "Assets_%": "0.72"
-      },
-      "Fidelity National Information Services Inc": {
-        "Name": "Fidelity National Information Services Inc",
-        "Assets_%": "0.27"
-      },
-      "Becton Dickinson and Co": {
-        "Name": "Becton Dickinson and Co",
-        "Assets_%": "0.23"
-      },
-      "CME": {
-        "Name": "CME",
-        "Assets_%": "0.26"
-      },
-      "American Express Co": {
-        "Name": "American Express Co",
-        "Assets_%": "0.24"
-      },
-      "JPMorgan Chase": {
+      {
         "Name": "JPMorgan Chase",
         "Assets_%": "1.22"
       },
-      "Johnson": {
+      {
         "Name": "Johnson",
         "Assets_%": "1.16"
       },
-      "Intel Corp": {
-        "Name": "Intel Corp",
-        "Assets_%": "0.77"
-      },
-      "Cisco Systems Inc": {
-        "Name": "Cisco Systems Inc",
-        "Assets_%": "0.7"
-      },
-      "Broadcom Inc": {
-        "Name": "Broadcom Inc",
-        "Assets_%": "0.35"
-      },
-      "General Electric Co": {
-        "Name": "General Electric Co",
-        "Assets_%": "0.27"
-      },
-      "TJX": {
-        "Name": "TJX",
-        "Assets_%": "0.2"
-      },
-      "Target Corp": {
-        "Name": "Target Corp",
-        "Assets_%": "0.19"
-      },
-      "Deere": {
-        "Name": "Deere",
-        "Assets_%": "0.18"
-      },
-      "Coca": {
-        "Name": "Coca",
-        "Assets_%": "0.71"
-      },
-      "Comcast Corp": {
-        "Name": "Comcast Corp",
-        "Assets_%": "0.69"
-      },
-      "Abbvie Inc": {
-        "Name": "Abbvie Inc",
-        "Assets_%": "0.38"
-      },
-      "Charter Communications Inc": {
-        "Name": "Charter Communications Inc",
-        "Assets_%": "0.21"
-      },
-      "Duke Energy Corp": {
-        "Name": "Duke Energy Corp",
-        "Assets_%": "0.21"
-      },
-      "Cigna Corp": {
-        "Name": "Cigna Corp",
-        "Assets_%": "0.2"
-      },
-      "Goldman Sachs Group Inc": {
-        "Name": "Goldman Sachs Group Inc",
-        "Assets_%": "0.24"
-      },
-      "ConocoPhillips": {
-        "Name": "ConocoPhillips",
-        "Assets_%": "0.23"
-      },
-      "Procter": {
+      {
         "Name": "Procter",
         "Assets_%": "1.05"
       },
-      "PepsiCo Inc": {
-        "Name": "PepsiCo Inc",
-        "Assets_%": "0.63"
+      {
+        "Name": "Exxon Mobil Corp",
+        "Assets_%": "1.03"
+      }
+    ],
+    "Holdings": [
+      {
+        "Name": "Microsoft Corp",
+        "Assets_%": "3.59"
       },
-      "Abbott Laboratories": {
-        "Name": "Abbott Laboratories",
-        "Assets_%": "0.49"
+      {
+        "Name": "Apple Inc",
+        "Assets_%": "3.04"
       },
-      "Adobe Inc": {
-        "Name": "Adobe Inc",
-        "Assets_%": "0.45"
+      {
+        "Name": "Amazon.com Inc",
+        "Assets_%": "2.47"
       },
-      "United Technologies Corp": {
-        "Name": "United Technologies Corp",
-        "Assets_%": "0.4"
+      {
+        "Name": "Facebook Inc",
+        "Assets_%": "1.46"
       },
-      "Mondelez International Inc": {
-        "Name": "Mondelez International Inc",
-        "Assets_%": "0.26"
+      {
+        "Name": "Berkshire Hathaway Inc",
+        "Assets_%": "1.37"
       },
-      "Caterpillar Inc": {
-        "Name": "Caterpillar Inc",
-        "Assets_%": "0.24"
+      {
+        "Name": "Alphabet Inc",
+        "Assets_%": "1.13"
       },
-      "Anthem Inc": {
-        "Name": "Anthem Inc",
-        "Assets_%": "0.21"
+      {
+        "Name": "JPMorgan Chase",
+        "Assets_%": "1.22"
       },
-      "Visa Inc": {
+      {
+        "Name": "Johnson",
+        "Assets_%": "1.16"
+      },
+      {
+        "Name": "Procter",
+        "Assets_%": "1.05"
+      },
+      {
+        "Name": "Exxon Mobil Corp",
+        "Assets_%": "1.03"
+      },
+      {
         "Name": "Visa Inc",
         "Assets_%": "1.02"
       },
-      "Bank of America Corp": {
+      {
+        "Name": "AT",
+        "Assets_%": "0.93"
+      },
+      {
+        "Name": "Home Depot Inc",
+        "Assets_%": "0.86"
+      },
+      {
+        "Name": "Verizon Communications Inc",
+        "Assets_%": "0.86"
+      },
+      {
         "Name": "Bank of America Corp",
         "Assets_%": "0.83"
       },
-      "Pfizer Inc": {
-        "Name": "Pfizer Inc",
-        "Assets_%": "0.68"
+      {
+        "Name": "Mastercard Inc",
+        "Assets_%": "0.83"
       },
-      "Amgen Inc": {
-        "Name": "Amgen Inc",
-        "Assets_%": "0.4"
+      {
+        "Name": "Walt Disney Co",
+        "Assets_%": "0.8"
       },
-      "Linde": {
-        "Name": "Linde",
-        "Assets_%": "0.35"
+      {
+        "Name": "Chevron Corp",
+        "Assets_%": "0.77"
       },
-      "Danaher Corp": {
-        "Name": "Danaher Corp",
-        "Assets_%": "0.31"
+      {
+        "Name": "Intel Corp",
+        "Assets_%": "0.77"
       },
-      "Fiserv Inc": {
-        "Name": "Fiserv Inc",
-        "Assets_%": "0.2"
+      {
+        "Name": "Merck",
+        "Assets_%": "0.72"
       },
-      "UnitedHealth Group Inc": {
+      {
+        "Name": "Coca",
+        "Assets_%": "0.71"
+      },
+      {
+        "Name": "Cisco Systems Inc",
+        "Assets_%": "0.7"
+      },
+      {
+        "Name": "Boeing Co",
+        "Assets_%": "0.7"
+      },
+      {
         "Name": "UnitedHealth Group Inc",
         "Assets_%": "0.69"
       },
-      "Walmart Inc": {
+      {
+        "Name": "Comcast Corp",
+        "Assets_%": "0.69"
+      },
+      {
+        "Name": "Pfizer Inc",
+        "Assets_%": "0.68"
+      },
+      {
+        "Name": "Wells Fargo",
+        "Assets_%": "0.66"
+      },
+      {
+        "Name": "PepsiCo Inc",
+        "Assets_%": "0.63"
+      },
+      {
         "Name": "Walmart Inc",
         "Assets_%": "0.58"
       },
-      "Honeywell International Inc": {
-        "Name": "Honeywell International Inc",
-        "Assets_%": "0.4"
+      {
+        "Name": "Mcdonald",
+        "Assets_%": "0.55"
       },
-      "PayPal Holdings Inc": {
-        "Name": "PayPal Holdings Inc",
-        "Assets_%": "0.39"
+      {
+        "Name": "Citigroup Inc",
+        "Assets_%": "0.54"
       },
-      "Lowe": {
-        "Name": "Lowe",
-        "Assets_%": "0.29"
+      {
+        "Name": "Abbott Laboratories",
+        "Assets_%": "0.49"
       },
-      "Prologis Inc": {
-        "Name": "Prologis Inc",
-        "Assets_%": "0.18"
-      },
-      "Microsoft Corp": {
-        "Name": "Microsoft Corp",
-        "Assets_%": "3.59"
-      },
-      "Exxon Mobil Corp": {
-        "Name": "Exxon Mobil Corp",
-        "Assets_%": "1.03"
-      },
-      "Thermo Fisher Scientific Inc": {
-        "Name": "Thermo Fisher Scientific Inc",
-        "Assets_%": "0.39"
-      },
-      "Dupont De Nemours Inc": {
-        "Name": "Dupont De Nemours Inc",
-        "Assets_%": "0.18"
-      },
-      "Nike Inc": {
-        "Name": "Nike Inc",
-        "Assets_%": "0.38"
-      },
-      "NVIDIA": {
-        "Name": "NVIDIA",
-        "Assets_%": "0.34"
-      },
-      "American Tower Corp": {
-        "Name": "American Tower Corp",
-        "Assets_%": "0.33"
-      },
-      "Southern Co": {
-        "Name": "Southern Co",
-        "Assets_%": "0.21"
-      },
-      "Crown Castle International Corp": {
-        "Name": "Crown Castle International Corp",
-        "Assets_%": "0.19"
-      },
-      "Amazon.com Inc": {
-        "Name": "Amazon.com Inc",
-        "Assets_%": "2.47"
-      },
-      "Medtronic": {
+      {
         "Name": "Medtronic",
         "Assets_%": "0.49"
       },
-      "Costco Wholesale Corp": {
-        "Name": "Costco Wholesale Corp",
-        "Assets_%": "0.43"
+      {
+        "Name": "Adobe Inc",
+        "Assets_%": "0.45"
       },
-      "Celgene Corp": {
-        "Name": "Celgene Corp",
-        "Assets_%": "0.24"
-      },
-      "Boston Scientific Corp": {
-        "Name": "Boston Scientific Corp",
-        "Assets_%": "0.19"
-      },
-      "Alphabet Inc": {
-        "Name": "Alphabet Inc",
-        "Assets_%": "1.13"
-      },
-      "International Business Machines Corp": {
+      {
         "Name": "International Business Machines Corp",
         "Assets_%": "0.43"
       },
-      "Accenture": {
+      {
+        "Name": "Costco Wholesale Corp",
+        "Assets_%": "0.43"
+      },
+      {
+        "Name": "Salesforce.Com Inc",
+        "Assets_%": "0.41"
+      },
+      {
         "Name": "Accenture",
         "Assets_%": "0.41"
       },
-      "Nextera Energy Inc": {
+      {
+        "Name": "Oracle Corp",
+        "Assets_%": "0.41"
+      },
+      {
+        "Name": "United Technologies Corp",
+        "Assets_%": "0.4"
+      },
+      {
+        "Name": "Philip Morris International Inc",
+        "Assets_%": "0.4"
+      },
+      {
+        "Name": "Amgen Inc",
+        "Assets_%": "0.4"
+      },
+      {
+        "Name": "Texas Instruments Inc",
+        "Assets_%": "0.4"
+      },
+      {
+        "Name": "Honeywell International Inc",
+        "Assets_%": "0.4"
+      },
+      {
+        "Name": "Netflix Inc",
+        "Assets_%": "0.39"
+      },
+      {
+        "Name": "Thermo Fisher Scientific Inc",
+        "Assets_%": "0.39"
+      },
+      {
+        "Name": "PayPal Holdings Inc",
+        "Assets_%": "0.39"
+      },
+      {
+        "Name": "Union Pacific Corp",
+        "Assets_%": "0.39"
+      },
+      {
+        "Name": "Abbvie Inc",
+        "Assets_%": "0.38"
+      },
+      {
+        "Name": "Nike Inc",
+        "Assets_%": "0.38"
+      },
+      {
         "Name": "Nextera Energy Inc",
         "Assets_%": "0.37"
       },
-      "Colgate": {
+      {
+        "Name": "Linde",
+        "Assets_%": "0.35"
+      },
+      {
+        "Name": "Broadcom Inc",
+        "Assets_%": "0.35"
+      },
+      {
+        "Name": "Starbucks Corp",
+        "Assets_%": "0.34"
+      },
+      {
+        "Name": "NVIDIA",
+        "Assets_%": "0.34"
+      },
+      {
+        "Name": "Eli Lilly and Co",
+        "Assets_%": "0.33"
+      },
+      {
+        "Name": "American Tower Corp",
+        "Assets_%": "0.33"
+      },
+      {
+        "Name": "3M Co",
+        "Assets_%": "0.32"
+      },
+      {
+        "Name": "Qualcomm Inc",
+        "Assets_%": "0.32"
+      },
+      {
+        "Name": "Lockheed Martin Corp",
+        "Assets_%": "0.31"
+      },
+      {
+        "Name": "Danaher Corp",
+        "Assets_%": "0.31"
+      },
+      {
+        "Name": "Lowe",
+        "Assets_%": "0.29"
+      },
+      {
+        "Name": "Booking Holdings Inc",
+        "Assets_%": "0.28"
+      },
+      {
+        "Name": "Bristol",
+        "Assets_%": "0.28"
+      },
+      {
+        "Name": "United Parcel Service Inc",
+        "Assets_%": "0.28"
+      },
+      {
+        "Name": "Gilead Sciences Inc",
+        "Assets_%": "0.28"
+      },
+      {
+        "Name": "CVS",
+        "Assets_%": "0.28"
+      },
+      {
+        "Name": "General Electric Co",
+        "Assets_%": "0.27"
+      },
+      {
+        "Name": "Fidelity National Information Services Inc",
+        "Assets_%": "0.27"
+      },
+      {
+        "Name": "CME",
+        "Assets_%": "0.26"
+      },
+      {
+        "Name": "Altria Group Inc",
+        "Assets_%": "0.26"
+      },
+      {
+        "Name": "Mondelez International Inc",
+        "Assets_%": "0.26"
+      },
+      {
+        "Name": "U.S. Bancorp",
+        "Assets_%": "0.25"
+      },
+      {
+        "Name": "Goldman Sachs Group Inc",
+        "Assets_%": "0.24"
+      },
+      {
+        "Name": "American Express Co",
+        "Assets_%": "0.24"
+      },
+      {
+        "Name": "Caterpillar Inc",
+        "Assets_%": "0.24"
+      },
+      {
+        "Name": "Celgene Corp",
+        "Assets_%": "0.24"
+      },
+      {
+        "Name": "Becton Dickinson and Co",
+        "Assets_%": "0.23"
+      },
+      {
+        "Name": "ConocoPhillips",
+        "Assets_%": "0.23"
+      },
+      {
+        "Name": "Dominion Energy Inc",
+        "Assets_%": "0.22"
+      },
+      {
+        "Name": "Intuit Inc",
+        "Assets_%": "0.22"
+      },
+      {
+        "Name": "Automatic Data Processing Inc",
+        "Assets_%": "0.22"
+      },
+      {
+        "Name": "Stryker Corp",
+        "Assets_%": "0.22"
+      },
+      {
         "Name": "Colgate",
         "Assets_%": "0.21"
       },
-      "Northrop Grumman Corp": {
+      {
+        "Name": "Charter Communications Inc",
+        "Assets_%": "0.21"
+      },
+      {
+        "Name": "Southern Co",
+        "Assets_%": "0.21"
+      },
+      {
+        "Name": "Anthem Inc",
+        "Assets_%": "0.21"
+      },
+      {
+        "Name": "Intuitive Surgical Inc",
+        "Assets_%": "0.21"
+      },
+      {
+        "Name": "Duke Energy Corp",
+        "Assets_%": "0.21"
+      },
+      {
+        "Name": "Zoetis Inc",
+        "Assets_%": "0.21"
+      },
+      {
         "Name": "Northrop Grumman Corp",
         "Assets_%": "0.2"
+      },
+      {
+        "Name": "TJX",
+        "Assets_%": "0.2"
+      },
+      {
+        "Name": "S",
+        "Assets_%": "0.2"
+      },
+      {
+        "Name": "Fiserv Inc",
+        "Assets_%": "0.2"
+      },
+      {
+        "Name": "Cigna Corp",
+        "Assets_%": "0.2"
+      },
+      {
+        "Name": "Crown Castle International Corp",
+        "Assets_%": "0.19"
+      },
+      {
+        "Name": "Boston Scientific Corp",
+        "Assets_%": "0.19"
+      },
+      {
+        "Name": "Target Corp",
+        "Assets_%": "0.19"
+      },
+      {
+        "Name": "Raytheon Co",
+        "Assets_%": "0.19"
+      },
+      {
+        "Name": "Chubb Ltd",
+        "Assets_%": "0.18"
+      },
+      {
+        "Name": "Prologis Inc",
+        "Assets_%": "0.18"
+      },
+      {
+        "Name": "Dupont De Nemours Inc",
+        "Assets_%": "0.18"
+      },
+      {
+        "Name": "Allergan plc",
+        "Assets_%": "0.18"
+      },
+      {
+        "Name": "Deere",
+        "Assets_%": "0.18"
       }
-    },
+    ],
     "MorningStar": {
       "Ratio": "4",
       "Category_Benchmark": "S\u0026P 500 TR USD",

@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/mailru/easyjson/jlexer"
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 	"log"
@@ -95,26 +96,26 @@ type Highlights struct {
 }
 
 type ETFData struct {
-	ISIN                    string                `json:"ISIN"`
-	CompanyName             string                `json:"Company_Name"`
-	CompanyURL              string                `json:"Company_URL"`
-	ETFURL                  string                `json:"ETF_URL"`
-	Yield                   string                `json:"Yield"`
-	DividendPayingFrequency string                `json:"Dividend_Paying_Frequency"`
-	InceptionDate           string                `json:"Inception_Date"`
-	MaxAnnualMgmtCharge     string                `json:"Max_Annual_Mgmt_Charge"`
-	OngoingCharge           string                `json:"Ongoing_Charge"`
-	DateOngoingCharge       string                `json:"Date_Ongoing_Charge"`
-	NetExpenseRatio         string                `json:"NetExpenseRatio"`
-	AnnualHoldingsTurnover  string                `json:"AnnualHoldingsTurnover"`
-	TotalAssets             string                `json:"TotalAssets"`
-	AverageMktCapMil        string                `json:"Average_Mkt_Cap_Mil"`
-	AssetAllocation         map[string]Allocation `json:"Asset_Allocation"`
-	WorldRegions            map[string]Weight     `json:"World_Regions"`
-	SectorWeights           map[string]Weight     `json:"Sector_Weights"`
-	Top10Holdings           map[string]Holding    `json:"Top_10_Holdings"`
-	Holdings                map[string]Holding    `json:"Holdings"`
-	MorningStar             MorningStar           `json:"MorningStar"`
+	ISIN                    string             `json:"ISIN"`
+	CompanyName             string             `json:"Company_Name"`
+	CompanyURL              string             `json:"Company_URL"`
+	ETFURL                  string             `json:"ETF_URL"`
+	Yield                   string             `json:"Yield"`
+	DividendPayingFrequency string             `json:"Dividend_Paying_Frequency"`
+	InceptionDate           string             `json:"Inception_Date"`
+	MaxAnnualMgmtCharge     string             `json:"Max_Annual_Mgmt_Charge"`
+	OngoingCharge           string             `json:"Ongoing_Charge"`
+	DateOngoingCharge       string             `json:"Date_Ongoing_Charge"`
+	NetExpenseRatio         string             `json:"NetExpenseRatio"`
+	AnnualHoldingsTurnover  string             `json:"AnnualHoldingsTurnover"`
+	TotalAssets             string             `json:"TotalAssets"`
+	AverageMktCapMil        string             `json:"Average_Mkt_Cap_Mil"`
+	AssetAllocation         ETFAssetAllocation `json:"Asset_Allocation"`
+	WorldRegions            Weights            `json:"World_Regions"`
+	SectorWeights           Weights            `json:"Sector_Weights"`
+	Top10Holdings           Holdings           `json:"Top_10_Holdings"`
+	Holdings                Holdings           `json:"Holdings"`
+	MorningStar             MorningStar        `json:"MorningStar"`
 	//ValuationsGrowth        ValuationsGrowth     `json:"Valuations_Growth"`
 	Performance          Performance `json:"Performance"`
 	MarketCapitalisation interface{} `json:"Market_Capitalisation"`
@@ -142,14 +143,150 @@ type Holding struct {
 	AssetsPercent *decimal.Decimal `json:"Assets_%"`
 }
 type Weight struct {
+	Category           string           `json:"Category"`
 	EquityPercent      string           `json:"Equity_%"`
 	RelativeToCategory *decimal.Decimal `json:"Relative_to_Category"`
 }
 
 type Allocation struct {
+	Category         string           `json:"Category"`
 	LongPercent      *decimal.Decimal `json:"Long_%"`
 	ShortPercent     *decimal.Decimal `json:"Short_%"`
 	NetAssetsPercent *decimal.Decimal `json:"Net_Assets_%"`
+}
+
+type Holdings []Holding
+
+func (out *Holdings) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]Holding, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 Holding
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]Holding, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 Holding
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
+type Weights []Weight
+
+func (out *Weights) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]Weight, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 Weight
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]Weight, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			key := string(in.String())
+			in.WantColon()
+			var v37 Weight
+			(v37).UnmarshalEasyJSON(in)
+			v37.Category = key
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
+type ETFAssetAllocation []Allocation
+
+func (out *ETFAssetAllocation) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]Allocation, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 Allocation
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]Allocation, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			key := string(in.String())
+			in.WantColon()
+			var v37 Allocation
+			(v37).UnmarshalEasyJSON(in)
+			v37.Category = key
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
+type AssetAllocation struct {
+	Type            string           `json:"Type"`
+	Net             *decimal.Decimal `json:"Net_%"`
+	Long            *decimal.Decimal `json:"Long_%"`
+	Short           *decimal.Decimal `json:"Short_%"`
+	CategoryAverage *decimal.Decimal `json:"Category_Average"`
+	Benchmark       *decimal.Decimal `json:"Benchmark"`
 }
 
 type Valuation struct {
@@ -458,15 +595,6 @@ type ValueGrowth struct {
 	CategoryAverage *decimal.Decimal `json:"Category_Average"`
 	Benchmark       *decimal.Decimal `json:"Benchmark"`
 	StockPortfolio  *decimal.Decimal `json:"Stock_Portfolio"`
-}
-
-type AssetAllocation struct {
-	Type            string           `json:"Type"`
-	Net             *decimal.Decimal `json:"Net_%"`
-	Long            *decimal.Decimal `json:"Long_%"`
-	Short           *decimal.Decimal `json:"Short_%"`
-	CategoryAverage *decimal.Decimal `json:"Category_Average"`
-	Benchmark       *decimal.Decimal `json:"Benchmark"`
 }
 
 // FetchFundamentals Fetches Fundamentals for the exchange
