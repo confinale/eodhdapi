@@ -520,13 +520,6 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 
 				newElements++
 			}
-
-			if !lenient && newElements > 0 {
-				err = reader.checkAllVisited()
-				if err != nil {
-					return err
-				}
-			}
 			offset += newElements
 		}
 	}
