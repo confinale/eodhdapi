@@ -1,0 +1,30 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "EMASZ",
+    "Type": "Common Stock",
+    "Name": "Eszak-Magyarorszagi Aramszolgaltato Nyrt.",
+    "Exchange": "BUD",
+    "CurrencyCode": "HUF",
+    "CurrencyName": "Hungarian forin",
+    "CurrencySymbol": "Ft",
+    "CountryName": "Hungary",
+    "CountryISO": "HU",
+    "Sector": "Other",
+    "Industry": "Other",
+    "UpdatedAt": "2018-06-06",
+    "LogoURL": ""
+  },
+  "Highlights": {},
+  "Valuation": {},
+  "Technicals": {},
+  "SplitsDividends": {},
+  "Earnings": {},
+  "Financials": {
+    "Balance_Sheet": {},
+    "Cash_Flow": {},
+    "Income_Statement": {}
+  },
+  "SharesStats": {},
+  "outstandingShares": {}
+}

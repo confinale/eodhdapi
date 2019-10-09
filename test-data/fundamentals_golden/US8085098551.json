@@ -1,0 +1,479 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Name": "Schwab S\u0026P 500 Index Fund",
+    "ISIN": "US8085098551",
+    "CUSIP": "808509855",
+    "Fund_Summary": "The investment seeks to track the total return of the S\u0026P 500Â® Index.\n The fund generally invests at least 80% of its net assets (including, for this purpose, any borrowings for investment purposes) in these stocks; typically, the actual percentage is considerably higher. It generally will seek to replicate the performance of the index by giving the same weight to a given stock as the index does.",
+    "Fund_Family": "Schwab Funds",
+    "Fiscal_Year_End": "October"
+  },
+  "MutualFund_Data": {
+    "Nav": "45.61",
+    "Prev_Close_Price": "45.61",
+    "Update_Date": "2019-10-02",
+    "Portfolio_Net_Assets": "38654950000",
+    "Share_Class_Net_Assets": "0",
+    "Morning_Star_Rating": 4,
+    "Morning_Star_Risk_Rating": 3,
+    "Morning_Star_Category": "Large Blend",
+    "Incepton_Date": "1997-05-19",
+    "Currency": "USD",
+    "Domicile": "United States",
+    "Yield": "0.0185",
+    "Yield_YTD": "0.1832",
+    "Yield_1Year_YTD": "0.0290",
+    "Yield_3Year_YTD": "0.1265",
+    "Yield_5Year_YTD": "0.1005",
+    "Expense_Ratio": "0.0200",
+    "Expense_Ratio_Date": "2019-02-28",
+    "Asset_Allocation": [
+      {
+        "Type": "Cash",
+        "Net_%": "0.13",
+        "Long_%": "0.13",
+        "Category_Average": "1.06",
+        "Benchmark": "0"
+      },
+      {
+        "Type": "US Stock",
+        "Net_%": "98.9",
+        "Long_%": "98.9",
+        "Category_Average": "94.52",
+        "Benchmark": "99.07"
+      },
+      {
+        "Type": "Non US Stock",
+        "Net_%": "0.97",
+        "Long_%": "0.97",
+        "Category_Average": "3.01",
+        "Benchmark": "0.93"
+      },
+      {
+        "Type": "Bond",
+        "Net_%": "0",
+        "Long_%": "0",
+        "Category_Average": "0.25",
+        "Benchmark": "0"
+      },
+      {
+        "Type": "Other",
+        "Net_%": "0",
+        "Long_%": "0",
+        "Category_Average": "1.16",
+        "Benchmark": "0"
+      }
+    ],
+    "Value_Growth": [
+      {
+        "Name": "Price/Prospective Earnings",
+        "Category_Average": "18.19",
+        "Benchmark": "18.07",
+        "Stock_Portfolio": "17.92"
+      },
+      {
+        "Name": "Price/Book",
+        "Category_Average": "2.98",
+        "Benchmark": "2.97",
+        "Stock_Portfolio": "3.07"
+      },
+      {
+        "Name": "Price/Sales",
+        "Category_Average": "1.82",
+        "Benchmark": "2.03",
+        "Stock_Portfolio": "2.1"
+      },
+      {
+        "Name": "Price/Cash Flow",
+        "Category_Average": "7.04",
+        "Benchmark": "8.95",
+        "Stock_Portfolio": "9.23"
+      },
+      {
+        "Name": "Dividend Yield %",
+        "Category_Average": "2.09",
+        "Benchmark": "1.99",
+        "Stock_Portfolio": "2.04"
+      },
+      {
+        "Name": "Long-Term Earnings %",
+        "Category_Average": "9.94",
+        "Benchmark": "9.87",
+        "Stock_Portfolio": "9.8"
+      },
+      {
+        "Name": "Historical Earnings %",
+        "Category_Average": "15.07",
+        "Benchmark": "13.21",
+        "Stock_Portfolio": "13.64"
+      },
+      {
+        "Name": "Sales Growth %",
+        "Category_Average": "7.31",
+        "Benchmark": "7.07",
+        "Stock_Portfolio": "7.09"
+      },
+      {
+        "Name": "Cash-Flow Growth %",
+        "Category_Average": "12.2",
+        "Benchmark": "12.65",
+        "Stock_Portfolio": "13.24"
+      },
+      {
+        "Name": "Book-Value Growth %",
+        "Category_Average": "5.27",
+        "Benchmark": "4.64",
+        "Stock_Portfolio": "4.44"
+      }
+    ],
+    "Top_Holdings": [
+      {
+        "Name": "Microsoft Corp",
+        "Owned": "12,116,788",
+        "Change": "27,300",
+        "Weight": " 4.32"
+      },
+      {
+        "Name": "Apple Inc",
+        "Owned": "6,911,537",
+        "Change": "14,900",
+        "Weight": " 3.73"
+      },
+      {
+        "Name": "Amazon.com Inc",
+        "Owned": "653,891",
+        "Change": "1,400",
+        "Weight": " 3.00"
+      },
+      {
+        "Name": "Facebook Inc A",
+        "Owned": "3,798,798",
+        "Change": "8,200",
+        "Weight": " 1.82"
+      },
+      {
+        "Name": "Berkshire Hathaway Inc B",
+        "Owned": "3,064,634",
+        "Change": "6,600",
+        "Weight": " 1.61"
+      },
+      {
+        "Name": "Alphabet Inc Class C",
+        "Owned": "484,610",
+        "Change": "1,125",
+        "Weight": " 1.49"
+      },
+      {
+        "Name": "Alphabet Inc A",
+        "Owned": "473,480",
+        "Change": "1,075",
+        "Weight": " 1.46"
+      },
+      {
+        "Name": "JPMorgan Chase \u0026 Co",
+        "Owned": "5,129,935",
+        "Change": "13,100",
+        "Weight": " 1.46"
+      },
+      {
+        "Name": "Johnson \u0026 Johnson",
+        "Owned": "4,198,424",
+        "Change": "8,700",
+        "Weight": " 1.39"
+      },
+      {
+        "Name": "Visa Inc Class A",
+        "Owned": "2,750,076",
+        "Change": "6,400",
+        "Weight": " 1.29"
+      },
+      {
+        "Name": "Procter \u0026 Gamble Co",
+        "Owned": "3,966,859",
+        "Change": "10,200",
+        "Weight": " 1.23"
+      },
+      {
+        "Name": "Exxon Mobil Corp",
+        "Owned": "6,691,088",
+        "Change": "11,900",
+        "Weight": " 1.18"
+      },
+      {
+        "Name": "AT\u0026T Inc",
+        "Owned": "11,540,178",
+        "Change": "25,700",
+        "Weight": " 1.05"
+      },
+      {
+        "Name": "Mastercard Inc A",
+        "Owned": "1,421,231",
+        "Change": "2,900",
+        "Weight": " 1.03"
+      },
+      {
+        "Name": "The Home Depot Inc",
+        "Owned": "1,739,525",
+        "Change": "3,200",
+        "Weight": " 1.02"
+      },
+      {
+        "Name": "Bank of America Corporation",
+        "Owned": "13,981,899",
+        "Change": "32,000",
+        "Weight": " 0.99"
+      },
+      {
+        "Name": "Verizon Communications Inc",
+        "Owned": "6,539,925",
+        "Change": "15,900",
+        "Weight": " 0.98"
+      },
+      {
+        "Name": "The Walt Disney Co",
+        "Owned": "2,759,635",
+        "Change": "6,000",
+        "Weight": " 0.98"
+      },
+      {
+        "Name": "Chevron Corp",
+        "Owned": "3,012,284",
+        "Change": "5,300",
+        "Weight": " 0.92"
+      },
+      {
+        "Name": "Merck \u0026 Co Inc",
+        "Owned": "4,071,123",
+        "Change": "7,000",
+        "Weight": " 0.91"
+      },
+      {
+        "Name": "UnitedHealth Group Inc",
+        "Owned": "1,502,505",
+        "Change": "2,100",
+        "Weight": " 0.91"
+      },
+      {
+        "Name": "Intel Corp",
+        "Owned": "7,079,350",
+        "Change": "15,000",
+        "Weight": " 0.87"
+      },
+      {
+        "Name": "Coca-Cola Co",
+        "Owned": "6,070,993",
+        "Change": "11,700",
+        "Weight": " 0.86"
+      },
+      {
+        "Name": "Cisco Systems Inc",
+        "Owned": "6,768,955",
+        "Change": "13,000",
+        "Weight": " 0.82"
+      },
+      {
+        "Name": "Comcast Corp Class A",
+        "Owned": "7,158,481",
+        "Change": "15,100",
+        "Weight": " 0.82"
+      }
+    ],
+    "Market_Capitalization": [
+      {
+        "Category": "0",
+        "Size": "Giant",
+        "Category_Average": "76.62",
+        "Benchmark": "49.94",
+        "Portfolio_%": "55.5"
+      },
+      {
+        "Category": "1",
+        "Size": "Large",
+        "Category_Average": "7.11",
+        "Benchmark": "31.68",
+        "Portfolio_%": "34.34"
+      },
+      {
+        "Category": "2",
+        "Size": "Medium",
+        "Category_Average": "14.5",
+        "Benchmark": "17.34",
+        "Portfolio_%": "10.15"
+      },
+      {
+        "Category": "3",
+        "Size": "Small",
+        "Category_Average": "1.76",
+        "Benchmark": "1.04",
+        "Portfolio_%": "0.01"
+      },
+      {
+        "Category": "4",
+        "Size": "Micro",
+        "Category_Average": "0.01",
+        "Benchmark": "0",
+        "Portfolio_%": "0"
+      }
+    ],
+    "Sector_Weights": {
+      "Cyclical": [
+        {
+          "Type": "Basic Materials",
+          "Category_Average": "2.75",
+          "Amount_%": "2.37",
+          "Benchmark": "2.59"
+        },
+        {
+          "Type": "Consumer Cyclical",
+          "Category_Average": "12.00",
+          "Amount_%": "11.91",
+          "Benchmark": "12.03"
+        },
+        {
+          "Type": "Financial Services",
+          "Category_Average": "16.67",
+          "Amount_%": "15.69",
+          "Benchmark": "15.50"
+        },
+        {
+          "Type": "Real Estate",
+          "Category_Average": "2.50",
+          "Amount_%": "2.84",
+          "Benchmark": "4.27"
+        }
+      ],
+      "Defensive": [
+        {
+          "Type": "Consumer Defensive",
+          "Category_Average": "8.07",
+          "Amount_%": "8.10",
+          "Benchmark": "7.56"
+        },
+        {
+          "Type": "Healthcare",
+          "Category_Average": "13.85",
+          "Amount_%": "13.80",
+          "Benchmark": "13.13"
+        },
+        {
+          "Type": "Utilities",
+          "Category_Average": "2.77",
+          "Amount_%": "3.47",
+          "Benchmark": "3.41"
+        }
+      ],
+      "Sensitive": [
+        {
+          "Type": "Communication Services",
+          "Category_Average": "3.39",
+          "Amount_%": "3.75",
+          "Benchmark": "3.24"
+        },
+        {
+          "Type": "Energy",
+          "Category_Average": "4.67",
+          "Amount_%": "4.42",
+          "Benchmark": "4.29"
+        },
+        {
+          "Type": "Industrials",
+          "Category_Average": "11.31",
+          "Amount_%": "10.17",
+          "Benchmark": "10.34"
+        },
+        {
+          "Type": "Technology",
+          "Category_Average": "22.03",
+          "Amount_%": "23.48",
+          "Benchmark": "23.64"
+        }
+      ]
+    },
+    "World_Regions": [
+      {
+        "Category": "Americas",
+        "Name": "North America",
+        "Category_Average": "97.27",
+        "Stocks_%": "99.03",
+        "Benchmark": "99.07"
+      },
+      {
+        "Category": "Americas",
+        "Name": "Latin America",
+        "Category_Average": "0.06",
+        "Stocks_%": "0.00",
+        "Benchmark": "0.02"
+      },
+      {
+        "Category": "Greater Asia",
+        "Name": "Japan",
+        "Category_Average": "0.06",
+        "Stocks_%": "0.00",
+        "Benchmark": "0.00"
+      },
+      {
+        "Category": "Greater Asia",
+        "Name": "Australasia",
+        "Category_Average": "0.00",
+        "Stocks_%": "0.00",
+        "Benchmark": "0.00"
+      },
+      {
+        "Category": "Greater Asia",
+        "Name": "Asia Developed",
+        "Category_Average": "0.10",
+        "Stocks_%": "0.05",
+        "Benchmark": "0.00"
+      },
+      {
+        "Category": "Greater Asia",
+        "Name": "Asia Emerging",
+        "Category_Average": "0.29",
+        "Stocks_%": "0.00",
+        "Benchmark": "0.16"
+      },
+      {
+        "Category": "Greater Europe",
+        "Name": "United Kingdom",
+        "Category_Average": "0.96",
+        "Stocks_%": "0.54",
+        "Benchmark": "0.44"
+      },
+      {
+        "Category": "Greater Europe",
+        "Name": "Europe Developed",
+        "Category_Average": "1.21",
+        "Stocks_%": "0.34",
+        "Benchmark": "0.31"
+      },
+      {
+        "Category": "Greater Europe",
+        "Name": "Europe Emerging",
+        "Category_Average": "0.03",
+        "Stocks_%": "0.04",
+        "Benchmark": "0.00"
+      },
+      {
+        "Category": "Greater Europe",
+        "Name": "Africa/Middle East",
+        "Category_Average": "0.04",
+        "Stocks_%": "0.00",
+        "Benchmark": "0.01"
+      },
+      {
+        "Category": "Market Classification",
+        "Name": "% Developed Markets",
+        "Category_Average": "99.61",
+        "Stocks_%": "99.96",
+        "Benchmark": "99.83"
+      },
+      {
+        "Category": "Market Classification",
+        "Name": "% Emerging Markets",
+        "Category_Average": "0.39",
+        "Stocks_%": "0.04",
+        "Benchmark": "0.17"
+      }
+    ]
+  }
+}

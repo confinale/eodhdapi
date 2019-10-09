@@ -1,0 +1,14 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "WGRESI",
+    "Type": "INDEX",
+    "Name": "Wilshire Global Real Estate Securities  Index",
+    "Exchange": "INDX",
+    "CurrencyCode": "NA",
+    "CurrencyName": "NA",
+    "CurrencySymbol": "NA",
+    "CountryName": "NA",
+    "CountryISO": "NA"
+  }
+}

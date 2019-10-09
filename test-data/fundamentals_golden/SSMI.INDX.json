@@ -1,0 +1,156 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "SSMI",
+    "Type": "INDEX",
+    "Name": "Swiss Market Index",
+    "Exchange": "INDX",
+    "CurrencyCode": "NA",
+    "CurrencyName": "NA",
+    "CurrencySymbol": "NA",
+    "CountryName": "NA",
+    "CountryISO": "NA"
+  },
+  "Components": [
+    {
+      "Code": "ABBN",
+      "Exchange": "SW",
+      "Name": "ABB Ltd",
+      "Sector": "Industrials",
+      "Industry": "Diversified Industrials"
+    },
+    {
+      "Code": "ADEN",
+      "Exchange": "SW",
+      "Name": "Adecco Group AG",
+      "Sector": "Industrials",
+      "Industry": "Staffing \u0026 Outsourcing Services"
+    },
+    {
+      "Code": "BAER",
+      "Exchange": "SW",
+      "Name": "Julius Bar Gruppe AG",
+      "Sector": "Financial Services",
+      "Industry": "Asset Management"
+    },
+    {
+      "Code": "CFR",
+      "Exchange": "SW",
+      "Name": "Compagnie Financiere Richemont SA",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Luxury Goods"
+    },
+    {
+      "Code": "CSGN",
+      "Exchange": "SW",
+      "Name": "Credit Suisse Group AG",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    {
+      "Code": "GEBN",
+      "Exchange": "SW",
+      "Name": "Geberit AG",
+      "Sector": "Basic Materials",
+      "Industry": "Building Materials"
+    },
+    {
+      "Code": "GIVN",
+      "Exchange": "SW",
+      "Name": "Givaudan SA",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    },
+    {
+      "Code": "LHN",
+      "Exchange": "SW",
+      "Name": "LafargeHolcim Ltd",
+      "Sector": "Basic Materials",
+      "Industry": "Building Materials"
+    },
+    {
+      "Code": "LONN",
+      "Exchange": "SW",
+      "Name": "Lonza Group Ltd",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    {
+      "Code": "NESN",
+      "Exchange": "SW",
+      "Name": "Nestle S.A",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    {
+      "Code": "NOVN",
+      "Exchange": "SW",
+      "Name": "Novartis AG",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    {
+      "Code": "ROG",
+      "Exchange": "SW",
+      "Name": "Roche Holding AG",
+      "Sector": "Healthcare",
+      "Industry": "Drug Manufacturers - Major"
+    },
+    {
+      "Code": "SCMN",
+      "Exchange": "SW",
+      "Name": "Swisscom AG",
+      "Sector": "Communication Services",
+      "Industry": "Telecom Services"
+    },
+    {
+      "Code": "SGSN",
+      "Exchange": "SW",
+      "Name": "SGS SA",
+      "Sector": "Other",
+      "Industry": "Other"
+    },
+    {
+      "Code": "SLHN",
+      "Exchange": "SW",
+      "Name": "Swiss Life Holding AG",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    {
+      "Code": "SREN",
+      "Exchange": "SW",
+      "Name": "Swiss Re AG",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Reinsurance"
+    },
+    {
+      "Code": "UBSG",
+      "Exchange": "SW",
+      "Name": "UBS Group AG",
+      "Sector": "Financial Services",
+      "Industry": "Banks - Global"
+    },
+    {
+      "Code": "UHR",
+      "Exchange": "SW",
+      "Name": "The Swatch Group AG",
+      "Sector": "Consumer Cyclical",
+      "Industry": "Luxury Goods"
+    },
+    {
+      "Code": "ZURN",
+      "Exchange": "SW",
+      "Name": "Zurich Insurance Group AG",
+      "Sector": "Financial Services",
+      "Industry": "Insurance - Diversified"
+    },
+    {
+      "Code": "SIKA",
+      "Exchange": "SW",
+      "Name": "Sika AG",
+      "Sector": "Basic Materials",
+      "Industry": "Specialty Chemicals"
+    }
+  ]
+}
