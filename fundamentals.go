@@ -19,18 +19,18 @@ import (
 type Fundamentals struct {
 	LastUpdate        time.Time
 	Ticker            string
-	General           General              `json:"General"`
-	Highlights        *Highlights          `json:"Highlights"`
-	Valuation         *Valuation           `json:"Valuation"`
-	Technicals        *Technicals          `json:"Technicals"`
-	SplitsDividends   *SplitsDividends     `json:"SplitsDividends"`
-	Earnings          *Earnings            `json:"Earnings"`
-	Financials        *Financials          `json:"Financials"`
-	ETFData           *ETFData             `json:"ETF_Data"`
-	SharesStats       *SharesStats         `json:"SharesStats"`
-	OutstandingShares *OutstandingShares   `json:"outstandingShares"`
-	Components        map[string]Component `json:"Components"`
-	MutualFundData    *MutualFundData      `json:"MutualFund_Data"`
+	General           General            `json:"General"`
+	Highlights        *Highlights        `json:"Highlights"`
+	Valuation         *Valuation         `json:"Valuation"`
+	Technicals        *Technicals        `json:"Technicals"`
+	SplitsDividends   *SplitsDividends   `json:"SplitsDividends"`
+	Earnings          *Earnings          `json:"Earnings"`
+	Financials        *Financials        `json:"Financials"`
+	ETFData           *ETFData           `json:"ETF_Data"`
+	SharesStats       *SharesStats       `json:"SharesStats"`
+	OutstandingShares *OutstandingShares `json:"outstandingShares"`
+	Components        Components         `json:"Components"`
+	MutualFundData    *MutualFundData    `json:"MutualFund_Data"`
 }
 
 type General struct {
@@ -289,6 +289,47 @@ type AssetAllocation struct {
 	Benchmark       *decimal.Decimal `json:"Benchmark"`
 }
 
+type AssetAllocations []AssetAllocation
+
+func (out *AssetAllocations) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]AssetAllocation, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 AssetAllocation
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]AssetAllocation, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 AssetAllocation
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type Valuation struct {
 	TrailingPE             *decimal.Decimal `json:"TrailingPE"`
 	ForwardPE              *decimal.Decimal `json:"ForwardPE"`
@@ -309,19 +350,19 @@ type Technicals struct {
 	ShortPercent          *decimal.Decimal `json:"ShortPercent"`
 }
 type SplitsDividends struct {
-	ForwardAnnualDividendRate  *decimal.Decimal     `json:"ForwardAnnualDividendRate"`
-	ForwardAnnualDividendYield *decimal.Decimal     `json:"ForwardAnnualDividendYield"`
-	PayoutRatio                *decimal.Decimal     `json:"PayoutRatio"`
-	DividendDate               string               `json:"DividendDate"`
-	ExDividendDate             string               `json:"ExDividendDate"`
-	LastSplitFactor            string               `json:"LastSplitFactor"`
-	LastSplitDate              string               `json:"LastSplitDate"`
-	NumberDividendsByYear      map[string]YearCount `json:"NumberDividendsByYear"`
+	ForwardAnnualDividendRate  *decimal.Decimal `json:"ForwardAnnualDividendRate"`
+	ForwardAnnualDividendYield *decimal.Decimal `json:"ForwardAnnualDividendYield"`
+	PayoutRatio                *decimal.Decimal `json:"PayoutRatio"`
+	DividendDate               string           `json:"DividendDate"`
+	ExDividendDate             string           `json:"ExDividendDate"`
+	LastSplitFactor            string           `json:"LastSplitFactor"`
+	LastSplitDate              string           `json:"LastSplitDate"`
+	NumberDividendsByYear      YearCounts       `json:"NumberDividendsByYear"`
 }
 
 type OutstandingShares struct {
-	Annual    map[string]SharesOutstanding `json:"annual"`
-	Quarterly map[string]SharesOutstanding `json:"quarterly"`
+	Annual    SharesOutstandings `json:"annual"`
+	Quarterly SharesOutstandings `json:"quarterly"`
 }
 
 type SharesOutstanding struct {
@@ -329,9 +370,91 @@ type SharesOutstanding struct {
 	SharesMln string `json:"sharesMln"`
 }
 
+type SharesOutstandings []SharesOutstanding
+
+func (out *SharesOutstandings) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]SharesOutstanding, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 SharesOutstanding
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]SharesOutstanding, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 SharesOutstanding
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type YearCount struct {
 	Year  int `json:"Year"`
 	Count int `json:"Count"`
+}
+
+type YearCounts []YearCount
+
+func (out *YearCounts) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]YearCount, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 YearCount
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]YearCount, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 YearCount
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
 type EarningsInfo struct {
@@ -342,6 +465,48 @@ type EarningsInfo struct {
 	EpsDifference   *decimal.Decimal `json:"epsDifference"`
 	SurprisePercent *decimal.Decimal `json:"surprisePercent"`
 }
+
+type EarningsInfos []EarningsInfo
+
+func (out *EarningsInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]EarningsInfo, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 EarningsInfo
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]EarningsInfo, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 EarningsInfo
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type EarningsEstimateInfo struct {
 	Date                             string           `json:"date"`
 	Period                           string           `json:"period"`
@@ -369,10 +534,51 @@ type EarningsEstimateInfo struct {
 	EpsRevisionsDownLast90Days       *decimal.Decimal `json:"epsRevisionsDownLast90days"`
 }
 
+type EarningsEstimateInfos []EarningsEstimateInfo
+
+func (out *EarningsEstimateInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]EarningsEstimateInfo, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 EarningsEstimateInfo
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]EarningsEstimateInfo, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 EarningsEstimateInfo
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type Earnings struct {
-	History map[string]EarningsInfo         `json:"History"`
-	Trend   map[string]EarningsEstimateInfo `json:"Trend"`
-	Annual  map[string]EarningsInfo         `json:"Annual"`
+	History EarningsInfos         `json:"History"`
+	Trend   EarningsEstimateInfos `json:"Trend"`
+	Annual  EarningsInfos         `json:"Annual"`
 }
 
 type BalanceSheetInfo struct {
@@ -432,6 +638,48 @@ type BalanceSheetInfo struct {
 	AccumulatedDepreciation                          *decimal.Decimal `json:"accumulatedDepreciation"`
 	CommonStockSharesOutstanding                     *decimal.Decimal `json:"commonStockSharesOutstanding"`
 }
+
+type BalanceSheetInfos []BalanceSheetInfo
+
+func (out *BalanceSheetInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]BalanceSheetInfo, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 BalanceSheetInfo
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]BalanceSheetInfo, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 BalanceSheetInfo
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type CashFlowInfo struct {
 	Date                                  string           `json:"date"`
 	FilingDate                            *string          `json:"filing_date"`
@@ -457,6 +705,47 @@ type CashFlowInfo struct {
 	CashFlowsOtherOperating               *decimal.Decimal `json:"cashFlowsOtherOperating"`
 	ExchangeRateChanges                   *decimal.Decimal `json:"exchangeRateChanges"`
 	CashAndCashEquivalentsChanges         *decimal.Decimal `json:"cashAndCashEquivalentsChanges"`
+}
+
+type CashFlowInfos []CashFlowInfo
+
+func (out *CashFlowInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]CashFlowInfo, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 CashFlowInfo
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]CashFlowInfo, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 CashFlowInfo
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
 type IncomeStatementInfo struct {
@@ -488,6 +777,47 @@ type IncomeStatementInfo struct {
 	PreferredStockAndOtherAdjustments *decimal.Decimal `json:"preferredStockAndOtherAdjustments"`
 }
 
+type IncomeStatementInfos []IncomeStatementInfo
+
+func (out *IncomeStatementInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]IncomeStatementInfo, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 IncomeStatementInfo
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]IncomeStatementInfo, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 IncomeStatementInfo
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type Financials struct {
 	BalanceSheet    BalanceSheet    `json:"Balance_Sheet"`
 	CashFlow        CashFlow        `json:"Cash_Flow"`
@@ -495,19 +825,19 @@ type Financials struct {
 }
 
 type IncomeStatement struct {
-	CurrencySymbol string                         `json:"currency_symbol"`
-	Quarterly      map[string]IncomeStatementInfo `json:"quarterly"`
-	Yearly         map[string]IncomeStatementInfo `json:"yearly"`
+	CurrencySymbol string               `json:"currency_symbol"`
+	Quarterly      IncomeStatementInfos `json:"quarterly"`
+	Yearly         IncomeStatementInfos `json:"yearly"`
 }
 type BalanceSheet struct {
-	CurrencySymbol string                      `json:"currency_symbol"`
-	Quarterly      map[string]BalanceSheetInfo `json:"quarterly"`
-	Yearly         map[string]BalanceSheetInfo `json:"yearly"`
+	CurrencySymbol string            `json:"currency_symbol"`
+	Quarterly      BalanceSheetInfos `json:"quarterly"`
+	Yearly         BalanceSheetInfos `json:"yearly"`
 }
 type CashFlow struct {
-	CurrencySymbol string                  `json:"currency_symbol"`
-	Quarterly      map[string]CashFlowInfo `json:"quarterly"`
-	Yearly         map[string]CashFlowInfo `json:"yearly"`
+	CurrencySymbol string        `json:"currency_symbol"`
+	Quarterly      CashFlowInfos `json:"quarterly"`
+	Yearly         CashFlowInfos `json:"yearly"`
 }
 type SharesStats struct {
 	SharesOutstanding       *decimal.Decimal `json:"SharesOutstanding"`
@@ -529,37 +859,119 @@ type Component struct {
 	Industry string `json:"Industry"`
 }
 
-type MutualFundData struct {
-	Nav                   string                             `json:"Nav"`
-	PrevClosePrice        string                             `json:"Prev_Close_Price"`
-	UpdateDate            string                             `json:"Update_Date"`
-	PortfolioNetAssets    string                             `json:"Portfolio_Net_Assets"`
-	ShareClassNetAssets   string                             `json:"Share_Class_Net_Assets"`
-	MorningStarRating     int                                `json:"Morning_Star_Rating"`
-	MorningStarRiskRating int                                `json:"Morning_Star_Risk_Rating"`
-	MorningStarCategory   string                             `json:"Morning_Star_Category"`
-	InceptonDate          string                             `json:"Incepton_Date"`
-	Currency              string                             `json:"Currency"`
-	Domicile              string                             `json:"Domicile"`
-	Yield                 string                             `json:"Yield"`
-	YieldYTD              string                             `json:"Yield_YTD"`
-	Yield1YearYTD         string                             `json:"Yield_1Year_YTD"`
-	Yield3YearYTD         string                             `json:"Yield_3Year_YTD"`
-	Yield5YearYTD         string                             `json:"Yield_5Year_YTD"`
-	ExpenseRatio          string                             `json:"Expense_Ratio"`
-	ExpenseRatioDate      string                             `json:"Expense_Ratio_Date"`
-	AssetAllocation       map[string]AssetAllocation         `json:"Asset_Allocation"`
-	ValueGrowth           map[string]ValueGrowth             `json:"Value_Growth"`
-	TopHoldings           map[string]TopHoldings             `json:"Top_Holdings"`
-	MarketCapitalization  map[string]MarketCapitalization    `json:"Market_Capitalization"`
-	SectorWeights         SectorWeights                      `json:"Sector_Weights"`
-	WorldRegions          map[string]map[string]RegionWeight `json:"World_Regions"`
+type Components []Component
+
+func (out *Components) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]Component, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 Component
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]Component, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 Component
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
-type SectorWeights struct {
-	Cyclical  map[string]SectorWeight `json:"Cyclical"`
-	Defensive map[string]SectorWeight `json:"Defensive"`
-	Sensitive map[string]SectorWeight `json:"Sensitive"`
+type MutualFundData struct {
+	Nav                   string                `json:"Nav"`
+	PrevClosePrice        string                `json:"Prev_Close_Price"`
+	UpdateDate            string                `json:"Update_Date"`
+	PortfolioNetAssets    string                `json:"Portfolio_Net_Assets"`
+	ShareClassNetAssets   string                `json:"Share_Class_Net_Assets"`
+	MorningStarRating     int                   `json:"Morning_Star_Rating"`
+	MorningStarRiskRating int                   `json:"Morning_Star_Risk_Rating"`
+	MorningStarCategory   string                `json:"Morning_Star_Category"`
+	InceptonDate          string                `json:"Incepton_Date"`
+	Currency              string                `json:"Currency"`
+	Domicile              string                `json:"Domicile"`
+	Yield                 string                `json:"Yield"`
+	YieldYTD              string                `json:"Yield_YTD"`
+	Yield1YearYTD         string                `json:"Yield_1Year_YTD"`
+	Yield3YearYTD         string                `json:"Yield_3Year_YTD"`
+	Yield5YearYTD         string                `json:"Yield_5Year_YTD"`
+	ExpenseRatio          string                `json:"Expense_Ratio"`
+	ExpenseRatioDate      string                `json:"Expense_Ratio_Date"`
+	AssetAllocation       AssetAllocations      `json:"Asset_Allocation"`
+	ValueGrowth           ValueGrowths          `json:"Value_Growth"`
+	TopHoldings           TopHoldings           `json:"Top_Holdings"`
+	MarketCapitalization  MarketCapitalizations `json:"Market_Capitalization"`
+	SectorWeights         SectorWeightsGroup    `json:"Sector_Weights"`
+	WorldRegions          RegionWeights         `json:"World_Regions"`
+}
+
+type SectorWeightsGroup struct {
+	Cyclical  SectorWeights `json:"Cyclical"`
+	Defensive SectorWeights `json:"Defensive"`
+	Sensitive SectorWeights `json:"Sensitive"`
+}
+
+type SectorWeights []SectorWeight
+
+func (out *SectorWeights) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]SectorWeight, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 SectorWeight
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]SectorWeight, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 SectorWeight
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
 type SectorWeight struct {
@@ -570,24 +982,165 @@ type SectorWeight struct {
 }
 
 type RegionWeight struct {
+	Category        string `json:"Category"`
 	Name            string `json:"Name"`
 	CategoryAverage string `json:"Category_Average"`
 	Stocks          string `json:"Stocks_%"`
 	Benchmark       string `json:"Benchmark"`
 }
 
+type RegionWeights []RegionWeight
+
+func (out *RegionWeights) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]RegionWeight, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 RegionWeight
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]RegionWeight, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			key := string(in.String())
+			in.WantColon()
+
+			in.Delim('{')
+			if in.IsDelim('}') {
+				continue
+			}
+
+			for !in.IsDelim('}') {
+				in.Skip()
+				in.WantColon()
+
+				var v37 RegionWeight
+				(v37).UnmarshalEasyJSON(in)
+				v37.Category = key
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim('}')
+
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
 type MarketCapitalization struct {
+	Category        string           `json:"Category"`
 	Size            string           `json:"Size"`
 	CategoryAverage *decimal.Decimal `json:"Category_Average"`
 	Benchmark       *decimal.Decimal `json:"Benchmark"`
 	Portfolio       *decimal.Decimal `json:"Portfolio_%"`
 }
 
-type TopHoldings struct {
+type MarketCapitalizations []MarketCapitalization
+
+func (out *MarketCapitalizations) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]MarketCapitalization, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 MarketCapitalization
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]MarketCapitalization, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			key := string(in.String())
+			in.WantColon()
+			var v37 MarketCapitalization
+			(v37).UnmarshalEasyJSON(in)
+			v37.Category = key
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
+type TopHolding struct {
 	Name   string  `json:"Name"`
 	Owned  *string `json:"Owned"`
 	Change *string `json:"Change"`
 	Weight *string `json:"Weight"`
+}
+
+type TopHoldings []TopHolding
+
+func (out *TopHoldings) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]TopHolding, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 TopHolding
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]TopHolding, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 TopHolding
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
 type ValueGrowth struct {
@@ -595,6 +1148,47 @@ type ValueGrowth struct {
 	CategoryAverage *decimal.Decimal `json:"Category_Average"`
 	Benchmark       *decimal.Decimal `json:"Benchmark"`
 	StockPortfolio  *decimal.Decimal `json:"Stock_Portfolio"`
+}
+
+type ValueGrowths []ValueGrowth
+
+func (out *ValueGrowths) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]ValueGrowth, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 ValueGrowth
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]ValueGrowth, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 ValueGrowth
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
 }
 
 // FetchFundamentals Fetches Fundamentals for the exchange

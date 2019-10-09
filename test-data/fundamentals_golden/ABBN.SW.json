@@ -61,84 +61,100 @@
     "ExDividendDate": "2019-05-06",
     "LastSplitFactor": "1/4",
     "LastSplitDate": "2001-05-07",
-    "NumberDividendsByYear": {
-      "11": {
-        "Year": 2015,
-        "Count": 1
-      },
-      "13": {
-        "Year": 2017,
-        "Count": 1
-      },
-      "2": {
-        "Year": 2006,
-        "Count": 1
-      },
-      "4": {
-        "Year": 2008,
-        "Count": 1
-      },
-      "9": {
-        "Year": 2013,
-        "Count": 1
-      },
-      "12": {
-        "Year": 2016,
-        "Count": 1
-      },
-      "7": {
-        "Year": 2011,
-        "Count": 1
-      },
-      "15": {
-        "Year": 2019,
-        "Count": 1
-      },
-      "1": {
-        "Year": 2001,
-        "Count": 1
-      },
-      "6": {
-        "Year": 2010,
-        "Count": 1
-      },
-      "5": {
-        "Year": 2009,
-        "Count": 1
-      },
-      "8": {
-        "Year": 2012,
-        "Count": 1
-      },
-      "10": {
-        "Year": 2014,
-        "Count": 1
-      },
-      "14": {
-        "Year": 2018,
-        "Count": 1
-      },
-      "0": {
+    "NumberDividendsByYear": [
+      {
         "Year": 2000,
         "Count": 1
       },
-      "3": {
+      {
+        "Year": 2001,
+        "Count": 1
+      },
+      {
+        "Year": 2006,
+        "Count": 1
+      },
+      {
         "Year": 2007,
         "Count": 1
+      },
+      {
+        "Year": 2008,
+        "Count": 1
+      },
+      {
+        "Year": 2009,
+        "Count": 1
+      },
+      {
+        "Year": 2010,
+        "Count": 1
+      },
+      {
+        "Year": 2011,
+        "Count": 1
+      },
+      {
+        "Year": 2012,
+        "Count": 1
+      },
+      {
+        "Year": 2013,
+        "Count": 1
+      },
+      {
+        "Year": 2014,
+        "Count": 1
+      },
+      {
+        "Year": 2015,
+        "Count": 1
+      },
+      {
+        "Year": 2016,
+        "Count": 1
+      },
+      {
+        "Year": 2017,
+        "Count": 1
+      },
+      {
+        "Year": 2018,
+        "Count": 1
+      },
+      {
+        "Year": 2019,
+        "Count": 1
       }
-    }
+    ]
   },
   "Earnings": {
-    "History": {
-      "2020-07-23": {
+    "History": [
+      {
         "date": "2020-07-23",
         "reportDate": "2020-07-23"
       },
-      "2019-07-25": {
+      {
+        "date": "2020-04-15",
+        "reportDate": "2020-04-15"
+      },
+      {
+        "date": "2020-02-05",
+        "reportDate": "2020-02-05"
+      },
+      {
+        "date": "2019-10-23",
+        "reportDate": "2019-10-23"
+      },
+      {
         "date": "2019-07-25",
         "reportDate": "2019-07-25"
       },
-      "2018-09-30": {
+      {
+        "date": "2019-04-17",
+        "reportDate": "2019-04-17"
+      },
+      {
         "date": "2018-09-30",
         "reportDate": "2018-10-25",
         "epsActual": "0.34",
@@ -146,10 +162,15 @@
         "epsDifference": "-0.01",
         "surprisePercent": "-2.86"
       },
-      "2017-12-31": {
-        "date": "2017-12-31"
+      {
+        "date": "2018-06-30",
+        "reportDate": "2018-07-19",
+        "epsActual": "0.38",
+        "epsEstimate": "0.34",
+        "epsDifference": "0.04",
+        "surprisePercent": "11.76"
       },
-      "2018-03-31": {
+      {
         "date": "2018-03-31",
         "reportDate": "2018-04-19",
         "epsActual": "0.31",
@@ -157,33 +178,12 @@
         "epsDifference": "0.02",
         "surprisePercent": "6.9"
       },
-      "2020-04-15": {
-        "date": "2020-04-15",
-        "reportDate": "2020-04-15"
-      },
-      "2020-02-05": {
-        "date": "2020-02-05",
-        "reportDate": "2020-02-05"
-      },
-      "2019-10-23": {
-        "date": "2019-10-23",
-        "reportDate": "2019-10-23"
-      },
-      "2019-04-17": {
-        "date": "2019-04-17",
-        "reportDate": "2019-04-17"
-      },
-      "2018-06-30": {
-        "date": "2018-06-30",
-        "reportDate": "2018-07-19",
-        "epsActual": "0.38",
-        "epsEstimate": "0.34",
-        "epsDifference": "0.04",
-        "surprisePercent": "11.76"
+      {
+        "date": "2017-12-31"
       }
-    },
-    "Trend": {
-      "2019-12-31": {
+    ],
+    "Trend": [
+      {
         "date": "2019-12-31",
         "period": "+1y",
         "earningsEstimateAvg": "0",
@@ -204,7 +204,7 @@
         "epsRevisionsUpLast30days": "1",
         "epsRevisionsDownLast30days": "1"
       },
-      "2019-03-31": {
+      {
         "date": "2019-03-31",
         "period": "+1q",
         "earningsEstimateAvg": "0",
@@ -226,7 +226,7 @@
         "epsRevisionsUpLast30days": "0",
         "epsRevisionsDownLast30days": "1"
       },
-      "2018-12-31": {
+      {
         "date": "2018-12-31",
         "period": "0y",
         "earningsEstimateAvg": "0",
@@ -247,23 +247,23 @@
         "epsRevisionsUpLast30days": "3",
         "epsRevisionsDownLast30days": "1"
       }
-    },
-    "Annual": {
-      "2019-07-25": {
+    ],
+    "Annual": [
+      {
         "date": "2019-07-25",
         "epsActual": "1.03"
       },
-      "2017-12-31": {
+      {
         "date": "2017-12-31",
         "epsActual": "0"
       }
-    }
+    ]
   },
   "Financials": {
     "Balance_Sheet": {
       "currency_symbol": "USD",
-      "quarterly": {
-        "2019-06-30": {
+      "quarterly": [
+        {
           "date": "2019-06-30",
           "intangibleAssets": "2428000000",
           "totalLiab": "32081000000",
@@ -290,7 +290,7 @@
           "inventory": "4456000000",
           "accountsPayable": "4107000000"
         },
-        "2019-03-31": {
+        {
           "date": "2019-03-31",
           "intangibleAssets": "2527000000",
           "totalLiab": "30500000000",
@@ -317,7 +317,7 @@
           "inventory": "4459000000",
           "accountsPayable": "4081000000"
         },
-        "2018-12-31": {
+        {
           "date": "2018-12-31",
           "intangibleAssets": "2607000000",
           "totalLiab": "29907000000",
@@ -344,7 +344,7 @@
           "inventory": "4284000000",
           "accountsPayable": "4424000000"
         },
-        "2018-09-30": {
+        {
           "date": "2018-09-30",
           "intangibleAssets": "2894000000",
           "totalLiab": "30003000000",
@@ -371,7 +371,7 @@
           "inventory": "6077000000",
           "accountsPayable": "5825000000"
         },
-        "2018-06-30": {
+        {
           "date": "2018-06-30",
           "intangibleAssets": "2959000000",
           "totalLiab": "31012000000",
@@ -398,9 +398,9 @@
           "inventory": "5934000000",
           "accountsPayable": "5933000000"
         }
-      },
-      "yearly": {
-        "2018-12-31": {
+      ],
+      "yearly": [
+        {
           "date": "2018-12-31",
           "intangibleAssets": "2607000000",
           "totalLiab": "29907000000",
@@ -427,7 +427,7 @@
           "inventory": "4284000000",
           "accountsPayable": "4424000000"
         },
-        "2017-12-31": {
+        {
           "date": "2017-12-31",
           "intangibleAssets": "2425000000",
           "totalLiab": "28109000000",
@@ -454,7 +454,7 @@
           "inventory": "3737000000",
           "accountsPayable": "3736000000"
         },
-        "2016-12-31": {
+        {
           "date": "2016-12-31",
           "intangibleAssets": "1952000000",
           "totalLiab": "25305000000",
@@ -481,7 +481,7 @@
           "inventory": "4347000000",
           "accountsPayable": "4446000000"
         },
-        "2015-12-31": {
+        {
           "date": "2015-12-31",
           "intangibleAssets": "2293000000",
           "totalLiab": "26368000000",
@@ -508,12 +508,51 @@
           "inventory": "4757000000",
           "accountsPayable": "4342000000"
         }
-      }
+      ]
     },
     "Cash_Flow": {
       "currency_symbol": "USD",
-      "quarterly": {
-        "2018-12-31": {
+      "quarterly": [
+        {
+          "date": "2019-06-30",
+          "investments": "50000000",
+          "changeToLiabilities": "112000000",
+          "totalCashflowsFromInvestingActivities": "-172000000",
+          "netBorrowings": "1736000000",
+          "totalCashFromFinancingActivities": "-30000000",
+          "changeToOperatingActivities": "-503000000",
+          "netIncome": "64000000",
+          "changeInCash": "-222000000",
+          "depreciation": "249000000",
+          "otherCashflowsFromInvestingActivities": "-94000000",
+          "dividendsPaid": "-1675000000",
+          "changeToInventory": "-73000000",
+          "changeToAccountReceivables": "-180000000",
+          "otherCashflowsFromFinancingActivities": "-91000000",
+          "changeToNetincome": "372000000",
+          "capitalExpenditures": "169000000"
+        },
+        {
+          "date": "2019-03-31",
+          "investments": "-110000000",
+          "changeToLiabilities": "-307000000",
+          "totalCashflowsFromInvestingActivities": "-334000000",
+          "netBorrowings": "-123000000",
+          "totalCashFromFinancingActivities": "-133000000",
+          "changeToOperatingActivities": "-18000000",
+          "netIncome": "535000000",
+          "changeInCash": "-711000000",
+          "totalCashFromOperatingActivities": "-256000000",
+          "depreciation": "231000000",
+          "otherCashflowsFromInvestingActivities": "-42000000",
+          "dividendsPaid": "-1675000000",
+          "changeToInventory": "-213000000",
+          "changeToAccountReceivables": "-113000000",
+          "otherCashflowsFromFinancingActivities": "-10000000",
+          "changeToNetincome": "-382000000",
+          "capitalExpenditures": "207000000"
+        },
+        {
           "date": "2018-12-31",
           "investments": "186000000",
           "changeToLiabilities": "306000000",
@@ -533,7 +572,7 @@
           "changeToNetincome": "202000000",
           "capitalExpenditures": "235000000"
         },
-        "2018-09-30": {
+        {
           "date": "2018-09-30",
           "investments": "-164000000",
           "changeToLiabilities": "-56000000",
@@ -553,7 +592,7 @@
           "changeToNetincome": "-117000000",
           "capitalExpenditures": "239000000"
         },
-        "2018-06-30": {
+        {
           "date": "2018-06-30",
           "investments": "-2000000",
           "changeToLiabilities": "432000000",
@@ -572,49 +611,10 @@
           "otherCashflowsFromFinancingActivities": "-123000000",
           "changeToNetincome": "79000000",
           "capitalExpenditures": "197000000"
-        },
-        "2019-06-30": {
-          "date": "2019-06-30",
-          "investments": "50000000",
-          "changeToLiabilities": "112000000",
-          "totalCashflowsFromInvestingActivities": "-172000000",
-          "netBorrowings": "1736000000",
-          "totalCashFromFinancingActivities": "-30000000",
-          "changeToOperatingActivities": "-503000000",
-          "netIncome": "64000000",
-          "changeInCash": "-222000000",
-          "depreciation": "249000000",
-          "otherCashflowsFromInvestingActivities": "-94000000",
-          "dividendsPaid": "-1675000000",
-          "changeToInventory": "-73000000",
-          "changeToAccountReceivables": "-180000000",
-          "otherCashflowsFromFinancingActivities": "-91000000",
-          "changeToNetincome": "372000000",
-          "capitalExpenditures": "169000000"
-        },
-        "2019-03-31": {
-          "date": "2019-03-31",
-          "investments": "-110000000",
-          "changeToLiabilities": "-307000000",
-          "totalCashflowsFromInvestingActivities": "-334000000",
-          "netBorrowings": "-123000000",
-          "totalCashFromFinancingActivities": "-133000000",
-          "changeToOperatingActivities": "-18000000",
-          "netIncome": "535000000",
-          "changeInCash": "-711000000",
-          "totalCashFromOperatingActivities": "-256000000",
-          "depreciation": "231000000",
-          "otherCashflowsFromInvestingActivities": "-42000000",
-          "dividendsPaid": "-1675000000",
-          "changeToInventory": "-213000000",
-          "changeToAccountReceivables": "-113000000",
-          "otherCashflowsFromFinancingActivities": "-10000000",
-          "changeToNetincome": "-382000000",
-          "capitalExpenditures": "207000000"
         }
-      },
-      "yearly": {
-        "2018-12-31": {
+      ],
+      "yearly": [
+        {
           "date": "2018-12-31",
           "investments": "405000000",
           "changeToLiabilities": "454000000",
@@ -634,7 +634,7 @@
           "changeToNetincome": "-215000000",
           "capitalExpenditures": "772000000"
         },
-        "2017-12-31": {
+        {
           "date": "2017-12-31",
           "investments": "877000000",
           "changeToLiabilities": "474000000",
@@ -654,7 +654,7 @@
           "changeToNetincome": "111000000",
           "capitalExpenditures": "752000000"
         },
-        "2016-12-31": {
+        {
           "date": "2016-12-31",
           "investments": "-465000000",
           "changeToLiabilities": "186000000",
@@ -674,7 +674,7 @@
           "changeToNetincome": "546000000",
           "capitalExpenditures": "632000000"
         },
-        "2015-12-31": {
+        {
           "date": "2015-12-31",
           "investments": "-430000000",
           "changeToLiabilities": "29000000",
@@ -694,12 +694,12 @@
           "changeToNetincome": "67000000",
           "capitalExpenditures": "876000000"
         }
-      }
+      ]
     },
     "Income_Statement": {
       "currency_symbol": "USD",
-      "quarterly": {
-        "2019-06-30": {
+      "quarterly": [
+        {
           "date": "2019-06-30",
           "researchDevelopment": "299000000",
           "incomeBeforeTax": "101000000",
@@ -720,7 +720,7 @@
           "netIncomeFromContinuingOps": "-54000000",
           "netIncomeApplicableToCommonShares": "64000000"
         },
-        "2019-03-31": {
+        {
           "date": "2019-03-31",
           "researchDevelopment": "285000000",
           "incomeBeforeTax": "570000000",
@@ -741,7 +741,7 @@
           "netIncomeFromContinuingOps": "415000000",
           "netIncomeApplicableToCommonShares": "535000000"
         },
-        "2018-12-31": {
+        {
           "date": "2018-12-31",
           "researchDevelopment": "326000000",
           "incomeBeforeTax": "226000000",
@@ -762,7 +762,7 @@
           "netIncomeFromContinuingOps": "210000000",
           "netIncomeApplicableToCommonShares": "317000000"
         },
-        "2018-09-30": {
+        {
           "date": "2018-09-30",
           "researchDevelopment": "328000000",
           "incomeBeforeTax": "859000000",
@@ -783,7 +783,7 @@
           "netIncomeFromContinuingOps": "636000000",
           "netIncomeApplicableToCommonShares": "603000000"
         },
-        "2018-06-30": {
+        {
           "date": "2018-06-30",
           "researchDevelopment": "346000000",
           "incomeBeforeTax": "973000000",
@@ -804,29 +804,9 @@
           "netIncomeFromContinuingOps": "709000000",
           "netIncomeApplicableToCommonShares": "681000000"
         }
-      },
-      "yearly": {
-        "2015-12-31": {
-          "date": "2015-12-31",
-          "researchDevelopment": "1368000000",
-          "incomeBeforeTax": "2840000000",
-          "minorityInterest": "507000000",
-          "netIncome": "1933000000",
-          "sellingGeneralAdministrative": "5387000000",
-          "grossProfit": "10418000000",
-          "ebit": "3663000000",
-          "operatingIncome": "3663000000",
-          "interestExpense": "-572000000",
-          "incomeTaxExpense": "788000000",
-          "totalRevenue": "35481000000",
-          "totalOperatingExpenses": "31818000000",
-          "costOfRevenue": "25063000000",
-          "totalOtherIncomeExpenseNet": "-823000000",
-          "discontinuedOperations": "3000000",
-          "netIncomeFromContinuingOps": "2052000000",
-          "netIncomeApplicableToCommonShares": "1933000000"
-        },
-        "2018-12-31": {
+      ],
+      "yearly": [
+        {
           "date": "2018-12-31",
           "researchDevelopment": "1142000000",
           "incomeBeforeTax": "2119000000",
@@ -846,7 +826,7 @@
           "netIncomeFromContinuingOps": "1575000000",
           "netIncomeApplicableToCommonShares": "2173000000"
         },
-        "2017-12-31": {
+        {
           "date": "2017-12-31",
           "researchDevelopment": "1018000000",
           "incomeBeforeTax": "2102000000",
@@ -866,7 +846,7 @@
           "netIncomeFromContinuingOps": "1519000000",
           "netIncomeApplicableToCommonShares": "2213000000"
         },
-        "2016-12-31": {
+        {
           "date": "2016-12-31",
           "researchDevelopment": "961000000",
           "incomeBeforeTax": "1761000000",
@@ -885,8 +865,28 @@
           "discontinuedOperations": "799000000",
           "netIncomeFromContinuingOps": "1235000000",
           "netIncomeApplicableToCommonShares": "1899000000"
+        },
+        {
+          "date": "2015-12-31",
+          "researchDevelopment": "1368000000",
+          "incomeBeforeTax": "2840000000",
+          "minorityInterest": "507000000",
+          "netIncome": "1933000000",
+          "sellingGeneralAdministrative": "5387000000",
+          "grossProfit": "10418000000",
+          "ebit": "3663000000",
+          "operatingIncome": "3663000000",
+          "interestExpense": "-572000000",
+          "incomeTaxExpense": "788000000",
+          "totalRevenue": "35481000000",
+          "totalOperatingExpenses": "31818000000",
+          "costOfRevenue": "25063000000",
+          "totalOtherIncomeExpenseNet": "-823000000",
+          "discontinuedOperations": "3000000",
+          "netIncomeFromContinuingOps": "2052000000",
+          "netIncomeApplicableToCommonShares": "1933000000"
         }
-      }
+      ]
     }
   },
   "SharesStats": {

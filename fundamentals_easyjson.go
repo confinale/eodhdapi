@@ -534,7 +534,7 @@ func (v *Valuation) UnmarshalJSON(data []byte) error {
 func (v *Valuation) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonE48f2accDecodeGithubComGituEodhdapi3(l, v)
 }
-func easyjsonE48f2accDecodeGithubComGituEodhdapi4(in *jlexer.Lexer, out *TopHoldings) {
+func easyjsonE48f2accDecodeGithubComGituEodhdapi4(in *jlexer.Lexer, out *TopHolding) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -599,7 +599,7 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi4(in *jlexer.Lexer, out *TopHold
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComGituEodhdapi4(out *jwriter.Writer, in TopHoldings) {
+func easyjsonE48f2accEncodeGithubComGituEodhdapi4(out *jwriter.Writer, in TopHolding) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -643,26 +643,26 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi4(out *jwriter.Writer, in TopHol
 }
 
 // MarshalJSON supports json.Marshaler interface
-func (v TopHoldings) MarshalJSON() ([]byte, error) {
+func (v TopHolding) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
 	easyjsonE48f2accEncodeGithubComGituEodhdapi4(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
-func (v TopHoldings) MarshalEasyJSON(w *jwriter.Writer) {
+func (v TopHolding) MarshalEasyJSON(w *jwriter.Writer) {
 	easyjsonE48f2accEncodeGithubComGituEodhdapi4(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
-func (v *TopHoldings) UnmarshalJSON(data []byte) error {
+func (v *TopHolding) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
 	easyjsonE48f2accDecodeGithubComGituEodhdapi4(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
-func (v *TopHoldings) UnmarshalEasyJSON(l *jlexer.Lexer) {
+func (v *TopHolding) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonE48f2accDecodeGithubComGituEodhdapi4(l, v)
 }
 func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technicals) {
@@ -986,25 +986,7 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi6(in *jlexer.Lexer, out *SplitsD
 		case "LastSplitDate":
 			out.LastSplitDate = string(in.String())
 		case "NumberDividendsByYear":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.NumberDividendsByYear = make(map[string]YearCount)
-				} else {
-					out.NumberDividendsByYear = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v1 YearCount
-					(v1).UnmarshalEasyJSON(in)
-					(out.NumberDividendsByYear)[key] = v1
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.NumberDividendsByYear).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -1098,19 +1080,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi6(out *jwriter.Writer, in Splits
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v2First := true
-			for v2Name, v2Value := range in.NumberDividendsByYear {
-				if v2First {
-					v2First = false
-				} else {
+			out.RawByte('[')
+			for v1, v2 := range in.NumberDividendsByYear {
+				if v1 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v2Name))
-				out.RawByte(':')
-				(v2Value).MarshalEasyJSON(out)
+				(v2).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -1479,7 +1456,7 @@ func (v *SharesOutstanding) UnmarshalJSON(data []byte) error {
 func (v *SharesOutstanding) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonE48f2accDecodeGithubComGituEodhdapi8(l, v)
 }
-func easyjsonE48f2accDecodeGithubComGituEodhdapi9(in *jlexer.Lexer, out *SectorWeights) {
+func easyjsonE48f2accDecodeGithubComGituEodhdapi9(in *jlexer.Lexer, out *SectorWeightsGroup) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1499,65 +1476,11 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi9(in *jlexer.Lexer, out *SectorW
 		}
 		switch key {
 		case "Cyclical":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Cyclical = make(map[string]SectorWeight)
-				} else {
-					out.Cyclical = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v3 SectorWeight
-					(v3).UnmarshalEasyJSON(in)
-					(out.Cyclical)[key] = v3
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Cyclical).UnmarshalEasyJSON(in)
 		case "Defensive":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Defensive = make(map[string]SectorWeight)
-				} else {
-					out.Defensive = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v4 SectorWeight
-					(v4).UnmarshalEasyJSON(in)
-					(out.Defensive)[key] = v4
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Defensive).UnmarshalEasyJSON(in)
 		case "Sensitive":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Sensitive = make(map[string]SectorWeight)
-				} else {
-					out.Sensitive = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v5 SectorWeight
-					(v5).UnmarshalEasyJSON(in)
-					(out.Sensitive)[key] = v5
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Sensitive).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -1572,7 +1495,7 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi9(in *jlexer.Lexer, out *SectorW
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComGituEodhdapi9(out *jwriter.Writer, in SectorWeights) {
+func easyjsonE48f2accEncodeGithubComGituEodhdapi9(out *jwriter.Writer, in SectorWeightsGroup) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -1581,19 +1504,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi9(out *jwriter.Writer, in Sector
 		first = false
 		out.RawString(prefix[1:])
 		{
-			out.RawByte('{')
-			v6First := true
-			for v6Name, v6Value := range in.Cyclical {
-				if v6First {
-					v6First = false
-				} else {
+			out.RawByte('[')
+			for v3, v4 := range in.Cyclical {
+				if v3 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v6Name))
-				out.RawByte(':')
-				(v6Value).MarshalEasyJSON(out)
+				(v4).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Defensive) != 0 {
@@ -1605,19 +1523,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi9(out *jwriter.Writer, in Sector
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v7First := true
-			for v7Name, v7Value := range in.Defensive {
-				if v7First {
-					v7First = false
-				} else {
+			out.RawByte('[')
+			for v5, v6 := range in.Defensive {
+				if v5 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v7Name))
-				out.RawByte(':')
-				(v7Value).MarshalEasyJSON(out)
+				(v6).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Sensitive) != 0 {
@@ -1629,45 +1542,40 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi9(out *jwriter.Writer, in Sector
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v8First := true
-			for v8Name, v8Value := range in.Sensitive {
-				if v8First {
-					v8First = false
-				} else {
+			out.RawByte('[')
+			for v7, v8 := range in.Sensitive {
+				if v7 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v8Name))
-				out.RawByte(':')
-				(v8Value).MarshalEasyJSON(out)
+				(v8).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
 }
 
 // MarshalJSON supports json.Marshaler interface
-func (v SectorWeights) MarshalJSON() ([]byte, error) {
+func (v SectorWeightsGroup) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
 	easyjsonE48f2accEncodeGithubComGituEodhdapi9(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
-func (v SectorWeights) MarshalEasyJSON(w *jwriter.Writer) {
+func (v SectorWeightsGroup) MarshalEasyJSON(w *jwriter.Writer) {
 	easyjsonE48f2accEncodeGithubComGituEodhdapi9(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
-func (v *SectorWeights) UnmarshalJSON(data []byte) error {
+func (v *SectorWeightsGroup) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
 	easyjsonE48f2accDecodeGithubComGituEodhdapi9(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
-func (v *SectorWeights) UnmarshalEasyJSON(l *jlexer.Lexer) {
+func (v *SectorWeightsGroup) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonE48f2accDecodeGithubComGituEodhdapi9(l, v)
 }
 func easyjsonE48f2accDecodeGithubComGituEodhdapi10(in *jlexer.Lexer, out *SectorWeight) {
@@ -1796,6 +1704,8 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi11(in *jlexer.Lexer, out *Region
 			continue
 		}
 		switch key {
+		case "Category":
+			out.Category = string(in.String())
 		case "Name":
 			out.Name = string(in.String())
 		case "Category_Average":
@@ -1822,10 +1732,20 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi11(out *jwriter.Writer, in Regio
 	out.RawByte('{')
 	first := true
 	_ = first
-	if in.Name != "" {
-		const prefix string = ",\"Name\":"
+	if in.Category != "" {
+		const prefix string = ",\"Category\":"
 		first = false
 		out.RawString(prefix[1:])
+		out.String(string(in.Category))
+	}
+	if in.Name != "" {
+		const prefix string = ",\"Name\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
 		out.String(string(in.Name))
 	}
 	if in.CategoryAverage != "" {
@@ -2117,45 +2037,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi13(in *jlexer.Lexer, out *Outsta
 		}
 		switch key {
 		case "annual":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Annual = make(map[string]SharesOutstanding)
-				} else {
-					out.Annual = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v9 SharesOutstanding
-					(v9).UnmarshalEasyJSON(in)
-					(out.Annual)[key] = v9
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Annual).UnmarshalEasyJSON(in)
 		case "quarterly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Quarterly = make(map[string]SharesOutstanding)
-				} else {
-					out.Quarterly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v10 SharesOutstanding
-					(v10).UnmarshalEasyJSON(in)
-					(out.Quarterly)[key] = v10
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Quarterly).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -2179,19 +2063,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi13(out *jwriter.Writer, in Outst
 		first = false
 		out.RawString(prefix[1:])
 		{
-			out.RawByte('{')
-			v11First := true
-			for v11Name, v11Value := range in.Annual {
-				if v11First {
-					v11First = false
-				} else {
+			out.RawByte('[')
+			for v9, v10 := range in.Annual {
+				if v9 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v11Name))
-				out.RawByte(':')
-				(v11Value).MarshalEasyJSON(out)
+				(v10).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Quarterly) != 0 {
@@ -2203,19 +2082,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi13(out *jwriter.Writer, in Outst
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v12First := true
-			for v12Name, v12Value := range in.Quarterly {
-				if v12First {
-					v12First = false
-				} else {
+			out.RawByte('[')
+			for v11, v12 := range in.Quarterly {
+				if v11 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v12Name))
-				out.RawByte(':')
-				(v12Value).MarshalEasyJSON(out)
+				(v12).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -2300,125 +2174,17 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi14(in *jlexer.Lexer, out *Mutual
 		case "Expense_Ratio_Date":
 			out.ExpenseRatioDate = string(in.String())
 		case "Asset_Allocation":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.AssetAllocation = make(map[string]AssetAllocation)
-				} else {
-					out.AssetAllocation = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v13 AssetAllocation
-					(v13).UnmarshalEasyJSON(in)
-					(out.AssetAllocation)[key] = v13
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.AssetAllocation).UnmarshalEasyJSON(in)
 		case "Value_Growth":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.ValueGrowth = make(map[string]ValueGrowth)
-				} else {
-					out.ValueGrowth = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v14 ValueGrowth
-					(v14).UnmarshalEasyJSON(in)
-					(out.ValueGrowth)[key] = v14
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.ValueGrowth).UnmarshalEasyJSON(in)
 		case "Top_Holdings":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.TopHoldings = make(map[string]TopHoldings)
-				} else {
-					out.TopHoldings = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v15 TopHoldings
-					(v15).UnmarshalEasyJSON(in)
-					(out.TopHoldings)[key] = v15
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.TopHoldings).UnmarshalEasyJSON(in)
 		case "Market_Capitalization":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.MarketCapitalization = make(map[string]MarketCapitalization)
-				} else {
-					out.MarketCapitalization = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v16 MarketCapitalization
-					(v16).UnmarshalEasyJSON(in)
-					(out.MarketCapitalization)[key] = v16
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.MarketCapitalization).UnmarshalEasyJSON(in)
 		case "Sector_Weights":
 			(out.SectorWeights).UnmarshalEasyJSON(in)
 		case "World_Regions":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.WorldRegions = make(map[string]map[string]RegionWeight)
-				} else {
-					out.WorldRegions = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v17 map[string]RegionWeight
-					if in.IsNull() {
-						in.Skip()
-					} else {
-						in.Delim('{')
-						if !in.IsDelim('}') {
-							v17 = make(map[string]RegionWeight)
-						} else {
-							v17 = nil
-						}
-						for !in.IsDelim('}') {
-							key := string(in.String())
-							in.WantColon()
-							var v18 RegionWeight
-							(v18).UnmarshalEasyJSON(in)
-							(v17)[key] = v18
-							in.WantComma()
-						}
-						in.Delim('}')
-					}
-					(out.WorldRegions)[key] = v17
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.WorldRegions).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -2622,19 +2388,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v19First := true
-			for v19Name, v19Value := range in.AssetAllocation {
-				if v19First {
-					v19First = false
-				} else {
+			out.RawByte('[')
+			for v13, v14 := range in.AssetAllocation {
+				if v13 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v19Name))
-				out.RawByte(':')
-				(v19Value).MarshalEasyJSON(out)
+				(v14).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.ValueGrowth) != 0 {
@@ -2646,19 +2407,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v20First := true
-			for v20Name, v20Value := range in.ValueGrowth {
-				if v20First {
-					v20First = false
-				} else {
+			out.RawByte('[')
+			for v15, v16 := range in.ValueGrowth {
+				if v15 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v20Name))
-				out.RawByte(':')
-				(v20Value).MarshalEasyJSON(out)
+				(v16).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.TopHoldings) != 0 {
@@ -2670,19 +2426,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v21First := true
-			for v21Name, v21Value := range in.TopHoldings {
-				if v21First {
-					v21First = false
-				} else {
+			out.RawByte('[')
+			for v17, v18 := range in.TopHoldings {
+				if v17 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v21Name))
-				out.RawByte(':')
-				(v21Value).MarshalEasyJSON(out)
+				(v18).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.MarketCapitalization) != 0 {
@@ -2694,19 +2445,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v22First := true
-			for v22Name, v22Value := range in.MarketCapitalization {
-				if v22First {
-					v22First = false
-				} else {
+			out.RawByte('[')
+			for v19, v20 := range in.MarketCapitalization {
+				if v19 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v22Name))
-				out.RawByte(':')
-				(v22Value).MarshalEasyJSON(out)
+				(v20).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if true {
@@ -2728,35 +2474,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v23First := true
-			for v23Name, v23Value := range in.WorldRegions {
-				if v23First {
-					v23First = false
-				} else {
+			out.RawByte('[')
+			for v21, v22 := range in.WorldRegions {
+				if v21 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v23Name))
-				out.RawByte(':')
-				if v23Value == nil && (out.Flags&jwriter.NilMapAsEmpty) == 0 {
-					out.RawString(`null`)
-				} else {
-					out.RawByte('{')
-					v24First := true
-					for v24Name, v24Value := range v23Value {
-						if v24First {
-							v24First = false
-						} else {
-							out.RawByte(',')
-						}
-						out.String(string(v24Name))
-						out.RawByte(':')
-						(v24Value).MarshalEasyJSON(out)
-					}
-					out.RawByte('}')
-				}
+				(v22).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -2899,6 +2624,8 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi16(in *jlexer.Lexer, out *Market
 			continue
 		}
 		switch key {
+		case "Category":
+			out.Category = string(in.String())
 		case "Size":
 			out.Size = string(in.String())
 		case "Category_Average":
@@ -2955,10 +2682,20 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi16(out *jwriter.Writer, in Marke
 	out.RawByte('{')
 	first := true
 	_ = first
-	if in.Size != "" {
-		const prefix string = ",\"Size\":"
+	if in.Category != "" {
+		const prefix string = ",\"Category\":"
 		first = false
 		out.RawString(prefix[1:])
+		out.String(string(in.Category))
+	}
+	if in.Size != "" {
+		const prefix string = ",\"Size\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
 		out.String(string(in.Size))
 	}
 	if in.CategoryAverage != nil {
@@ -3658,45 +3395,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi18(in *jlexer.Lexer, out *Income
 		case "currency_symbol":
 			out.CurrencySymbol = string(in.String())
 		case "quarterly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Quarterly = make(map[string]IncomeStatementInfo)
-				} else {
-					out.Quarterly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v25 IncomeStatementInfo
-					(v25).UnmarshalEasyJSON(in)
-					(out.Quarterly)[key] = v25
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Quarterly).UnmarshalEasyJSON(in)
 		case "yearly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Yearly = make(map[string]IncomeStatementInfo)
-				} else {
-					out.Yearly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v26 IncomeStatementInfo
-					(v26).UnmarshalEasyJSON(in)
-					(out.Yearly)[key] = v26
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -3730,19 +3431,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi18(out *jwriter.Writer, in Incom
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v27First := true
-			for v27Name, v27Value := range in.Quarterly {
-				if v27First {
-					v27First = false
-				} else {
+			out.RawByte('[')
+			for v23, v24 := range in.Quarterly {
+				if v23 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v27Name))
-				out.RawByte(':')
-				(v27Value).MarshalEasyJSON(out)
+				(v24).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Yearly) != 0 {
@@ -3754,19 +3450,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi18(out *jwriter.Writer, in Incom
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v28First := true
-			for v28Name, v28Value := range in.Yearly {
-				if v28First {
-					v28First = false
-				} else {
+			out.RawByte('[')
+			for v25, v26 := range in.Yearly {
+				if v25 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v28Name))
-				out.RawByte(':')
-				(v28Value).MarshalEasyJSON(out)
+				(v26).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -5196,25 +4887,7 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi22(in *jlexer.Lexer, out *Fundam
 				(*out.OutstandingShares).UnmarshalEasyJSON(in)
 			}
 		case "Components":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Components = make(map[string]Component)
-				} else {
-					out.Components = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v29 Component
-					(v29).UnmarshalEasyJSON(in)
-					(out.Components)[key] = v29
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Components).UnmarshalEasyJSON(in)
 		case "MutualFund_Data":
 			if in.IsNull() {
 				in.Skip()
@@ -5368,19 +5041,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi22(out *jwriter.Writer, in Funda
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v30First := true
-			for v30Name, v30Value := range in.Components {
-				if v30First {
-					v30First = false
-				} else {
+			out.RawByte('[')
+			for v27, v28 := range in.Components {
+				if v27 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v30Name))
-				out.RawByte(':')
-				(v30Value).MarshalEasyJSON(out)
+				(v28).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if in.MutualFundData != nil {
@@ -6272,65 +5940,11 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi26(in *jlexer.Lexer, out *Earnin
 		}
 		switch key {
 		case "History":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.History = make(map[string]EarningsInfo)
-				} else {
-					out.History = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v31 EarningsInfo
-					(v31).UnmarshalEasyJSON(in)
-					(out.History)[key] = v31
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.History).UnmarshalEasyJSON(in)
 		case "Trend":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Trend = make(map[string]EarningsEstimateInfo)
-				} else {
-					out.Trend = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v32 EarningsEstimateInfo
-					(v32).UnmarshalEasyJSON(in)
-					(out.Trend)[key] = v32
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Trend).UnmarshalEasyJSON(in)
 		case "Annual":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Annual = make(map[string]EarningsInfo)
-				} else {
-					out.Annual = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v33 EarningsInfo
-					(v33).UnmarshalEasyJSON(in)
-					(out.Annual)[key] = v33
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Annual).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -6354,19 +5968,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi26(out *jwriter.Writer, in Earni
 		first = false
 		out.RawString(prefix[1:])
 		{
-			out.RawByte('{')
-			v34First := true
-			for v34Name, v34Value := range in.History {
-				if v34First {
-					v34First = false
-				} else {
+			out.RawByte('[')
+			for v29, v30 := range in.History {
+				if v29 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v34Name))
-				out.RawByte(':')
-				(v34Value).MarshalEasyJSON(out)
+				(v30).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Trend) != 0 {
@@ -6378,19 +5987,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi26(out *jwriter.Writer, in Earni
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v35First := true
-			for v35Name, v35Value := range in.Trend {
-				if v35First {
-					v35First = false
-				} else {
+			out.RawByte('[')
+			for v31, v32 := range in.Trend {
+				if v31 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v35Name))
-				out.RawByte(':')
-				(v35Value).MarshalEasyJSON(out)
+				(v32).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Annual) != 0 {
@@ -6402,19 +6006,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi26(out *jwriter.Writer, in Earni
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v36First := true
-			for v36Name, v36Value := range in.Annual {
-				if v36First {
-					v36First = false
-				} else {
+			out.RawByte('[')
+			for v33, v34 := range in.Annual {
+				if v33 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v36Name))
-				out.RawByte(':')
-				(v36Value).MarshalEasyJSON(out)
+				(v34).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -6684,11 +6283,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi27(out *jwriter.Writer, in ETFDa
 		}
 		{
 			out.RawByte('[')
-			for v37, v38 := range in.AssetAllocation {
-				if v37 > 0 {
+			for v35, v36 := range in.AssetAllocation {
+				if v35 > 0 {
 					out.RawByte(',')
 				}
-				(v38).MarshalEasyJSON(out)
+				(v36).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6703,11 +6302,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi27(out *jwriter.Writer, in ETFDa
 		}
 		{
 			out.RawByte('[')
-			for v39, v40 := range in.WorldRegions {
-				if v39 > 0 {
+			for v37, v38 := range in.WorldRegions {
+				if v37 > 0 {
 					out.RawByte(',')
 				}
-				(v40).MarshalEasyJSON(out)
+				(v38).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6722,11 +6321,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi27(out *jwriter.Writer, in ETFDa
 		}
 		{
 			out.RawByte('[')
-			for v41, v42 := range in.SectorWeights {
-				if v41 > 0 {
+			for v39, v40 := range in.SectorWeights {
+				if v39 > 0 {
 					out.RawByte(',')
 				}
-				(v42).MarshalEasyJSON(out)
+				(v40).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6741,11 +6340,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi27(out *jwriter.Writer, in ETFDa
 		}
 		{
 			out.RawByte('[')
-			for v43, v44 := range in.Top10Holdings {
-				if v43 > 0 {
+			for v41, v42 := range in.Top10Holdings {
+				if v41 > 0 {
 					out.RawByte(',')
 				}
-				(v44).MarshalEasyJSON(out)
+				(v42).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -6760,11 +6359,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi27(out *jwriter.Writer, in ETFDa
 		}
 		{
 			out.RawByte('[')
-			for v45, v46 := range in.Holdings {
-				if v45 > 0 {
+			for v43, v44 := range in.Holdings {
+				if v43 > 0 {
 					out.RawByte(',')
 				}
-				(v46).MarshalEasyJSON(out)
+				(v44).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -7563,45 +7162,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi30(in *jlexer.Lexer, out *CashFl
 		case "currency_symbol":
 			out.CurrencySymbol = string(in.String())
 		case "quarterly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Quarterly = make(map[string]CashFlowInfo)
-				} else {
-					out.Quarterly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v47 CashFlowInfo
-					(v47).UnmarshalEasyJSON(in)
-					(out.Quarterly)[key] = v47
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Quarterly).UnmarshalEasyJSON(in)
 		case "yearly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Yearly = make(map[string]CashFlowInfo)
-				} else {
-					out.Yearly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v48 CashFlowInfo
-					(v48).UnmarshalEasyJSON(in)
-					(out.Yearly)[key] = v48
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -7635,19 +7198,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi30(out *jwriter.Writer, in CashF
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v49First := true
-			for v49Name, v49Value := range in.Quarterly {
-				if v49First {
-					v49First = false
-				} else {
+			out.RawByte('[')
+			for v45, v46 := range in.Quarterly {
+				if v45 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v49Name))
-				out.RawByte(':')
-				(v49Value).MarshalEasyJSON(out)
+				(v46).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Yearly) != 0 {
@@ -7659,19 +7217,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi30(out *jwriter.Writer, in CashF
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v50First := true
-			for v50Name, v50Value := range in.Yearly {
-				if v50First {
-					v50First = false
-				} else {
+			out.RawByte('[')
+			for v47, v48 := range in.Yearly {
+				if v47 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v50Name))
-				out.RawByte(':')
-				(v50Value).MarshalEasyJSON(out)
+				(v48).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
@@ -8957,45 +8510,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi32(in *jlexer.Lexer, out *Balanc
 		case "currency_symbol":
 			out.CurrencySymbol = string(in.String())
 		case "quarterly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Quarterly = make(map[string]BalanceSheetInfo)
-				} else {
-					out.Quarterly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v51 BalanceSheetInfo
-					(v51).UnmarshalEasyJSON(in)
-					(out.Quarterly)[key] = v51
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Quarterly).UnmarshalEasyJSON(in)
 		case "yearly":
-			if in.IsNull() {
-				in.Skip()
-			} else {
-				in.Delim('{')
-				if !in.IsDelim('}') {
-					out.Yearly = make(map[string]BalanceSheetInfo)
-				} else {
-					out.Yearly = nil
-				}
-				for !in.IsDelim('}') {
-					key := string(in.String())
-					in.WantColon()
-					var v52 BalanceSheetInfo
-					(v52).UnmarshalEasyJSON(in)
-					(out.Yearly)[key] = v52
-					in.WantComma()
-				}
-				in.Delim('}')
-			}
+			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -9029,19 +8546,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi32(out *jwriter.Writer, in Balan
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v53First := true
-			for v53Name, v53Value := range in.Quarterly {
-				if v53First {
-					v53First = false
-				} else {
+			out.RawByte('[')
+			for v49, v50 := range in.Quarterly {
+				if v49 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v53Name))
-				out.RawByte(':')
-				(v53Value).MarshalEasyJSON(out)
+				(v50).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	if len(in.Yearly) != 0 {
@@ -9053,19 +8565,14 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi32(out *jwriter.Writer, in Balan
 			out.RawString(prefix)
 		}
 		{
-			out.RawByte('{')
-			v54First := true
-			for v54Name, v54Value := range in.Yearly {
-				if v54First {
-					v54First = false
-				} else {
+			out.RawByte('[')
+			for v51, v52 := range in.Yearly {
+				if v51 > 0 {
 					out.RawByte(',')
 				}
-				out.String(string(v54Name))
-				out.RawByte(':')
-				(v54Value).MarshalEasyJSON(out)
+				(v52).MarshalEasyJSON(out)
 			}
-			out.RawByte('}')
+			out.RawByte(']')
 		}
 	}
 	out.RawByte('}')
