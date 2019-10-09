@@ -4,6 +4,7 @@ import (
 	"encoding/csv"
 	"errors"
 	"fmt"
+	"github.com/shopspring/decimal"
 	"io"
 	"strconv"
 )
@@ -103,6 +104,21 @@ func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
 		return nil, nil
 	}
 	val, err := strconv.ParseFloat(*s, 64)
+	if err != nil {
+		return nil, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return &val, err
+}
+
+func (r *csvReaderMap) asOptionalDecimal(value string) (*decimal.Decimal, error) {
+	s, err := r.asOptionalString(value)
+	if err != nil || s == nil {
+		return nil, err
+	}
+	if r.lenient && len(*s) == 0 {
+		return nil, nil
+	}
+	val, err := decimal.NewFromString(*s)
 	if err != nil {
 		return nil, fmt.Errorf("error while parsing %s: %v", value, err)
 	}

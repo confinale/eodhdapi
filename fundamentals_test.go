@@ -1,14 +1,18 @@
 package eodhdapi
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
 	freshcache "github.com/gitu/eodhdapi/util/afr"
 	"github.com/gitu/eodhdapi/util/afr/diskcache"
+	"github.com/mailru/easyjson/jlexer"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/gitu/eodhdapi/exchanges"
@@ -38,18 +42,43 @@ func TestJsonParsing(t *testing.T) {
 			}
 
 			fu := Fundamentals{}
-			err = fu.UnmarshalJSON(data)
+			r := jlexer.Lexer{
+				Data: data,
+			}
+			fu.UnmarshalEasyJSON(&r)
 
-			if err != nil {
-				t.Log(err)
+			if r.Error() != nil {
+				t.Log(r.Error())
 				t.FailNow()
 			}
+
+			b, err := json.MarshalIndent(fu, "", "  ")
+			if err != nil {
+				t.Fatalf("failed writing json: %s", err)
+			}
+
+			gp := filepath.Join("test-data/fundamentals_golden", f.Name())
+
+			if _, err := os.Stat(gp); os.IsNotExist(err) {
+				t.Log("create golden file")
+				if err := ioutil.WriteFile(gp, b, 0644); err != nil {
+					t.Fatalf("failed to create golden file: %s", err)
+				}
+			}
+			g, err := ioutil.ReadFile(gp)
+			if err != nil {
+				t.Fatalf("failed reading .golden: %s", err)
+			}
+			t.Log(string(b))
+			if !bytes.Equal(b, g) {
+				t.Errorf("writtein json does not match .golden file")
+			}
+
 		})
 	}
 }
 
 func TestEODhd_FetchFundamentals(t *testing.T) {
-
 	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
 		if req.URL.Path != "/api/bulk-fundamentals/F" {
 			rw.WriteHeader(404)
