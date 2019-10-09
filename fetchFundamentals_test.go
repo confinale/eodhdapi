@@ -8,11 +8,98 @@ import (
 	"github.com/gitu/eodhdapi/util/afr/diskcache"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"path"
 	"testing"
 )
+
+func TestEODhd_FetchFundamentalsTicker(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
+		if path.Dir(req.URL.Path) != "/api/fundamentals" {
+			rw.WriteHeader(404)
+			return
+		}
+		name := path.Base(req.URL.Path)
+		format := req.URL.Query().Get("fmt")
+
+		filename := fmt.Sprintf("test-data/fundamentals/%s.%s", name, format)
+		if _, err := os.Stat(filename); os.IsNotExist(err) {
+			t.Logf("file does not exist: %s", filename)
+			rw.WriteHeader(404)
+			return
+		}
+
+		b, err := ioutil.ReadFile(filename)
+		require.NoError(t, err)
+		_, err = rw.Write(b)
+		require.NoError(t, err)
+	}))
+
+	type fields struct {
+		token   string
+		baseURL string
+		clt     *http.Client
+	}
+	type args struct {
+		ctx      context.Context
+		exchange *exchanges.Exchange
+		symbols  []string
+	}
+	tests := []struct {
+		name                  string
+		fields                fields
+		args                  args
+		wantErr               bool
+		wantFundamentalsCount int
+	}{
+		{
+			name: "AAPL/ABB",
+			fields: fields{
+				token:   "TOKEN",
+				baseURL: server.URL + "/api",
+				clt:     server.Client(),
+			},
+			args: args{
+				ctx:      context.Background(),
+				exchange: exchanges.All().GetByCode("US"),
+				symbols:  []string{"AAPL", "ABB"},
+			},
+			wantErr:               false,
+			wantFundamentalsCount: 2,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			d := &EODhd{
+				token:   tt.fields.token,
+				baseURL: tt.fields.baseURL,
+				clt:     tt.fields.clt,
+			}
+
+			fundamentals := make(chan Fundamentals)
+			done := make(chan int, 1)
+
+			go func(f chan Fundamentals, d chan int) {
+				count := 0
+				for range f {
+					count++
+				}
+				d <- count
+			}(fundamentals, done)
+			if err := d.FetchFundamentalsTicker(tt.args.ctx, fundamentals, tt.args.exchange, tt.args.symbols...); (err != nil) != tt.wantErr {
+				t.Errorf("FetchFundamentals() error = %v, wantErr %v", err, tt.wantErr)
+			}
+			close(fundamentals)
+
+			count := <-done
+
+			require.Equal(t, tt.wantFundamentalsCount, count)
+		})
+	}
+}
 
 func TestEODhd_FetchFundamentals(t *testing.T) {
 	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
@@ -134,6 +221,47 @@ func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
 			count := <-done
 
 			t.Logf("exchange %s had %d elements", e.Code, count)
+		})
+	}
+}
+
+func TestEODhd_FetchFundamentalsTicker_TestETFS(t *testing.T) {
+	if os.Getenv("EODHD_TOKEN") == "" {
+		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
+		t.SkipNow()
+	}
+
+	c := diskcache.New("cache")
+	tr := freshcache.NewTransport(c)
+
+	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+
+	r := rand.New(rand.NewSource(33))
+
+	mapping := make(chan EODMapping)
+	done := make(chan []EODMapping, 1)
+	go func(f chan EODMapping, d chan []EODMapping) {
+		mappings := make([]EODMapping, 0)
+		for fu := range f {
+			mappings = append(mappings, fu)
+		}
+		d <- mappings
+	}(mapping, done)
+	err := d.LoadEtfs(mapping)
+	if err != nil {
+		t.Errorf("FetchFundamentals() error = %v", err)
+	}
+	close(mapping)
+	mappings := <-done
+
+	for i := 1; i <= 30; i++ {
+		intn := r.Intn(len(mappings))
+		m := mappings[intn]
+
+		t.Run(m.Ticker, func(t *testing.T) {
+			if _, err := d.FetchFundamentalsSymbol(context.Background(), exchanges.All().GetByCode(m.Exchange), m.Code); err != nil {
+				t.Errorf("FetchFundamentals() error = %v", err)
+			}
 		})
 	}
 }

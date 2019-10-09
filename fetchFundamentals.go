@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/gitu/eodhdapi/exchanges"
 	"github.com/pkg/errors"
+	"io/ioutil"
 	"log"
 	"strconv"
 	"strings"
@@ -67,6 +68,43 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 	}
 
 	return nil
+}
+
+// FetchFundamentalsTicker gets multiple symbols (currently a wrapper for single fetches - does multiple network calls
+func (d *EODhd) FetchFundamentalsTicker(ctx context.Context, fundamentals chan Fundamentals, exchange *exchanges.Exchange, symbol ...string) error {
+	for _, s := range symbol {
+		fu, err := d.FetchFundamentalsSymbol(ctx, exchange, s)
+		if err != nil {
+			return err
+		}
+		fundamentals <- fu
+	}
+	return nil
+}
+
+// FetchFundamentalsSymbol Fetches Fundamentals for a single symbol
+func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange *exchanges.Exchange, symbol string) (Fundamentals, error) {
+
+	fu := Fundamentals{}
+	urlParams := []urlParam{}
+
+	path := "/fundamentals/" + symbol + "." + exchange.Code
+	res, err := d.readPath(path, urlParams...)
+	if err != nil {
+		return fu, err
+	}
+
+	defer res.Body.Close()
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return fu, err
+	}
+
+	err = fu.UnmarshalJSON(body)
+	if err != nil {
+		return fu, err
+	}
+	return fu, nil
 }
 
 func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Fundamentals, error) {
