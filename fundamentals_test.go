@@ -77,7 +77,7 @@ func TestJsonParsing(t *testing.T) {
 
 			gp := filepath.Join("test-data/fundamentals_golden", f.Name())
 
-			if _, err := os.Stat(gp); os.IsNotExist(err) || true {
+			if _, err := os.Stat(gp); os.IsNotExist(err) {
 				t.Log("create golden file")
 				if err := ioutil.WriteFile(gp, b, 0644); err != nil {
 					t.Fatalf("failed to create golden file: %s", err)
@@ -124,9 +124,9 @@ func TestEODhd_FetchFundamentals(t *testing.T) {
 			return
 		}
 
-		bytes, err := ioutil.ReadFile(filename)
+		b, err := ioutil.ReadFile(filename)
 		require.NoError(t, err)
-		_, err = rw.Write(bytes)
+		_, err = rw.Write(b)
 		require.NoError(t, err)
 	}))
 
