@@ -4,16 +4,17 @@ import (
 	"context"
 	"github.com/gitu/eodhdapi/exchanges"
 	"github.com/pkg/errors"
+	"github.com/shopspring/decimal"
 	"strings"
 	"time"
 )
 
 type EODDividend struct {
-	Code     string  `json:"code,omitempty" bson:"code"`
-	Ex       string  `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
-	Ticker   string  `json:"tickers,omitempty" bson:"ticker"`
-	Date     string  `json:"date,omitempty" bson:"date"`
-	Dividend float64 `json:"dividend,omitempty" bson:"dividend"`
+	Code     string          `json:"code,omitempty" bson:"code"`
+	Ex       string          `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
+	Ticker   string          `json:"tickers,omitempty" bson:"ticker"`
+	Date     string          `json:"date,omitempty" bson:"date"`
+	Dividend decimal.Decimal `json:"dividend,omitempty" bson:"dividend"`
 }
 
 // FetchDividendsTicker fetches the dividends of a single ticker
@@ -120,7 +121,7 @@ func buildDividend(r *csvReaderMap) (EODDividend, error) {
 	if g.Date, err = r.asString("Date"); err != nil {
 		return EODDividend{}, err
 	}
-	if g.Dividend, err = r.asFloat64("Dividend"); err != nil {
+	if g.Dividend, err = r.asDecimal("Dividend"); err != nil {
 		return EODDividend{}, err
 	}
 
@@ -135,7 +136,7 @@ func buildDividendSingle(r *csvReaderMap, code, exchange string) (EODDividend, e
 	if g.Date, err = r.asString("Date"); err != nil {
 		return EODDividend{}, err
 	}
-	if g.Dividend, err = r.asFloat64("Dividends"); err != nil {
+	if g.Dividend, err = r.asDecimal("Dividends"); err != nil {
 		return EODDividend{}, err
 	}
 

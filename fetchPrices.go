@@ -3,6 +3,7 @@ package eodhdapi
 import (
 	"context"
 	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/shopspring/decimal"
 	"strings"
 	"time"
 )
@@ -12,22 +13,22 @@ type EODPrice struct {
 	Code          string `json:"code,omitempty" bson:"code"`
 	Ex            string `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
 	Name          string
-	Date          string  `json:"date,omitempty" bson:"date"`
-	Open          float64 `json:"open,omitempty" bson:"open"`
-	High          float64 `json:"high,omitempty" bson:"high"`
-	Low           float64 `json:"low,omitempty" bson:"low"`
-	Close         float64 `json:"close,omitempty" bson:"close"`
-	AdjustedClose float64 `json:"adjusted_close,omitempty" bson:"adjusted_close"`
-	Volume        float64 `json:"volume,omitempty" bson:"volume"`
+	Date          string          `json:"date,omitempty" bson:"date"`
+	Open          decimal.Decimal `json:"open,omitempty" bson:"open"`
+	High          decimal.Decimal `json:"high,omitempty" bson:"high"`
+	Low           decimal.Decimal `json:"low,omitempty" bson:"low"`
+	Close         decimal.Decimal `json:"close,omitempty" bson:"close"`
+	AdjustedClose decimal.Decimal `json:"adjusted_close,omitempty" bson:"adjusted_close"`
+	Volume        decimal.Decimal `json:"volume,omitempty" bson:"volume"`
 
-	MarketCapitalization *float64
-	EMA_50               *float64
-	EMA_200              *float64
-	High_250             *float64
-	Low_250              *float64
-	Prev_close           *float64
-	Change               *float64
-	ChangePercent        *float64
+	MarketCapitalization *decimal.Decimal
+	EMA_50               *decimal.Decimal
+	EMA_200              *decimal.Decimal
+	High_250             *decimal.Decimal
+	Low_250              *decimal.Decimal
+	Prev_close           *decimal.Decimal
+	Change               *decimal.Decimal
+	ChangePercent        *decimal.Decimal
 
 	Ticker string `json:"tickers,omitempty" bson:"ticker"`
 }
@@ -94,47 +95,47 @@ func buildPrice(r *csvReaderMap) (EODPrice, error) {
 	if g.Date, err = r.asString("Date"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Open, err = r.asFloat64("Open"); err != nil {
+	if g.Open, err = r.asDecimal("Open"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.High, err = r.asFloat64("High"); err != nil {
+	if g.High, err = r.asDecimal("High"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Low, err = r.asFloat64("Low"); err != nil {
+	if g.Low, err = r.asDecimal("Low"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Close, err = r.asFloat64("Close"); err != nil {
+	if g.Close, err = r.asDecimal("Close"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.AdjustedClose, err = r.asFloat64("Adjusted_close"); err != nil {
+	if g.AdjustedClose, err = r.asDecimal("Adjusted_close"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Volume, err = r.asFloat64("Volume"); err != nil {
+	if g.Volume, err = r.asDecimal("Volume"); err != nil {
 		return EODPrice{}, err
 	}
 
-	if g.MarketCapitalization, err = r.asOptionalFloat64("MarketCapitalization"); err != nil {
+	if g.MarketCapitalization, err = r.asOptionalDecimal("MarketCapitalization"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.EMA_50, err = r.asOptionalFloat64("EMA_50"); err != nil {
+	if g.EMA_50, err = r.asOptionalDecimal("EMA_50"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.EMA_200, err = r.asOptionalFloat64("EMA_200"); err != nil {
+	if g.EMA_200, err = r.asOptionalDecimal("EMA_200"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.High_250, err = r.asOptionalFloat64("High_250"); err != nil {
+	if g.High_250, err = r.asOptionalDecimal("High_250"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Low_250, err = r.asOptionalFloat64("Low_250"); err != nil {
+	if g.Low_250, err = r.asOptionalDecimal("Low_250"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Prev_close, err = r.asOptionalFloat64("Prev_close"); err != nil {
+	if g.Prev_close, err = r.asOptionalDecimal("Prev_close"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Change, err = r.asOptionalFloat64("Change"); err != nil {
+	if g.Change, err = r.asOptionalDecimal("Change"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.ChangePercent, err = r.asOptionalFloat64("Change_%"); err != nil {
+	if g.ChangePercent, err = r.asOptionalDecimal("Change_%"); err != nil {
 		return EODPrice{}, err
 	}
 

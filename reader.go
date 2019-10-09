@@ -110,6 +110,21 @@ func (r *csvReaderMap) asOptionalFloat64(value string) (*float64, error) {
 	return &val, err
 }
 
+func (r *csvReaderMap) asDecimal(value string) (decimal.Decimal, error) {
+	s, err := r.asString(value)
+	if err != nil {
+		return decimal.NewFromFloat(0), err
+	}
+	if r.lenient && len(s) == 0 {
+		return decimal.NewFromFloat(0), nil
+	}
+	f, err := decimal.NewFromString(s)
+	if err != nil {
+		return f, fmt.Errorf("error while parsing %s: %v", value, err)
+	}
+	return f, err
+}
+
 func (r *csvReaderMap) asOptionalDecimal(value string) (*decimal.Decimal, error) {
 	s, err := r.asOptionalString(value)
 	if err != nil || s == nil {
