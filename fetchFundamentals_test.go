@@ -268,7 +268,7 @@ func TestEODhd_FetchFundamentalsSymbol_TestAll(t *testing.T) {
 	for _, e := range exchanges.All() {
 
 		t.Run(e.Code, func(t *testing.T) {
-			r := rand.New(rand.NewSource(33))
+			r := rand.New(rand.NewSource(40))
 			symbols, err := d.GetSymbols(context.Background(), e)
 			if err != nil {
 				t.Error(err)

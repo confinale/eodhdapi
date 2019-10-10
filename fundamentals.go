@@ -7,6 +7,7 @@ import (
 	"github.com/mailru/easyjson/jlexer"
 	"github.com/mailru/easyjson/jwriter"
 	"github.com/shopspring/decimal"
+	"strings"
 	"time"
 )
 
@@ -1219,6 +1220,12 @@ func (dec *Decimal) UnmarshalEasyJSON(in *jlexer.Lexer) {
 	}
 
 	d, err := decimal.NewFromString(str)
+
+	if err != nil {
+		if strings.Count(str, ",") == 1 {
+			d, err = decimal.NewFromString(strings.Replace(str, ",", ".", 1))
+		}
+	}
 
 	if err != nil {
 		in.AddError(err)

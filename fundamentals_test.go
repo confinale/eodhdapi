@@ -51,6 +51,7 @@ func TestJsonParsingDecimal(t *testing.T) {
 		{"null", &Decimal{}},
 		{"32", asDec("32")},
 		{"32.3", asDec("32.3")},
+		{"\"99,5\"", asDec("99.5")},
 	}
 
 	for _, v := range values {
@@ -105,7 +106,7 @@ func TestJsonParsing(t *testing.T) {
 
 			gp := filepath.Join("test-data/fundamentals_golden", f.Name())
 
-			if _, err := os.Stat(gp); os.IsNotExist(err) || true {
+			if _, err := os.Stat(gp); os.IsNotExist(err) {
 				t.Log("create golden file")
 				if err := ioutil.WriteFile(gp, b, 0644); err != nil {
 					t.Fatalf("failed to create golden file: %s", err)
