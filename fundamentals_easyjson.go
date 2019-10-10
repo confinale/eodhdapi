@@ -2071,9 +2071,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi14(in *jlexer.Lexer, out *Mutual
 		case "Share_Class_Net_Assets":
 			out.ShareClassNetAssets = string(in.String())
 		case "Morning_Star_Rating":
-			out.MorningStarRating = int(in.Int())
+			(out.MorningStarRating).UnmarshalEasyJSON(in)
 		case "Morning_Star_Risk_Rating":
-			out.MorningStarRiskRating = int(in.Int())
+			(out.MorningStarRiskRating).UnmarshalEasyJSON(in)
 		case "Morning_Star_Category":
 			out.MorningStarCategory = string(in.String())
 		case "Incepton_Date":
@@ -2172,7 +2172,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 		}
 		out.String(string(in.ShareClassNetAssets))
 	}
-	if in.MorningStarRating != 0 {
+	if in.MorningStarRating != "" {
 		const prefix string = ",\"Morning_Star_Rating\":"
 		if first {
 			first = false
@@ -2180,9 +2180,9 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 		} else {
 			out.RawString(prefix)
 		}
-		out.Int(int(in.MorningStarRating))
+		(in.MorningStarRating).MarshalEasyJSON(out)
 	}
-	if in.MorningStarRiskRating != 0 {
+	if in.MorningStarRiskRating != "" {
 		const prefix string = ",\"Morning_Star_Risk_Rating\":"
 		if first {
 			first = false
@@ -2190,7 +2190,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi14(out *jwriter.Writer, in Mutua
 		} else {
 			out.RawString(prefix)
 		}
-		out.Int(int(in.MorningStarRiskRating))
+		(in.MorningStarRiskRating).MarshalEasyJSON(out)
 	}
 	if in.MorningStarCategory != "" {
 		const prefix string = ",\"Morning_Star_Category\":"
@@ -2453,11 +2453,11 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi15(in *jlexer.Lexer, out *Mornin
 		}
 		switch key {
 		case "Ratio":
-			out.Ratio = int(in.IntStr())
+			out.Ratio = string(in.String())
 		case "Category_Benchmark":
 			out.CategoryBenchmark = string(in.String())
 		case "Sustainability_Ratio":
-			out.SustainabilityRatio = int(in.IntStr())
+			out.SustainabilityRatio = string(in.String())
 		default:
 			in.AddError(&jlexer.LexerError{
 				Offset: in.GetPos(),
@@ -2476,11 +2476,11 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi15(out *jwriter.Writer, in Morni
 	out.RawByte('{')
 	first := true
 	_ = first
-	if in.Ratio != 0 {
+	if in.Ratio != "" {
 		const prefix string = ",\"Ratio\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.IntStr(int(in.Ratio))
+		out.String(string(in.Ratio))
 	}
 	if in.CategoryBenchmark != "" {
 		const prefix string = ",\"Category_Benchmark\":"
@@ -2492,7 +2492,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi15(out *jwriter.Writer, in Morni
 		}
 		out.String(string(in.CategoryBenchmark))
 	}
-	if in.SustainabilityRatio != 0 {
+	if in.SustainabilityRatio != "" {
 		const prefix string = ",\"Sustainability_Ratio\":"
 		if first {
 			first = false
@@ -2500,7 +2500,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi15(out *jwriter.Writer, in Morni
 		} else {
 			out.RawString(prefix)
 		}
-		out.IntStr(int(in.SustainabilityRatio))
+		out.String(string(in.SustainabilityRatio))
 	}
 	out.RawByte('}')
 }
@@ -3376,6 +3376,8 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi19(in *jlexer.Lexer, out *Holdin
 		switch key {
 		case "Name":
 			out.Name = string(in.String())
+		case "Country":
+			out.Country = string(in.String())
 		case "Assets_%":
 			if in.IsNull() {
 				in.Skip()
@@ -3385,6 +3387,16 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi19(in *jlexer.Lexer, out *Holdin
 					out.AssetsPercent = new(Decimal)
 				}
 				(*out.AssetsPercent).UnmarshalEasyJSON(in)
+			}
+		case "Assets_`%":
+			if in.IsNull() {
+				in.Skip()
+				out.AssetsBackTickPercent = nil
+			} else {
+				if out.AssetsBackTickPercent == nil {
+					out.AssetsBackTickPercent = new(Decimal)
+				}
+				(*out.AssetsBackTickPercent).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -3410,6 +3422,16 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi19(out *jwriter.Writer, in Holdi
 		out.RawString(prefix[1:])
 		out.String(string(in.Name))
 	}
+	if in.Country != "" {
+		const prefix string = ",\"Country\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		out.String(string(in.Country))
+	}
 	if in.AssetsPercent != nil {
 		const prefix string = ",\"Assets_%\":"
 		if first {
@@ -3419,6 +3441,16 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi19(out *jwriter.Writer, in Holdi
 			out.RawString(prefix)
 		}
 		(*in.AssetsPercent).MarshalEasyJSON(out)
+	}
+	if in.AssetsBackTickPercent != nil {
+		const prefix string = ",\"Assets_`%\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		(*in.AssetsBackTickPercent).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }

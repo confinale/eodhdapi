@@ -1,0 +1,237 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "UBUB",
+    "Type": "ETF",
+    "Name": "UBS (Irl) ETF Public Limited Company - Solactive Global Oil Equities UCITS ETF",
+    "Exchange": "F",
+    "CurrencyCode": "EUR",
+    "CurrencyName": "Euro",
+    "CurrencySymbol": "€",
+    "CountryName": "Germany",
+    "CountryISO": "DE",
+    "Description": "The investment policy of the Fund is to seek to track the performance of the Solactive Global Oil Equities Net Total Return Index (or any other index determined by the Directors from time to time to track substantially the same market as the Solactive Global Oil Equities Net Total Return Index and which is considered by the Directors to be an appropriate index for the Fund to track, in accordance with the Prospectus (the “Index”) as closely as possible, while seeking to minimise as far as possible the difference in performance between the Fund and the Index.",
+    "UpdatedAt": "2019-04-28",
+    "Category": "Sector Equity Energy"
+  },
+  "Technicals": {
+    "Beta": "1.66",
+    "52WeekHigh": "13.984",
+    "52WeekLow": "0",
+    "50DayMA": "9.9624",
+    "200DayMA": "9.3107"
+  },
+  "ETF_Data": {
+    "ISIN": "IE00B5PYL424",
+    "Company_Name": "UBS Fund Management (Luxembourg) S.A.",
+    "Company_URL": "http://www.ubs.com/funds",
+    "ETF_URL": "http://en.boerse-frankfurt.de/etp/UBS-Irl-ETF-plc---Solactive-Global-Oil-Equities-USD-A-dis-IE00B5PYL424",
+    "Yield": "0.0000",
+    "Inception_Date": "2012-10-25",
+    "Max_Annual_Mgmt_Charge": "0.00",
+    "Ongoing_Charge": "0.33",
+    "Date_Ongoing_Charge": "2019-02-08",
+    "NetExpenseRatio": "0.00000",
+    "AnnualHoldingsTurnover": "0.00000",
+    "Average_Mkt_Cap_Mil": "USD 7003",
+    "Asset_Allocation": [
+      {
+        "Category": "Stock",
+        "Long_%": "100.81",
+        "Short_%": "0",
+        "Net_Assets_%": "100.81"
+      },
+      {
+        "Category": "Bond",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
+      },
+      {
+        "Category": "Property",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
+      },
+      {
+        "Category": "Cash",
+        "Long_%": "0",
+        "Short_%": "0.81",
+        "Net_Assets_%": "-0.81"
+      },
+      {
+        "Category": "Other",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
+      }
+    ],
+    "World_Regions": [
+      {
+        "Category": "United States",
+        "Equity_%": "79.61",
+        "Relative_to_Category": "1.71"
+      },
+      {
+        "Category": "Canada",
+        "Equity_%": "12.64",
+        "Relative_to_Category": "1.76"
+      },
+      {
+        "Category": "Latin America",
+        "Equity_%": "3.70",
+        "Relative_to_Category": "10.96"
+      },
+      {
+        "Category": "United Kingdom",
+        "Equity_%": "4.05",
+        "Relative_to_Category": "0.22"
+      },
+      {
+        "Category": "Eurozone",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Europe - except Euro",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Europe - Emerging",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Africa",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Middle East",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Japan",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Australasia",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Asia - Developed",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Asia - Emerging",
+        "Equity_%": "0.00",
+        "Relative_to_Category": "0"
+      }
+    ],
+    "Sector_Weights": [
+      {
+        "Category": "Energy",
+        "Equity_%": "100.00",
+        "Relative_to_Category": "1.09"
+      }
+    ],
+    "Top_10_Holdings": [
+      {
+        "Country": "United States",
+        "Assets_`%": "5.42"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.56"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.49"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.46"
+      },
+      {
+        "Country": "Canada",
+        "Assets_`%": "4.41"
+      },
+      {
+        "Country": "Canada",
+        "Assets_`%": "4.38"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.27"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.24"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.17"
+      },
+      {
+        "Country": "United States",
+        "Assets_`%": "4.16"
+      }
+    ],
+    "MorningStar": {
+      "Ratio": "1",
+      "Category_Benchmark": "MSCI World/Energy NR USD",
+      "Sustainability_Ratio": "3"
+    },
+    "Performance": {
+      "3y_Volatility": "30.44",
+      "3y_ExpReturn": "9.45",
+      "3y_SharpRatio": "0.28",
+      "Returns_YTD": "23.8",
+      "Returns_3Y": "2.24",
+      "Returns_5Y": "-10.47",
+      "Returns_10Y": "0"
+    },
+    "Market_Capitalisation": {
+      "Big": "29.21",
+      "Medium": "33.21",
+      "Mega": "0.00",
+      "Micro": "0.00",
+      "Small": "37.58"
+    },
+    "Valuations_Growth": {
+      "Growth_Rates_Portfolio": {
+        "Book-Value Growth": "-1.82",
+        "Cash-Flow Growth": "40.32",
+        "Historical Earnings Growth": "33.19",
+        "Long-Term Projected Earnings Growth": "18.51",
+        "Sales Growth": "8.14"
+      },
+      "Growth_Rates_To_Category": {
+        "Book-Value Growth": "-1.33",
+        "Cash-Flow Growth": "2.05",
+        "Historical Earnings Growth": "1.89",
+        "Long-Term Projected Earnings Growth": "1.40",
+        "Sales Growth": "0.98"
+      },
+      "Valuations_Rates_Portfolio": {
+        "Dividend-Yield Factor": "1.26",
+        "Price/Book": "1.05",
+        "Price/Cash Flow": "2.50",
+        "Price/Prospective Earnings": "19.71",
+        "Price/Sales": "1.56"
+      },
+      "Valuations_Rates_To_Category": {
+        "Dividend-Yield Factor": "0.28",
+        "Price/Book": "0.78",
+        "Price/Cash Flow": "0.54",
+        "Price/Prospective Earnings": "1.54",
+        "Price/Sales": "2.05"
+      }
+    }
+  }
+}

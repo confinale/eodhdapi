@@ -128,14 +128,16 @@ type Performance struct {
 }
 
 type MorningStar struct {
-	Ratio               int    `json:"Ratio,string"`
+	Ratio               string `json:"Ratio"`
 	CategoryBenchmark   string `json:"Category_Benchmark"`
-	SustainabilityRatio int    `json:"Sustainability_Ratio,string"`
+	SustainabilityRatio string `json:"Sustainability_Ratio,string"`
 }
 
 type Holding struct {
-	Name          string   `json:"Name"`
-	AssetsPercent *Decimal `json:"Assets_%"`
+	Name                  string   `json:"Name"`
+	Country               string   `json:"Country"`
+	AssetsPercent         *Decimal "json:\"Assets_%\""
+	AssetsBackTickPercent *Decimal "json:\"Assets_`%\""
 }
 type Weight struct {
 	Category           string   `json:"Category"`
@@ -901,8 +903,8 @@ type MutualFundData struct {
 	UpdateDate            string                `json:"Update_Date"`
 	PortfolioNetAssets    string                `json:"Portfolio_Net_Assets"`
 	ShareClassNetAssets   string                `json:"Share_Class_Net_Assets"`
-	MorningStarRating     int                   `json:"Morning_Star_Rating"`
-	MorningStarRiskRating int                   `json:"Morning_Star_Risk_Rating"`
+	MorningStarRating     Rating                `json:"Morning_Star_Rating"`
+	MorningStarRiskRating Rating                `json:"Morning_Star_Risk_Rating"`
 	MorningStarCategory   string                `json:"Morning_Star_Category"`
 	InceptonDate          string                `json:"Incepton_Date"`
 	Currency              string                `json:"Currency"`
@@ -1184,6 +1186,21 @@ func (out *ValueGrowths) UnmarshalEasyJSON(in *jlexer.Lexer) {
 		}
 		in.Delim('}')
 	}
+}
+
+type Rating string
+
+func (r *Rating) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	raw := in.Raw()
+	str, err := unquoteIfQuoted(raw)
+	if err != nil {
+		in.AddError(fmt.Errorf("error decoding string '%s': %s", raw, err))
+	}
+	*r = Rating(str)
+}
+
+func (r Rating) MarshalEasyJSON(w *jwriter.Writer) {
+	w.String(string(r))
 }
 
 type Decimal decimal.Decimal
