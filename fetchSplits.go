@@ -17,7 +17,7 @@ type EODSplit struct {
 }
 
 // FetchSplitsTicker fetches the splits of a single ticker
-func (d *EODhd) FetchSplitsTicker(context context.Context, splits chan EODSplit, ticker string, from time.Time) interface{} {
+func (d *EODhd) FetchSplitsTicker(context context.Context, splits chan EODSplit, ticker string, from time.Time) error {
 
 	urlParams := []urlParam{{"fmt", "csv"}, {"filter", "extended"}, {"date", from.Format(dateFormat)}}
 

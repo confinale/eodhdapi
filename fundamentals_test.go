@@ -3,9 +3,12 @@ package eodhdapi
 import (
 	"bytes"
 	"encoding/json"
+	"github.com/mailru/easyjson"
 	"github.com/mailru/easyjson/jlexer"
+	"github.com/shopspring/decimal"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"testing"
@@ -25,6 +28,41 @@ func Min(x, y int) int {
 		return y
 	}
 	return x
+}
+
+func asDec(s string) *Decimal {
+	v, err := decimal.NewFromString(s)
+	if err != nil {
+		log.Fatal(v)
+	}
+	i := Decimal(v)
+	return &i
+}
+
+func TestJsonParsingDecimal(t *testing.T) {
+	values := []struct {
+		input    string
+		expected *Decimal
+	}{
+		{"\"32.3\"", asDec("32.3")},
+		{"\"32\"", asDec("32")},
+		{"\"-\"", &Decimal{}},
+		{"\"null\"", &Decimal{}},
+		{"null", &Decimal{}},
+		{"32", asDec("32")},
+		{"32.3", asDec("32.3")},
+		{"\"99,5\"", asDec("99.5")},
+	}
+
+	for _, v := range values {
+		t.Run(v.input, func(t *testing.T) {
+			var d Decimal
+			if err := easyjson.Unmarshal([]byte(v.input), &d); err != nil {
+				t.Fatalf("failed reading json: %s", err)
+			}
+			assert.Equal(t, v.expected, &d)
+		})
+	}
 }
 
 func TestJsonParsing(t *testing.T) {

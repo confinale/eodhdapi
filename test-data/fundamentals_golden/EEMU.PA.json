@@ -1,0 +1,325 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "EEMU",
+    "Type": "ETF",
+    "Name": "BNP Paribas Easy MSCI EMU ex CW UCITS ETF Cap",
+    "Exchange": "PA",
+    "CurrencyCode": "EUR",
+    "CurrencyName": "Euro",
+    "CurrencySymbol": "€",
+    "CountryName": "France",
+    "CountryISO": "FR",
+    "Description": "Replicate the performance of the MSCI EMU ex Controversial Weapons (NTR)* index (Bloomberg: M4EMCW Index), including fluctuations, and to maintain the Tracking Error between the sub-fund and the index below 1%.At least, 75% of the assets will be invested at all times in equities issued by companies that have their registered office in a member country of the European Economic Area, other than non-cooperative countries in the fight against fraud and tax evasion.",
+    "UpdatedAt": "2019-10-09",
+    "Category": "Actions Zone Euro Grandes Cap."
+  },
+  "Technicals": {
+    "Beta": "0.99",
+    "52WeekHigh": "10.25",
+    "52WeekLow": "8.297",
+    "50DayMA": "9.9624",
+    "200DayMA": "9.8478"
+  },
+  "ETF_Data": {
+    "ISIN": "LU1291098827",
+    "Company_Name": "BNP Paribas Asset Management Luxembourg",
+    "Company_URL": "http://www.bnpparibas-am.com",
+    "ETF_URL": "http://www.boursedeparis.fr/fr/products/etfs/LU1291098827-XPAR/quotes",
+    "Yield": "0.0000",
+    "Dividend_Paying_Frequency": "NA",
+    "Inception_Date": "2019-06-28",
+    "Max_Annual_Mgmt_Charge": "0.00",
+    "Ongoing_Charge": "0.25",
+    "Date_Ongoing_Charge": "2019-02-19",
+    "NetExpenseRatio": "0.00000",
+    "AnnualHoldingsTurnover": "0.00000",
+    "TotalAssets": "473756224.00",
+    "Average_Mkt_Cap_Mil": "EUR 36111",
+    "Asset_Allocation": [
+      {
+        "Category": "Actions",
+        "Long_%": "99.4",
+        "Short_%": "0.02",
+        "Net_Assets_%": "99.39"
+      },
+      {
+        "Category": "Obligations",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Net_Assets_%": "0"
+      },
+      {
+        "Category": "Liquidités",
+        "Long_%": "0.5",
+        "Short_%": "0",
+        "Net_Assets_%": "0.5"
+      },
+      {
+        "Category": "Autres",
+        "Long_%": "0.13",
+        "Short_%": "0.02",
+        "Net_Assets_%": "0.12"
+      }
+    ],
+    "World_Regions": [
+      {
+        "Category": "United States",
+        "Equity_%": "3,42",
+        "Relative_to_Category": "1.11"
+      },
+      {
+        "Category": "Canada",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Amérique Latine",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "United Kingdom",
+        "Equity_%": "0,96",
+        "Relative_to_Category": "0.33"
+      },
+      {
+        "Category": "Eurozone",
+        "Equity_%": "94,66",
+        "Relative_to_Category": "1.02"
+      },
+      {
+        "Category": "Europe - except Euro",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Europe - Émergente",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Afrique",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Moyen Orient",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Japan",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Australasie",
+        "Equity_%": "0,00",
+        "Relative_to_Category": "0"
+      },
+      {
+        "Category": "Asie - Pays Développés",
+        "Equity_%": "0,28",
+        "Relative_to_Category": "0.91"
+      },
+      {
+        "Category": "Asie - Émergente",
+        "Equity_%": "0,68",
+        "Relative_to_Category": "4.91"
+      }
+    ],
+    "Sector_Weights": [
+      {
+        "Category": "Matériaux de Base",
+        "Equity_%": "7,34",
+        "Relative_to_Category": "0.86"
+      },
+      {
+        "Category": "Consumer Cyclical",
+        "Equity_%": "13,87",
+        "Relative_to_Category": "1.06"
+      },
+      {
+        "Category": "Services Financiers",
+        "Equity_%": "16,14",
+        "Relative_to_Category": "1.01"
+      },
+      {
+        "Category": "Immobilier",
+        "Equity_%": "1,97",
+        "Relative_to_Category": "1.33"
+      },
+      {
+        "Category": "Consumer Defensive",
+        "Equity_%": "11,78",
+        "Relative_to_Category": "1.09"
+      },
+      {
+        "Category": "Healthcare",
+        "Equity_%": "8,66",
+        "Relative_to_Category": "0.94"
+      },
+      {
+        "Category": "Services Publics",
+        "Equity_%": "6,63",
+        "Relative_to_Category": "1.21"
+      },
+      {
+        "Category": "Services de Communication",
+        "Equity_%": "4,00",
+        "Relative_to_Category": "0.92"
+      },
+      {
+        "Category": "Énergie",
+        "Equity_%": "5,05",
+        "Relative_to_Category": "0.84"
+      },
+      {
+        "Category": "Industrial",
+        "Equity_%": "14,54",
+        "Relative_to_Category": "1.02"
+      },
+      {
+        "Category": "Technology",
+        "Equity_%": "10,03",
+        "Relative_to_Category": "0.92"
+      }
+    ],
+    "Top_10_Holdings": [
+      {
+        "Name": "Total SA",
+        "Assets_%": "2.78"
+      },
+      {
+        "Name": "SAP SE",
+        "Assets_%": "2.74"
+      },
+      {
+        "Name": "LVMH Moet Hennessy Louis Vuitton SE",
+        "Assets_%": "2.5799999"
+      },
+      {
+        "Name": "Sanofi SA",
+        "Assets_%": "2.25"
+      },
+      {
+        "Name": "ASML Holding NV",
+        "Assets_%": "2.21"
+      },
+      {
+        "Name": "Allianz SE",
+        "Assets_%": "2.18"
+      },
+      {
+        "Name": "Unilever NV",
+        "Assets_%": "2.1"
+      },
+      {
+        "Name": "Airbus SE",
+        "Assets_%": "1.87"
+      },
+      {
+        "Name": "Siemens AG",
+        "Assets_%": "1.78"
+      },
+      {
+        "Name": "Anheuser-Busch InBev SA/NV",
+        "Assets_%": "1.68"
+      }
+    ],
+    "Holdings": [
+      {
+        "Name": "Total SA",
+        "Assets_%": "2.78"
+      },
+      {
+        "Name": "SAP SE",
+        "Assets_%": "2.74"
+      },
+      {
+        "Name": "LVMH Moet Hennessy Louis Vuitton SE",
+        "Assets_%": "2.5799999"
+      },
+      {
+        "Name": "Sanofi SA",
+        "Assets_%": "2.25"
+      },
+      {
+        "Name": "ASML Holding NV",
+        "Assets_%": "2.21"
+      },
+      {
+        "Name": "Allianz SE",
+        "Assets_%": "2.18"
+      },
+      {
+        "Name": "Unilever NV",
+        "Assets_%": "2.1"
+      },
+      {
+        "Name": "Airbus SE",
+        "Assets_%": "1.87"
+      },
+      {
+        "Name": "Siemens AG",
+        "Assets_%": "1.78"
+      },
+      {
+        "Name": "Anheuser-Busch InBev SA/NV",
+        "Assets_%": "1.68"
+      }
+    ],
+    "MorningStar": {
+      "Ratio": "4",
+      "Category_Benchmark": "MSCI EMU NR EUR",
+      "Sustainability_Ratio": "4"
+    },
+    "Performance": {
+      "3y_Volatility": "11.96",
+      "3y_ExpReturn": "9.25",
+      "3y_SharpRatio": "0.77",
+      "Returns_YTD": "15.59",
+      "Returns_3Y": "7.68",
+      "Returns_5Y": "0",
+      "Returns_10Y": "0"
+    },
+    "Market_Capitalisation": {
+      "Grandes": "38,69",
+      "Géantes": "48,19",
+      "Micro": "0,00",
+      "Moyennes": "13,12",
+      "Petites": "0,00"
+    },
+    "Valuations_Growth": {
+      "Growth_Rates_Portfolio": {
+        "Croissance de la valeur comptable": "2,43",
+        "Croissance des cash-flows": "3,65",
+        "Croissance des revenus historiques": "4,94",
+        "Croissance des ventes": "0,00",
+        "Projection de la croissance à long terme": "7,65"
+      },
+      "Growth_Rates_To_Category": {
+        "Croissance de la valeur comptable": "0,90",
+        "Croissance des cash-flows": "1,15",
+        "Croissance des revenus historiques": "1,01",
+        "Croissance des ventes": "0,01",
+        "Projection de la croissance à long terme": "0,97"
+      },
+      "Valuations_Rates_Portfolio": {
+        "Cours/Actif net": "1,50",
+        "Cours/Bénéfices": "13,71",
+        "Cours/Cash flow": "7,55",
+        "Facteur de retour sur dividendes": "3,69",
+        "Prix d'achat/vente": "1,01"
+      },
+      "Valuations_Rates_To_Category": {
+        "Cours/Actif net": "0,96",
+        "Cours/Bénéfices": "1,01",
+        "Cours/Cash flow": "0,92",
+        "Facteur de retour sur dividendes": "0,97",
+        "Prix d'achat/vente": "0,96"
+      }
+    }
+  }
+}

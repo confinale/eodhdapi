@@ -1,0 +1,137 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "PSRM",
+    "Type": "ETF",
+    "Name": "Invesco FTSE RAFI Emerging Markets UCITS ETF",
+    "Exchange": "LSE",
+    "CurrencyCode": "GBX",
+    "CurrencyName": "Pence sterling",
+    "CurrencySymbol": "p",
+    "CountryName": "UK",
+    "CountryISO": "UK",
+    "Description": "The investment seeks to track the price and performance yield, before fees and expenses, of the FTSE RAFI Emerging Markets Index in US Dollar terms. To achieve this investment objective, the RAFI Emerging Markets Fund will gain exposure to the Index primarily through the use of FDIs, principally total return swaps. The Investment Manager will seek to replicate the Index constituents and may therefore have exposure to or invest up to 20% of the net asset value of the RAFI Emerging Markets Fund in shares issued by the same body, which limit may be raised to 35% for a single issuer in exceptional market circumstances.",
+    "UpdatedAt": "2019-10-09",
+    "Category": ""
+  },
+  "Technicals": {
+    "Beta": "0.94",
+    "52WeekHigh": "724.75",
+    "52WeekLow": "616.5",
+    "50DayMA": "674.9228",
+    "200DayMA": "684.2741"
+  },
+  "ETF_Data": {
+    "ISIN": "IE00B23D9570",
+    "Company_Name": "PowerShares",
+    "Yield": "0.0001",
+    "Inception_Date": "0000-00-00",
+    "Max_Annual_Mgmt_Charge": "0.00",
+    "Ongoing_Charge": "0.00",
+    "NetExpenseRatio": "0.00490",
+    "AnnualHoldingsTurnover": "0.36450",
+    "TotalAssets": "24627770.00",
+    "Average_Mkt_Cap_Mil": "No Data",
+    "Top_10_Holdings": [
+      {
+        "Name": "China Construction Bank Corp Class H",
+        "Assets_%": "4.19"
+      },
+      {
+        "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+        "Assets_%": "3.88"
+      },
+      {
+        "Name": "Industrial And Commercial Bank Of China Ltd Class H",
+        "Assets_%": "2.8800001"
+      },
+      {
+        "Name": "Gazprom PJSC ADR",
+        "Assets_%": "2.54"
+      },
+      {
+        "Name": "Reliance Industries Ltd ADR",
+        "Assets_%": "2.3"
+      },
+      {
+        "Name": "PJSC Lukoil ADR",
+        "Assets_%": "2.29"
+      },
+      {
+        "Name": "Bank Of China Ltd Class H",
+        "Assets_%": "2.1"
+      },
+      {
+        "Name": "China Mobile Ltd",
+        "Assets_%": "1.97"
+      },
+      {
+        "Name": "Sberbank of Russia PJSC ADR",
+        "Assets_%": "1.83"
+      },
+      {
+        "Name": "Infosys Ltd ADR",
+        "Assets_%": "1.6900001"
+      }
+    ],
+    "Holdings": [
+      {
+        "Name": "China Construction Bank Corp Class H",
+        "Assets_%": "4.19"
+      },
+      {
+        "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+        "Assets_%": "3.88"
+      },
+      {
+        "Name": "Industrial And Commercial Bank Of China Ltd Class H",
+        "Assets_%": "2.8800001"
+      },
+      {
+        "Name": "Gazprom PJSC ADR",
+        "Assets_%": "2.54"
+      },
+      {
+        "Name": "Reliance Industries Ltd ADR",
+        "Assets_%": "2.3"
+      },
+      {
+        "Name": "PJSC Lukoil ADR",
+        "Assets_%": "2.29"
+      },
+      {
+        "Name": "Bank Of China Ltd Class H",
+        "Assets_%": "2.1"
+      },
+      {
+        "Name": "China Mobile Ltd",
+        "Assets_%": "1.97"
+      },
+      {
+        "Name": "Sberbank of Russia PJSC ADR",
+        "Assets_%": "1.83"
+      },
+      {
+        "Name": "Infosys Ltd ADR",
+        "Assets_%": "1.6900001"
+      }
+    ],
+    "MorningStar": {},
+    "Performance": {
+      "3y_Volatility": "0",
+      "3y_ExpReturn": "0",
+      "3y_SharpRatio": "0",
+      "Returns_YTD": "0",
+      "Returns_3Y": "0",
+      "Returns_5Y": "0",
+      "Returns_10Y": "0"
+    },
+    "Market_Capitalisation": {},
+    "Valuations_Growth": {
+      "Growth_Rates_Portfolio": {},
+      "Growth_Rates_To_Category": {},
+      "Valuations_Rates_Portfolio": {},
+      "Valuations_Rates_To_Category": {}
+    }
+  }
+}

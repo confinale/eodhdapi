@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/gitu/eodhdapi/exchanges"
 	"github.com/pkg/errors"
+	"io/ioutil"
 	"log"
 	"strconv"
 	"strings"
@@ -44,7 +45,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				return err
 			}
 			for reader.Next() {
-				f, err := buildFundamental(reader, exchange)
+				f, err := buildFundamental(reader, exchange.Code)
 				if err != nil {
 					if !lenient {
 						return errors.Wrap(err, fmt.Sprintf("while parsing line: %.50s", strings.Join(reader.current, ",")))
@@ -69,7 +70,44 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 	return nil
 }
 
-func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Fundamentals, error) {
+// FetchFundamentalsTicker gets multiple symbols (currently a wrapper for single fetches - does multiple network calls
+func (d *EODhd) FetchFundamentalsTicker(ctx context.Context, fundamentals chan Fundamentals, exchange string, symbol ...string) error {
+	for _, s := range symbol {
+		fu, err := d.FetchFundamentalsSymbol(ctx, exchange, s)
+		if err != nil {
+			return err
+		}
+		fundamentals <- fu
+	}
+	return nil
+}
+
+// FetchFundamentalsSymbol Fetches Fundamentals for a single symbol
+func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange, symbol string) (Fundamentals, error) {
+
+	fu := Fundamentals{}
+	urlParams := []urlParam{}
+
+	path := "/fundamentals/" + symbol + "." + exchange
+	res, err := d.readPath(path, urlParams...)
+	if err != nil {
+		return fu, err
+	}
+
+	defer res.Body.Close()
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return fu, err
+	}
+
+	err = fu.UnmarshalJSON(body)
+	if err != nil {
+		return fu, err
+	}
+	return fu, nil
+}
+
+func buildFundamental(reader *csvReaderMap, exchange string) (Fundamentals, error) {
 	var err error
 	f := Fundamentals{
 		LastUpdate: time.Now(),
@@ -79,15 +117,12 @@ func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Funda
 	if err != nil {
 		return Fundamentals{}, err
 	}
-	f.Ticker = f.General.Code + "." + exchange.Code
+	f.Ticker = f.General.Code + "." + exchange
 	return f, err
 }
 
 func (g *General) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.Code, err = reader.asString(prefix + "Code"); err != nil {
-		return err
-	}
 	if g.Code, err = reader.asString(prefix + "Code"); err != nil {
 		return err
 	}

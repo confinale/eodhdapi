@@ -1,0 +1,147 @@
+{
+  "General": {
+    "Code": "PSRM",
+    "Type": "ETF",
+    "Name": "Invesco FTSE RAFI Emerging Markets UCITS ETF",
+    "Exchange": "LSE",
+    "CurrencyCode": "GBX",
+    "CurrencyName": "Pence sterling",
+    "CurrencySymbol": "p",
+    "CountryName": "UK",
+    "CountryISO": "UK",
+    "Description": "The investment seeks to track the price and performance yield, before fees and expenses, of the FTSE RAFI Emerging Markets Index in US Dollar terms. To achieve this investment objective, the RAFI Emerging Markets Fund will gain exposure to the Index primarily through the use of FDIs, principally total return swaps. The Investment Manager will seek to replicate the Index constituents and may therefore have exposure to or invest up to 20% of the net asset value of the RAFI Emerging Markets Fund in shares issued by the same body, which limit may be raised to 35% for a single issuer in exceptional market circumstances.",
+    "Category": "",
+    "UpdatedAt": "2019-10-09"
+  },
+  "Technicals": {
+    "Beta": "0.9400",
+    "52WeekHigh": "724.7500",
+    "52WeekLow": "616.5000",
+    "50DayMA": "674.9228",
+    "200DayMA": "684.2741"
+  },
+  "ETF_Data": {
+    "ISIN": "IE00B23D9570",
+    "Company_Name": "PowerShares",
+    "Company_URL": "",
+    "ETF_URL": "",
+    "Yield": "0.0001",
+    "Dividend_Paying_Frequency": "",
+    "Inception_Date": "0000-00-00",
+    "Max_Annual_Mgmt_Charge": "0.00",
+    "Ongoing_Charge": "0.00",
+    "Date_Ongoing_Charge": null,
+    "NetExpenseRatio": "0.00490",
+    "AnnualHoldingsTurnover": "0.36450",
+    "TotalAssets": "24627770.00",
+    "Average_Mkt_Cap_Mil": "No Data",
+    "Market_Capitalisation": {},
+    "Asset_Allocation": {},
+    "World_Regions": {},
+    "Sector_Weights": {},
+    "Top_10_Holdings": {
+      "China Construction Bank Corp Class H": {
+        "Name": "China Construction Bank Corp Class H",
+        "Assets_%": "4.19"
+      },
+      "Taiwan Semiconductor Manufacturing Co Ltd": {
+        "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+        "Assets_%": "3.88"
+      },
+      "Industrial And Commercial Bank Of China Ltd Class H": {
+        "Name": "Industrial And Commercial Bank Of China Ltd Class H",
+        "Assets_%": "2.8800001"
+      },
+      "Gazprom PJSC ADR": {
+        "Name": "Gazprom PJSC ADR",
+        "Assets_%": "2.54"
+      },
+      "Reliance Industries Ltd ADR": {
+        "Name": "Reliance Industries Ltd ADR",
+        "Assets_%": "2.3"
+      },
+      "PJSC Lukoil ADR": {
+        "Name": "PJSC Lukoil ADR",
+        "Assets_%": "2.29"
+      },
+      "Bank Of China Ltd Class H": {
+        "Name": "Bank Of China Ltd Class H",
+        "Assets_%": "2.1"
+      },
+      "China Mobile Ltd": {
+        "Name": "China Mobile Ltd",
+        "Assets_%": "1.97"
+      },
+      "Sberbank of Russia PJSC ADR": {
+        "Name": "Sberbank of Russia PJSC ADR",
+        "Assets_%": "1.83"
+      },
+      "Infosys Ltd ADR": {
+        "Name": "Infosys Ltd ADR",
+        "Assets_%": "1.6900001"
+      }
+    },
+    "Holdings": {
+      "China Construction Bank Corp Class H": {
+        "Name": "China Construction Bank Corp Class H",
+        "Assets_%": "4.19"
+      },
+      "Taiwan Semiconductor Manufacturing Co Ltd": {
+        "Name": "Taiwan Semiconductor Manufacturing Co Ltd",
+        "Assets_%": "3.88"
+      },
+      "Industrial And Commercial Bank Of China Ltd Class H": {
+        "Name": "Industrial And Commercial Bank Of China Ltd Class H",
+        "Assets_%": "2.8800001"
+      },
+      "Gazprom PJSC ADR": {
+        "Name": "Gazprom PJSC ADR",
+        "Assets_%": "2.54"
+      },
+      "Reliance Industries Ltd ADR": {
+        "Name": "Reliance Industries Ltd ADR",
+        "Assets_%": "2.3"
+      },
+      "PJSC Lukoil ADR": {
+        "Name": "PJSC Lukoil ADR",
+        "Assets_%": "2.29"
+      },
+      "Bank Of China Ltd Class H": {
+        "Name": "Bank Of China Ltd Class H",
+        "Assets_%": "2.1"
+      },
+      "China Mobile Ltd": {
+        "Name": "China Mobile Ltd",
+        "Assets_%": "1.97"
+      },
+      "Sberbank of Russia PJSC ADR": {
+        "Name": "Sberbank of Russia PJSC ADR",
+        "Assets_%": "1.83"
+      },
+      "Infosys Ltd ADR": {
+        "Name": "Infosys Ltd ADR",
+        "Assets_%": "1.6900001"
+      }
+    },
+    "Valuations_Growth": {
+      "Valuations_Rates_Portfolio": {},
+      "Valuations_Rates_To_Category": {},
+      "Growth_Rates_Portfolio": {},
+      "Growth_Rates_To_Category": {}
+    },
+    "MorningStar": {
+      "Ratio": "",
+      "Category_Benchmark": "",
+      "Sustainability_Ratio": ""
+    },
+    "Performance": {
+      "3y_Volatility": "0.00",
+      "3y_ExpReturn": "0.00",
+      "3y_SharpRatio": "0.00",
+      "Returns_YTD": "0.00",
+      "Returns_3Y": "0.00",
+      "Returns_5Y": "0.00",
+      "Returns_10Y": "0.00"
+    }
+  }
+}
