@@ -3,7 +3,9 @@ package eodhdapi
 //go:generate go run github.com/mailru/easyjson/easyjson -omit_empty -disallow_unknown_fields -all fundamentals.go
 
 import (
+	"fmt"
 	"github.com/mailru/easyjson/jlexer"
+	"github.com/mailru/easyjson/jwriter"
 	"github.com/shopspring/decimal"
 	"time"
 )
@@ -62,30 +64,30 @@ type General struct {
 	FundFiscalYearEnd     *string `json:"Fiscal_Year_End"`
 }
 type Highlights struct {
-	MarketCapitalization       *decimal.Decimal `json:"MarketCapitalization"`
-	MarketCapitalizationMln    string           `json:"MarketCapitalizationMln"`
-	EBITDA                     *decimal.Decimal `json:"EBITDA"`
-	PERatio                    *decimal.Decimal `json:"PERatio"`
-	PEGRatio                   *decimal.Decimal `json:"PEGRatio"`
-	WallStreetTargetPrice      *decimal.Decimal `json:"WallStreetTargetPrice"`
-	BookValue                  *decimal.Decimal `json:"BookValue"`
-	DividendShare              *decimal.Decimal `json:"DividendShare"`
-	DividendYield              *decimal.Decimal `json:"DividendYield"`
-	EarningsShare              *decimal.Decimal `json:"EarningsShare"`
-	EPSEstimateCurrentYear     *decimal.Decimal `json:"EPSEstimateCurrentYear"`
-	EPSEstimateNextYear        *decimal.Decimal `json:"EPSEstimateNextYear"`
-	EPSEstimateNextQuarter     *decimal.Decimal `json:"EPSEstimateNextQuarter"`
-	MostRecentQuarter          string           `json:"MostRecentQuarter"`
-	ProfitMargin               *decimal.Decimal `json:"ProfitMargin"`
-	OperatingMarginTTM         *decimal.Decimal `json:"OperatingMarginTTM"`
-	ReturnOnAssetsTTM          *decimal.Decimal `json:"ReturnOnAssetsTTM"`
-	ReturnOnEquityTTM          *decimal.Decimal `json:"ReturnOnEquityTTM"`
-	RevenueTTM                 *decimal.Decimal `json:"RevenueTTM"`
-	RevenuePerShareTTM         *decimal.Decimal `json:"RevenuePerShareTTM"`
-	QuarterlyRevenueGrowthYOY  *decimal.Decimal `json:"QuarterlyRevenueGrowthYOY"`
-	GrossProfitTTM             *decimal.Decimal `json:"GrossProfitTTM"`
-	DilutedEpsTTM              *decimal.Decimal `json:"DilutedEpsTTM"`
-	QuarterlyEarningsGrowthYOY *decimal.Decimal `json:"QuarterlyEarningsGrowthYOY"`
+	MarketCapitalization       *Decimal `json:"MarketCapitalization"`
+	MarketCapitalizationMln    string   `json:"MarketCapitalizationMln"`
+	EBITDA                     *Decimal `json:"EBITDA"`
+	PERatio                    *Decimal `json:"PERatio"`
+	PEGRatio                   *Decimal `json:"PEGRatio"`
+	WallStreetTargetPrice      *Decimal `json:"WallStreetTargetPrice"`
+	BookValue                  *Decimal `json:"BookValue"`
+	DividendShare              *Decimal `json:"DividendShare"`
+	DividendYield              *Decimal `json:"DividendYield"`
+	EarningsShare              *Decimal `json:"EarningsShare"`
+	EPSEstimateCurrentYear     *Decimal `json:"EPSEstimateCurrentYear"`
+	EPSEstimateNextYear        *Decimal `json:"EPSEstimateNextYear"`
+	EPSEstimateNextQuarter     *Decimal `json:"EPSEstimateNextQuarter"`
+	MostRecentQuarter          string   `json:"MostRecentQuarter"`
+	ProfitMargin               *Decimal `json:"ProfitMargin"`
+	OperatingMarginTTM         *Decimal `json:"OperatingMarginTTM"`
+	ReturnOnAssetsTTM          *Decimal `json:"ReturnOnAssetsTTM"`
+	ReturnOnEquityTTM          *Decimal `json:"ReturnOnEquityTTM"`
+	RevenueTTM                 *Decimal `json:"RevenueTTM"`
+	RevenuePerShareTTM         *Decimal `json:"RevenuePerShareTTM"`
+	QuarterlyRevenueGrowthYOY  *Decimal `json:"QuarterlyRevenueGrowthYOY"`
+	GrossProfitTTM             *Decimal `json:"GrossProfitTTM"`
+	DilutedEpsTTM              *Decimal `json:"DilutedEpsTTM"`
+	QuarterlyEarningsGrowthYOY *Decimal `json:"QuarterlyEarningsGrowthYOY"`
 }
 
 type ETFData struct {
@@ -116,13 +118,13 @@ type ETFData struct {
 }
 
 type Performance struct {
-	ThreeYVolatility *decimal.Decimal `json:"3y_Volatility"`
-	ThreeYExpReturn  *decimal.Decimal `json:"3y_ExpReturn"`
-	ThreeYSharpRatio *decimal.Decimal `json:"3y_SharpRatio"`
-	ReturnsYTD       *decimal.Decimal `json:"Returns_YTD"`
-	Returns3Y        *decimal.Decimal `json:"Returns_3Y"`
-	Returns5Y        *decimal.Decimal `json:"Returns_5Y"`
-	Returns10Y       *decimal.Decimal `json:"Returns_10Y"`
+	ThreeYVolatility *Decimal `json:"3y_Volatility"`
+	ThreeYExpReturn  *Decimal `json:"3y_ExpReturn"`
+	ThreeYSharpRatio *Decimal `json:"3y_SharpRatio"`
+	ReturnsYTD       *Decimal `json:"Returns_YTD"`
+	Returns3Y        *Decimal `json:"Returns_3Y"`
+	Returns5Y        *Decimal `json:"Returns_5Y"`
+	Returns10Y       *Decimal `json:"Returns_10Y"`
 }
 
 type MorningStar struct {
@@ -132,20 +134,20 @@ type MorningStar struct {
 }
 
 type Holding struct {
-	Name          string           `json:"Name"`
-	AssetsPercent *decimal.Decimal `json:"Assets_%"`
+	Name          string   `json:"Name"`
+	AssetsPercent *Decimal `json:"Assets_%"`
 }
 type Weight struct {
-	Category           string           `json:"Category"`
-	EquityPercent      string           `json:"Equity_%"`
-	RelativeToCategory *decimal.Decimal `json:"Relative_to_Category"`
+	Category           string   `json:"Category"`
+	EquityPercent      string   `json:"Equity_%"`
+	RelativeToCategory *Decimal `json:"Relative_to_Category"`
 }
 
 type Allocation struct {
-	Category         string           `json:"Category"`
-	LongPercent      *decimal.Decimal `json:"Long_%"`
-	ShortPercent     *decimal.Decimal `json:"Short_%"`
-	NetAssetsPercent *decimal.Decimal `json:"Net_Assets_%"`
+	Category         string   `json:"Category"`
+	LongPercent      *Decimal `json:"Long_%"`
+	ShortPercent     *Decimal `json:"Short_%"`
+	NetAssetsPercent *Decimal `json:"Net_Assets_%"`
 }
 
 type Holdings []Holding
@@ -274,12 +276,12 @@ func (out *ETFAssetAllocation) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type AssetAllocation struct {
-	Type            string           `json:"Type"`
-	Net             *decimal.Decimal `json:"Net_%"`
-	Long            *decimal.Decimal `json:"Long_%"`
-	Short           *decimal.Decimal `json:"Short_%"`
-	CategoryAverage *decimal.Decimal `json:"Category_Average"`
-	Benchmark       *decimal.Decimal `json:"Benchmark"`
+	Type            string   `json:"Type"`
+	Net             *Decimal `json:"Net_%"`
+	Long            *Decimal `json:"Long_%"`
+	Short           *Decimal `json:"Short_%"`
+	CategoryAverage *Decimal `json:"Category_Average"`
+	Benchmark       *Decimal `json:"Benchmark"`
 }
 
 type AssetAllocations []AssetAllocation
@@ -324,33 +326,33 @@ func (out *AssetAllocations) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type Valuation struct {
-	TrailingPE             *decimal.Decimal `json:"TrailingPE"`
-	ForwardPE              *decimal.Decimal `json:"ForwardPE"`
-	PriceSalesTTM          *decimal.Decimal `json:"PriceSalesTTM"`
-	PriceBookMRQ           *decimal.Decimal `json:"PriceBookMRQ"`
-	EnterpriseValueRevenue *decimal.Decimal `json:"EnterpriseValueRevenue"`
-	EnterpriseValueEbitda  *decimal.Decimal `json:"EnterpriseValueEbitda"`
+	TrailingPE             *Decimal `json:"TrailingPE"`
+	ForwardPE              *Decimal `json:"ForwardPE"`
+	PriceSalesTTM          *Decimal `json:"PriceSalesTTM"`
+	PriceBookMRQ           *Decimal `json:"PriceBookMRQ"`
+	EnterpriseValueRevenue *Decimal `json:"EnterpriseValueRevenue"`
+	EnterpriseValueEbitda  *Decimal `json:"EnterpriseValueEbitda"`
 }
 type Technicals struct {
-	Beta                  *decimal.Decimal `json:"Beta"`
-	FiftyTwoWeekHigh      *decimal.Decimal `json:"52WeekHigh"`
-	FiftyTwoWeekLow       *decimal.Decimal `json:"52WeekLow"`
-	FiftyDayMA            *decimal.Decimal `json:"50DayMA"`
-	TwoHundredDayMA       *decimal.Decimal `json:"200DayMA"`
-	SharesShort           *decimal.Decimal `json:"SharesShort"`
-	SharesShortPriorMonth *decimal.Decimal `json:"SharesShortPriorMonth"`
-	ShortRatio            *decimal.Decimal `json:"ShortRatio"`
-	ShortPercent          *decimal.Decimal `json:"ShortPercent"`
+	Beta                  *Decimal `json:"Beta"`
+	FiftyTwoWeekHigh      *Decimal `json:"52WeekHigh"`
+	FiftyTwoWeekLow       *Decimal `json:"52WeekLow"`
+	FiftyDayMA            *Decimal `json:"50DayMA"`
+	TwoHundredDayMA       *Decimal `json:"200DayMA"`
+	SharesShort           *Decimal `json:"SharesShort"`
+	SharesShortPriorMonth *Decimal `json:"SharesShortPriorMonth"`
+	ShortRatio            *Decimal `json:"ShortRatio"`
+	ShortPercent          *Decimal `json:"ShortPercent"`
 }
 type SplitsDividends struct {
-	ForwardAnnualDividendRate  *decimal.Decimal `json:"ForwardAnnualDividendRate"`
-	ForwardAnnualDividendYield *decimal.Decimal `json:"ForwardAnnualDividendYield"`
-	PayoutRatio                *decimal.Decimal `json:"PayoutRatio"`
-	DividendDate               string           `json:"DividendDate"`
-	ExDividendDate             string           `json:"ExDividendDate"`
-	LastSplitFactor            string           `json:"LastSplitFactor"`
-	LastSplitDate              string           `json:"LastSplitDate"`
-	NumberDividendsByYear      YearCounts       `json:"NumberDividendsByYear"`
+	ForwardAnnualDividendRate  *Decimal   `json:"ForwardAnnualDividendRate"`
+	ForwardAnnualDividendYield *Decimal   `json:"ForwardAnnualDividendYield"`
+	PayoutRatio                *Decimal   `json:"PayoutRatio"`
+	DividendDate               string     `json:"DividendDate"`
+	ExDividendDate             string     `json:"ExDividendDate"`
+	LastSplitFactor            string     `json:"LastSplitFactor"`
+	LastSplitDate              string     `json:"LastSplitDate"`
+	NumberDividendsByYear      YearCounts `json:"NumberDividendsByYear"`
 }
 
 type OutstandingShares struct {
@@ -451,12 +453,12 @@ func (out *YearCounts) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type EarningsInfo struct {
-	Date            string           `json:"date"`
-	ReportDate      string           `json:"reportDate"`
-	EpsActual       *decimal.Decimal `json:"epsActual"`
-	EpsEstimate     *decimal.Decimal `json:"epsEstimate"`
-	EpsDifference   *decimal.Decimal `json:"epsDifference"`
-	SurprisePercent *decimal.Decimal `json:"surprisePercent"`
+	Date            string   `json:"date"`
+	ReportDate      string   `json:"reportDate"`
+	EpsActual       *Decimal `json:"epsActual"`
+	EpsEstimate     *Decimal `json:"epsEstimate"`
+	EpsDifference   *Decimal `json:"epsDifference"`
+	SurprisePercent *Decimal `json:"surprisePercent"`
 }
 
 type EarningsInfos []EarningsInfo
@@ -501,30 +503,30 @@ func (out *EarningsInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type EarningsEstimateInfo struct {
-	Date                             string           `json:"date"`
-	Period                           string           `json:"period"`
-	Growth                           *decimal.Decimal `json:"growth"`
-	EarningsEstimateAvg              *decimal.Decimal `json:"earningsEstimateAvg"`
-	EarningsEstimateLow              *decimal.Decimal `json:"earningsEstimateLow"`
-	EarningsEstimateHigh             *decimal.Decimal `json:"earningsEstimateHigh"`
-	EarningsEstimateYearAgoEps       *decimal.Decimal `json:"earningsEstimateYearAgoEps"`
-	EarningsEstimateNumberOfAnalysts *decimal.Decimal `json:"earningsEstimateNumberOfAnalysts"`
-	EarningsEstimateGrowth           *decimal.Decimal `json:"earningsEstimateGrowth"`
-	RevenueEstimateAvg               *decimal.Decimal `json:"revenueEstimateAvg"`
-	RevenueEstimateLow               *decimal.Decimal `json:"revenueEstimateLow"`
-	RevenueEstimateHigh              *decimal.Decimal `json:"revenueEstimateHigh"`
-	RevenueEstimateYearAgoEps        *decimal.Decimal `json:"revenueEstimateYearAgoEps"`
-	RevenueEstimateNumberOfAnalysts  *decimal.Decimal `json:"revenueEstimateNumberOfAnalysts"`
-	RevenueEstimateGrowth            *decimal.Decimal `json:"revenueEstimateGrowth"`
-	EpsTrendCurrent                  *decimal.Decimal `json:"epsTrendCurrent"`
-	EpsTrend7DaysAgo                 *decimal.Decimal `json:"epsTrend7daysAgo"`
-	EpsTrend30DaysAgo                *decimal.Decimal `json:"epsTrend30daysAgo"`
-	EpsTrend60DaysAgo                *decimal.Decimal `json:"epsTrend60daysAgo"`
-	EpsTrend90DaysAgo                *decimal.Decimal `json:"epsTrend90daysAgo"`
-	EpsRevisionsUpLast7Days          *decimal.Decimal `json:"epsRevisionsUpLast7days"`
-	EpsRevisionsUpLast30Days         *decimal.Decimal `json:"epsRevisionsUpLast30days"`
-	EpsRevisionsDownLast30Days       *decimal.Decimal `json:"epsRevisionsDownLast30days"`
-	EpsRevisionsDownLast90Days       *decimal.Decimal `json:"epsRevisionsDownLast90days"`
+	Date                             string   `json:"date"`
+	Period                           string   `json:"period"`
+	Growth                           *Decimal `json:"growth"`
+	EarningsEstimateAvg              *Decimal `json:"earningsEstimateAvg"`
+	EarningsEstimateLow              *Decimal `json:"earningsEstimateLow"`
+	EarningsEstimateHigh             *Decimal `json:"earningsEstimateHigh"`
+	EarningsEstimateYearAgoEps       *Decimal `json:"earningsEstimateYearAgoEps"`
+	EarningsEstimateNumberOfAnalysts *Decimal `json:"earningsEstimateNumberOfAnalysts"`
+	EarningsEstimateGrowth           *Decimal `json:"earningsEstimateGrowth"`
+	RevenueEstimateAvg               *Decimal `json:"revenueEstimateAvg"`
+	RevenueEstimateLow               *Decimal `json:"revenueEstimateLow"`
+	RevenueEstimateHigh              *Decimal `json:"revenueEstimateHigh"`
+	RevenueEstimateYearAgoEps        *Decimal `json:"revenueEstimateYearAgoEps"`
+	RevenueEstimateNumberOfAnalysts  *Decimal `json:"revenueEstimateNumberOfAnalysts"`
+	RevenueEstimateGrowth            *Decimal `json:"revenueEstimateGrowth"`
+	EpsTrendCurrent                  *Decimal `json:"epsTrendCurrent"`
+	EpsTrend7DaysAgo                 *Decimal `json:"epsTrend7daysAgo"`
+	EpsTrend30DaysAgo                *Decimal `json:"epsTrend30daysAgo"`
+	EpsTrend60DaysAgo                *Decimal `json:"epsTrend60daysAgo"`
+	EpsTrend90DaysAgo                *Decimal `json:"epsTrend90daysAgo"`
+	EpsRevisionsUpLast7Days          *Decimal `json:"epsRevisionsUpLast7days"`
+	EpsRevisionsUpLast30Days         *Decimal `json:"epsRevisionsUpLast30days"`
+	EpsRevisionsDownLast30Days       *Decimal `json:"epsRevisionsDownLast30days"`
+	EpsRevisionsDownLast90Days       *Decimal `json:"epsRevisionsDownLast90days"`
 }
 
 type EarningsEstimateInfos []EarningsEstimateInfo
@@ -578,58 +580,58 @@ type BalanceSheetInfo struct {
 	Date       string  `json:"date"`
 	FilingDate *string `json:"filing_date"`
 
-	IntangibleAssets                                 *decimal.Decimal `json:"intangibleAssets"`
-	TotalLiab                                        *decimal.Decimal `json:"totalLiab"`
-	TotalStockholderEquity                           *decimal.Decimal `json:"totalStockholderEquity"`
-	DeferredLongTermLiab                             *decimal.Decimal `json:"deferredLongTermLiab"`
-	OtherCurrentLiab                                 *decimal.Decimal `json:"otherCurrentLiab"`
-	TotalAssets                                      *decimal.Decimal `json:"totalAssets"`
-	CommonStock                                      *decimal.Decimal `json:"commonStock"`
-	OtherCurrentAssets                               *decimal.Decimal `json:"otherCurrentAssets"`
-	RetainedEarnings                                 *decimal.Decimal `json:"retainedEarnings"`
-	OtherLiab                                        *decimal.Decimal `json:"otherLiab"`
-	GoodWill                                         *decimal.Decimal `json:"goodWill"`
-	OtherAssets                                      *decimal.Decimal `json:"otherAssets"`
-	Cash                                             *decimal.Decimal `json:"cash"`
-	TotalCurrentLiabilities                          *decimal.Decimal `json:"totalCurrentLiabilities"`
-	ShortLongTermDebt                                *decimal.Decimal `json:"shortLongTermDebt"`
-	OtherStockholderEquity                           *decimal.Decimal `json:"otherStockholderEquity"`
-	PropertyPlantEquipment                           *decimal.Decimal `json:"propertyPlantEquipment"`
-	TotalCurrentAssets                               *decimal.Decimal `json:"totalCurrentAssets"`
-	LongTermInvestments                              *decimal.Decimal `json:"longTermInvestments"`
-	NetTangibleAssets                                *decimal.Decimal `json:"netTangibleAssets"`
-	ShortTermInvestments                             *decimal.Decimal `json:"shortTermInvestments"`
-	NetReceivables                                   *decimal.Decimal `json:"netReceivables"`
-	LongTermDebt                                     *decimal.Decimal `json:"longTermDebt"`
-	Inventory                                        *decimal.Decimal `json:"inventory"`
-	AccountsPayable                                  *decimal.Decimal `json:"accountsPayable"`
-	TotalPermanentEquity                             *decimal.Decimal `json:"totalPermanentEquity"`
-	NoncontrollingInterestInConsolidatedEntity       *decimal.Decimal `json:"noncontrollingInterestInConsolidatedEntity"`
-	TemporaryEquityRedeemableNoncontrollingInterests *decimal.Decimal `json:"temporaryEquityRedeemableNoncontrollingInterests"`
-	AccumulatedOtherComprehensiveIncome              *decimal.Decimal `json:"accumulatedOtherComprehensiveIncome"`
-	AdditionalPaidInCapital                          *decimal.Decimal `json:"additionalPaidInCapital"`
-	CommonStockTotalEquity                           *decimal.Decimal `json:"commonStockTotalEquity"`
-	PreferredStockTotalEquity                        *decimal.Decimal `json:"preferredStockTotalEquity"`
-	RetainedEarningsTotalEquity                      *decimal.Decimal `json:"retainedEarningsTotalEquity"`
-	TreasuryStock                                    *decimal.Decimal `json:"treasuryStock"`
-	AccumulatedAmortization                          *decimal.Decimal `json:"accumulatedAmortization"`
-	NonCurrrentAssetsOther                           *decimal.Decimal `json:"nonCurrrentAssetsOther"`
-	DeferredLongTermAssetCharges                     *decimal.Decimal `json:"deferredLongTermAssetCharges"`
-	NonCurrentAssetsTotal                            *decimal.Decimal `json:"nonCurrentAssetsTotal"`
-	ShortTermDebt                                    *decimal.Decimal `json:"shortTermDebt"`
-	CapitalLeaseObligations                          *decimal.Decimal `json:"capitalLeaseObligations"`
-	LongTermDebtTotal                                *decimal.Decimal `json:"longTermDebtTotal"`
-	NonCurrentLiabilitiesOther                       *decimal.Decimal `json:"nonCurrentLiabilitiesOther"`
-	NonCurrentLiabilitiesTotal                       *decimal.Decimal `json:"nonCurrentLiabilitiesTotal"`
-	NegativeGoodwill                                 *decimal.Decimal `json:"negativeGoodwill"`
-	Warrants                                         *decimal.Decimal `json:"warrants"`
-	PreferredStockRedeemable                         *decimal.Decimal `json:"preferredStockRedeemable"`
-	CapitalSurpluse                                  *decimal.Decimal `json:"capitalSurpluse"`
-	LiabilitiesAndStockholdersEquity                 *decimal.Decimal `json:"liabilitiesAndStockholdersEquity"`
-	CashAndShortTermInvestments                      *decimal.Decimal `json:"cashAndShortTermInvestments"`
-	PropertyPlantAndEquipmentGross                   *decimal.Decimal `json:"propertyPlantAndEquipmentGross"`
-	AccumulatedDepreciation                          *decimal.Decimal `json:"accumulatedDepreciation"`
-	CommonStockSharesOutstanding                     *decimal.Decimal `json:"commonStockSharesOutstanding"`
+	IntangibleAssets                                 *Decimal `json:"intangibleAssets"`
+	TotalLiab                                        *Decimal `json:"totalLiab"`
+	TotalStockholderEquity                           *Decimal `json:"totalStockholderEquity"`
+	DeferredLongTermLiab                             *Decimal `json:"deferredLongTermLiab"`
+	OtherCurrentLiab                                 *Decimal `json:"otherCurrentLiab"`
+	TotalAssets                                      *Decimal `json:"totalAssets"`
+	CommonStock                                      *Decimal `json:"commonStock"`
+	OtherCurrentAssets                               *Decimal `json:"otherCurrentAssets"`
+	RetainedEarnings                                 *Decimal `json:"retainedEarnings"`
+	OtherLiab                                        *Decimal `json:"otherLiab"`
+	GoodWill                                         *Decimal `json:"goodWill"`
+	OtherAssets                                      *Decimal `json:"otherAssets"`
+	Cash                                             *Decimal `json:"cash"`
+	TotalCurrentLiabilities                          *Decimal `json:"totalCurrentLiabilities"`
+	ShortLongTermDebt                                *Decimal `json:"shortLongTermDebt"`
+	OtherStockholderEquity                           *Decimal `json:"otherStockholderEquity"`
+	PropertyPlantEquipment                           *Decimal `json:"propertyPlantEquipment"`
+	TotalCurrentAssets                               *Decimal `json:"totalCurrentAssets"`
+	LongTermInvestments                              *Decimal `json:"longTermInvestments"`
+	NetTangibleAssets                                *Decimal `json:"netTangibleAssets"`
+	ShortTermInvestments                             *Decimal `json:"shortTermInvestments"`
+	NetReceivables                                   *Decimal `json:"netReceivables"`
+	LongTermDebt                                     *Decimal `json:"longTermDebt"`
+	Inventory                                        *Decimal `json:"inventory"`
+	AccountsPayable                                  *Decimal `json:"accountsPayable"`
+	TotalPermanentEquity                             *Decimal `json:"totalPermanentEquity"`
+	NoncontrollingInterestInConsolidatedEntity       *Decimal `json:"noncontrollingInterestInConsolidatedEntity"`
+	TemporaryEquityRedeemableNoncontrollingInterests *Decimal `json:"temporaryEquityRedeemableNoncontrollingInterests"`
+	AccumulatedOtherComprehensiveIncome              *Decimal `json:"accumulatedOtherComprehensiveIncome"`
+	AdditionalPaidInCapital                          *Decimal `json:"additionalPaidInCapital"`
+	CommonStockTotalEquity                           *Decimal `json:"commonStockTotalEquity"`
+	PreferredStockTotalEquity                        *Decimal `json:"preferredStockTotalEquity"`
+	RetainedEarningsTotalEquity                      *Decimal `json:"retainedEarningsTotalEquity"`
+	TreasuryStock                                    *Decimal `json:"treasuryStock"`
+	AccumulatedAmortization                          *Decimal `json:"accumulatedAmortization"`
+	NonCurrrentAssetsOther                           *Decimal `json:"nonCurrrentAssetsOther"`
+	DeferredLongTermAssetCharges                     *Decimal `json:"deferredLongTermAssetCharges"`
+	NonCurrentAssetsTotal                            *Decimal `json:"nonCurrentAssetsTotal"`
+	ShortTermDebt                                    *Decimal `json:"shortTermDebt"`
+	CapitalLeaseObligations                          *Decimal `json:"capitalLeaseObligations"`
+	LongTermDebtTotal                                *Decimal `json:"longTermDebtTotal"`
+	NonCurrentLiabilitiesOther                       *Decimal `json:"nonCurrentLiabilitiesOther"`
+	NonCurrentLiabilitiesTotal                       *Decimal `json:"nonCurrentLiabilitiesTotal"`
+	NegativeGoodwill                                 *Decimal `json:"negativeGoodwill"`
+	Warrants                                         *Decimal `json:"warrants"`
+	PreferredStockRedeemable                         *Decimal `json:"preferredStockRedeemable"`
+	CapitalSurpluse                                  *Decimal `json:"capitalSurpluse"`
+	LiabilitiesAndStockholdersEquity                 *Decimal `json:"liabilitiesAndStockholdersEquity"`
+	CashAndShortTermInvestments                      *Decimal `json:"cashAndShortTermInvestments"`
+	PropertyPlantAndEquipmentGross                   *Decimal `json:"propertyPlantAndEquipmentGross"`
+	AccumulatedDepreciation                          *Decimal `json:"accumulatedDepreciation"`
+	CommonStockSharesOutstanding                     *Decimal `json:"commonStockSharesOutstanding"`
 }
 
 type BalanceSheetInfos []BalanceSheetInfo
@@ -674,30 +676,30 @@ func (out *BalanceSheetInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type CashFlowInfo struct {
-	Date                                  string           `json:"date"`
-	FilingDate                            *string          `json:"filing_date"`
-	Investments                           *decimal.Decimal `json:"investments"`
-	ChangeToLiabilities                   *decimal.Decimal `json:"changeToLiabilities"`
-	TotalCashflowsFromInvestingActivities *decimal.Decimal `json:"totalCashflowsFromInvestingActivities"`
-	NetBorrowings                         *decimal.Decimal `json:"netBorrowings"`
-	TotalCashFromFinancingActivities      *decimal.Decimal `json:"totalCashFromFinancingActivities"`
-	ChangeToOperatingActivities           *decimal.Decimal `json:"changeToOperatingActivities"`
-	NetIncome                             *decimal.Decimal `json:"netIncome"`
-	ChangeInCash                          *decimal.Decimal `json:"changeInCash"`
-	TotalCashFromOperatingActivities      *decimal.Decimal `json:"totalCashFromOperatingActivities"`
-	Depreciation                          *decimal.Decimal `json:"depreciation"`
-	OtherCashflowsFromInvestingActivities *decimal.Decimal `json:"otherCashflowsFromInvestingActivities"`
-	DividendsPaid                         *decimal.Decimal `json:"dividendsPaid"`
-	ChangeToInventory                     *decimal.Decimal `json:"changeToInventory"`
-	ChangeToAccountReceivables            *decimal.Decimal `json:"changeToAccountReceivables"`
-	SalePurchaseOfStock                   *decimal.Decimal `json:"salePurchaseOfStock"`
-	OtherCashflowsFromFinancingActivities *decimal.Decimal `json:"otherCashflowsFromFinancingActivities"`
-	ChangeToNetincome                     *decimal.Decimal `json:"changeToNetincome"`
-	CapitalExpenditures                   *decimal.Decimal `json:"capitalExpenditures"`
-	ChangeReceivables                     *decimal.Decimal `json:"changeReceivables"`
-	CashFlowsOtherOperating               *decimal.Decimal `json:"cashFlowsOtherOperating"`
-	ExchangeRateChanges                   *decimal.Decimal `json:"exchangeRateChanges"`
-	CashAndCashEquivalentsChanges         *decimal.Decimal `json:"cashAndCashEquivalentsChanges"`
+	Date                                  string   `json:"date"`
+	FilingDate                            *string  `json:"filing_date"`
+	Investments                           *Decimal `json:"investments"`
+	ChangeToLiabilities                   *Decimal `json:"changeToLiabilities"`
+	TotalCashflowsFromInvestingActivities *Decimal `json:"totalCashflowsFromInvestingActivities"`
+	NetBorrowings                         *Decimal `json:"netBorrowings"`
+	TotalCashFromFinancingActivities      *Decimal `json:"totalCashFromFinancingActivities"`
+	ChangeToOperatingActivities           *Decimal `json:"changeToOperatingActivities"`
+	NetIncome                             *Decimal `json:"netIncome"`
+	ChangeInCash                          *Decimal `json:"changeInCash"`
+	TotalCashFromOperatingActivities      *Decimal `json:"totalCashFromOperatingActivities"`
+	Depreciation                          *Decimal `json:"depreciation"`
+	OtherCashflowsFromInvestingActivities *Decimal `json:"otherCashflowsFromInvestingActivities"`
+	DividendsPaid                         *Decimal `json:"dividendsPaid"`
+	ChangeToInventory                     *Decimal `json:"changeToInventory"`
+	ChangeToAccountReceivables            *Decimal `json:"changeToAccountReceivables"`
+	SalePurchaseOfStock                   *Decimal `json:"salePurchaseOfStock"`
+	OtherCashflowsFromFinancingActivities *Decimal `json:"otherCashflowsFromFinancingActivities"`
+	ChangeToNetincome                     *Decimal `json:"changeToNetincome"`
+	CapitalExpenditures                   *Decimal `json:"capitalExpenditures"`
+	ChangeReceivables                     *Decimal `json:"changeReceivables"`
+	CashFlowsOtherOperating               *Decimal `json:"cashFlowsOtherOperating"`
+	ExchangeRateChanges                   *Decimal `json:"exchangeRateChanges"`
+	CashAndCashEquivalentsChanges         *Decimal `json:"cashAndCashEquivalentsChanges"`
 }
 
 type CashFlowInfos []CashFlowInfo
@@ -742,32 +744,32 @@ func (out *CashFlowInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type IncomeStatementInfo struct {
-	Date                              string           `json:"date"`
-	FilingDate                        *string          `json:"filing_date"`
-	ResearchDevelopment               *decimal.Decimal `json:"researchDevelopment"`
-	EffectOfAccountingCharges         *decimal.Decimal `json:"effectOfAccountingCharges"`
-	IncomeBeforeTax                   *decimal.Decimal `json:"incomeBeforeTax"`
-	MinorityInterest                  *decimal.Decimal `json:"minorityInterest"`
-	NetIncome                         *decimal.Decimal `json:"netIncome"`
-	SellingGeneralAdministrative      *decimal.Decimal `json:"sellingGeneralAdministrative"`
-	GrossProfit                       *decimal.Decimal `json:"grossProfit"`
-	Ebit                              *decimal.Decimal `json:"ebit"`
-	NonOperatingIncomeNetOther        *decimal.Decimal `json:"nonOperatingIncomeNetOther"`
-	OperatingIncome                   *decimal.Decimal `json:"operatingIncome"`
-	OtherOperatingExpenses            *decimal.Decimal `json:"otherOperatingExpenses"`
-	InterestExpense                   *decimal.Decimal `json:"interestExpense"`
-	ExtraordinaryItems                *decimal.Decimal `json:"extraordinaryItems"`
-	NonRecurring                      *decimal.Decimal `json:"nonRecurring"`
-	OtherItems                        *decimal.Decimal `json:"otherItems"`
-	IncomeTaxExpense                  *decimal.Decimal `json:"incomeTaxExpense"`
-	TotalRevenue                      *decimal.Decimal `json:"totalRevenue"`
-	TotalOperatingExpenses            *decimal.Decimal `json:"totalOperatingExpenses"`
-	CostOfRevenue                     *decimal.Decimal `json:"costOfRevenue"`
-	TotalOtherIncomeExpenseNet        *decimal.Decimal `json:"totalOtherIncomeExpenseNet"`
-	DiscontinuedOperations            *decimal.Decimal `json:"discontinuedOperations"`
-	NetIncomeFromContinuingOps        *decimal.Decimal `json:"netIncomeFromContinuingOps"`
-	NetIncomeApplicableToCommonShares *decimal.Decimal `json:"netIncomeApplicableToCommonShares"`
-	PreferredStockAndOtherAdjustments *decimal.Decimal `json:"preferredStockAndOtherAdjustments"`
+	Date                              string   `json:"date"`
+	FilingDate                        *string  `json:"filing_date"`
+	ResearchDevelopment               *Decimal `json:"researchDevelopment"`
+	EffectOfAccountingCharges         *Decimal `json:"effectOfAccountingCharges"`
+	IncomeBeforeTax                   *Decimal `json:"incomeBeforeTax"`
+	MinorityInterest                  *Decimal `json:"minorityInterest"`
+	NetIncome                         *Decimal `json:"netIncome"`
+	SellingGeneralAdministrative      *Decimal `json:"sellingGeneralAdministrative"`
+	GrossProfit                       *Decimal `json:"grossProfit"`
+	Ebit                              *Decimal `json:"ebit"`
+	NonOperatingIncomeNetOther        *Decimal `json:"nonOperatingIncomeNetOther"`
+	OperatingIncome                   *Decimal `json:"operatingIncome"`
+	OtherOperatingExpenses            *Decimal `json:"otherOperatingExpenses"`
+	InterestExpense                   *Decimal `json:"interestExpense"`
+	ExtraordinaryItems                *Decimal `json:"extraordinaryItems"`
+	NonRecurring                      *Decimal `json:"nonRecurring"`
+	OtherItems                        *Decimal `json:"otherItems"`
+	IncomeTaxExpense                  *Decimal `json:"incomeTaxExpense"`
+	TotalRevenue                      *Decimal `json:"totalRevenue"`
+	TotalOperatingExpenses            *Decimal `json:"totalOperatingExpenses"`
+	CostOfRevenue                     *Decimal `json:"costOfRevenue"`
+	TotalOtherIncomeExpenseNet        *Decimal `json:"totalOtherIncomeExpenseNet"`
+	DiscontinuedOperations            *Decimal `json:"discontinuedOperations"`
+	NetIncomeFromContinuingOps        *Decimal `json:"netIncomeFromContinuingOps"`
+	NetIncomeApplicableToCommonShares *Decimal `json:"netIncomeApplicableToCommonShares"`
+	PreferredStockAndOtherAdjustments *Decimal `json:"preferredStockAndOtherAdjustments"`
 }
 
 type IncomeStatementInfos []IncomeStatementInfo
@@ -833,15 +835,15 @@ type CashFlow struct {
 	Yearly         CashFlowInfos `json:"yearly"`
 }
 type SharesStats struct {
-	SharesOutstanding       *decimal.Decimal `json:"SharesOutstanding"`
-	SharesFloat             *decimal.Decimal `json:"SharesFloat"`
-	PercentInsiders         *decimal.Decimal `json:"PercentInsiders"`
-	PercentInstitutions     *decimal.Decimal `json:"PercentInstitutions"`
-	SharesShort             *decimal.Decimal `json:"SharesShort"`
-	SharesShortPriorMonth   *decimal.Decimal `json:"SharesShortPriorMonth"`
-	ShortRatio              *decimal.Decimal `json:"ShortRatio"`
-	ShortPercentOutstanding *decimal.Decimal `json:"ShortPercentOutstanding"`
-	ShortPercentFloat       *decimal.Decimal `json:"ShortPercentFloat"`
+	SharesOutstanding       *Decimal `json:"SharesOutstanding"`
+	SharesFloat             *Decimal `json:"SharesFloat"`
+	PercentInsiders         *Decimal `json:"PercentInsiders"`
+	PercentInstitutions     *Decimal `json:"PercentInstitutions"`
+	SharesShort             *Decimal `json:"SharesShort"`
+	SharesShortPriorMonth   *Decimal `json:"SharesShortPriorMonth"`
+	ShortRatio              *Decimal `json:"ShortRatio"`
+	ShortPercentOutstanding *Decimal `json:"ShortPercentOutstanding"`
+	ShortPercentFloat       *Decimal `json:"ShortPercentFloat"`
 }
 
 type Component struct {
@@ -1039,11 +1041,11 @@ func (out *RegionWeights) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type MarketCapitalization struct {
-	Category        string           `json:"Category"`
-	Size            string           `json:"Size"`
-	CategoryAverage *decimal.Decimal `json:"Category_Average"`
-	Benchmark       *decimal.Decimal `json:"Benchmark"`
-	Portfolio       *decimal.Decimal `json:"Portfolio_%"`
+	Category        string   `json:"Category"`
+	Size            string   `json:"Size"`
+	CategoryAverage *Decimal `json:"Category_Average"`
+	Benchmark       *Decimal `json:"Benchmark"`
+	Portfolio       *Decimal `json:"Portfolio_%"`
 }
 
 type MarketCapitalizations []MarketCapitalization
@@ -1137,10 +1139,10 @@ func (out *TopHoldings) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type ValueGrowth struct {
-	Name            string           `json:"Name"`
-	CategoryAverage *decimal.Decimal `json:"Category_Average"`
-	Benchmark       *decimal.Decimal `json:"Benchmark"`
-	StockPortfolio  *decimal.Decimal `json:"Stock_Portfolio"`
+	Name            string   `json:"Name"`
+	CategoryAverage *Decimal `json:"Category_Average"`
+	Benchmark       *Decimal `json:"Benchmark"`
+	StockPortfolio  *Decimal `json:"Stock_Portfolio"`
 }
 
 type ValueGrowths []ValueGrowth
@@ -1182,4 +1184,63 @@ func (out *ValueGrowths) UnmarshalEasyJSON(in *jlexer.Lexer) {
 		}
 		in.Delim('}')
 	}
+}
+
+type Decimal decimal.Decimal
+
+func (dec *Decimal) UnmarshalEasyJSON(in *jlexer.Lexer) {
+
+	decimalBytes := in.Raw()
+
+	str, err := unquoteIfQuoted(decimalBytes)
+	if err != nil {
+		in.AddError(fmt.Errorf("error decoding string '%s': %s", decimalBytes, err))
+	}
+
+	if str == "null" || str == "-" {
+		return
+	}
+
+	d, err := decimal.NewFromString(str)
+
+	if err != nil {
+		in.AddError(err)
+		return
+	}
+
+	*dec = Decimal(d)
+}
+
+func (dec Decimal) MarshalEasyJSON(w *jwriter.Writer) {
+	w.String(dec.D().String())
+}
+
+// D gets the casted decimal.Decimal
+func (dec *Decimal) D() *decimal.Decimal {
+	if dec == nil {
+		return nil
+	}
+
+	d := decimal.Decimal(*dec)
+	return &d
+}
+
+func unquoteIfQuoted(value interface{}) (string, error) {
+	var bytes []byte
+
+	switch v := value.(type) {
+	case string:
+		bytes = []byte(v)
+	case []byte:
+		bytes = v
+	default:
+		return "", fmt.Errorf("Could not convert value '%+v' to byte array of type '%T'",
+			value, value)
+	}
+
+	// If the amount is quoted, strip the quotes
+	if len(bytes) > 2 && bytes[0] == '"' && bytes[len(bytes)-1] == '"' {
+		bytes = bytes[1 : len(bytes)-1]
+	}
+	return string(bytes), nil
 }

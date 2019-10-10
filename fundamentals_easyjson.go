@@ -7,7 +7,6 @@ import (
 	easyjson "github.com/mailru/easyjson"
 	jlexer "github.com/mailru/easyjson/jlexer"
 	jwriter "github.com/mailru/easyjson/jwriter"
-	decimal "github.com/shopspring/decimal"
 )
 
 // suppress unused package warning
@@ -130,11 +129,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi1(in *jlexer.Lexer, out *Weight)
 				out.RelativeToCategory = nil
 			} else {
 				if out.RelativeToCategory == nil {
-					out.RelativeToCategory = new(decimal.Decimal)
+					out.RelativeToCategory = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RelativeToCategory).UnmarshalJSON(data))
-				}
+				(*out.RelativeToCategory).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -178,7 +175,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi1(out *jwriter.Writer, in Weight
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RelativeToCategory).MarshalJSON())
+		(*in.RelativeToCategory).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -233,11 +230,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi2(in *jlexer.Lexer, out *ValueGr
 				out.CategoryAverage = nil
 			} else {
 				if out.CategoryAverage == nil {
-					out.CategoryAverage = new(decimal.Decimal)
+					out.CategoryAverage = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CategoryAverage).UnmarshalJSON(data))
-				}
+				(*out.CategoryAverage).UnmarshalEasyJSON(in)
 			}
 		case "Benchmark":
 			if in.IsNull() {
@@ -245,11 +240,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi2(in *jlexer.Lexer, out *ValueGr
 				out.Benchmark = nil
 			} else {
 				if out.Benchmark == nil {
-					out.Benchmark = new(decimal.Decimal)
+					out.Benchmark = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Benchmark).UnmarshalJSON(data))
-				}
+				(*out.Benchmark).UnmarshalEasyJSON(in)
 			}
 		case "Stock_Portfolio":
 			if in.IsNull() {
@@ -257,11 +250,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi2(in *jlexer.Lexer, out *ValueGr
 				out.StockPortfolio = nil
 			} else {
 				if out.StockPortfolio == nil {
-					out.StockPortfolio = new(decimal.Decimal)
+					out.StockPortfolio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.StockPortfolio).UnmarshalJSON(data))
-				}
+				(*out.StockPortfolio).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -295,7 +286,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi2(out *jwriter.Writer, in ValueG
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CategoryAverage).MarshalJSON())
+		(*in.CategoryAverage).MarshalEasyJSON(out)
 	}
 	if in.Benchmark != nil {
 		const prefix string = ",\"Benchmark\":"
@@ -305,7 +296,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi2(out *jwriter.Writer, in ValueG
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Benchmark).MarshalJSON())
+		(*in.Benchmark).MarshalEasyJSON(out)
 	}
 	if in.StockPortfolio != nil {
 		const prefix string = ",\"Stock_Portfolio\":"
@@ -315,7 +306,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi2(out *jwriter.Writer, in ValueG
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.StockPortfolio).MarshalJSON())
+		(*in.StockPortfolio).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -368,11 +359,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.TrailingPE = nil
 			} else {
 				if out.TrailingPE == nil {
-					out.TrailingPE = new(decimal.Decimal)
+					out.TrailingPE = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TrailingPE).UnmarshalJSON(data))
-				}
+				(*out.TrailingPE).UnmarshalEasyJSON(in)
 			}
 		case "ForwardPE":
 			if in.IsNull() {
@@ -380,11 +369,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.ForwardPE = nil
 			} else {
 				if out.ForwardPE == nil {
-					out.ForwardPE = new(decimal.Decimal)
+					out.ForwardPE = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ForwardPE).UnmarshalJSON(data))
-				}
+				(*out.ForwardPE).UnmarshalEasyJSON(in)
 			}
 		case "PriceSalesTTM":
 			if in.IsNull() {
@@ -392,11 +379,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.PriceSalesTTM = nil
 			} else {
 				if out.PriceSalesTTM == nil {
-					out.PriceSalesTTM = new(decimal.Decimal)
+					out.PriceSalesTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PriceSalesTTM).UnmarshalJSON(data))
-				}
+				(*out.PriceSalesTTM).UnmarshalEasyJSON(in)
 			}
 		case "PriceBookMRQ":
 			if in.IsNull() {
@@ -404,11 +389,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.PriceBookMRQ = nil
 			} else {
 				if out.PriceBookMRQ == nil {
-					out.PriceBookMRQ = new(decimal.Decimal)
+					out.PriceBookMRQ = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PriceBookMRQ).UnmarshalJSON(data))
-				}
+				(*out.PriceBookMRQ).UnmarshalEasyJSON(in)
 			}
 		case "EnterpriseValueRevenue":
 			if in.IsNull() {
@@ -416,11 +399,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.EnterpriseValueRevenue = nil
 			} else {
 				if out.EnterpriseValueRevenue == nil {
-					out.EnterpriseValueRevenue = new(decimal.Decimal)
+					out.EnterpriseValueRevenue = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EnterpriseValueRevenue).UnmarshalJSON(data))
-				}
+				(*out.EnterpriseValueRevenue).UnmarshalEasyJSON(in)
 			}
 		case "EnterpriseValueEbitda":
 			if in.IsNull() {
@@ -428,11 +409,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi3(in *jlexer.Lexer, out *Valuati
 				out.EnterpriseValueEbitda = nil
 			} else {
 				if out.EnterpriseValueEbitda == nil {
-					out.EnterpriseValueEbitda = new(decimal.Decimal)
+					out.EnterpriseValueEbitda = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EnterpriseValueEbitda).UnmarshalJSON(data))
-				}
+				(*out.EnterpriseValueEbitda).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -456,7 +435,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		const prefix string = ",\"TrailingPE\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.TrailingPE).MarshalJSON())
+		(*in.TrailingPE).MarshalEasyJSON(out)
 	}
 	if in.ForwardPE != nil {
 		const prefix string = ",\"ForwardPE\":"
@@ -466,7 +445,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ForwardPE).MarshalJSON())
+		(*in.ForwardPE).MarshalEasyJSON(out)
 	}
 	if in.PriceSalesTTM != nil {
 		const prefix string = ",\"PriceSalesTTM\":"
@@ -476,7 +455,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PriceSalesTTM).MarshalJSON())
+		(*in.PriceSalesTTM).MarshalEasyJSON(out)
 	}
 	if in.PriceBookMRQ != nil {
 		const prefix string = ",\"PriceBookMRQ\":"
@@ -486,7 +465,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PriceBookMRQ).MarshalJSON())
+		(*in.PriceBookMRQ).MarshalEasyJSON(out)
 	}
 	if in.EnterpriseValueRevenue != nil {
 		const prefix string = ",\"EnterpriseValueRevenue\":"
@@ -496,7 +475,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EnterpriseValueRevenue).MarshalJSON())
+		(*in.EnterpriseValueRevenue).MarshalEasyJSON(out)
 	}
 	if in.EnterpriseValueEbitda != nil {
 		const prefix string = ",\"EnterpriseValueEbitda\":"
@@ -506,7 +485,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi3(out *jwriter.Writer, in Valuat
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EnterpriseValueEbitda).MarshalJSON())
+		(*in.EnterpriseValueEbitda).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -690,11 +669,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.Beta = nil
 			} else {
 				if out.Beta == nil {
-					out.Beta = new(decimal.Decimal)
+					out.Beta = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Beta).UnmarshalJSON(data))
-				}
+				(*out.Beta).UnmarshalEasyJSON(in)
 			}
 		case "52WeekHigh":
 			if in.IsNull() {
@@ -702,11 +679,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.FiftyTwoWeekHigh = nil
 			} else {
 				if out.FiftyTwoWeekHigh == nil {
-					out.FiftyTwoWeekHigh = new(decimal.Decimal)
+					out.FiftyTwoWeekHigh = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.FiftyTwoWeekHigh).UnmarshalJSON(data))
-				}
+				(*out.FiftyTwoWeekHigh).UnmarshalEasyJSON(in)
 			}
 		case "52WeekLow":
 			if in.IsNull() {
@@ -714,11 +689,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.FiftyTwoWeekLow = nil
 			} else {
 				if out.FiftyTwoWeekLow == nil {
-					out.FiftyTwoWeekLow = new(decimal.Decimal)
+					out.FiftyTwoWeekLow = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.FiftyTwoWeekLow).UnmarshalJSON(data))
-				}
+				(*out.FiftyTwoWeekLow).UnmarshalEasyJSON(in)
 			}
 		case "50DayMA":
 			if in.IsNull() {
@@ -726,11 +699,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.FiftyDayMA = nil
 			} else {
 				if out.FiftyDayMA == nil {
-					out.FiftyDayMA = new(decimal.Decimal)
+					out.FiftyDayMA = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.FiftyDayMA).UnmarshalJSON(data))
-				}
+				(*out.FiftyDayMA).UnmarshalEasyJSON(in)
 			}
 		case "200DayMA":
 			if in.IsNull() {
@@ -738,11 +709,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.TwoHundredDayMA = nil
 			} else {
 				if out.TwoHundredDayMA == nil {
-					out.TwoHundredDayMA = new(decimal.Decimal)
+					out.TwoHundredDayMA = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TwoHundredDayMA).UnmarshalJSON(data))
-				}
+				(*out.TwoHundredDayMA).UnmarshalEasyJSON(in)
 			}
 		case "SharesShort":
 			if in.IsNull() {
@@ -750,11 +719,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.SharesShort = nil
 			} else {
 				if out.SharesShort == nil {
-					out.SharesShort = new(decimal.Decimal)
+					out.SharesShort = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesShort).UnmarshalJSON(data))
-				}
+				(*out.SharesShort).UnmarshalEasyJSON(in)
 			}
 		case "SharesShortPriorMonth":
 			if in.IsNull() {
@@ -762,11 +729,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.SharesShortPriorMonth = nil
 			} else {
 				if out.SharesShortPriorMonth == nil {
-					out.SharesShortPriorMonth = new(decimal.Decimal)
+					out.SharesShortPriorMonth = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesShortPriorMonth).UnmarshalJSON(data))
-				}
+				(*out.SharesShortPriorMonth).UnmarshalEasyJSON(in)
 			}
 		case "ShortRatio":
 			if in.IsNull() {
@@ -774,11 +739,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.ShortRatio = nil
 			} else {
 				if out.ShortRatio == nil {
-					out.ShortRatio = new(decimal.Decimal)
+					out.ShortRatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortRatio).UnmarshalJSON(data))
-				}
+				(*out.ShortRatio).UnmarshalEasyJSON(in)
 			}
 		case "ShortPercent":
 			if in.IsNull() {
@@ -786,11 +749,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi5(in *jlexer.Lexer, out *Technic
 				out.ShortPercent = nil
 			} else {
 				if out.ShortPercent == nil {
-					out.ShortPercent = new(decimal.Decimal)
+					out.ShortPercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortPercent).UnmarshalJSON(data))
-				}
+				(*out.ShortPercent).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -814,7 +775,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		const prefix string = ",\"Beta\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.Beta).MarshalJSON())
+		(*in.Beta).MarshalEasyJSON(out)
 	}
 	if in.FiftyTwoWeekHigh != nil {
 		const prefix string = ",\"52WeekHigh\":"
@@ -824,7 +785,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.FiftyTwoWeekHigh).MarshalJSON())
+		(*in.FiftyTwoWeekHigh).MarshalEasyJSON(out)
 	}
 	if in.FiftyTwoWeekLow != nil {
 		const prefix string = ",\"52WeekLow\":"
@@ -834,7 +795,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.FiftyTwoWeekLow).MarshalJSON())
+		(*in.FiftyTwoWeekLow).MarshalEasyJSON(out)
 	}
 	if in.FiftyDayMA != nil {
 		const prefix string = ",\"50DayMA\":"
@@ -844,7 +805,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.FiftyDayMA).MarshalJSON())
+		(*in.FiftyDayMA).MarshalEasyJSON(out)
 	}
 	if in.TwoHundredDayMA != nil {
 		const prefix string = ",\"200DayMA\":"
@@ -854,7 +815,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TwoHundredDayMA).MarshalJSON())
+		(*in.TwoHundredDayMA).MarshalEasyJSON(out)
 	}
 	if in.SharesShort != nil {
 		const prefix string = ",\"SharesShort\":"
@@ -864,7 +825,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SharesShort).MarshalJSON())
+		(*in.SharesShort).MarshalEasyJSON(out)
 	}
 	if in.SharesShortPriorMonth != nil {
 		const prefix string = ",\"SharesShortPriorMonth\":"
@@ -874,7 +835,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SharesShortPriorMonth).MarshalJSON())
+		(*in.SharesShortPriorMonth).MarshalEasyJSON(out)
 	}
 	if in.ShortRatio != nil {
 		const prefix string = ",\"ShortRatio\":"
@@ -884,7 +845,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortRatio).MarshalJSON())
+		(*in.ShortRatio).MarshalEasyJSON(out)
 	}
 	if in.ShortPercent != nil {
 		const prefix string = ",\"ShortPercent\":"
@@ -894,7 +855,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi5(out *jwriter.Writer, in Techni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortPercent).MarshalJSON())
+		(*in.ShortPercent).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -947,11 +908,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi6(in *jlexer.Lexer, out *SplitsD
 				out.ForwardAnnualDividendRate = nil
 			} else {
 				if out.ForwardAnnualDividendRate == nil {
-					out.ForwardAnnualDividendRate = new(decimal.Decimal)
+					out.ForwardAnnualDividendRate = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ForwardAnnualDividendRate).UnmarshalJSON(data))
-				}
+				(*out.ForwardAnnualDividendRate).UnmarshalEasyJSON(in)
 			}
 		case "ForwardAnnualDividendYield":
 			if in.IsNull() {
@@ -959,11 +918,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi6(in *jlexer.Lexer, out *SplitsD
 				out.ForwardAnnualDividendYield = nil
 			} else {
 				if out.ForwardAnnualDividendYield == nil {
-					out.ForwardAnnualDividendYield = new(decimal.Decimal)
+					out.ForwardAnnualDividendYield = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ForwardAnnualDividendYield).UnmarshalJSON(data))
-				}
+				(*out.ForwardAnnualDividendYield).UnmarshalEasyJSON(in)
 			}
 		case "PayoutRatio":
 			if in.IsNull() {
@@ -971,11 +928,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi6(in *jlexer.Lexer, out *SplitsD
 				out.PayoutRatio = nil
 			} else {
 				if out.PayoutRatio == nil {
-					out.PayoutRatio = new(decimal.Decimal)
+					out.PayoutRatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PayoutRatio).UnmarshalJSON(data))
-				}
+				(*out.PayoutRatio).UnmarshalEasyJSON(in)
 			}
 		case "DividendDate":
 			out.DividendDate = string(in.String())
@@ -1009,7 +964,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi6(out *jwriter.Writer, in Splits
 		const prefix string = ",\"ForwardAnnualDividendRate\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.ForwardAnnualDividendRate).MarshalJSON())
+		(*in.ForwardAnnualDividendRate).MarshalEasyJSON(out)
 	}
 	if in.ForwardAnnualDividendYield != nil {
 		const prefix string = ",\"ForwardAnnualDividendYield\":"
@@ -1019,7 +974,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi6(out *jwriter.Writer, in Splits
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ForwardAnnualDividendYield).MarshalJSON())
+		(*in.ForwardAnnualDividendYield).MarshalEasyJSON(out)
 	}
 	if in.PayoutRatio != nil {
 		const prefix string = ",\"PayoutRatio\":"
@@ -1029,7 +984,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi6(out *jwriter.Writer, in Splits
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PayoutRatio).MarshalJSON())
+		(*in.PayoutRatio).MarshalEasyJSON(out)
 	}
 	if in.DividendDate != "" {
 		const prefix string = ",\"DividendDate\":"
@@ -1141,11 +1096,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.SharesOutstanding = nil
 			} else {
 				if out.SharesOutstanding == nil {
-					out.SharesOutstanding = new(decimal.Decimal)
+					out.SharesOutstanding = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesOutstanding).UnmarshalJSON(data))
-				}
+				(*out.SharesOutstanding).UnmarshalEasyJSON(in)
 			}
 		case "SharesFloat":
 			if in.IsNull() {
@@ -1153,11 +1106,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.SharesFloat = nil
 			} else {
 				if out.SharesFloat == nil {
-					out.SharesFloat = new(decimal.Decimal)
+					out.SharesFloat = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesFloat).UnmarshalJSON(data))
-				}
+				(*out.SharesFloat).UnmarshalEasyJSON(in)
 			}
 		case "PercentInsiders":
 			if in.IsNull() {
@@ -1165,11 +1116,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.PercentInsiders = nil
 			} else {
 				if out.PercentInsiders == nil {
-					out.PercentInsiders = new(decimal.Decimal)
+					out.PercentInsiders = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PercentInsiders).UnmarshalJSON(data))
-				}
+				(*out.PercentInsiders).UnmarshalEasyJSON(in)
 			}
 		case "PercentInstitutions":
 			if in.IsNull() {
@@ -1177,11 +1126,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.PercentInstitutions = nil
 			} else {
 				if out.PercentInstitutions == nil {
-					out.PercentInstitutions = new(decimal.Decimal)
+					out.PercentInstitutions = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PercentInstitutions).UnmarshalJSON(data))
-				}
+				(*out.PercentInstitutions).UnmarshalEasyJSON(in)
 			}
 		case "SharesShort":
 			if in.IsNull() {
@@ -1189,11 +1136,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.SharesShort = nil
 			} else {
 				if out.SharesShort == nil {
-					out.SharesShort = new(decimal.Decimal)
+					out.SharesShort = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesShort).UnmarshalJSON(data))
-				}
+				(*out.SharesShort).UnmarshalEasyJSON(in)
 			}
 		case "SharesShortPriorMonth":
 			if in.IsNull() {
@@ -1201,11 +1146,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.SharesShortPriorMonth = nil
 			} else {
 				if out.SharesShortPriorMonth == nil {
-					out.SharesShortPriorMonth = new(decimal.Decimal)
+					out.SharesShortPriorMonth = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SharesShortPriorMonth).UnmarshalJSON(data))
-				}
+				(*out.SharesShortPriorMonth).UnmarshalEasyJSON(in)
 			}
 		case "ShortRatio":
 			if in.IsNull() {
@@ -1213,11 +1156,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.ShortRatio = nil
 			} else {
 				if out.ShortRatio == nil {
-					out.ShortRatio = new(decimal.Decimal)
+					out.ShortRatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortRatio).UnmarshalJSON(data))
-				}
+				(*out.ShortRatio).UnmarshalEasyJSON(in)
 			}
 		case "ShortPercentOutstanding":
 			if in.IsNull() {
@@ -1225,11 +1166,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.ShortPercentOutstanding = nil
 			} else {
 				if out.ShortPercentOutstanding == nil {
-					out.ShortPercentOutstanding = new(decimal.Decimal)
+					out.ShortPercentOutstanding = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortPercentOutstanding).UnmarshalJSON(data))
-				}
+				(*out.ShortPercentOutstanding).UnmarshalEasyJSON(in)
 			}
 		case "ShortPercentFloat":
 			if in.IsNull() {
@@ -1237,11 +1176,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi7(in *jlexer.Lexer, out *SharesS
 				out.ShortPercentFloat = nil
 			} else {
 				if out.ShortPercentFloat == nil {
-					out.ShortPercentFloat = new(decimal.Decimal)
+					out.ShortPercentFloat = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortPercentFloat).UnmarshalJSON(data))
-				}
+				(*out.ShortPercentFloat).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -1265,7 +1202,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		const prefix string = ",\"SharesOutstanding\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.SharesOutstanding).MarshalJSON())
+		(*in.SharesOutstanding).MarshalEasyJSON(out)
 	}
 	if in.SharesFloat != nil {
 		const prefix string = ",\"SharesFloat\":"
@@ -1275,7 +1212,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SharesFloat).MarshalJSON())
+		(*in.SharesFloat).MarshalEasyJSON(out)
 	}
 	if in.PercentInsiders != nil {
 		const prefix string = ",\"PercentInsiders\":"
@@ -1285,7 +1222,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PercentInsiders).MarshalJSON())
+		(*in.PercentInsiders).MarshalEasyJSON(out)
 	}
 	if in.PercentInstitutions != nil {
 		const prefix string = ",\"PercentInstitutions\":"
@@ -1295,7 +1232,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PercentInstitutions).MarshalJSON())
+		(*in.PercentInstitutions).MarshalEasyJSON(out)
 	}
 	if in.SharesShort != nil {
 		const prefix string = ",\"SharesShort\":"
@@ -1305,7 +1242,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SharesShort).MarshalJSON())
+		(*in.SharesShort).MarshalEasyJSON(out)
 	}
 	if in.SharesShortPriorMonth != nil {
 		const prefix string = ",\"SharesShortPriorMonth\":"
@@ -1315,7 +1252,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SharesShortPriorMonth).MarshalJSON())
+		(*in.SharesShortPriorMonth).MarshalEasyJSON(out)
 	}
 	if in.ShortRatio != nil {
 		const prefix string = ",\"ShortRatio\":"
@@ -1325,7 +1262,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortRatio).MarshalJSON())
+		(*in.ShortRatio).MarshalEasyJSON(out)
 	}
 	if in.ShortPercentOutstanding != nil {
 		const prefix string = ",\"ShortPercentOutstanding\":"
@@ -1335,7 +1272,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortPercentOutstanding).MarshalJSON())
+		(*in.ShortPercentOutstanding).MarshalEasyJSON(out)
 	}
 	if in.ShortPercentFloat != nil {
 		const prefix string = ",\"ShortPercentFloat\":"
@@ -1345,7 +1282,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi7(out *jwriter.Writer, in Shares
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortPercentFloat).MarshalJSON())
+		(*in.ShortPercentFloat).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -1829,11 +1766,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.ThreeYVolatility = nil
 			} else {
 				if out.ThreeYVolatility == nil {
-					out.ThreeYVolatility = new(decimal.Decimal)
+					out.ThreeYVolatility = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ThreeYVolatility).UnmarshalJSON(data))
-				}
+				(*out.ThreeYVolatility).UnmarshalEasyJSON(in)
 			}
 		case "3y_ExpReturn":
 			if in.IsNull() {
@@ -1841,11 +1776,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.ThreeYExpReturn = nil
 			} else {
 				if out.ThreeYExpReturn == nil {
-					out.ThreeYExpReturn = new(decimal.Decimal)
+					out.ThreeYExpReturn = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ThreeYExpReturn).UnmarshalJSON(data))
-				}
+				(*out.ThreeYExpReturn).UnmarshalEasyJSON(in)
 			}
 		case "3y_SharpRatio":
 			if in.IsNull() {
@@ -1853,11 +1786,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.ThreeYSharpRatio = nil
 			} else {
 				if out.ThreeYSharpRatio == nil {
-					out.ThreeYSharpRatio = new(decimal.Decimal)
+					out.ThreeYSharpRatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ThreeYSharpRatio).UnmarshalJSON(data))
-				}
+				(*out.ThreeYSharpRatio).UnmarshalEasyJSON(in)
 			}
 		case "Returns_YTD":
 			if in.IsNull() {
@@ -1865,11 +1796,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.ReturnsYTD = nil
 			} else {
 				if out.ReturnsYTD == nil {
-					out.ReturnsYTD = new(decimal.Decimal)
+					out.ReturnsYTD = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ReturnsYTD).UnmarshalJSON(data))
-				}
+				(*out.ReturnsYTD).UnmarshalEasyJSON(in)
 			}
 		case "Returns_3Y":
 			if in.IsNull() {
@@ -1877,11 +1806,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.Returns3Y = nil
 			} else {
 				if out.Returns3Y == nil {
-					out.Returns3Y = new(decimal.Decimal)
+					out.Returns3Y = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Returns3Y).UnmarshalJSON(data))
-				}
+				(*out.Returns3Y).UnmarshalEasyJSON(in)
 			}
 		case "Returns_5Y":
 			if in.IsNull() {
@@ -1889,11 +1816,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.Returns5Y = nil
 			} else {
 				if out.Returns5Y == nil {
-					out.Returns5Y = new(decimal.Decimal)
+					out.Returns5Y = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Returns5Y).UnmarshalJSON(data))
-				}
+				(*out.Returns5Y).UnmarshalEasyJSON(in)
 			}
 		case "Returns_10Y":
 			if in.IsNull() {
@@ -1901,11 +1826,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi12(in *jlexer.Lexer, out *Perfor
 				out.Returns10Y = nil
 			} else {
 				if out.Returns10Y == nil {
-					out.Returns10Y = new(decimal.Decimal)
+					out.Returns10Y = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Returns10Y).UnmarshalJSON(data))
-				}
+				(*out.Returns10Y).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -1929,7 +1852,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		const prefix string = ",\"3y_Volatility\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.ThreeYVolatility).MarshalJSON())
+		(*in.ThreeYVolatility).MarshalEasyJSON(out)
 	}
 	if in.ThreeYExpReturn != nil {
 		const prefix string = ",\"3y_ExpReturn\":"
@@ -1939,7 +1862,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ThreeYExpReturn).MarshalJSON())
+		(*in.ThreeYExpReturn).MarshalEasyJSON(out)
 	}
 	if in.ThreeYSharpRatio != nil {
 		const prefix string = ",\"3y_SharpRatio\":"
@@ -1949,7 +1872,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ThreeYSharpRatio).MarshalJSON())
+		(*in.ThreeYSharpRatio).MarshalEasyJSON(out)
 	}
 	if in.ReturnsYTD != nil {
 		const prefix string = ",\"Returns_YTD\":"
@@ -1959,7 +1882,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ReturnsYTD).MarshalJSON())
+		(*in.ReturnsYTD).MarshalEasyJSON(out)
 	}
 	if in.Returns3Y != nil {
 		const prefix string = ",\"Returns_3Y\":"
@@ -1969,7 +1892,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Returns3Y).MarshalJSON())
+		(*in.Returns3Y).MarshalEasyJSON(out)
 	}
 	if in.Returns5Y != nil {
 		const prefix string = ",\"Returns_5Y\":"
@@ -1979,7 +1902,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Returns5Y).MarshalJSON())
+		(*in.Returns5Y).MarshalEasyJSON(out)
 	}
 	if in.Returns10Y != nil {
 		const prefix string = ",\"Returns_10Y\":"
@@ -1989,7 +1912,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi12(out *jwriter.Writer, in Perfo
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Returns10Y).MarshalJSON())
+		(*in.Returns10Y).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -2634,11 +2557,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi16(in *jlexer.Lexer, out *Market
 				out.CategoryAverage = nil
 			} else {
 				if out.CategoryAverage == nil {
-					out.CategoryAverage = new(decimal.Decimal)
+					out.CategoryAverage = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CategoryAverage).UnmarshalJSON(data))
-				}
+				(*out.CategoryAverage).UnmarshalEasyJSON(in)
 			}
 		case "Benchmark":
 			if in.IsNull() {
@@ -2646,11 +2567,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi16(in *jlexer.Lexer, out *Market
 				out.Benchmark = nil
 			} else {
 				if out.Benchmark == nil {
-					out.Benchmark = new(decimal.Decimal)
+					out.Benchmark = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Benchmark).UnmarshalJSON(data))
-				}
+				(*out.Benchmark).UnmarshalEasyJSON(in)
 			}
 		case "Portfolio_%":
 			if in.IsNull() {
@@ -2658,11 +2577,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi16(in *jlexer.Lexer, out *Market
 				out.Portfolio = nil
 			} else {
 				if out.Portfolio == nil {
-					out.Portfolio = new(decimal.Decimal)
+					out.Portfolio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Portfolio).UnmarshalJSON(data))
-				}
+				(*out.Portfolio).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -2706,7 +2623,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi16(out *jwriter.Writer, in Marke
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CategoryAverage).MarshalJSON())
+		(*in.CategoryAverage).MarshalEasyJSON(out)
 	}
 	if in.Benchmark != nil {
 		const prefix string = ",\"Benchmark\":"
@@ -2716,7 +2633,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi16(out *jwriter.Writer, in Marke
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Benchmark).MarshalJSON())
+		(*in.Benchmark).MarshalEasyJSON(out)
 	}
 	if in.Portfolio != nil {
 		const prefix string = ",\"Portfolio_%\":"
@@ -2726,7 +2643,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi16(out *jwriter.Writer, in Marke
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Portfolio).MarshalJSON())
+		(*in.Portfolio).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -2791,11 +2708,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.ResearchDevelopment = nil
 			} else {
 				if out.ResearchDevelopment == nil {
-					out.ResearchDevelopment = new(decimal.Decimal)
+					out.ResearchDevelopment = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ResearchDevelopment).UnmarshalJSON(data))
-				}
+				(*out.ResearchDevelopment).UnmarshalEasyJSON(in)
 			}
 		case "effectOfAccountingCharges":
 			if in.IsNull() {
@@ -2803,11 +2718,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.EffectOfAccountingCharges = nil
 			} else {
 				if out.EffectOfAccountingCharges == nil {
-					out.EffectOfAccountingCharges = new(decimal.Decimal)
+					out.EffectOfAccountingCharges = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EffectOfAccountingCharges).UnmarshalJSON(data))
-				}
+				(*out.EffectOfAccountingCharges).UnmarshalEasyJSON(in)
 			}
 		case "incomeBeforeTax":
 			if in.IsNull() {
@@ -2815,11 +2728,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.IncomeBeforeTax = nil
 			} else {
 				if out.IncomeBeforeTax == nil {
-					out.IncomeBeforeTax = new(decimal.Decimal)
+					out.IncomeBeforeTax = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.IncomeBeforeTax).UnmarshalJSON(data))
-				}
+				(*out.IncomeBeforeTax).UnmarshalEasyJSON(in)
 			}
 		case "minorityInterest":
 			if in.IsNull() {
@@ -2827,11 +2738,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.MinorityInterest = nil
 			} else {
 				if out.MinorityInterest == nil {
-					out.MinorityInterest = new(decimal.Decimal)
+					out.MinorityInterest = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.MinorityInterest).UnmarshalJSON(data))
-				}
+				(*out.MinorityInterest).UnmarshalEasyJSON(in)
 			}
 		case "netIncome":
 			if in.IsNull() {
@@ -2839,11 +2748,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.NetIncome = nil
 			} else {
 				if out.NetIncome == nil {
-					out.NetIncome = new(decimal.Decimal)
+					out.NetIncome = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetIncome).UnmarshalJSON(data))
-				}
+				(*out.NetIncome).UnmarshalEasyJSON(in)
 			}
 		case "sellingGeneralAdministrative":
 			if in.IsNull() {
@@ -2851,11 +2758,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.SellingGeneralAdministrative = nil
 			} else {
 				if out.SellingGeneralAdministrative == nil {
-					out.SellingGeneralAdministrative = new(decimal.Decimal)
+					out.SellingGeneralAdministrative = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SellingGeneralAdministrative).UnmarshalJSON(data))
-				}
+				(*out.SellingGeneralAdministrative).UnmarshalEasyJSON(in)
 			}
 		case "grossProfit":
 			if in.IsNull() {
@@ -2863,11 +2768,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.GrossProfit = nil
 			} else {
 				if out.GrossProfit == nil {
-					out.GrossProfit = new(decimal.Decimal)
+					out.GrossProfit = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.GrossProfit).UnmarshalJSON(data))
-				}
+				(*out.GrossProfit).UnmarshalEasyJSON(in)
 			}
 		case "ebit":
 			if in.IsNull() {
@@ -2875,11 +2778,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.Ebit = nil
 			} else {
 				if out.Ebit == nil {
-					out.Ebit = new(decimal.Decimal)
+					out.Ebit = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Ebit).UnmarshalJSON(data))
-				}
+				(*out.Ebit).UnmarshalEasyJSON(in)
 			}
 		case "nonOperatingIncomeNetOther":
 			if in.IsNull() {
@@ -2887,11 +2788,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.NonOperatingIncomeNetOther = nil
 			} else {
 				if out.NonOperatingIncomeNetOther == nil {
-					out.NonOperatingIncomeNetOther = new(decimal.Decimal)
+					out.NonOperatingIncomeNetOther = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonOperatingIncomeNetOther).UnmarshalJSON(data))
-				}
+				(*out.NonOperatingIncomeNetOther).UnmarshalEasyJSON(in)
 			}
 		case "operatingIncome":
 			if in.IsNull() {
@@ -2899,11 +2798,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.OperatingIncome = nil
 			} else {
 				if out.OperatingIncome == nil {
-					out.OperatingIncome = new(decimal.Decimal)
+					out.OperatingIncome = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OperatingIncome).UnmarshalJSON(data))
-				}
+				(*out.OperatingIncome).UnmarshalEasyJSON(in)
 			}
 		case "otherOperatingExpenses":
 			if in.IsNull() {
@@ -2911,11 +2808,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.OtherOperatingExpenses = nil
 			} else {
 				if out.OtherOperatingExpenses == nil {
-					out.OtherOperatingExpenses = new(decimal.Decimal)
+					out.OtherOperatingExpenses = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherOperatingExpenses).UnmarshalJSON(data))
-				}
+				(*out.OtherOperatingExpenses).UnmarshalEasyJSON(in)
 			}
 		case "interestExpense":
 			if in.IsNull() {
@@ -2923,11 +2818,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.InterestExpense = nil
 			} else {
 				if out.InterestExpense == nil {
-					out.InterestExpense = new(decimal.Decimal)
+					out.InterestExpense = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.InterestExpense).UnmarshalJSON(data))
-				}
+				(*out.InterestExpense).UnmarshalEasyJSON(in)
 			}
 		case "extraordinaryItems":
 			if in.IsNull() {
@@ -2935,11 +2828,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.ExtraordinaryItems = nil
 			} else {
 				if out.ExtraordinaryItems == nil {
-					out.ExtraordinaryItems = new(decimal.Decimal)
+					out.ExtraordinaryItems = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ExtraordinaryItems).UnmarshalJSON(data))
-				}
+				(*out.ExtraordinaryItems).UnmarshalEasyJSON(in)
 			}
 		case "nonRecurring":
 			if in.IsNull() {
@@ -2947,11 +2838,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.NonRecurring = nil
 			} else {
 				if out.NonRecurring == nil {
-					out.NonRecurring = new(decimal.Decimal)
+					out.NonRecurring = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonRecurring).UnmarshalJSON(data))
-				}
+				(*out.NonRecurring).UnmarshalEasyJSON(in)
 			}
 		case "otherItems":
 			if in.IsNull() {
@@ -2959,11 +2848,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.OtherItems = nil
 			} else {
 				if out.OtherItems == nil {
-					out.OtherItems = new(decimal.Decimal)
+					out.OtherItems = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherItems).UnmarshalJSON(data))
-				}
+				(*out.OtherItems).UnmarshalEasyJSON(in)
 			}
 		case "incomeTaxExpense":
 			if in.IsNull() {
@@ -2971,11 +2858,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.IncomeTaxExpense = nil
 			} else {
 				if out.IncomeTaxExpense == nil {
-					out.IncomeTaxExpense = new(decimal.Decimal)
+					out.IncomeTaxExpense = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.IncomeTaxExpense).UnmarshalJSON(data))
-				}
+				(*out.IncomeTaxExpense).UnmarshalEasyJSON(in)
 			}
 		case "totalRevenue":
 			if in.IsNull() {
@@ -2983,11 +2868,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.TotalRevenue = nil
 			} else {
 				if out.TotalRevenue == nil {
-					out.TotalRevenue = new(decimal.Decimal)
+					out.TotalRevenue = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalRevenue).UnmarshalJSON(data))
-				}
+				(*out.TotalRevenue).UnmarshalEasyJSON(in)
 			}
 		case "totalOperatingExpenses":
 			if in.IsNull() {
@@ -2995,11 +2878,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.TotalOperatingExpenses = nil
 			} else {
 				if out.TotalOperatingExpenses == nil {
-					out.TotalOperatingExpenses = new(decimal.Decimal)
+					out.TotalOperatingExpenses = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalOperatingExpenses).UnmarshalJSON(data))
-				}
+				(*out.TotalOperatingExpenses).UnmarshalEasyJSON(in)
 			}
 		case "costOfRevenue":
 			if in.IsNull() {
@@ -3007,11 +2888,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.CostOfRevenue = nil
 			} else {
 				if out.CostOfRevenue == nil {
-					out.CostOfRevenue = new(decimal.Decimal)
+					out.CostOfRevenue = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CostOfRevenue).UnmarshalJSON(data))
-				}
+				(*out.CostOfRevenue).UnmarshalEasyJSON(in)
 			}
 		case "totalOtherIncomeExpenseNet":
 			if in.IsNull() {
@@ -3019,11 +2898,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.TotalOtherIncomeExpenseNet = nil
 			} else {
 				if out.TotalOtherIncomeExpenseNet == nil {
-					out.TotalOtherIncomeExpenseNet = new(decimal.Decimal)
+					out.TotalOtherIncomeExpenseNet = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalOtherIncomeExpenseNet).UnmarshalJSON(data))
-				}
+				(*out.TotalOtherIncomeExpenseNet).UnmarshalEasyJSON(in)
 			}
 		case "discontinuedOperations":
 			if in.IsNull() {
@@ -3031,11 +2908,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.DiscontinuedOperations = nil
 			} else {
 				if out.DiscontinuedOperations == nil {
-					out.DiscontinuedOperations = new(decimal.Decimal)
+					out.DiscontinuedOperations = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DiscontinuedOperations).UnmarshalJSON(data))
-				}
+				(*out.DiscontinuedOperations).UnmarshalEasyJSON(in)
 			}
 		case "netIncomeFromContinuingOps":
 			if in.IsNull() {
@@ -3043,11 +2918,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.NetIncomeFromContinuingOps = nil
 			} else {
 				if out.NetIncomeFromContinuingOps == nil {
-					out.NetIncomeFromContinuingOps = new(decimal.Decimal)
+					out.NetIncomeFromContinuingOps = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetIncomeFromContinuingOps).UnmarshalJSON(data))
-				}
+				(*out.NetIncomeFromContinuingOps).UnmarshalEasyJSON(in)
 			}
 		case "netIncomeApplicableToCommonShares":
 			if in.IsNull() {
@@ -3055,11 +2928,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.NetIncomeApplicableToCommonShares = nil
 			} else {
 				if out.NetIncomeApplicableToCommonShares == nil {
-					out.NetIncomeApplicableToCommonShares = new(decimal.Decimal)
+					out.NetIncomeApplicableToCommonShares = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetIncomeApplicableToCommonShares).UnmarshalJSON(data))
-				}
+				(*out.NetIncomeApplicableToCommonShares).UnmarshalEasyJSON(in)
 			}
 		case "preferredStockAndOtherAdjustments":
 			if in.IsNull() {
@@ -3067,11 +2938,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi17(in *jlexer.Lexer, out *Income
 				out.PreferredStockAndOtherAdjustments = nil
 			} else {
 				if out.PreferredStockAndOtherAdjustments == nil {
-					out.PreferredStockAndOtherAdjustments = new(decimal.Decimal)
+					out.PreferredStockAndOtherAdjustments = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PreferredStockAndOtherAdjustments).UnmarshalJSON(data))
-				}
+				(*out.PreferredStockAndOtherAdjustments).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -3115,7 +2984,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ResearchDevelopment).MarshalJSON())
+		(*in.ResearchDevelopment).MarshalEasyJSON(out)
 	}
 	if in.EffectOfAccountingCharges != nil {
 		const prefix string = ",\"effectOfAccountingCharges\":"
@@ -3125,7 +2994,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EffectOfAccountingCharges).MarshalJSON())
+		(*in.EffectOfAccountingCharges).MarshalEasyJSON(out)
 	}
 	if in.IncomeBeforeTax != nil {
 		const prefix string = ",\"incomeBeforeTax\":"
@@ -3135,7 +3004,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.IncomeBeforeTax).MarshalJSON())
+		(*in.IncomeBeforeTax).MarshalEasyJSON(out)
 	}
 	if in.MinorityInterest != nil {
 		const prefix string = ",\"minorityInterest\":"
@@ -3145,7 +3014,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.MinorityInterest).MarshalJSON())
+		(*in.MinorityInterest).MarshalEasyJSON(out)
 	}
 	if in.NetIncome != nil {
 		const prefix string = ",\"netIncome\":"
@@ -3155,7 +3024,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetIncome).MarshalJSON())
+		(*in.NetIncome).MarshalEasyJSON(out)
 	}
 	if in.SellingGeneralAdministrative != nil {
 		const prefix string = ",\"sellingGeneralAdministrative\":"
@@ -3165,7 +3034,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SellingGeneralAdministrative).MarshalJSON())
+		(*in.SellingGeneralAdministrative).MarshalEasyJSON(out)
 	}
 	if in.GrossProfit != nil {
 		const prefix string = ",\"grossProfit\":"
@@ -3175,7 +3044,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.GrossProfit).MarshalJSON())
+		(*in.GrossProfit).MarshalEasyJSON(out)
 	}
 	if in.Ebit != nil {
 		const prefix string = ",\"ebit\":"
@@ -3185,7 +3054,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Ebit).MarshalJSON())
+		(*in.Ebit).MarshalEasyJSON(out)
 	}
 	if in.NonOperatingIncomeNetOther != nil {
 		const prefix string = ",\"nonOperatingIncomeNetOther\":"
@@ -3195,7 +3064,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonOperatingIncomeNetOther).MarshalJSON())
+		(*in.NonOperatingIncomeNetOther).MarshalEasyJSON(out)
 	}
 	if in.OperatingIncome != nil {
 		const prefix string = ",\"operatingIncome\":"
@@ -3205,7 +3074,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OperatingIncome).MarshalJSON())
+		(*in.OperatingIncome).MarshalEasyJSON(out)
 	}
 	if in.OtherOperatingExpenses != nil {
 		const prefix string = ",\"otherOperatingExpenses\":"
@@ -3215,7 +3084,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherOperatingExpenses).MarshalJSON())
+		(*in.OtherOperatingExpenses).MarshalEasyJSON(out)
 	}
 	if in.InterestExpense != nil {
 		const prefix string = ",\"interestExpense\":"
@@ -3225,7 +3094,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.InterestExpense).MarshalJSON())
+		(*in.InterestExpense).MarshalEasyJSON(out)
 	}
 	if in.ExtraordinaryItems != nil {
 		const prefix string = ",\"extraordinaryItems\":"
@@ -3235,7 +3104,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ExtraordinaryItems).MarshalJSON())
+		(*in.ExtraordinaryItems).MarshalEasyJSON(out)
 	}
 	if in.NonRecurring != nil {
 		const prefix string = ",\"nonRecurring\":"
@@ -3245,7 +3114,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonRecurring).MarshalJSON())
+		(*in.NonRecurring).MarshalEasyJSON(out)
 	}
 	if in.OtherItems != nil {
 		const prefix string = ",\"otherItems\":"
@@ -3255,7 +3124,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherItems).MarshalJSON())
+		(*in.OtherItems).MarshalEasyJSON(out)
 	}
 	if in.IncomeTaxExpense != nil {
 		const prefix string = ",\"incomeTaxExpense\":"
@@ -3265,7 +3134,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.IncomeTaxExpense).MarshalJSON())
+		(*in.IncomeTaxExpense).MarshalEasyJSON(out)
 	}
 	if in.TotalRevenue != nil {
 		const prefix string = ",\"totalRevenue\":"
@@ -3275,7 +3144,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalRevenue).MarshalJSON())
+		(*in.TotalRevenue).MarshalEasyJSON(out)
 	}
 	if in.TotalOperatingExpenses != nil {
 		const prefix string = ",\"totalOperatingExpenses\":"
@@ -3285,7 +3154,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalOperatingExpenses).MarshalJSON())
+		(*in.TotalOperatingExpenses).MarshalEasyJSON(out)
 	}
 	if in.CostOfRevenue != nil {
 		const prefix string = ",\"costOfRevenue\":"
@@ -3295,7 +3164,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CostOfRevenue).MarshalJSON())
+		(*in.CostOfRevenue).MarshalEasyJSON(out)
 	}
 	if in.TotalOtherIncomeExpenseNet != nil {
 		const prefix string = ",\"totalOtherIncomeExpenseNet\":"
@@ -3305,7 +3174,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalOtherIncomeExpenseNet).MarshalJSON())
+		(*in.TotalOtherIncomeExpenseNet).MarshalEasyJSON(out)
 	}
 	if in.DiscontinuedOperations != nil {
 		const prefix string = ",\"discontinuedOperations\":"
@@ -3315,7 +3184,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DiscontinuedOperations).MarshalJSON())
+		(*in.DiscontinuedOperations).MarshalEasyJSON(out)
 	}
 	if in.NetIncomeFromContinuingOps != nil {
 		const prefix string = ",\"netIncomeFromContinuingOps\":"
@@ -3325,7 +3194,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetIncomeFromContinuingOps).MarshalJSON())
+		(*in.NetIncomeFromContinuingOps).MarshalEasyJSON(out)
 	}
 	if in.NetIncomeApplicableToCommonShares != nil {
 		const prefix string = ",\"netIncomeApplicableToCommonShares\":"
@@ -3335,7 +3204,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetIncomeApplicableToCommonShares).MarshalJSON())
+		(*in.NetIncomeApplicableToCommonShares).MarshalEasyJSON(out)
 	}
 	if in.PreferredStockAndOtherAdjustments != nil {
 		const prefix string = ",\"preferredStockAndOtherAdjustments\":"
@@ -3345,7 +3214,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi17(out *jwriter.Writer, in Incom
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PreferredStockAndOtherAdjustments).MarshalJSON())
+		(*in.PreferredStockAndOtherAdjustments).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -3513,11 +3382,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi19(in *jlexer.Lexer, out *Holdin
 				out.AssetsPercent = nil
 			} else {
 				if out.AssetsPercent == nil {
-					out.AssetsPercent = new(decimal.Decimal)
+					out.AssetsPercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AssetsPercent).UnmarshalJSON(data))
-				}
+				(*out.AssetsPercent).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -3551,7 +3418,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi19(out *jwriter.Writer, in Holdi
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AssetsPercent).MarshalJSON())
+		(*in.AssetsPercent).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -3604,11 +3471,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.MarketCapitalization = nil
 			} else {
 				if out.MarketCapitalization == nil {
-					out.MarketCapitalization = new(decimal.Decimal)
+					out.MarketCapitalization = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.MarketCapitalization).UnmarshalJSON(data))
-				}
+				(*out.MarketCapitalization).UnmarshalEasyJSON(in)
 			}
 		case "MarketCapitalizationMln":
 			out.MarketCapitalizationMln = string(in.String())
@@ -3618,11 +3483,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.EBITDA = nil
 			} else {
 				if out.EBITDA == nil {
-					out.EBITDA = new(decimal.Decimal)
+					out.EBITDA = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EBITDA).UnmarshalJSON(data))
-				}
+				(*out.EBITDA).UnmarshalEasyJSON(in)
 			}
 		case "PERatio":
 			if in.IsNull() {
@@ -3630,11 +3493,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.PERatio = nil
 			} else {
 				if out.PERatio == nil {
-					out.PERatio = new(decimal.Decimal)
+					out.PERatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PERatio).UnmarshalJSON(data))
-				}
+				(*out.PERatio).UnmarshalEasyJSON(in)
 			}
 		case "PEGRatio":
 			if in.IsNull() {
@@ -3642,11 +3503,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.PEGRatio = nil
 			} else {
 				if out.PEGRatio == nil {
-					out.PEGRatio = new(decimal.Decimal)
+					out.PEGRatio = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PEGRatio).UnmarshalJSON(data))
-				}
+				(*out.PEGRatio).UnmarshalEasyJSON(in)
 			}
 		case "WallStreetTargetPrice":
 			if in.IsNull() {
@@ -3654,11 +3513,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.WallStreetTargetPrice = nil
 			} else {
 				if out.WallStreetTargetPrice == nil {
-					out.WallStreetTargetPrice = new(decimal.Decimal)
+					out.WallStreetTargetPrice = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.WallStreetTargetPrice).UnmarshalJSON(data))
-				}
+				(*out.WallStreetTargetPrice).UnmarshalEasyJSON(in)
 			}
 		case "BookValue":
 			if in.IsNull() {
@@ -3666,11 +3523,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.BookValue = nil
 			} else {
 				if out.BookValue == nil {
-					out.BookValue = new(decimal.Decimal)
+					out.BookValue = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.BookValue).UnmarshalJSON(data))
-				}
+				(*out.BookValue).UnmarshalEasyJSON(in)
 			}
 		case "DividendShare":
 			if in.IsNull() {
@@ -3678,11 +3533,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.DividendShare = nil
 			} else {
 				if out.DividendShare == nil {
-					out.DividendShare = new(decimal.Decimal)
+					out.DividendShare = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DividendShare).UnmarshalJSON(data))
-				}
+				(*out.DividendShare).UnmarshalEasyJSON(in)
 			}
 		case "DividendYield":
 			if in.IsNull() {
@@ -3690,11 +3543,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.DividendYield = nil
 			} else {
 				if out.DividendYield == nil {
-					out.DividendYield = new(decimal.Decimal)
+					out.DividendYield = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DividendYield).UnmarshalJSON(data))
-				}
+				(*out.DividendYield).UnmarshalEasyJSON(in)
 			}
 		case "EarningsShare":
 			if in.IsNull() {
@@ -3702,11 +3553,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.EarningsShare = nil
 			} else {
 				if out.EarningsShare == nil {
-					out.EarningsShare = new(decimal.Decimal)
+					out.EarningsShare = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsShare).UnmarshalJSON(data))
-				}
+				(*out.EarningsShare).UnmarshalEasyJSON(in)
 			}
 		case "EPSEstimateCurrentYear":
 			if in.IsNull() {
@@ -3714,11 +3563,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.EPSEstimateCurrentYear = nil
 			} else {
 				if out.EPSEstimateCurrentYear == nil {
-					out.EPSEstimateCurrentYear = new(decimal.Decimal)
+					out.EPSEstimateCurrentYear = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EPSEstimateCurrentYear).UnmarshalJSON(data))
-				}
+				(*out.EPSEstimateCurrentYear).UnmarshalEasyJSON(in)
 			}
 		case "EPSEstimateNextYear":
 			if in.IsNull() {
@@ -3726,11 +3573,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.EPSEstimateNextYear = nil
 			} else {
 				if out.EPSEstimateNextYear == nil {
-					out.EPSEstimateNextYear = new(decimal.Decimal)
+					out.EPSEstimateNextYear = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EPSEstimateNextYear).UnmarshalJSON(data))
-				}
+				(*out.EPSEstimateNextYear).UnmarshalEasyJSON(in)
 			}
 		case "EPSEstimateNextQuarter":
 			if in.IsNull() {
@@ -3738,11 +3583,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.EPSEstimateNextQuarter = nil
 			} else {
 				if out.EPSEstimateNextQuarter == nil {
-					out.EPSEstimateNextQuarter = new(decimal.Decimal)
+					out.EPSEstimateNextQuarter = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EPSEstimateNextQuarter).UnmarshalJSON(data))
-				}
+				(*out.EPSEstimateNextQuarter).UnmarshalEasyJSON(in)
 			}
 		case "MostRecentQuarter":
 			out.MostRecentQuarter = string(in.String())
@@ -3752,11 +3595,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.ProfitMargin = nil
 			} else {
 				if out.ProfitMargin == nil {
-					out.ProfitMargin = new(decimal.Decimal)
+					out.ProfitMargin = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ProfitMargin).UnmarshalJSON(data))
-				}
+				(*out.ProfitMargin).UnmarshalEasyJSON(in)
 			}
 		case "OperatingMarginTTM":
 			if in.IsNull() {
@@ -3764,11 +3605,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.OperatingMarginTTM = nil
 			} else {
 				if out.OperatingMarginTTM == nil {
-					out.OperatingMarginTTM = new(decimal.Decimal)
+					out.OperatingMarginTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OperatingMarginTTM).UnmarshalJSON(data))
-				}
+				(*out.OperatingMarginTTM).UnmarshalEasyJSON(in)
 			}
 		case "ReturnOnAssetsTTM":
 			if in.IsNull() {
@@ -3776,11 +3615,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.ReturnOnAssetsTTM = nil
 			} else {
 				if out.ReturnOnAssetsTTM == nil {
-					out.ReturnOnAssetsTTM = new(decimal.Decimal)
+					out.ReturnOnAssetsTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ReturnOnAssetsTTM).UnmarshalJSON(data))
-				}
+				(*out.ReturnOnAssetsTTM).UnmarshalEasyJSON(in)
 			}
 		case "ReturnOnEquityTTM":
 			if in.IsNull() {
@@ -3788,11 +3625,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.ReturnOnEquityTTM = nil
 			} else {
 				if out.ReturnOnEquityTTM == nil {
-					out.ReturnOnEquityTTM = new(decimal.Decimal)
+					out.ReturnOnEquityTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ReturnOnEquityTTM).UnmarshalJSON(data))
-				}
+				(*out.ReturnOnEquityTTM).UnmarshalEasyJSON(in)
 			}
 		case "RevenueTTM":
 			if in.IsNull() {
@@ -3800,11 +3635,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.RevenueTTM = nil
 			} else {
 				if out.RevenueTTM == nil {
-					out.RevenueTTM = new(decimal.Decimal)
+					out.RevenueTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueTTM).UnmarshalJSON(data))
-				}
+				(*out.RevenueTTM).UnmarshalEasyJSON(in)
 			}
 		case "RevenuePerShareTTM":
 			if in.IsNull() {
@@ -3812,11 +3645,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.RevenuePerShareTTM = nil
 			} else {
 				if out.RevenuePerShareTTM == nil {
-					out.RevenuePerShareTTM = new(decimal.Decimal)
+					out.RevenuePerShareTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenuePerShareTTM).UnmarshalJSON(data))
-				}
+				(*out.RevenuePerShareTTM).UnmarshalEasyJSON(in)
 			}
 		case "QuarterlyRevenueGrowthYOY":
 			if in.IsNull() {
@@ -3824,11 +3655,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.QuarterlyRevenueGrowthYOY = nil
 			} else {
 				if out.QuarterlyRevenueGrowthYOY == nil {
-					out.QuarterlyRevenueGrowthYOY = new(decimal.Decimal)
+					out.QuarterlyRevenueGrowthYOY = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.QuarterlyRevenueGrowthYOY).UnmarshalJSON(data))
-				}
+				(*out.QuarterlyRevenueGrowthYOY).UnmarshalEasyJSON(in)
 			}
 		case "GrossProfitTTM":
 			if in.IsNull() {
@@ -3836,11 +3665,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.GrossProfitTTM = nil
 			} else {
 				if out.GrossProfitTTM == nil {
-					out.GrossProfitTTM = new(decimal.Decimal)
+					out.GrossProfitTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.GrossProfitTTM).UnmarshalJSON(data))
-				}
+				(*out.GrossProfitTTM).UnmarshalEasyJSON(in)
 			}
 		case "DilutedEpsTTM":
 			if in.IsNull() {
@@ -3848,11 +3675,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.DilutedEpsTTM = nil
 			} else {
 				if out.DilutedEpsTTM == nil {
-					out.DilutedEpsTTM = new(decimal.Decimal)
+					out.DilutedEpsTTM = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DilutedEpsTTM).UnmarshalJSON(data))
-				}
+				(*out.DilutedEpsTTM).UnmarshalEasyJSON(in)
 			}
 		case "QuarterlyEarningsGrowthYOY":
 			if in.IsNull() {
@@ -3860,11 +3685,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi20(in *jlexer.Lexer, out *Highli
 				out.QuarterlyEarningsGrowthYOY = nil
 			} else {
 				if out.QuarterlyEarningsGrowthYOY == nil {
-					out.QuarterlyEarningsGrowthYOY = new(decimal.Decimal)
+					out.QuarterlyEarningsGrowthYOY = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.QuarterlyEarningsGrowthYOY).UnmarshalJSON(data))
-				}
+				(*out.QuarterlyEarningsGrowthYOY).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -3888,7 +3711,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		const prefix string = ",\"MarketCapitalization\":"
 		first = false
 		out.RawString(prefix[1:])
-		out.Raw((*in.MarketCapitalization).MarshalJSON())
+		(*in.MarketCapitalization).MarshalEasyJSON(out)
 	}
 	if in.MarketCapitalizationMln != "" {
 		const prefix string = ",\"MarketCapitalizationMln\":"
@@ -3908,7 +3731,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EBITDA).MarshalJSON())
+		(*in.EBITDA).MarshalEasyJSON(out)
 	}
 	if in.PERatio != nil {
 		const prefix string = ",\"PERatio\":"
@@ -3918,7 +3741,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PERatio).MarshalJSON())
+		(*in.PERatio).MarshalEasyJSON(out)
 	}
 	if in.PEGRatio != nil {
 		const prefix string = ",\"PEGRatio\":"
@@ -3928,7 +3751,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PEGRatio).MarshalJSON())
+		(*in.PEGRatio).MarshalEasyJSON(out)
 	}
 	if in.WallStreetTargetPrice != nil {
 		const prefix string = ",\"WallStreetTargetPrice\":"
@@ -3938,7 +3761,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.WallStreetTargetPrice).MarshalJSON())
+		(*in.WallStreetTargetPrice).MarshalEasyJSON(out)
 	}
 	if in.BookValue != nil {
 		const prefix string = ",\"BookValue\":"
@@ -3948,7 +3771,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.BookValue).MarshalJSON())
+		(*in.BookValue).MarshalEasyJSON(out)
 	}
 	if in.DividendShare != nil {
 		const prefix string = ",\"DividendShare\":"
@@ -3958,7 +3781,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DividendShare).MarshalJSON())
+		(*in.DividendShare).MarshalEasyJSON(out)
 	}
 	if in.DividendYield != nil {
 		const prefix string = ",\"DividendYield\":"
@@ -3968,7 +3791,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DividendYield).MarshalJSON())
+		(*in.DividendYield).MarshalEasyJSON(out)
 	}
 	if in.EarningsShare != nil {
 		const prefix string = ",\"EarningsShare\":"
@@ -3978,7 +3801,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsShare).MarshalJSON())
+		(*in.EarningsShare).MarshalEasyJSON(out)
 	}
 	if in.EPSEstimateCurrentYear != nil {
 		const prefix string = ",\"EPSEstimateCurrentYear\":"
@@ -3988,7 +3811,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EPSEstimateCurrentYear).MarshalJSON())
+		(*in.EPSEstimateCurrentYear).MarshalEasyJSON(out)
 	}
 	if in.EPSEstimateNextYear != nil {
 		const prefix string = ",\"EPSEstimateNextYear\":"
@@ -3998,7 +3821,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EPSEstimateNextYear).MarshalJSON())
+		(*in.EPSEstimateNextYear).MarshalEasyJSON(out)
 	}
 	if in.EPSEstimateNextQuarter != nil {
 		const prefix string = ",\"EPSEstimateNextQuarter\":"
@@ -4008,7 +3831,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EPSEstimateNextQuarter).MarshalJSON())
+		(*in.EPSEstimateNextQuarter).MarshalEasyJSON(out)
 	}
 	if in.MostRecentQuarter != "" {
 		const prefix string = ",\"MostRecentQuarter\":"
@@ -4028,7 +3851,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ProfitMargin).MarshalJSON())
+		(*in.ProfitMargin).MarshalEasyJSON(out)
 	}
 	if in.OperatingMarginTTM != nil {
 		const prefix string = ",\"OperatingMarginTTM\":"
@@ -4038,7 +3861,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OperatingMarginTTM).MarshalJSON())
+		(*in.OperatingMarginTTM).MarshalEasyJSON(out)
 	}
 	if in.ReturnOnAssetsTTM != nil {
 		const prefix string = ",\"ReturnOnAssetsTTM\":"
@@ -4048,7 +3871,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ReturnOnAssetsTTM).MarshalJSON())
+		(*in.ReturnOnAssetsTTM).MarshalEasyJSON(out)
 	}
 	if in.ReturnOnEquityTTM != nil {
 		const prefix string = ",\"ReturnOnEquityTTM\":"
@@ -4058,7 +3881,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ReturnOnEquityTTM).MarshalJSON())
+		(*in.ReturnOnEquityTTM).MarshalEasyJSON(out)
 	}
 	if in.RevenueTTM != nil {
 		const prefix string = ",\"RevenueTTM\":"
@@ -4068,7 +3891,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueTTM).MarshalJSON())
+		(*in.RevenueTTM).MarshalEasyJSON(out)
 	}
 	if in.RevenuePerShareTTM != nil {
 		const prefix string = ",\"RevenuePerShareTTM\":"
@@ -4078,7 +3901,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenuePerShareTTM).MarshalJSON())
+		(*in.RevenuePerShareTTM).MarshalEasyJSON(out)
 	}
 	if in.QuarterlyRevenueGrowthYOY != nil {
 		const prefix string = ",\"QuarterlyRevenueGrowthYOY\":"
@@ -4088,7 +3911,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.QuarterlyRevenueGrowthYOY).MarshalJSON())
+		(*in.QuarterlyRevenueGrowthYOY).MarshalEasyJSON(out)
 	}
 	if in.GrossProfitTTM != nil {
 		const prefix string = ",\"GrossProfitTTM\":"
@@ -4098,7 +3921,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.GrossProfitTTM).MarshalJSON())
+		(*in.GrossProfitTTM).MarshalEasyJSON(out)
 	}
 	if in.DilutedEpsTTM != nil {
 		const prefix string = ",\"DilutedEpsTTM\":"
@@ -4108,7 +3931,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DilutedEpsTTM).MarshalJSON())
+		(*in.DilutedEpsTTM).MarshalEasyJSON(out)
 	}
 	if in.QuarterlyEarningsGrowthYOY != nil {
 		const prefix string = ",\"QuarterlyEarningsGrowthYOY\":"
@@ -4118,7 +3941,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi20(out *jwriter.Writer, in Highl
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.QuarterlyEarningsGrowthYOY).MarshalJSON())
+		(*in.QuarterlyEarningsGrowthYOY).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -5211,11 +5034,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi24(in *jlexer.Lexer, out *Earnin
 				out.EpsActual = nil
 			} else {
 				if out.EpsActual == nil {
-					out.EpsActual = new(decimal.Decimal)
+					out.EpsActual = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsActual).UnmarshalJSON(data))
-				}
+				(*out.EpsActual).UnmarshalEasyJSON(in)
 			}
 		case "epsEstimate":
 			if in.IsNull() {
@@ -5223,11 +5044,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi24(in *jlexer.Lexer, out *Earnin
 				out.EpsEstimate = nil
 			} else {
 				if out.EpsEstimate == nil {
-					out.EpsEstimate = new(decimal.Decimal)
+					out.EpsEstimate = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsEstimate).UnmarshalJSON(data))
-				}
+				(*out.EpsEstimate).UnmarshalEasyJSON(in)
 			}
 		case "epsDifference":
 			if in.IsNull() {
@@ -5235,11 +5054,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi24(in *jlexer.Lexer, out *Earnin
 				out.EpsDifference = nil
 			} else {
 				if out.EpsDifference == nil {
-					out.EpsDifference = new(decimal.Decimal)
+					out.EpsDifference = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsDifference).UnmarshalJSON(data))
-				}
+				(*out.EpsDifference).UnmarshalEasyJSON(in)
 			}
 		case "surprisePercent":
 			if in.IsNull() {
@@ -5247,11 +5064,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi24(in *jlexer.Lexer, out *Earnin
 				out.SurprisePercent = nil
 			} else {
 				if out.SurprisePercent == nil {
-					out.SurprisePercent = new(decimal.Decimal)
+					out.SurprisePercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SurprisePercent).UnmarshalJSON(data))
-				}
+				(*out.SurprisePercent).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -5295,7 +5110,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi24(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsActual).MarshalJSON())
+		(*in.EpsActual).MarshalEasyJSON(out)
 	}
 	if in.EpsEstimate != nil {
 		const prefix string = ",\"epsEstimate\":"
@@ -5305,7 +5120,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi24(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsEstimate).MarshalJSON())
+		(*in.EpsEstimate).MarshalEasyJSON(out)
 	}
 	if in.EpsDifference != nil {
 		const prefix string = ",\"epsDifference\":"
@@ -5315,7 +5130,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi24(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsDifference).MarshalJSON())
+		(*in.EpsDifference).MarshalEasyJSON(out)
 	}
 	if in.SurprisePercent != nil {
 		const prefix string = ",\"surprisePercent\":"
@@ -5325,7 +5140,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi24(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SurprisePercent).MarshalJSON())
+		(*in.SurprisePercent).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -5382,11 +5197,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.Growth = nil
 			} else {
 				if out.Growth == nil {
-					out.Growth = new(decimal.Decimal)
+					out.Growth = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Growth).UnmarshalJSON(data))
-				}
+				(*out.Growth).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateAvg":
 			if in.IsNull() {
@@ -5394,11 +5207,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateAvg = nil
 			} else {
 				if out.EarningsEstimateAvg == nil {
-					out.EarningsEstimateAvg = new(decimal.Decimal)
+					out.EarningsEstimateAvg = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateAvg).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateAvg).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateLow":
 			if in.IsNull() {
@@ -5406,11 +5217,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateLow = nil
 			} else {
 				if out.EarningsEstimateLow == nil {
-					out.EarningsEstimateLow = new(decimal.Decimal)
+					out.EarningsEstimateLow = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateLow).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateLow).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateHigh":
 			if in.IsNull() {
@@ -5418,11 +5227,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateHigh = nil
 			} else {
 				if out.EarningsEstimateHigh == nil {
-					out.EarningsEstimateHigh = new(decimal.Decimal)
+					out.EarningsEstimateHigh = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateHigh).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateHigh).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateYearAgoEps":
 			if in.IsNull() {
@@ -5430,11 +5237,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateYearAgoEps = nil
 			} else {
 				if out.EarningsEstimateYearAgoEps == nil {
-					out.EarningsEstimateYearAgoEps = new(decimal.Decimal)
+					out.EarningsEstimateYearAgoEps = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateYearAgoEps).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateYearAgoEps).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateNumberOfAnalysts":
 			if in.IsNull() {
@@ -5442,11 +5247,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateNumberOfAnalysts = nil
 			} else {
 				if out.EarningsEstimateNumberOfAnalysts == nil {
-					out.EarningsEstimateNumberOfAnalysts = new(decimal.Decimal)
+					out.EarningsEstimateNumberOfAnalysts = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateNumberOfAnalysts).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateNumberOfAnalysts).UnmarshalEasyJSON(in)
 			}
 		case "earningsEstimateGrowth":
 			if in.IsNull() {
@@ -5454,11 +5257,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EarningsEstimateGrowth = nil
 			} else {
 				if out.EarningsEstimateGrowth == nil {
-					out.EarningsEstimateGrowth = new(decimal.Decimal)
+					out.EarningsEstimateGrowth = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EarningsEstimateGrowth).UnmarshalJSON(data))
-				}
+				(*out.EarningsEstimateGrowth).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateAvg":
 			if in.IsNull() {
@@ -5466,11 +5267,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateAvg = nil
 			} else {
 				if out.RevenueEstimateAvg == nil {
-					out.RevenueEstimateAvg = new(decimal.Decimal)
+					out.RevenueEstimateAvg = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateAvg).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateAvg).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateLow":
 			if in.IsNull() {
@@ -5478,11 +5277,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateLow = nil
 			} else {
 				if out.RevenueEstimateLow == nil {
-					out.RevenueEstimateLow = new(decimal.Decimal)
+					out.RevenueEstimateLow = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateLow).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateLow).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateHigh":
 			if in.IsNull() {
@@ -5490,11 +5287,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateHigh = nil
 			} else {
 				if out.RevenueEstimateHigh == nil {
-					out.RevenueEstimateHigh = new(decimal.Decimal)
+					out.RevenueEstimateHigh = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateHigh).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateHigh).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateYearAgoEps":
 			if in.IsNull() {
@@ -5502,11 +5297,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateYearAgoEps = nil
 			} else {
 				if out.RevenueEstimateYearAgoEps == nil {
-					out.RevenueEstimateYearAgoEps = new(decimal.Decimal)
+					out.RevenueEstimateYearAgoEps = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateYearAgoEps).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateYearAgoEps).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateNumberOfAnalysts":
 			if in.IsNull() {
@@ -5514,11 +5307,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateNumberOfAnalysts = nil
 			} else {
 				if out.RevenueEstimateNumberOfAnalysts == nil {
-					out.RevenueEstimateNumberOfAnalysts = new(decimal.Decimal)
+					out.RevenueEstimateNumberOfAnalysts = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateNumberOfAnalysts).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateNumberOfAnalysts).UnmarshalEasyJSON(in)
 			}
 		case "revenueEstimateGrowth":
 			if in.IsNull() {
@@ -5526,11 +5317,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.RevenueEstimateGrowth = nil
 			} else {
 				if out.RevenueEstimateGrowth == nil {
-					out.RevenueEstimateGrowth = new(decimal.Decimal)
+					out.RevenueEstimateGrowth = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RevenueEstimateGrowth).UnmarshalJSON(data))
-				}
+				(*out.RevenueEstimateGrowth).UnmarshalEasyJSON(in)
 			}
 		case "epsTrendCurrent":
 			if in.IsNull() {
@@ -5538,11 +5327,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsTrendCurrent = nil
 			} else {
 				if out.EpsTrendCurrent == nil {
-					out.EpsTrendCurrent = new(decimal.Decimal)
+					out.EpsTrendCurrent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsTrendCurrent).UnmarshalJSON(data))
-				}
+				(*out.EpsTrendCurrent).UnmarshalEasyJSON(in)
 			}
 		case "epsTrend7daysAgo":
 			if in.IsNull() {
@@ -5550,11 +5337,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsTrend7DaysAgo = nil
 			} else {
 				if out.EpsTrend7DaysAgo == nil {
-					out.EpsTrend7DaysAgo = new(decimal.Decimal)
+					out.EpsTrend7DaysAgo = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsTrend7DaysAgo).UnmarshalJSON(data))
-				}
+				(*out.EpsTrend7DaysAgo).UnmarshalEasyJSON(in)
 			}
 		case "epsTrend30daysAgo":
 			if in.IsNull() {
@@ -5562,11 +5347,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsTrend30DaysAgo = nil
 			} else {
 				if out.EpsTrend30DaysAgo == nil {
-					out.EpsTrend30DaysAgo = new(decimal.Decimal)
+					out.EpsTrend30DaysAgo = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsTrend30DaysAgo).UnmarshalJSON(data))
-				}
+				(*out.EpsTrend30DaysAgo).UnmarshalEasyJSON(in)
 			}
 		case "epsTrend60daysAgo":
 			if in.IsNull() {
@@ -5574,11 +5357,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsTrend60DaysAgo = nil
 			} else {
 				if out.EpsTrend60DaysAgo == nil {
-					out.EpsTrend60DaysAgo = new(decimal.Decimal)
+					out.EpsTrend60DaysAgo = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsTrend60DaysAgo).UnmarshalJSON(data))
-				}
+				(*out.EpsTrend60DaysAgo).UnmarshalEasyJSON(in)
 			}
 		case "epsTrend90daysAgo":
 			if in.IsNull() {
@@ -5586,11 +5367,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsTrend90DaysAgo = nil
 			} else {
 				if out.EpsTrend90DaysAgo == nil {
-					out.EpsTrend90DaysAgo = new(decimal.Decimal)
+					out.EpsTrend90DaysAgo = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsTrend90DaysAgo).UnmarshalJSON(data))
-				}
+				(*out.EpsTrend90DaysAgo).UnmarshalEasyJSON(in)
 			}
 		case "epsRevisionsUpLast7days":
 			if in.IsNull() {
@@ -5598,11 +5377,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsRevisionsUpLast7Days = nil
 			} else {
 				if out.EpsRevisionsUpLast7Days == nil {
-					out.EpsRevisionsUpLast7Days = new(decimal.Decimal)
+					out.EpsRevisionsUpLast7Days = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsRevisionsUpLast7Days).UnmarshalJSON(data))
-				}
+				(*out.EpsRevisionsUpLast7Days).UnmarshalEasyJSON(in)
 			}
 		case "epsRevisionsUpLast30days":
 			if in.IsNull() {
@@ -5610,11 +5387,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsRevisionsUpLast30Days = nil
 			} else {
 				if out.EpsRevisionsUpLast30Days == nil {
-					out.EpsRevisionsUpLast30Days = new(decimal.Decimal)
+					out.EpsRevisionsUpLast30Days = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsRevisionsUpLast30Days).UnmarshalJSON(data))
-				}
+				(*out.EpsRevisionsUpLast30Days).UnmarshalEasyJSON(in)
 			}
 		case "epsRevisionsDownLast30days":
 			if in.IsNull() {
@@ -5622,11 +5397,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsRevisionsDownLast30Days = nil
 			} else {
 				if out.EpsRevisionsDownLast30Days == nil {
-					out.EpsRevisionsDownLast30Days = new(decimal.Decimal)
+					out.EpsRevisionsDownLast30Days = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsRevisionsDownLast30Days).UnmarshalJSON(data))
-				}
+				(*out.EpsRevisionsDownLast30Days).UnmarshalEasyJSON(in)
 			}
 		case "epsRevisionsDownLast90days":
 			if in.IsNull() {
@@ -5634,11 +5407,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi25(in *jlexer.Lexer, out *Earnin
 				out.EpsRevisionsDownLast90Days = nil
 			} else {
 				if out.EpsRevisionsDownLast90Days == nil {
-					out.EpsRevisionsDownLast90Days = new(decimal.Decimal)
+					out.EpsRevisionsDownLast90Days = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.EpsRevisionsDownLast90Days).UnmarshalJSON(data))
-				}
+				(*out.EpsRevisionsDownLast90Days).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -5682,7 +5453,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Growth).MarshalJSON())
+		(*in.Growth).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateAvg != nil {
 		const prefix string = ",\"earningsEstimateAvg\":"
@@ -5692,7 +5463,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateAvg).MarshalJSON())
+		(*in.EarningsEstimateAvg).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateLow != nil {
 		const prefix string = ",\"earningsEstimateLow\":"
@@ -5702,7 +5473,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateLow).MarshalJSON())
+		(*in.EarningsEstimateLow).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateHigh != nil {
 		const prefix string = ",\"earningsEstimateHigh\":"
@@ -5712,7 +5483,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateHigh).MarshalJSON())
+		(*in.EarningsEstimateHigh).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateYearAgoEps != nil {
 		const prefix string = ",\"earningsEstimateYearAgoEps\":"
@@ -5722,7 +5493,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateYearAgoEps).MarshalJSON())
+		(*in.EarningsEstimateYearAgoEps).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateNumberOfAnalysts != nil {
 		const prefix string = ",\"earningsEstimateNumberOfAnalysts\":"
@@ -5732,7 +5503,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateNumberOfAnalysts).MarshalJSON())
+		(*in.EarningsEstimateNumberOfAnalysts).MarshalEasyJSON(out)
 	}
 	if in.EarningsEstimateGrowth != nil {
 		const prefix string = ",\"earningsEstimateGrowth\":"
@@ -5742,7 +5513,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EarningsEstimateGrowth).MarshalJSON())
+		(*in.EarningsEstimateGrowth).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateAvg != nil {
 		const prefix string = ",\"revenueEstimateAvg\":"
@@ -5752,7 +5523,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateAvg).MarshalJSON())
+		(*in.RevenueEstimateAvg).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateLow != nil {
 		const prefix string = ",\"revenueEstimateLow\":"
@@ -5762,7 +5533,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateLow).MarshalJSON())
+		(*in.RevenueEstimateLow).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateHigh != nil {
 		const prefix string = ",\"revenueEstimateHigh\":"
@@ -5772,7 +5543,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateHigh).MarshalJSON())
+		(*in.RevenueEstimateHigh).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateYearAgoEps != nil {
 		const prefix string = ",\"revenueEstimateYearAgoEps\":"
@@ -5782,7 +5553,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateYearAgoEps).MarshalJSON())
+		(*in.RevenueEstimateYearAgoEps).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateNumberOfAnalysts != nil {
 		const prefix string = ",\"revenueEstimateNumberOfAnalysts\":"
@@ -5792,7 +5563,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateNumberOfAnalysts).MarshalJSON())
+		(*in.RevenueEstimateNumberOfAnalysts).MarshalEasyJSON(out)
 	}
 	if in.RevenueEstimateGrowth != nil {
 		const prefix string = ",\"revenueEstimateGrowth\":"
@@ -5802,7 +5573,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RevenueEstimateGrowth).MarshalJSON())
+		(*in.RevenueEstimateGrowth).MarshalEasyJSON(out)
 	}
 	if in.EpsTrendCurrent != nil {
 		const prefix string = ",\"epsTrendCurrent\":"
@@ -5812,7 +5583,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsTrendCurrent).MarshalJSON())
+		(*in.EpsTrendCurrent).MarshalEasyJSON(out)
 	}
 	if in.EpsTrend7DaysAgo != nil {
 		const prefix string = ",\"epsTrend7daysAgo\":"
@@ -5822,7 +5593,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsTrend7DaysAgo).MarshalJSON())
+		(*in.EpsTrend7DaysAgo).MarshalEasyJSON(out)
 	}
 	if in.EpsTrend30DaysAgo != nil {
 		const prefix string = ",\"epsTrend30daysAgo\":"
@@ -5832,7 +5603,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsTrend30DaysAgo).MarshalJSON())
+		(*in.EpsTrend30DaysAgo).MarshalEasyJSON(out)
 	}
 	if in.EpsTrend60DaysAgo != nil {
 		const prefix string = ",\"epsTrend60daysAgo\":"
@@ -5842,7 +5613,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsTrend60DaysAgo).MarshalJSON())
+		(*in.EpsTrend60DaysAgo).MarshalEasyJSON(out)
 	}
 	if in.EpsTrend90DaysAgo != nil {
 		const prefix string = ",\"epsTrend90daysAgo\":"
@@ -5852,7 +5623,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsTrend90DaysAgo).MarshalJSON())
+		(*in.EpsTrend90DaysAgo).MarshalEasyJSON(out)
 	}
 	if in.EpsRevisionsUpLast7Days != nil {
 		const prefix string = ",\"epsRevisionsUpLast7days\":"
@@ -5862,7 +5633,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsRevisionsUpLast7Days).MarshalJSON())
+		(*in.EpsRevisionsUpLast7Days).MarshalEasyJSON(out)
 	}
 	if in.EpsRevisionsUpLast30Days != nil {
 		const prefix string = ",\"epsRevisionsUpLast30days\":"
@@ -5872,7 +5643,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsRevisionsUpLast30Days).MarshalJSON())
+		(*in.EpsRevisionsUpLast30Days).MarshalEasyJSON(out)
 	}
 	if in.EpsRevisionsDownLast30Days != nil {
 		const prefix string = ",\"epsRevisionsDownLast30days\":"
@@ -5882,7 +5653,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsRevisionsDownLast30Days).MarshalJSON())
+		(*in.EpsRevisionsDownLast30Days).MarshalEasyJSON(out)
 	}
 	if in.EpsRevisionsDownLast90Days != nil {
 		const prefix string = ",\"epsRevisionsDownLast90days\":"
@@ -5892,7 +5663,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi25(out *jwriter.Writer, in Earni
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.EpsRevisionsDownLast90Days).MarshalJSON())
+		(*in.EpsRevisionsDownLast90Days).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -6602,11 +6373,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.Investments = nil
 			} else {
 				if out.Investments == nil {
-					out.Investments = new(decimal.Decimal)
+					out.Investments = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Investments).UnmarshalJSON(data))
-				}
+				(*out.Investments).UnmarshalEasyJSON(in)
 			}
 		case "changeToLiabilities":
 			if in.IsNull() {
@@ -6614,11 +6383,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeToLiabilities = nil
 			} else {
 				if out.ChangeToLiabilities == nil {
-					out.ChangeToLiabilities = new(decimal.Decimal)
+					out.ChangeToLiabilities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeToLiabilities).UnmarshalJSON(data))
-				}
+				(*out.ChangeToLiabilities).UnmarshalEasyJSON(in)
 			}
 		case "totalCashflowsFromInvestingActivities":
 			if in.IsNull() {
@@ -6626,11 +6393,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.TotalCashflowsFromInvestingActivities = nil
 			} else {
 				if out.TotalCashflowsFromInvestingActivities == nil {
-					out.TotalCashflowsFromInvestingActivities = new(decimal.Decimal)
+					out.TotalCashflowsFromInvestingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalCashflowsFromInvestingActivities).UnmarshalJSON(data))
-				}
+				(*out.TotalCashflowsFromInvestingActivities).UnmarshalEasyJSON(in)
 			}
 		case "netBorrowings":
 			if in.IsNull() {
@@ -6638,11 +6403,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.NetBorrowings = nil
 			} else {
 				if out.NetBorrowings == nil {
-					out.NetBorrowings = new(decimal.Decimal)
+					out.NetBorrowings = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetBorrowings).UnmarshalJSON(data))
-				}
+				(*out.NetBorrowings).UnmarshalEasyJSON(in)
 			}
 		case "totalCashFromFinancingActivities":
 			if in.IsNull() {
@@ -6650,11 +6413,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.TotalCashFromFinancingActivities = nil
 			} else {
 				if out.TotalCashFromFinancingActivities == nil {
-					out.TotalCashFromFinancingActivities = new(decimal.Decimal)
+					out.TotalCashFromFinancingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalCashFromFinancingActivities).UnmarshalJSON(data))
-				}
+				(*out.TotalCashFromFinancingActivities).UnmarshalEasyJSON(in)
 			}
 		case "changeToOperatingActivities":
 			if in.IsNull() {
@@ -6662,11 +6423,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeToOperatingActivities = nil
 			} else {
 				if out.ChangeToOperatingActivities == nil {
-					out.ChangeToOperatingActivities = new(decimal.Decimal)
+					out.ChangeToOperatingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeToOperatingActivities).UnmarshalJSON(data))
-				}
+				(*out.ChangeToOperatingActivities).UnmarshalEasyJSON(in)
 			}
 		case "netIncome":
 			if in.IsNull() {
@@ -6674,11 +6433,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.NetIncome = nil
 			} else {
 				if out.NetIncome == nil {
-					out.NetIncome = new(decimal.Decimal)
+					out.NetIncome = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetIncome).UnmarshalJSON(data))
-				}
+				(*out.NetIncome).UnmarshalEasyJSON(in)
 			}
 		case "changeInCash":
 			if in.IsNull() {
@@ -6686,11 +6443,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeInCash = nil
 			} else {
 				if out.ChangeInCash == nil {
-					out.ChangeInCash = new(decimal.Decimal)
+					out.ChangeInCash = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeInCash).UnmarshalJSON(data))
-				}
+				(*out.ChangeInCash).UnmarshalEasyJSON(in)
 			}
 		case "totalCashFromOperatingActivities":
 			if in.IsNull() {
@@ -6698,11 +6453,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.TotalCashFromOperatingActivities = nil
 			} else {
 				if out.TotalCashFromOperatingActivities == nil {
-					out.TotalCashFromOperatingActivities = new(decimal.Decimal)
+					out.TotalCashFromOperatingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalCashFromOperatingActivities).UnmarshalJSON(data))
-				}
+				(*out.TotalCashFromOperatingActivities).UnmarshalEasyJSON(in)
 			}
 		case "depreciation":
 			if in.IsNull() {
@@ -6710,11 +6463,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.Depreciation = nil
 			} else {
 				if out.Depreciation == nil {
-					out.Depreciation = new(decimal.Decimal)
+					out.Depreciation = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Depreciation).UnmarshalJSON(data))
-				}
+				(*out.Depreciation).UnmarshalEasyJSON(in)
 			}
 		case "otherCashflowsFromInvestingActivities":
 			if in.IsNull() {
@@ -6722,11 +6473,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.OtherCashflowsFromInvestingActivities = nil
 			} else {
 				if out.OtherCashflowsFromInvestingActivities == nil {
-					out.OtherCashflowsFromInvestingActivities = new(decimal.Decimal)
+					out.OtherCashflowsFromInvestingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherCashflowsFromInvestingActivities).UnmarshalJSON(data))
-				}
+				(*out.OtherCashflowsFromInvestingActivities).UnmarshalEasyJSON(in)
 			}
 		case "dividendsPaid":
 			if in.IsNull() {
@@ -6734,11 +6483,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.DividendsPaid = nil
 			} else {
 				if out.DividendsPaid == nil {
-					out.DividendsPaid = new(decimal.Decimal)
+					out.DividendsPaid = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DividendsPaid).UnmarshalJSON(data))
-				}
+				(*out.DividendsPaid).UnmarshalEasyJSON(in)
 			}
 		case "changeToInventory":
 			if in.IsNull() {
@@ -6746,11 +6493,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeToInventory = nil
 			} else {
 				if out.ChangeToInventory == nil {
-					out.ChangeToInventory = new(decimal.Decimal)
+					out.ChangeToInventory = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeToInventory).UnmarshalJSON(data))
-				}
+				(*out.ChangeToInventory).UnmarshalEasyJSON(in)
 			}
 		case "changeToAccountReceivables":
 			if in.IsNull() {
@@ -6758,11 +6503,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeToAccountReceivables = nil
 			} else {
 				if out.ChangeToAccountReceivables == nil {
-					out.ChangeToAccountReceivables = new(decimal.Decimal)
+					out.ChangeToAccountReceivables = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeToAccountReceivables).UnmarshalJSON(data))
-				}
+				(*out.ChangeToAccountReceivables).UnmarshalEasyJSON(in)
 			}
 		case "salePurchaseOfStock":
 			if in.IsNull() {
@@ -6770,11 +6513,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.SalePurchaseOfStock = nil
 			} else {
 				if out.SalePurchaseOfStock == nil {
-					out.SalePurchaseOfStock = new(decimal.Decimal)
+					out.SalePurchaseOfStock = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.SalePurchaseOfStock).UnmarshalJSON(data))
-				}
+				(*out.SalePurchaseOfStock).UnmarshalEasyJSON(in)
 			}
 		case "otherCashflowsFromFinancingActivities":
 			if in.IsNull() {
@@ -6782,11 +6523,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.OtherCashflowsFromFinancingActivities = nil
 			} else {
 				if out.OtherCashflowsFromFinancingActivities == nil {
-					out.OtherCashflowsFromFinancingActivities = new(decimal.Decimal)
+					out.OtherCashflowsFromFinancingActivities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherCashflowsFromFinancingActivities).UnmarshalJSON(data))
-				}
+				(*out.OtherCashflowsFromFinancingActivities).UnmarshalEasyJSON(in)
 			}
 		case "changeToNetincome":
 			if in.IsNull() {
@@ -6794,11 +6533,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeToNetincome = nil
 			} else {
 				if out.ChangeToNetincome == nil {
-					out.ChangeToNetincome = new(decimal.Decimal)
+					out.ChangeToNetincome = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeToNetincome).UnmarshalJSON(data))
-				}
+				(*out.ChangeToNetincome).UnmarshalEasyJSON(in)
 			}
 		case "capitalExpenditures":
 			if in.IsNull() {
@@ -6806,11 +6543,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.CapitalExpenditures = nil
 			} else {
 				if out.CapitalExpenditures == nil {
-					out.CapitalExpenditures = new(decimal.Decimal)
+					out.CapitalExpenditures = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CapitalExpenditures).UnmarshalJSON(data))
-				}
+				(*out.CapitalExpenditures).UnmarshalEasyJSON(in)
 			}
 		case "changeReceivables":
 			if in.IsNull() {
@@ -6818,11 +6553,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ChangeReceivables = nil
 			} else {
 				if out.ChangeReceivables == nil {
-					out.ChangeReceivables = new(decimal.Decimal)
+					out.ChangeReceivables = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ChangeReceivables).UnmarshalJSON(data))
-				}
+				(*out.ChangeReceivables).UnmarshalEasyJSON(in)
 			}
 		case "cashFlowsOtherOperating":
 			if in.IsNull() {
@@ -6830,11 +6563,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.CashFlowsOtherOperating = nil
 			} else {
 				if out.CashFlowsOtherOperating == nil {
-					out.CashFlowsOtherOperating = new(decimal.Decimal)
+					out.CashFlowsOtherOperating = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CashFlowsOtherOperating).UnmarshalJSON(data))
-				}
+				(*out.CashFlowsOtherOperating).UnmarshalEasyJSON(in)
 			}
 		case "exchangeRateChanges":
 			if in.IsNull() {
@@ -6842,11 +6573,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.ExchangeRateChanges = nil
 			} else {
 				if out.ExchangeRateChanges == nil {
-					out.ExchangeRateChanges = new(decimal.Decimal)
+					out.ExchangeRateChanges = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ExchangeRateChanges).UnmarshalJSON(data))
-				}
+				(*out.ExchangeRateChanges).UnmarshalEasyJSON(in)
 			}
 		case "cashAndCashEquivalentsChanges":
 			if in.IsNull() {
@@ -6854,11 +6583,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi29(in *jlexer.Lexer, out *CashFl
 				out.CashAndCashEquivalentsChanges = nil
 			} else {
 				if out.CashAndCashEquivalentsChanges == nil {
-					out.CashAndCashEquivalentsChanges = new(decimal.Decimal)
+					out.CashAndCashEquivalentsChanges = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CashAndCashEquivalentsChanges).UnmarshalJSON(data))
-				}
+				(*out.CashAndCashEquivalentsChanges).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -6902,7 +6629,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Investments).MarshalJSON())
+		(*in.Investments).MarshalEasyJSON(out)
 	}
 	if in.ChangeToLiabilities != nil {
 		const prefix string = ",\"changeToLiabilities\":"
@@ -6912,7 +6639,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeToLiabilities).MarshalJSON())
+		(*in.ChangeToLiabilities).MarshalEasyJSON(out)
 	}
 	if in.TotalCashflowsFromInvestingActivities != nil {
 		const prefix string = ",\"totalCashflowsFromInvestingActivities\":"
@@ -6922,7 +6649,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalCashflowsFromInvestingActivities).MarshalJSON())
+		(*in.TotalCashflowsFromInvestingActivities).MarshalEasyJSON(out)
 	}
 	if in.NetBorrowings != nil {
 		const prefix string = ",\"netBorrowings\":"
@@ -6932,7 +6659,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetBorrowings).MarshalJSON())
+		(*in.NetBorrowings).MarshalEasyJSON(out)
 	}
 	if in.TotalCashFromFinancingActivities != nil {
 		const prefix string = ",\"totalCashFromFinancingActivities\":"
@@ -6942,7 +6669,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalCashFromFinancingActivities).MarshalJSON())
+		(*in.TotalCashFromFinancingActivities).MarshalEasyJSON(out)
 	}
 	if in.ChangeToOperatingActivities != nil {
 		const prefix string = ",\"changeToOperatingActivities\":"
@@ -6952,7 +6679,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeToOperatingActivities).MarshalJSON())
+		(*in.ChangeToOperatingActivities).MarshalEasyJSON(out)
 	}
 	if in.NetIncome != nil {
 		const prefix string = ",\"netIncome\":"
@@ -6962,7 +6689,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetIncome).MarshalJSON())
+		(*in.NetIncome).MarshalEasyJSON(out)
 	}
 	if in.ChangeInCash != nil {
 		const prefix string = ",\"changeInCash\":"
@@ -6972,7 +6699,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeInCash).MarshalJSON())
+		(*in.ChangeInCash).MarshalEasyJSON(out)
 	}
 	if in.TotalCashFromOperatingActivities != nil {
 		const prefix string = ",\"totalCashFromOperatingActivities\":"
@@ -6982,7 +6709,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalCashFromOperatingActivities).MarshalJSON())
+		(*in.TotalCashFromOperatingActivities).MarshalEasyJSON(out)
 	}
 	if in.Depreciation != nil {
 		const prefix string = ",\"depreciation\":"
@@ -6992,7 +6719,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Depreciation).MarshalJSON())
+		(*in.Depreciation).MarshalEasyJSON(out)
 	}
 	if in.OtherCashflowsFromInvestingActivities != nil {
 		const prefix string = ",\"otherCashflowsFromInvestingActivities\":"
@@ -7002,7 +6729,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherCashflowsFromInvestingActivities).MarshalJSON())
+		(*in.OtherCashflowsFromInvestingActivities).MarshalEasyJSON(out)
 	}
 	if in.DividendsPaid != nil {
 		const prefix string = ",\"dividendsPaid\":"
@@ -7012,7 +6739,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DividendsPaid).MarshalJSON())
+		(*in.DividendsPaid).MarshalEasyJSON(out)
 	}
 	if in.ChangeToInventory != nil {
 		const prefix string = ",\"changeToInventory\":"
@@ -7022,7 +6749,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeToInventory).MarshalJSON())
+		(*in.ChangeToInventory).MarshalEasyJSON(out)
 	}
 	if in.ChangeToAccountReceivables != nil {
 		const prefix string = ",\"changeToAccountReceivables\":"
@@ -7032,7 +6759,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeToAccountReceivables).MarshalJSON())
+		(*in.ChangeToAccountReceivables).MarshalEasyJSON(out)
 	}
 	if in.SalePurchaseOfStock != nil {
 		const prefix string = ",\"salePurchaseOfStock\":"
@@ -7042,7 +6769,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.SalePurchaseOfStock).MarshalJSON())
+		(*in.SalePurchaseOfStock).MarshalEasyJSON(out)
 	}
 	if in.OtherCashflowsFromFinancingActivities != nil {
 		const prefix string = ",\"otherCashflowsFromFinancingActivities\":"
@@ -7052,7 +6779,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherCashflowsFromFinancingActivities).MarshalJSON())
+		(*in.OtherCashflowsFromFinancingActivities).MarshalEasyJSON(out)
 	}
 	if in.ChangeToNetincome != nil {
 		const prefix string = ",\"changeToNetincome\":"
@@ -7062,7 +6789,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeToNetincome).MarshalJSON())
+		(*in.ChangeToNetincome).MarshalEasyJSON(out)
 	}
 	if in.CapitalExpenditures != nil {
 		const prefix string = ",\"capitalExpenditures\":"
@@ -7072,7 +6799,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CapitalExpenditures).MarshalJSON())
+		(*in.CapitalExpenditures).MarshalEasyJSON(out)
 	}
 	if in.ChangeReceivables != nil {
 		const prefix string = ",\"changeReceivables\":"
@@ -7082,7 +6809,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ChangeReceivables).MarshalJSON())
+		(*in.ChangeReceivables).MarshalEasyJSON(out)
 	}
 	if in.CashFlowsOtherOperating != nil {
 		const prefix string = ",\"cashFlowsOtherOperating\":"
@@ -7092,7 +6819,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CashFlowsOtherOperating).MarshalJSON())
+		(*in.CashFlowsOtherOperating).MarshalEasyJSON(out)
 	}
 	if in.ExchangeRateChanges != nil {
 		const prefix string = ",\"exchangeRateChanges\":"
@@ -7102,7 +6829,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ExchangeRateChanges).MarshalJSON())
+		(*in.ExchangeRateChanges).MarshalEasyJSON(out)
 	}
 	if in.CashAndCashEquivalentsChanges != nil {
 		const prefix string = ",\"cashAndCashEquivalentsChanges\":"
@@ -7112,7 +6839,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi29(out *jwriter.Writer, in CashF
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CashAndCashEquivalentsChanges).MarshalJSON())
+		(*in.CashAndCashEquivalentsChanges).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -7290,11 +7017,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.IntangibleAssets = nil
 			} else {
 				if out.IntangibleAssets == nil {
-					out.IntangibleAssets = new(decimal.Decimal)
+					out.IntangibleAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.IntangibleAssets).UnmarshalJSON(data))
-				}
+				(*out.IntangibleAssets).UnmarshalEasyJSON(in)
 			}
 		case "totalLiab":
 			if in.IsNull() {
@@ -7302,11 +7027,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalLiab = nil
 			} else {
 				if out.TotalLiab == nil {
-					out.TotalLiab = new(decimal.Decimal)
+					out.TotalLiab = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalLiab).UnmarshalJSON(data))
-				}
+				(*out.TotalLiab).UnmarshalEasyJSON(in)
 			}
 		case "totalStockholderEquity":
 			if in.IsNull() {
@@ -7314,11 +7037,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalStockholderEquity = nil
 			} else {
 				if out.TotalStockholderEquity == nil {
-					out.TotalStockholderEquity = new(decimal.Decimal)
+					out.TotalStockholderEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalStockholderEquity).UnmarshalJSON(data))
-				}
+				(*out.TotalStockholderEquity).UnmarshalEasyJSON(in)
 			}
 		case "deferredLongTermLiab":
 			if in.IsNull() {
@@ -7326,11 +7047,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.DeferredLongTermLiab = nil
 			} else {
 				if out.DeferredLongTermLiab == nil {
-					out.DeferredLongTermLiab = new(decimal.Decimal)
+					out.DeferredLongTermLiab = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DeferredLongTermLiab).UnmarshalJSON(data))
-				}
+				(*out.DeferredLongTermLiab).UnmarshalEasyJSON(in)
 			}
 		case "otherCurrentLiab":
 			if in.IsNull() {
@@ -7338,11 +7057,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.OtherCurrentLiab = nil
 			} else {
 				if out.OtherCurrentLiab == nil {
-					out.OtherCurrentLiab = new(decimal.Decimal)
+					out.OtherCurrentLiab = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherCurrentLiab).UnmarshalJSON(data))
-				}
+				(*out.OtherCurrentLiab).UnmarshalEasyJSON(in)
 			}
 		case "totalAssets":
 			if in.IsNull() {
@@ -7350,11 +7067,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalAssets = nil
 			} else {
 				if out.TotalAssets == nil {
-					out.TotalAssets = new(decimal.Decimal)
+					out.TotalAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalAssets).UnmarshalJSON(data))
-				}
+				(*out.TotalAssets).UnmarshalEasyJSON(in)
 			}
 		case "commonStock":
 			if in.IsNull() {
@@ -7362,11 +7077,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CommonStock = nil
 			} else {
 				if out.CommonStock == nil {
-					out.CommonStock = new(decimal.Decimal)
+					out.CommonStock = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CommonStock).UnmarshalJSON(data))
-				}
+				(*out.CommonStock).UnmarshalEasyJSON(in)
 			}
 		case "otherCurrentAssets":
 			if in.IsNull() {
@@ -7374,11 +7087,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.OtherCurrentAssets = nil
 			} else {
 				if out.OtherCurrentAssets == nil {
-					out.OtherCurrentAssets = new(decimal.Decimal)
+					out.OtherCurrentAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherCurrentAssets).UnmarshalJSON(data))
-				}
+				(*out.OtherCurrentAssets).UnmarshalEasyJSON(in)
 			}
 		case "retainedEarnings":
 			if in.IsNull() {
@@ -7386,11 +7097,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.RetainedEarnings = nil
 			} else {
 				if out.RetainedEarnings == nil {
-					out.RetainedEarnings = new(decimal.Decimal)
+					out.RetainedEarnings = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RetainedEarnings).UnmarshalJSON(data))
-				}
+				(*out.RetainedEarnings).UnmarshalEasyJSON(in)
 			}
 		case "otherLiab":
 			if in.IsNull() {
@@ -7398,11 +7107,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.OtherLiab = nil
 			} else {
 				if out.OtherLiab == nil {
-					out.OtherLiab = new(decimal.Decimal)
+					out.OtherLiab = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherLiab).UnmarshalJSON(data))
-				}
+				(*out.OtherLiab).UnmarshalEasyJSON(in)
 			}
 		case "goodWill":
 			if in.IsNull() {
@@ -7410,11 +7117,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.GoodWill = nil
 			} else {
 				if out.GoodWill == nil {
-					out.GoodWill = new(decimal.Decimal)
+					out.GoodWill = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.GoodWill).UnmarshalJSON(data))
-				}
+				(*out.GoodWill).UnmarshalEasyJSON(in)
 			}
 		case "otherAssets":
 			if in.IsNull() {
@@ -7422,11 +7127,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.OtherAssets = nil
 			} else {
 				if out.OtherAssets == nil {
-					out.OtherAssets = new(decimal.Decimal)
+					out.OtherAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherAssets).UnmarshalJSON(data))
-				}
+				(*out.OtherAssets).UnmarshalEasyJSON(in)
 			}
 		case "cash":
 			if in.IsNull() {
@@ -7434,11 +7137,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.Cash = nil
 			} else {
 				if out.Cash == nil {
-					out.Cash = new(decimal.Decimal)
+					out.Cash = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Cash).UnmarshalJSON(data))
-				}
+				(*out.Cash).UnmarshalEasyJSON(in)
 			}
 		case "totalCurrentLiabilities":
 			if in.IsNull() {
@@ -7446,11 +7147,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalCurrentLiabilities = nil
 			} else {
 				if out.TotalCurrentLiabilities == nil {
-					out.TotalCurrentLiabilities = new(decimal.Decimal)
+					out.TotalCurrentLiabilities = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalCurrentLiabilities).UnmarshalJSON(data))
-				}
+				(*out.TotalCurrentLiabilities).UnmarshalEasyJSON(in)
 			}
 		case "shortLongTermDebt":
 			if in.IsNull() {
@@ -7458,11 +7157,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.ShortLongTermDebt = nil
 			} else {
 				if out.ShortLongTermDebt == nil {
-					out.ShortLongTermDebt = new(decimal.Decimal)
+					out.ShortLongTermDebt = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortLongTermDebt).UnmarshalJSON(data))
-				}
+				(*out.ShortLongTermDebt).UnmarshalEasyJSON(in)
 			}
 		case "otherStockholderEquity":
 			if in.IsNull() {
@@ -7470,11 +7167,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.OtherStockholderEquity = nil
 			} else {
 				if out.OtherStockholderEquity == nil {
-					out.OtherStockholderEquity = new(decimal.Decimal)
+					out.OtherStockholderEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.OtherStockholderEquity).UnmarshalJSON(data))
-				}
+				(*out.OtherStockholderEquity).UnmarshalEasyJSON(in)
 			}
 		case "propertyPlantEquipment":
 			if in.IsNull() {
@@ -7482,11 +7177,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.PropertyPlantEquipment = nil
 			} else {
 				if out.PropertyPlantEquipment == nil {
-					out.PropertyPlantEquipment = new(decimal.Decimal)
+					out.PropertyPlantEquipment = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PropertyPlantEquipment).UnmarshalJSON(data))
-				}
+				(*out.PropertyPlantEquipment).UnmarshalEasyJSON(in)
 			}
 		case "totalCurrentAssets":
 			if in.IsNull() {
@@ -7494,11 +7187,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalCurrentAssets = nil
 			} else {
 				if out.TotalCurrentAssets == nil {
-					out.TotalCurrentAssets = new(decimal.Decimal)
+					out.TotalCurrentAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalCurrentAssets).UnmarshalJSON(data))
-				}
+				(*out.TotalCurrentAssets).UnmarshalEasyJSON(in)
 			}
 		case "longTermInvestments":
 			if in.IsNull() {
@@ -7506,11 +7197,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.LongTermInvestments = nil
 			} else {
 				if out.LongTermInvestments == nil {
-					out.LongTermInvestments = new(decimal.Decimal)
+					out.LongTermInvestments = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.LongTermInvestments).UnmarshalJSON(data))
-				}
+				(*out.LongTermInvestments).UnmarshalEasyJSON(in)
 			}
 		case "netTangibleAssets":
 			if in.IsNull() {
@@ -7518,11 +7207,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NetTangibleAssets = nil
 			} else {
 				if out.NetTangibleAssets == nil {
-					out.NetTangibleAssets = new(decimal.Decimal)
+					out.NetTangibleAssets = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetTangibleAssets).UnmarshalJSON(data))
-				}
+				(*out.NetTangibleAssets).UnmarshalEasyJSON(in)
 			}
 		case "shortTermInvestments":
 			if in.IsNull() {
@@ -7530,11 +7217,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.ShortTermInvestments = nil
 			} else {
 				if out.ShortTermInvestments == nil {
-					out.ShortTermInvestments = new(decimal.Decimal)
+					out.ShortTermInvestments = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortTermInvestments).UnmarshalJSON(data))
-				}
+				(*out.ShortTermInvestments).UnmarshalEasyJSON(in)
 			}
 		case "netReceivables":
 			if in.IsNull() {
@@ -7542,11 +7227,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NetReceivables = nil
 			} else {
 				if out.NetReceivables == nil {
-					out.NetReceivables = new(decimal.Decimal)
+					out.NetReceivables = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetReceivables).UnmarshalJSON(data))
-				}
+				(*out.NetReceivables).UnmarshalEasyJSON(in)
 			}
 		case "longTermDebt":
 			if in.IsNull() {
@@ -7554,11 +7237,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.LongTermDebt = nil
 			} else {
 				if out.LongTermDebt == nil {
-					out.LongTermDebt = new(decimal.Decimal)
+					out.LongTermDebt = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.LongTermDebt).UnmarshalJSON(data))
-				}
+				(*out.LongTermDebt).UnmarshalEasyJSON(in)
 			}
 		case "inventory":
 			if in.IsNull() {
@@ -7566,11 +7247,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.Inventory = nil
 			} else {
 				if out.Inventory == nil {
-					out.Inventory = new(decimal.Decimal)
+					out.Inventory = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Inventory).UnmarshalJSON(data))
-				}
+				(*out.Inventory).UnmarshalEasyJSON(in)
 			}
 		case "accountsPayable":
 			if in.IsNull() {
@@ -7578,11 +7257,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.AccountsPayable = nil
 			} else {
 				if out.AccountsPayable == nil {
-					out.AccountsPayable = new(decimal.Decimal)
+					out.AccountsPayable = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AccountsPayable).UnmarshalJSON(data))
-				}
+				(*out.AccountsPayable).UnmarshalEasyJSON(in)
 			}
 		case "totalPermanentEquity":
 			if in.IsNull() {
@@ -7590,11 +7267,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TotalPermanentEquity = nil
 			} else {
 				if out.TotalPermanentEquity == nil {
-					out.TotalPermanentEquity = new(decimal.Decimal)
+					out.TotalPermanentEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TotalPermanentEquity).UnmarshalJSON(data))
-				}
+				(*out.TotalPermanentEquity).UnmarshalEasyJSON(in)
 			}
 		case "noncontrollingInterestInConsolidatedEntity":
 			if in.IsNull() {
@@ -7602,11 +7277,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NoncontrollingInterestInConsolidatedEntity = nil
 			} else {
 				if out.NoncontrollingInterestInConsolidatedEntity == nil {
-					out.NoncontrollingInterestInConsolidatedEntity = new(decimal.Decimal)
+					out.NoncontrollingInterestInConsolidatedEntity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NoncontrollingInterestInConsolidatedEntity).UnmarshalJSON(data))
-				}
+				(*out.NoncontrollingInterestInConsolidatedEntity).UnmarshalEasyJSON(in)
 			}
 		case "temporaryEquityRedeemableNoncontrollingInterests":
 			if in.IsNull() {
@@ -7614,11 +7287,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TemporaryEquityRedeemableNoncontrollingInterests = nil
 			} else {
 				if out.TemporaryEquityRedeemableNoncontrollingInterests == nil {
-					out.TemporaryEquityRedeemableNoncontrollingInterests = new(decimal.Decimal)
+					out.TemporaryEquityRedeemableNoncontrollingInterests = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TemporaryEquityRedeemableNoncontrollingInterests).UnmarshalJSON(data))
-				}
+				(*out.TemporaryEquityRedeemableNoncontrollingInterests).UnmarshalEasyJSON(in)
 			}
 		case "accumulatedOtherComprehensiveIncome":
 			if in.IsNull() {
@@ -7626,11 +7297,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.AccumulatedOtherComprehensiveIncome = nil
 			} else {
 				if out.AccumulatedOtherComprehensiveIncome == nil {
-					out.AccumulatedOtherComprehensiveIncome = new(decimal.Decimal)
+					out.AccumulatedOtherComprehensiveIncome = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AccumulatedOtherComprehensiveIncome).UnmarshalJSON(data))
-				}
+				(*out.AccumulatedOtherComprehensiveIncome).UnmarshalEasyJSON(in)
 			}
 		case "additionalPaidInCapital":
 			if in.IsNull() {
@@ -7638,11 +7307,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.AdditionalPaidInCapital = nil
 			} else {
 				if out.AdditionalPaidInCapital == nil {
-					out.AdditionalPaidInCapital = new(decimal.Decimal)
+					out.AdditionalPaidInCapital = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AdditionalPaidInCapital).UnmarshalJSON(data))
-				}
+				(*out.AdditionalPaidInCapital).UnmarshalEasyJSON(in)
 			}
 		case "commonStockTotalEquity":
 			if in.IsNull() {
@@ -7650,11 +7317,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CommonStockTotalEquity = nil
 			} else {
 				if out.CommonStockTotalEquity == nil {
-					out.CommonStockTotalEquity = new(decimal.Decimal)
+					out.CommonStockTotalEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CommonStockTotalEquity).UnmarshalJSON(data))
-				}
+				(*out.CommonStockTotalEquity).UnmarshalEasyJSON(in)
 			}
 		case "preferredStockTotalEquity":
 			if in.IsNull() {
@@ -7662,11 +7327,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.PreferredStockTotalEquity = nil
 			} else {
 				if out.PreferredStockTotalEquity == nil {
-					out.PreferredStockTotalEquity = new(decimal.Decimal)
+					out.PreferredStockTotalEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PreferredStockTotalEquity).UnmarshalJSON(data))
-				}
+				(*out.PreferredStockTotalEquity).UnmarshalEasyJSON(in)
 			}
 		case "retainedEarningsTotalEquity":
 			if in.IsNull() {
@@ -7674,11 +7337,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.RetainedEarningsTotalEquity = nil
 			} else {
 				if out.RetainedEarningsTotalEquity == nil {
-					out.RetainedEarningsTotalEquity = new(decimal.Decimal)
+					out.RetainedEarningsTotalEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.RetainedEarningsTotalEquity).UnmarshalJSON(data))
-				}
+				(*out.RetainedEarningsTotalEquity).UnmarshalEasyJSON(in)
 			}
 		case "treasuryStock":
 			if in.IsNull() {
@@ -7686,11 +7347,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.TreasuryStock = nil
 			} else {
 				if out.TreasuryStock == nil {
-					out.TreasuryStock = new(decimal.Decimal)
+					out.TreasuryStock = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.TreasuryStock).UnmarshalJSON(data))
-				}
+				(*out.TreasuryStock).UnmarshalEasyJSON(in)
 			}
 		case "accumulatedAmortization":
 			if in.IsNull() {
@@ -7698,11 +7357,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.AccumulatedAmortization = nil
 			} else {
 				if out.AccumulatedAmortization == nil {
-					out.AccumulatedAmortization = new(decimal.Decimal)
+					out.AccumulatedAmortization = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AccumulatedAmortization).UnmarshalJSON(data))
-				}
+				(*out.AccumulatedAmortization).UnmarshalEasyJSON(in)
 			}
 		case "nonCurrrentAssetsOther":
 			if in.IsNull() {
@@ -7710,11 +7367,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NonCurrrentAssetsOther = nil
 			} else {
 				if out.NonCurrrentAssetsOther == nil {
-					out.NonCurrrentAssetsOther = new(decimal.Decimal)
+					out.NonCurrrentAssetsOther = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonCurrrentAssetsOther).UnmarshalJSON(data))
-				}
+				(*out.NonCurrrentAssetsOther).UnmarshalEasyJSON(in)
 			}
 		case "deferredLongTermAssetCharges":
 			if in.IsNull() {
@@ -7722,11 +7377,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.DeferredLongTermAssetCharges = nil
 			} else {
 				if out.DeferredLongTermAssetCharges == nil {
-					out.DeferredLongTermAssetCharges = new(decimal.Decimal)
+					out.DeferredLongTermAssetCharges = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.DeferredLongTermAssetCharges).UnmarshalJSON(data))
-				}
+				(*out.DeferredLongTermAssetCharges).UnmarshalEasyJSON(in)
 			}
 		case "nonCurrentAssetsTotal":
 			if in.IsNull() {
@@ -7734,11 +7387,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NonCurrentAssetsTotal = nil
 			} else {
 				if out.NonCurrentAssetsTotal == nil {
-					out.NonCurrentAssetsTotal = new(decimal.Decimal)
+					out.NonCurrentAssetsTotal = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonCurrentAssetsTotal).UnmarshalJSON(data))
-				}
+				(*out.NonCurrentAssetsTotal).UnmarshalEasyJSON(in)
 			}
 		case "shortTermDebt":
 			if in.IsNull() {
@@ -7746,11 +7397,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.ShortTermDebt = nil
 			} else {
 				if out.ShortTermDebt == nil {
-					out.ShortTermDebt = new(decimal.Decimal)
+					out.ShortTermDebt = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortTermDebt).UnmarshalJSON(data))
-				}
+				(*out.ShortTermDebt).UnmarshalEasyJSON(in)
 			}
 		case "capitalLeaseObligations":
 			if in.IsNull() {
@@ -7758,11 +7407,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CapitalLeaseObligations = nil
 			} else {
 				if out.CapitalLeaseObligations == nil {
-					out.CapitalLeaseObligations = new(decimal.Decimal)
+					out.CapitalLeaseObligations = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CapitalLeaseObligations).UnmarshalJSON(data))
-				}
+				(*out.CapitalLeaseObligations).UnmarshalEasyJSON(in)
 			}
 		case "longTermDebtTotal":
 			if in.IsNull() {
@@ -7770,11 +7417,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.LongTermDebtTotal = nil
 			} else {
 				if out.LongTermDebtTotal == nil {
-					out.LongTermDebtTotal = new(decimal.Decimal)
+					out.LongTermDebtTotal = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.LongTermDebtTotal).UnmarshalJSON(data))
-				}
+				(*out.LongTermDebtTotal).UnmarshalEasyJSON(in)
 			}
 		case "nonCurrentLiabilitiesOther":
 			if in.IsNull() {
@@ -7782,11 +7427,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NonCurrentLiabilitiesOther = nil
 			} else {
 				if out.NonCurrentLiabilitiesOther == nil {
-					out.NonCurrentLiabilitiesOther = new(decimal.Decimal)
+					out.NonCurrentLiabilitiesOther = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonCurrentLiabilitiesOther).UnmarshalJSON(data))
-				}
+				(*out.NonCurrentLiabilitiesOther).UnmarshalEasyJSON(in)
 			}
 		case "nonCurrentLiabilitiesTotal":
 			if in.IsNull() {
@@ -7794,11 +7437,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NonCurrentLiabilitiesTotal = nil
 			} else {
 				if out.NonCurrentLiabilitiesTotal == nil {
-					out.NonCurrentLiabilitiesTotal = new(decimal.Decimal)
+					out.NonCurrentLiabilitiesTotal = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NonCurrentLiabilitiesTotal).UnmarshalJSON(data))
-				}
+				(*out.NonCurrentLiabilitiesTotal).UnmarshalEasyJSON(in)
 			}
 		case "negativeGoodwill":
 			if in.IsNull() {
@@ -7806,11 +7447,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.NegativeGoodwill = nil
 			} else {
 				if out.NegativeGoodwill == nil {
-					out.NegativeGoodwill = new(decimal.Decimal)
+					out.NegativeGoodwill = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NegativeGoodwill).UnmarshalJSON(data))
-				}
+				(*out.NegativeGoodwill).UnmarshalEasyJSON(in)
 			}
 		case "warrants":
 			if in.IsNull() {
@@ -7818,11 +7457,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.Warrants = nil
 			} else {
 				if out.Warrants == nil {
-					out.Warrants = new(decimal.Decimal)
+					out.Warrants = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Warrants).UnmarshalJSON(data))
-				}
+				(*out.Warrants).UnmarshalEasyJSON(in)
 			}
 		case "preferredStockRedeemable":
 			if in.IsNull() {
@@ -7830,11 +7467,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.PreferredStockRedeemable = nil
 			} else {
 				if out.PreferredStockRedeemable == nil {
-					out.PreferredStockRedeemable = new(decimal.Decimal)
+					out.PreferredStockRedeemable = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PreferredStockRedeemable).UnmarshalJSON(data))
-				}
+				(*out.PreferredStockRedeemable).UnmarshalEasyJSON(in)
 			}
 		case "capitalSurpluse":
 			if in.IsNull() {
@@ -7842,11 +7477,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CapitalSurpluse = nil
 			} else {
 				if out.CapitalSurpluse == nil {
-					out.CapitalSurpluse = new(decimal.Decimal)
+					out.CapitalSurpluse = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CapitalSurpluse).UnmarshalJSON(data))
-				}
+				(*out.CapitalSurpluse).UnmarshalEasyJSON(in)
 			}
 		case "liabilitiesAndStockholdersEquity":
 			if in.IsNull() {
@@ -7854,11 +7487,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.LiabilitiesAndStockholdersEquity = nil
 			} else {
 				if out.LiabilitiesAndStockholdersEquity == nil {
-					out.LiabilitiesAndStockholdersEquity = new(decimal.Decimal)
+					out.LiabilitiesAndStockholdersEquity = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.LiabilitiesAndStockholdersEquity).UnmarshalJSON(data))
-				}
+				(*out.LiabilitiesAndStockholdersEquity).UnmarshalEasyJSON(in)
 			}
 		case "cashAndShortTermInvestments":
 			if in.IsNull() {
@@ -7866,11 +7497,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CashAndShortTermInvestments = nil
 			} else {
 				if out.CashAndShortTermInvestments == nil {
-					out.CashAndShortTermInvestments = new(decimal.Decimal)
+					out.CashAndShortTermInvestments = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CashAndShortTermInvestments).UnmarshalJSON(data))
-				}
+				(*out.CashAndShortTermInvestments).UnmarshalEasyJSON(in)
 			}
 		case "propertyPlantAndEquipmentGross":
 			if in.IsNull() {
@@ -7878,11 +7507,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.PropertyPlantAndEquipmentGross = nil
 			} else {
 				if out.PropertyPlantAndEquipmentGross == nil {
-					out.PropertyPlantAndEquipmentGross = new(decimal.Decimal)
+					out.PropertyPlantAndEquipmentGross = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.PropertyPlantAndEquipmentGross).UnmarshalJSON(data))
-				}
+				(*out.PropertyPlantAndEquipmentGross).UnmarshalEasyJSON(in)
 			}
 		case "accumulatedDepreciation":
 			if in.IsNull() {
@@ -7890,11 +7517,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.AccumulatedDepreciation = nil
 			} else {
 				if out.AccumulatedDepreciation == nil {
-					out.AccumulatedDepreciation = new(decimal.Decimal)
+					out.AccumulatedDepreciation = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.AccumulatedDepreciation).UnmarshalJSON(data))
-				}
+				(*out.AccumulatedDepreciation).UnmarshalEasyJSON(in)
 			}
 		case "commonStockSharesOutstanding":
 			if in.IsNull() {
@@ -7902,11 +7527,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi31(in *jlexer.Lexer, out *Balanc
 				out.CommonStockSharesOutstanding = nil
 			} else {
 				if out.CommonStockSharesOutstanding == nil {
-					out.CommonStockSharesOutstanding = new(decimal.Decimal)
+					out.CommonStockSharesOutstanding = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CommonStockSharesOutstanding).UnmarshalJSON(data))
-				}
+				(*out.CommonStockSharesOutstanding).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -7950,7 +7573,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.IntangibleAssets).MarshalJSON())
+		(*in.IntangibleAssets).MarshalEasyJSON(out)
 	}
 	if in.TotalLiab != nil {
 		const prefix string = ",\"totalLiab\":"
@@ -7960,7 +7583,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalLiab).MarshalJSON())
+		(*in.TotalLiab).MarshalEasyJSON(out)
 	}
 	if in.TotalStockholderEquity != nil {
 		const prefix string = ",\"totalStockholderEquity\":"
@@ -7970,7 +7593,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalStockholderEquity).MarshalJSON())
+		(*in.TotalStockholderEquity).MarshalEasyJSON(out)
 	}
 	if in.DeferredLongTermLiab != nil {
 		const prefix string = ",\"deferredLongTermLiab\":"
@@ -7980,7 +7603,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DeferredLongTermLiab).MarshalJSON())
+		(*in.DeferredLongTermLiab).MarshalEasyJSON(out)
 	}
 	if in.OtherCurrentLiab != nil {
 		const prefix string = ",\"otherCurrentLiab\":"
@@ -7990,7 +7613,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherCurrentLiab).MarshalJSON())
+		(*in.OtherCurrentLiab).MarshalEasyJSON(out)
 	}
 	if in.TotalAssets != nil {
 		const prefix string = ",\"totalAssets\":"
@@ -8000,7 +7623,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalAssets).MarshalJSON())
+		(*in.TotalAssets).MarshalEasyJSON(out)
 	}
 	if in.CommonStock != nil {
 		const prefix string = ",\"commonStock\":"
@@ -8010,7 +7633,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CommonStock).MarshalJSON())
+		(*in.CommonStock).MarshalEasyJSON(out)
 	}
 	if in.OtherCurrentAssets != nil {
 		const prefix string = ",\"otherCurrentAssets\":"
@@ -8020,7 +7643,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherCurrentAssets).MarshalJSON())
+		(*in.OtherCurrentAssets).MarshalEasyJSON(out)
 	}
 	if in.RetainedEarnings != nil {
 		const prefix string = ",\"retainedEarnings\":"
@@ -8030,7 +7653,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RetainedEarnings).MarshalJSON())
+		(*in.RetainedEarnings).MarshalEasyJSON(out)
 	}
 	if in.OtherLiab != nil {
 		const prefix string = ",\"otherLiab\":"
@@ -8040,7 +7663,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherLiab).MarshalJSON())
+		(*in.OtherLiab).MarshalEasyJSON(out)
 	}
 	if in.GoodWill != nil {
 		const prefix string = ",\"goodWill\":"
@@ -8050,7 +7673,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.GoodWill).MarshalJSON())
+		(*in.GoodWill).MarshalEasyJSON(out)
 	}
 	if in.OtherAssets != nil {
 		const prefix string = ",\"otherAssets\":"
@@ -8060,7 +7683,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherAssets).MarshalJSON())
+		(*in.OtherAssets).MarshalEasyJSON(out)
 	}
 	if in.Cash != nil {
 		const prefix string = ",\"cash\":"
@@ -8070,7 +7693,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Cash).MarshalJSON())
+		(*in.Cash).MarshalEasyJSON(out)
 	}
 	if in.TotalCurrentLiabilities != nil {
 		const prefix string = ",\"totalCurrentLiabilities\":"
@@ -8080,7 +7703,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalCurrentLiabilities).MarshalJSON())
+		(*in.TotalCurrentLiabilities).MarshalEasyJSON(out)
 	}
 	if in.ShortLongTermDebt != nil {
 		const prefix string = ",\"shortLongTermDebt\":"
@@ -8090,7 +7713,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortLongTermDebt).MarshalJSON())
+		(*in.ShortLongTermDebt).MarshalEasyJSON(out)
 	}
 	if in.OtherStockholderEquity != nil {
 		const prefix string = ",\"otherStockholderEquity\":"
@@ -8100,7 +7723,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.OtherStockholderEquity).MarshalJSON())
+		(*in.OtherStockholderEquity).MarshalEasyJSON(out)
 	}
 	if in.PropertyPlantEquipment != nil {
 		const prefix string = ",\"propertyPlantEquipment\":"
@@ -8110,7 +7733,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PropertyPlantEquipment).MarshalJSON())
+		(*in.PropertyPlantEquipment).MarshalEasyJSON(out)
 	}
 	if in.TotalCurrentAssets != nil {
 		const prefix string = ",\"totalCurrentAssets\":"
@@ -8120,7 +7743,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalCurrentAssets).MarshalJSON())
+		(*in.TotalCurrentAssets).MarshalEasyJSON(out)
 	}
 	if in.LongTermInvestments != nil {
 		const prefix string = ",\"longTermInvestments\":"
@@ -8130,7 +7753,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.LongTermInvestments).MarshalJSON())
+		(*in.LongTermInvestments).MarshalEasyJSON(out)
 	}
 	if in.NetTangibleAssets != nil {
 		const prefix string = ",\"netTangibleAssets\":"
@@ -8140,7 +7763,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetTangibleAssets).MarshalJSON())
+		(*in.NetTangibleAssets).MarshalEasyJSON(out)
 	}
 	if in.ShortTermInvestments != nil {
 		const prefix string = ",\"shortTermInvestments\":"
@@ -8150,7 +7773,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortTermInvestments).MarshalJSON())
+		(*in.ShortTermInvestments).MarshalEasyJSON(out)
 	}
 	if in.NetReceivables != nil {
 		const prefix string = ",\"netReceivables\":"
@@ -8160,7 +7783,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetReceivables).MarshalJSON())
+		(*in.NetReceivables).MarshalEasyJSON(out)
 	}
 	if in.LongTermDebt != nil {
 		const prefix string = ",\"longTermDebt\":"
@@ -8170,7 +7793,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.LongTermDebt).MarshalJSON())
+		(*in.LongTermDebt).MarshalEasyJSON(out)
 	}
 	if in.Inventory != nil {
 		const prefix string = ",\"inventory\":"
@@ -8180,7 +7803,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Inventory).MarshalJSON())
+		(*in.Inventory).MarshalEasyJSON(out)
 	}
 	if in.AccountsPayable != nil {
 		const prefix string = ",\"accountsPayable\":"
@@ -8190,7 +7813,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AccountsPayable).MarshalJSON())
+		(*in.AccountsPayable).MarshalEasyJSON(out)
 	}
 	if in.TotalPermanentEquity != nil {
 		const prefix string = ",\"totalPermanentEquity\":"
@@ -8200,7 +7823,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TotalPermanentEquity).MarshalJSON())
+		(*in.TotalPermanentEquity).MarshalEasyJSON(out)
 	}
 	if in.NoncontrollingInterestInConsolidatedEntity != nil {
 		const prefix string = ",\"noncontrollingInterestInConsolidatedEntity\":"
@@ -8210,7 +7833,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NoncontrollingInterestInConsolidatedEntity).MarshalJSON())
+		(*in.NoncontrollingInterestInConsolidatedEntity).MarshalEasyJSON(out)
 	}
 	if in.TemporaryEquityRedeemableNoncontrollingInterests != nil {
 		const prefix string = ",\"temporaryEquityRedeemableNoncontrollingInterests\":"
@@ -8220,7 +7843,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TemporaryEquityRedeemableNoncontrollingInterests).MarshalJSON())
+		(*in.TemporaryEquityRedeemableNoncontrollingInterests).MarshalEasyJSON(out)
 	}
 	if in.AccumulatedOtherComprehensiveIncome != nil {
 		const prefix string = ",\"accumulatedOtherComprehensiveIncome\":"
@@ -8230,7 +7853,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AccumulatedOtherComprehensiveIncome).MarshalJSON())
+		(*in.AccumulatedOtherComprehensiveIncome).MarshalEasyJSON(out)
 	}
 	if in.AdditionalPaidInCapital != nil {
 		const prefix string = ",\"additionalPaidInCapital\":"
@@ -8240,7 +7863,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AdditionalPaidInCapital).MarshalJSON())
+		(*in.AdditionalPaidInCapital).MarshalEasyJSON(out)
 	}
 	if in.CommonStockTotalEquity != nil {
 		const prefix string = ",\"commonStockTotalEquity\":"
@@ -8250,7 +7873,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CommonStockTotalEquity).MarshalJSON())
+		(*in.CommonStockTotalEquity).MarshalEasyJSON(out)
 	}
 	if in.PreferredStockTotalEquity != nil {
 		const prefix string = ",\"preferredStockTotalEquity\":"
@@ -8260,7 +7883,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PreferredStockTotalEquity).MarshalJSON())
+		(*in.PreferredStockTotalEquity).MarshalEasyJSON(out)
 	}
 	if in.RetainedEarningsTotalEquity != nil {
 		const prefix string = ",\"retainedEarningsTotalEquity\":"
@@ -8270,7 +7893,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.RetainedEarningsTotalEquity).MarshalJSON())
+		(*in.RetainedEarningsTotalEquity).MarshalEasyJSON(out)
 	}
 	if in.TreasuryStock != nil {
 		const prefix string = ",\"treasuryStock\":"
@@ -8280,7 +7903,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.TreasuryStock).MarshalJSON())
+		(*in.TreasuryStock).MarshalEasyJSON(out)
 	}
 	if in.AccumulatedAmortization != nil {
 		const prefix string = ",\"accumulatedAmortization\":"
@@ -8290,7 +7913,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AccumulatedAmortization).MarshalJSON())
+		(*in.AccumulatedAmortization).MarshalEasyJSON(out)
 	}
 	if in.NonCurrrentAssetsOther != nil {
 		const prefix string = ",\"nonCurrrentAssetsOther\":"
@@ -8300,7 +7923,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonCurrrentAssetsOther).MarshalJSON())
+		(*in.NonCurrrentAssetsOther).MarshalEasyJSON(out)
 	}
 	if in.DeferredLongTermAssetCharges != nil {
 		const prefix string = ",\"deferredLongTermAssetCharges\":"
@@ -8310,7 +7933,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.DeferredLongTermAssetCharges).MarshalJSON())
+		(*in.DeferredLongTermAssetCharges).MarshalEasyJSON(out)
 	}
 	if in.NonCurrentAssetsTotal != nil {
 		const prefix string = ",\"nonCurrentAssetsTotal\":"
@@ -8320,7 +7943,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonCurrentAssetsTotal).MarshalJSON())
+		(*in.NonCurrentAssetsTotal).MarshalEasyJSON(out)
 	}
 	if in.ShortTermDebt != nil {
 		const prefix string = ",\"shortTermDebt\":"
@@ -8330,7 +7953,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortTermDebt).MarshalJSON())
+		(*in.ShortTermDebt).MarshalEasyJSON(out)
 	}
 	if in.CapitalLeaseObligations != nil {
 		const prefix string = ",\"capitalLeaseObligations\":"
@@ -8340,7 +7963,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CapitalLeaseObligations).MarshalJSON())
+		(*in.CapitalLeaseObligations).MarshalEasyJSON(out)
 	}
 	if in.LongTermDebtTotal != nil {
 		const prefix string = ",\"longTermDebtTotal\":"
@@ -8350,7 +7973,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.LongTermDebtTotal).MarshalJSON())
+		(*in.LongTermDebtTotal).MarshalEasyJSON(out)
 	}
 	if in.NonCurrentLiabilitiesOther != nil {
 		const prefix string = ",\"nonCurrentLiabilitiesOther\":"
@@ -8360,7 +7983,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonCurrentLiabilitiesOther).MarshalJSON())
+		(*in.NonCurrentLiabilitiesOther).MarshalEasyJSON(out)
 	}
 	if in.NonCurrentLiabilitiesTotal != nil {
 		const prefix string = ",\"nonCurrentLiabilitiesTotal\":"
@@ -8370,7 +7993,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NonCurrentLiabilitiesTotal).MarshalJSON())
+		(*in.NonCurrentLiabilitiesTotal).MarshalEasyJSON(out)
 	}
 	if in.NegativeGoodwill != nil {
 		const prefix string = ",\"negativeGoodwill\":"
@@ -8380,7 +8003,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NegativeGoodwill).MarshalJSON())
+		(*in.NegativeGoodwill).MarshalEasyJSON(out)
 	}
 	if in.Warrants != nil {
 		const prefix string = ",\"warrants\":"
@@ -8390,7 +8013,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Warrants).MarshalJSON())
+		(*in.Warrants).MarshalEasyJSON(out)
 	}
 	if in.PreferredStockRedeemable != nil {
 		const prefix string = ",\"preferredStockRedeemable\":"
@@ -8400,7 +8023,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PreferredStockRedeemable).MarshalJSON())
+		(*in.PreferredStockRedeemable).MarshalEasyJSON(out)
 	}
 	if in.CapitalSurpluse != nil {
 		const prefix string = ",\"capitalSurpluse\":"
@@ -8410,7 +8033,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CapitalSurpluse).MarshalJSON())
+		(*in.CapitalSurpluse).MarshalEasyJSON(out)
 	}
 	if in.LiabilitiesAndStockholdersEquity != nil {
 		const prefix string = ",\"liabilitiesAndStockholdersEquity\":"
@@ -8420,7 +8043,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.LiabilitiesAndStockholdersEquity).MarshalJSON())
+		(*in.LiabilitiesAndStockholdersEquity).MarshalEasyJSON(out)
 	}
 	if in.CashAndShortTermInvestments != nil {
 		const prefix string = ",\"cashAndShortTermInvestments\":"
@@ -8430,7 +8053,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CashAndShortTermInvestments).MarshalJSON())
+		(*in.CashAndShortTermInvestments).MarshalEasyJSON(out)
 	}
 	if in.PropertyPlantAndEquipmentGross != nil {
 		const prefix string = ",\"propertyPlantAndEquipmentGross\":"
@@ -8440,7 +8063,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.PropertyPlantAndEquipmentGross).MarshalJSON())
+		(*in.PropertyPlantAndEquipmentGross).MarshalEasyJSON(out)
 	}
 	if in.AccumulatedDepreciation != nil {
 		const prefix string = ",\"accumulatedDepreciation\":"
@@ -8450,7 +8073,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.AccumulatedDepreciation).MarshalJSON())
+		(*in.AccumulatedDepreciation).MarshalEasyJSON(out)
 	}
 	if in.CommonStockSharesOutstanding != nil {
 		const prefix string = ",\"commonStockSharesOutstanding\":"
@@ -8460,7 +8083,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi31(out *jwriter.Writer, in Balan
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CommonStockSharesOutstanding).MarshalJSON())
+		(*in.CommonStockSharesOutstanding).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -8628,11 +8251,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi33(in *jlexer.Lexer, out *AssetA
 				out.Net = nil
 			} else {
 				if out.Net == nil {
-					out.Net = new(decimal.Decimal)
+					out.Net = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Net).UnmarshalJSON(data))
-				}
+				(*out.Net).UnmarshalEasyJSON(in)
 			}
 		case "Long_%":
 			if in.IsNull() {
@@ -8640,11 +8261,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi33(in *jlexer.Lexer, out *AssetA
 				out.Long = nil
 			} else {
 				if out.Long == nil {
-					out.Long = new(decimal.Decimal)
+					out.Long = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Long).UnmarshalJSON(data))
-				}
+				(*out.Long).UnmarshalEasyJSON(in)
 			}
 		case "Short_%":
 			if in.IsNull() {
@@ -8652,11 +8271,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi33(in *jlexer.Lexer, out *AssetA
 				out.Short = nil
 			} else {
 				if out.Short == nil {
-					out.Short = new(decimal.Decimal)
+					out.Short = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Short).UnmarshalJSON(data))
-				}
+				(*out.Short).UnmarshalEasyJSON(in)
 			}
 		case "Category_Average":
 			if in.IsNull() {
@@ -8664,11 +8281,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi33(in *jlexer.Lexer, out *AssetA
 				out.CategoryAverage = nil
 			} else {
 				if out.CategoryAverage == nil {
-					out.CategoryAverage = new(decimal.Decimal)
+					out.CategoryAverage = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.CategoryAverage).UnmarshalJSON(data))
-				}
+				(*out.CategoryAverage).UnmarshalEasyJSON(in)
 			}
 		case "Benchmark":
 			if in.IsNull() {
@@ -8676,11 +8291,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi33(in *jlexer.Lexer, out *AssetA
 				out.Benchmark = nil
 			} else {
 				if out.Benchmark == nil {
-					out.Benchmark = new(decimal.Decimal)
+					out.Benchmark = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.Benchmark).UnmarshalJSON(data))
-				}
+				(*out.Benchmark).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -8714,7 +8327,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi33(out *jwriter.Writer, in Asset
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Net).MarshalJSON())
+		(*in.Net).MarshalEasyJSON(out)
 	}
 	if in.Long != nil {
 		const prefix string = ",\"Long_%\":"
@@ -8724,7 +8337,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi33(out *jwriter.Writer, in Asset
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Long).MarshalJSON())
+		(*in.Long).MarshalEasyJSON(out)
 	}
 	if in.Short != nil {
 		const prefix string = ",\"Short_%\":"
@@ -8734,7 +8347,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi33(out *jwriter.Writer, in Asset
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Short).MarshalJSON())
+		(*in.Short).MarshalEasyJSON(out)
 	}
 	if in.CategoryAverage != nil {
 		const prefix string = ",\"Category_Average\":"
@@ -8744,7 +8357,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi33(out *jwriter.Writer, in Asset
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.CategoryAverage).MarshalJSON())
+		(*in.CategoryAverage).MarshalEasyJSON(out)
 	}
 	if in.Benchmark != nil {
 		const prefix string = ",\"Benchmark\":"
@@ -8754,7 +8367,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi33(out *jwriter.Writer, in Asset
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.Benchmark).MarshalJSON())
+		(*in.Benchmark).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }
@@ -8809,11 +8422,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi34(in *jlexer.Lexer, out *Alloca
 				out.LongPercent = nil
 			} else {
 				if out.LongPercent == nil {
-					out.LongPercent = new(decimal.Decimal)
+					out.LongPercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.LongPercent).UnmarshalJSON(data))
-				}
+				(*out.LongPercent).UnmarshalEasyJSON(in)
 			}
 		case "Short_%":
 			if in.IsNull() {
@@ -8821,11 +8432,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi34(in *jlexer.Lexer, out *Alloca
 				out.ShortPercent = nil
 			} else {
 				if out.ShortPercent == nil {
-					out.ShortPercent = new(decimal.Decimal)
+					out.ShortPercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.ShortPercent).UnmarshalJSON(data))
-				}
+				(*out.ShortPercent).UnmarshalEasyJSON(in)
 			}
 		case "Net_Assets_%":
 			if in.IsNull() {
@@ -8833,11 +8442,9 @@ func easyjsonE48f2accDecodeGithubComGituEodhdapi34(in *jlexer.Lexer, out *Alloca
 				out.NetAssetsPercent = nil
 			} else {
 				if out.NetAssetsPercent == nil {
-					out.NetAssetsPercent = new(decimal.Decimal)
+					out.NetAssetsPercent = new(Decimal)
 				}
-				if data := in.Raw(); in.Ok() {
-					in.AddError((*out.NetAssetsPercent).UnmarshalJSON(data))
-				}
+				(*out.NetAssetsPercent).UnmarshalEasyJSON(in)
 			}
 		default:
 			in.AddError(&jlexer.LexerError{
@@ -8871,7 +8478,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi34(out *jwriter.Writer, in Alloc
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.LongPercent).MarshalJSON())
+		(*in.LongPercent).MarshalEasyJSON(out)
 	}
 	if in.ShortPercent != nil {
 		const prefix string = ",\"Short_%\":"
@@ -8881,7 +8488,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi34(out *jwriter.Writer, in Alloc
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.ShortPercent).MarshalJSON())
+		(*in.ShortPercent).MarshalEasyJSON(out)
 	}
 	if in.NetAssetsPercent != nil {
 		const prefix string = ",\"Net_Assets_%\":"
@@ -8891,7 +8498,7 @@ func easyjsonE48f2accEncodeGithubComGituEodhdapi34(out *jwriter.Writer, in Alloc
 		} else {
 			out.RawString(prefix)
 		}
-		out.Raw((*in.NetAssetsPercent).MarshalJSON())
+		(*in.NetAssetsPercent).MarshalEasyJSON(out)
 	}
 	out.RawByte('}')
 }

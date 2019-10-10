@@ -45,7 +45,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 				return err
 			}
 			for reader.Next() {
-				f, err := buildFundamental(reader, exchange)
+				f, err := buildFundamental(reader, exchange.Code)
 				if err != nil {
 					if !lenient {
 						return errors.Wrap(err, fmt.Sprintf("while parsing line: %.50s", strings.Join(reader.current, ",")))
@@ -71,7 +71,7 @@ func (d *EODhd) FetchFundamentals(ctx context.Context, fundamentals chan Fundame
 }
 
 // FetchFundamentalsTicker gets multiple symbols (currently a wrapper for single fetches - does multiple network calls
-func (d *EODhd) FetchFundamentalsTicker(ctx context.Context, fundamentals chan Fundamentals, exchange *exchanges.Exchange, symbol ...string) error {
+func (d *EODhd) FetchFundamentalsTicker(ctx context.Context, fundamentals chan Fundamentals, exchange string, symbol ...string) error {
 	for _, s := range symbol {
 		fu, err := d.FetchFundamentalsSymbol(ctx, exchange, s)
 		if err != nil {
@@ -83,12 +83,12 @@ func (d *EODhd) FetchFundamentalsTicker(ctx context.Context, fundamentals chan F
 }
 
 // FetchFundamentalsSymbol Fetches Fundamentals for a single symbol
-func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange *exchanges.Exchange, symbol string) (Fundamentals, error) {
+func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange, symbol string) (Fundamentals, error) {
 
 	fu := Fundamentals{}
 	urlParams := []urlParam{}
 
-	path := "/fundamentals/" + symbol + "." + exchange.Code
+	path := "/fundamentals/" + symbol + "." + exchange
 	res, err := d.readPath(path, urlParams...)
 	if err != nil {
 		return fu, err
@@ -107,7 +107,7 @@ func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange *exchanges
 	return fu, nil
 }
 
-func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Fundamentals, error) {
+func buildFundamental(reader *csvReaderMap, exchange string) (Fundamentals, error) {
 	var err error
 	f := Fundamentals{
 		LastUpdate: time.Now(),
@@ -117,15 +117,12 @@ func buildFundamental(reader *csvReaderMap, exchange *exchanges.Exchange) (Funda
 	if err != nil {
 		return Fundamentals{}, err
 	}
-	f.Ticker = f.General.Code + "." + exchange.Code
+	f.Ticker = f.General.Code + "." + exchange
 	return f, err
 }
 
 func (g *General) fill(reader *csvReaderMap, prefix string) error {
 	var err error
-	if g.Code, err = reader.asString(prefix + "Code"); err != nil {
-		return err
-	}
 	if g.Code, err = reader.asString(prefix + "Code"); err != nil {
 		return err
 	}
