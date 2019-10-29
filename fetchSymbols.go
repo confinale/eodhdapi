@@ -2,7 +2,7 @@ package eodhdapi
 
 import (
 	"context"
-	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/confinale/eodhdapi/exchanges"
 )
 
 // The Symbol does map a ticker to an isin

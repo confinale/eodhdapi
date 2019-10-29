@@ -3,7 +3,7 @@ package eodhdapi
 import (
 	"context"
 	"errors"
-	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/confinale/eodhdapi/exchanges"
 	"strings"
 	"time"
 )

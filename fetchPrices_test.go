@@ -3,8 +3,8 @@ package eodhdapi
 import (
 	"context"
 	"fmt"
-	freshcache "github.com/gitu/eodhdapi/util/afr"
-	"github.com/gitu/eodhdapi/util/afr/diskcache"
+	freshcache "github.com/confinale/eodhdapi/util/afr"
+	"github.com/confinale/eodhdapi/util/afr/diskcache"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/confinale/eodhdapi/exchanges"
 	"github.com/stretchr/testify/require"
 )
 

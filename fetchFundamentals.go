@@ -3,7 +3,7 @@ package eodhdapi
 import (
 	"context"
 	"fmt"
-	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/confinale/eodhdapi/exchanges"
 	"github.com/pkg/errors"
 	"io/ioutil"
 	"log"

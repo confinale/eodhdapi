@@ -2,7 +2,7 @@ package eodhdapi
 
 import (
 	"context"
-	"github.com/gitu/eodhdapi/exchanges"
+	"github.com/confinale/eodhdapi/exchanges"
 	"github.com/pkg/errors"
 	"github.com/shopspring/decimal"
 	"strings"

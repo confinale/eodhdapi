@@ -3,9 +3,9 @@ package eodhdapi
 import (
 	"context"
 	"fmt"
-	"github.com/gitu/eodhdapi/exchanges"
-	freshcache "github.com/gitu/eodhdapi/util/afr"
-	"github.com/gitu/eodhdapi/util/afr/diskcache"
+	"github.com/confinale/eodhdapi/exchanges"
+	freshcache "github.com/confinale/eodhdapi/util/afr"
+	"github.com/confinale/eodhdapi/util/afr/diskcache"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"net/http"
