@@ -1,0 +1,44 @@
+{
+  "ISIN": "US910047AG49",
+  "CUSIP": "910047AG4",
+  "Name": "UNITED AIRLS HLDGS INC 6% 01Dec2020",
+  "UpdateDate": "2019-10-28",
+  "WKN": "A1HS3T",
+  "Sedol": "BFV4Y03",
+  "FIGI": "BBG005J8GHT4",
+  "Currency": "USD",
+  "Coupon": "6.000",
+  "Price": "103.50",
+  "LastTradeDate": "2019-10-28",
+  "Maturity_Date": "2020-11-30",
+  "YieldToMaturity": "2.523",
+  "Callable": "No",
+  "NextCallDate": null,
+  "MinimumSettlementAmount": "1000 USD",
+  "ParIntegralMultiple": "1000 USD",
+  "ClassificationData": {
+    "BondType": "Unternehmensanleihen Welt Rest",
+    "DebtType": "Senior Unsecured Note",
+    "IndustryGroup": "Industrial",
+    "IndustrySubGroup": "Transportation",
+    "SubProductAsset": "CORP",
+    "SubProductAssetType": "Corporate Bond"
+  },
+  "Rating": {
+    "MoodyRating": "Ba3",
+    "MoodyRatingUpdateDate": "2019-10-28",
+    "SPRating": "BB",
+    "SPRatingUpdateDate": "2018-04-16"
+  },
+  "IssueData": {
+    "IssueDate": "2013-11-08",
+    "OfferingDate": "2013-11-01",
+    "FirstCouponDate": "2014-06-01",
+    "FirstTradingDay": "2013-11-08",
+    "CouponPaymentFrequency": null,
+    "Issuer": "United Airlines Holdings Inc.",
+    "IssuerDescription": "United Continental Holdings Inc. is an airline holding company. The Company owns and operates airlines that transports persons, property and mail throughout the United States and abroad.",
+    "IssuerCountry": "USA",
+    "IssuerURL": null
+  }
+}
