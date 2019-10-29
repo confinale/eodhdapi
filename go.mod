@@ -1,4 +1,4 @@
-module github.com/gitu/eodhdapi
+module github.com/confinale/eodhdapi
 
 go 1.13
 
