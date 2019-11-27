@@ -79,6 +79,110 @@ func (d *EODhd) FetchPrices(ctx context.Context, info chan EODPrice, exchange *e
 	return nil
 }
 
+// FetchTickerPrices Fetches End of day for the ticker only date part of time will be used - use ‘d’ for daily, ‘w’ for weekly and ‘m’ for monthly prices
+func (d *EODhd) FetchTickerPrices(ctx context.Context, info chan EODPrice, symbol, exchange string, from, to time.Time, period string) error {
+
+	urlParams := []urlParam{{"fmt", "csv"},
+		//{"filter", "extended"},
+		{"from", from.Format(dateFormat)},
+		{"to", to.Format(dateFormat)},
+		{"period", period},
+	}
+
+	res, err := d.readPath("/eod/"+symbol+"."+exchange, urlParams...)
+
+	if err != nil {
+		return err
+	}
+
+	defer res.Body.Close()
+
+	reader, err := newCsvReaderMap(res.Body, false, true)
+	if err != nil {
+		return err
+	}
+	reader.skipMissingFields = 7
+
+	for reader.Next() {
+		i, err := buildPriceTicker(reader, symbol, exchange)
+		if err != nil {
+			return err
+		}
+
+		info <- i
+		if reader.trackVisits {
+			// skip tracking after first visit
+			reader.trackVisits = false
+		}
+	}
+	if !reader.trackVisits {
+		err = reader.checkAllVisited()
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func buildPriceTicker(r *csvReaderMap, code, exchange string) (EODPrice, error) {
+	g := EODPrice{
+		Code: code,
+		Ex:   exchange,
+	}
+	var err error
+
+	if g.Date, err = r.asString("Date"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Open, err = r.asDecimal("Open"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.High, err = r.asDecimal("High"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Low, err = r.asDecimal("Low"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Close, err = r.asDecimal("Close"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.AdjustedClose, err = r.asDecimal("Adjusted_close"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Volume, err = r.asDecimal("Volume"); err != nil {
+		return EODPrice{}, err
+	}
+
+	if g.MarketCapitalization, err = r.asOptionalDecimal("MarketCapitalization"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.EMA_50, err = r.asOptionalDecimal("EMA_50"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.EMA_200, err = r.asOptionalDecimal("EMA_200"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.High_250, err = r.asOptionalDecimal("High_250"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Low_250, err = r.asOptionalDecimal("Low_250"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Prev_close, err = r.asOptionalDecimal("Prev_close"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Change, err = r.asOptionalDecimal("Change"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.ChangePercent, err = r.asOptionalDecimal("Change_%"); err != nil {
+		return EODPrice{}, err
+	}
+
+	g.Ticker = g.Code + "." + g.Ex
+	return g, nil
+}
+
 func buildPrice(r *csvReaderMap) (EODPrice, error) {
 	g := EODPrice{}
 	var err error

@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"strings"
 	"testing"
 	"time"
 
@@ -115,6 +116,51 @@ func TestEODhd_FetchEOD(t *testing.T) {
 			count := <-done
 
 			require.Equal(t, tt.wantPricesCount, count)
+		})
+	}
+}
+
+func TestEODhd_FetchEOD_Ticker(t *testing.T) {
+	if os.Getenv("EODHD_TOKEN") == "" {
+		t.Skipf("no env variable EODHD_TOKEN set, will skip this test")
+		t.SkipNow()
+	}
+
+	c := diskcache.New("cache")
+	tr := freshcache.NewTransport(c)
+
+	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+
+	tickers := []string{"AAPL.US", "CL.COMM"}
+
+	for _, ti := range tickers {
+
+		t.Run(ti, func(t *testing.T) {
+
+			tis := strings.Split(ti, ".")
+
+			prices := make(chan EODPrice)
+			done := make(chan int, 1)
+
+			go func(f chan EODPrice, d chan int) {
+				count := 0
+				for range f {
+					count++
+				}
+				d <- count
+			}(prices, done)
+
+			if err := d.FetchTickerPrices(context.Background(), prices, tis[0], tis[1],
+				time.Date(2019, 1, 25, 0, 0, 0, 0, time.UTC),
+				time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC),
+				"d"); err != nil {
+				t.Errorf("FetchTickerPrices() error = %v", err)
+			}
+			close(prices)
+
+			count := <-done
+
+			t.Logf("ticker %s had %d prices", ti, count)
 		})
 	}
 }
