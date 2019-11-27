@@ -1,0 +1,199 @@
+{
+  "General": {
+    "Code": "E6Z",
+    "Type": "Common Stock",
+    "Name": "AECOM TECHNOLOGY",
+    "Exchange": "BE",
+    "CurrencyCode": "EUR",
+    "CurrencyName": "Euro",
+    "CurrencySymbol": "\u20ac",
+    "CountryName": "Germany",
+    "CountryISO": "DE",
+    "ISIN": null,
+    "CIK": null,
+    "EmployerIdNumber": null,
+    "FiscalYearEnd": null,
+    "IPODate": null,
+    "InternationalDomestic": null,
+    "Sector": "Other",
+    "Industry": "Other",
+    "GicSector": null,
+    "GicGroup": null,
+    "GicIndustry": null,
+    "GicSubIndustry": null,
+    "Description": "There is no Profile data available for E6Z.BE.",
+    "Address": null,
+    "Phone": null,
+    "WebURL": null,
+    "LogoURL": "",
+    "FullTimeEmployees": 0,
+    "UpdatedAt": "2019-10-16"
+  },
+  "Highlights": {
+    "MarketCapitalization": null,
+    "MarketCapitalizationMln": null,
+    "EBITDA": null,
+    "PERatio": null,
+    "PEGRatio": "0.0000",
+    "WallStreetTargetPrice": null,
+    "BookValue": null,
+    "DividendShare": null,
+    "DividendYield": "0.0000",
+    "EarningsShare": null,
+    "EPSEstimateCurrentYear": null,
+    "EPSEstimateNextYear": null,
+    "EPSEstimateNextQuarter": null,
+    "EPSEstimateCurrentQuarter": null,
+    "MostRecentQuarter": "0000-00-00",
+    "ProfitMargin": null,
+    "OperatingMarginTTM": null,
+    "ReturnOnAssetsTTM": null,
+    "ReturnOnEquityTTM": null,
+    "RevenueTTM": null,
+    "RevenuePerShareTTM": null,
+    "QuarterlyRevenueGrowthYOY": null,
+    "GrossProfitTTM": null,
+    "DilutedEpsTTM": null,
+    "QuarterlyEarningsGrowthYOY": null
+  },
+  "Valuation": {
+    "TrailingPE": null,
+    "ForwardPE": null,
+    "PriceSalesTTM": null,
+    "PriceBookMRQ": null,
+    "EnterpriseValueRevenue": null,
+    "EnterpriseValueEbitda": null
+  },
+  "SharesStats": {
+    "SharesOutstanding": null,
+    "SharesFloat": null,
+    "PercentInsiders": null,
+    "PercentInstitutions": null,
+    "SharesShort": null,
+    "SharesShortPriorMonth": null,
+    "ShortRatio": null,
+    "ShortPercentOutstanding": null,
+    "ShortPercentFloat": null
+  },
+  "Technicals": {
+    "Beta": null,
+    "52WeekHigh": "39.6000",
+    "52WeekLow": "22.7600",
+    "50DayMA": "36.9167",
+    "200DayMA": "32.9166",
+    "SharesShort": null,
+    "SharesShortPriorMonth": null,
+    "ShortRatio": null,
+    "ShortPercent": null
+  },
+  "SplitsDividends": {
+    "ForwardAnnualDividendRate": null,
+    "ForwardAnnualDividendYield": "0.0000",
+    "PayoutRatio": null,
+    "DividendDate": "0000-00-00",
+    "ExDividendDate": "0000-00-00",
+    "LastSplitFactor": "",
+    "LastSplitDate": "0000-00-00",
+    "NumberDividendsByYear": {}
+  },
+  "ESGScores": {
+    "RatingDate": "2019-11-01",
+    "TotalEsg": 71.52,
+    "TotalEsgPercentile": 85.62,
+    "EnvironmentScore": 68.22,
+    "EnvironmentScorePercentile": 85.62,
+    "SocialScore": 68.42,
+    "SocialScorePercentile": 81.54,
+    "GovernanceScore": 76.96,
+    "GovernanceScorePercentile": 89.73,
+    "ControversyLevel": 2,
+    "ActivitiesInvolvement": {
+      "0": {
+        "Activity": "adult",
+        "Involvement": "No"
+      },
+      "1": {
+        "Activity": "alcoholic",
+        "Involvement": "No"
+      },
+      "2": {
+        "Activity": "animalTesting",
+        "Involvement": "No"
+      },
+      "3": {
+        "Activity": "catholic",
+        "Involvement": "No"
+      },
+      "4": {
+        "Activity": "controversialWeapons",
+        "Involvement": "Yes"
+      },
+      "5": {
+        "Activity": "smallArms",
+        "Involvement": "No"
+      },
+      "6": {
+        "Activity": "furLeather",
+        "Involvement": "No"
+      },
+      "7": {
+        "Activity": "gambling",
+        "Involvement": "No"
+      },
+      "8": {
+        "Activity": "gmo",
+        "Involvement": "No"
+      },
+      "9": {
+        "Activity": "militaryContract",
+        "Involvement": "Yes"
+      },
+      "10": {
+        "Activity": "nuclear",
+        "Involvement": "No"
+      },
+      "11": {
+        "Activity": "pesticides",
+        "Involvement": "No"
+      },
+      "12": {
+        "Activity": "palmOil",
+        "Involvement": "No"
+      },
+      "13": {
+        "Activity": "coal",
+        "Involvement": "No"
+      },
+      "14": {
+        "Activity": "tobacco",
+        "Involvement": "No"
+      }
+    }
+  },
+  "outstandingShares": {
+    "annual": {},
+    "quarterly": {}
+  },
+  "Earnings": {
+    "History": {},
+    "Trend": {},
+    "Annual": {}
+  },
+  "Financials": {
+    "Balance_Sheet": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    },
+    "Cash_Flow": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    },
+    "Income_Statement": {
+      "currency_symbol": null,
+      "quarterly": {},
+      "yearly": {}
+    }
+  }
+}

@@ -94,7 +94,7 @@ func TestJsonParsing(t *testing.T) {
 			fu.UnmarshalEasyJSON(&r)
 
 			if r.Error() != nil {
-				t.Log(string(r.Data[Max(0, r.GetPos()-20):Min(len(r.Data), r.GetPos()+20)]))
+				t.Log(string(r.Data[Max(0, r.GetPos()-30):Min(len(r.Data), r.GetPos()+30)]))
 				t.Log(r.Error())
 				t.FailNow()
 			}

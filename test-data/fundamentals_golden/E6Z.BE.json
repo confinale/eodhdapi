@@ -1,0 +1,120 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "E6Z",
+    "Type": "Common Stock",
+    "Name": "AECOM TECHNOLOGY",
+    "Exchange": "BE",
+    "CurrencyCode": "EUR",
+    "CurrencyName": "Euro",
+    "CurrencySymbol": "€",
+    "CountryName": "Germany",
+    "CountryISO": "DE",
+    "Sector": "Other",
+    "Industry": "Other",
+    "Description": "There is no Profile data available for E6Z.BE.",
+    "FullTimeEmployees": 0,
+    "UpdatedAt": "2019-10-16",
+    "LogoURL": ""
+  },
+  "ESGScores": {
+    "RatingDate": "2019-11-01",
+    "TotalEsg": 71.52,
+    "TotalEsgPercentile": 85.62,
+    "EnvironmentScore": 68.22,
+    "EnvironmentScorePercentile": 85.62,
+    "SocialScore": 68.42,
+    "SocialScorePercentile": 81.54,
+    "GovernanceScore": 76.96,
+    "GovernanceScorePercentile": 89.73,
+    "ControversyLevel": 2,
+    "ActivitiesInvolvement": [
+      {
+        "Activity": "adult",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "alcoholic",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "animalTesting",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "catholic",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "controversialWeapons",
+        "Involvement": "Yes"
+      },
+      {
+        "Activity": "smallArms",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "furLeather",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "gambling",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "gmo",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "militaryContract",
+        "Involvement": "Yes"
+      },
+      {
+        "Activity": "nuclear",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "pesticides",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "palmOil",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "coal",
+        "Involvement": "No"
+      },
+      {
+        "Activity": "tobacco",
+        "Involvement": "No"
+      }
+    ]
+  },
+  "Highlights": {
+    "PEGRatio": "0",
+    "DividendYield": "0",
+    "MostRecentQuarter": "0000-00-00"
+  },
+  "Valuation": {},
+  "Technicals": {
+    "52WeekHigh": "39.6",
+    "52WeekLow": "22.76",
+    "50DayMA": "36.9167",
+    "200DayMA": "32.9166"
+  },
+  "SplitsDividends": {
+    "ForwardAnnualDividendYield": "0",
+    "DividendDate": "0000-00-00",
+    "ExDividendDate": "0000-00-00",
+    "LastSplitDate": "0000-00-00"
+  },
+  "Earnings": {},
+  "Financials": {
+    "Balance_Sheet": {},
+    "Cash_Flow": {},
+    "Income_Statement": {}
+  },
+  "SharesStats": {},
+  "outstandingShares": {}
+}
