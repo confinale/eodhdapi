@@ -11,11 +11,31 @@ import (
 	"time"
 )
 
+type ActivitiesInvolvement struct {
+	Activity    string `json:"Activity"`
+	Involvement string `json:"Involvement"`
+}
+
+type ESGScores struct {
+	RatingDate                 string                 `json:"RatingDate"`
+	TotalEsg                   float64                `json:"TotalEsg"`
+	TotalEsgPercentile         float64                `json:"TotalEsgPercentile"`
+	EnvironmentScore           float64                `json:"EnvironmentScore"`
+	EnvironmentScorePercentile float64                `json:"EnvironmentScorePercentile"`
+	SocialScore                float64                `json:"SocialScore"`
+	SocialScorePercentile      float64                `json:"SocialScorePercentile"`
+	GovernanceScore            float64                `json:"GovernanceScore"`
+	GovernanceScorePercentile  float64                `json:"GovernanceScorePercentile"`
+	ControversyLevel           int                    `json:"ControversyLevel"`
+	ActivitiesInvolvement      ActivitiesInvolvements `json:"ActivitiesInvolvement"`
+}
+
 // Fundamentals for a ticker
 type Fundamentals struct {
 	LastUpdate        time.Time
 	Ticker            string
 	General           General            `json:"General"`
+	ESGScores         *ESGScores         `json:"ESGScores"`
 	Highlights        *Highlights        `json:"Highlights"`
 	Valuation         *Valuation         `json:"Valuation"`
 	Technicals        *Technicals        `json:"Technicals"`
@@ -78,6 +98,7 @@ type Highlights struct {
 	EPSEstimateCurrentYear     *Decimal `json:"EPSEstimateCurrentYear"`
 	EPSEstimateNextYear        *Decimal `json:"EPSEstimateNextYear"`
 	EPSEstimateNextQuarter     *Decimal `json:"EPSEstimateNextQuarter"`
+	EPSEstimateCurrentQuarter  *Decimal `json:"EPSEstimateCurrentQuarter"`
 	MostRecentQuarter          string   `json:"MostRecentQuarter"`
 	ProfitMargin               *Decimal `json:"ProfitMargin"`
 	OperatingMarginTTM         *Decimal `json:"OperatingMarginTTM"`
@@ -320,6 +341,47 @@ func (out *AssetAllocations) UnmarshalEasyJSON(in *jlexer.Lexer) {
 			in.Skip()
 			in.WantColon()
 			var v37 AssetAllocation
+			(v37).UnmarshalEasyJSON(in)
+			*out = append(*out, v37)
+			in.WantComma()
+		}
+		in.Delim('}')
+	}
+}
+
+type ActivitiesInvolvements []ActivitiesInvolvement
+
+func (out *ActivitiesInvolvements) UnmarshalEasyJSON(in *jlexer.Lexer) {
+	if in.IsNull() {
+		in.Skip()
+	} else {
+		if in.IsDelim('[') {
+			in.Delim('[')
+			if !in.IsDelim(']') {
+				*out = make([]ActivitiesInvolvement, 0)
+			} else {
+				*out = nil
+			}
+			for !in.IsDelim(']') {
+				var v37 ActivitiesInvolvement
+				(v37).UnmarshalEasyJSON(in)
+				*out = append(*out, v37)
+				in.WantComma()
+			}
+			in.Delim(']')
+			return
+		}
+
+		in.Delim('{')
+		if !in.IsDelim('}') {
+			*out = make([]ActivitiesInvolvement, 0)
+		} else {
+			*out = nil
+		}
+		for !in.IsDelim('}') {
+			in.Skip()
+			in.WantColon()
+			var v37 ActivitiesInvolvement
 			(v37).UnmarshalEasyJSON(in)
 			*out = append(*out, v37)
 			in.WantComma()
@@ -580,8 +642,9 @@ type Earnings struct {
 }
 
 type BalanceSheetInfo struct {
-	Date       string  `json:"date"`
-	FilingDate *string `json:"filing_date"`
+	Date           string  `json:"date"`
+	FilingDate     *string `json:"filing_date"`
+	CurrencySymbol *string `json:"currency_symbol"`
 
 	IntangibleAssets                                 *Decimal `json:"intangibleAssets"`
 	TotalLiab                                        *Decimal `json:"totalLiab"`
@@ -681,6 +744,7 @@ func (out *BalanceSheetInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
 type CashFlowInfo struct {
 	Date                                  string   `json:"date"`
 	FilingDate                            *string  `json:"filing_date"`
+	CurrencySymbol                        *string  `json:"currency_symbol"`
 	Investments                           *Decimal `json:"investments"`
 	ChangeToLiabilities                   *Decimal `json:"changeToLiabilities"`
 	TotalCashflowsFromInvestingActivities *Decimal `json:"totalCashflowsFromInvestingActivities"`
@@ -747,8 +811,10 @@ func (out *CashFlowInfos) UnmarshalEasyJSON(in *jlexer.Lexer) {
 }
 
 type IncomeStatementInfo struct {
-	Date                              string   `json:"date"`
-	FilingDate                        *string  `json:"filing_date"`
+	Date           string  `json:"date"`
+	FilingDate     *string `json:"filing_date"`
+	CurrencySymbol *string `json:"currency_symbol"`
+
 	ResearchDevelopment               *Decimal `json:"researchDevelopment"`
 	EffectOfAccountingCharges         *Decimal `json:"effectOfAccountingCharges"`
 	IncomeBeforeTax                   *Decimal `json:"incomeBeforeTax"`
