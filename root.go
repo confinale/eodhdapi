@@ -59,7 +59,11 @@ func (d *EODhd) readPath(path string, params ...urlParam) (*http.Response, error
 
 	req.URL.RawQuery = q.Encode()
 
-	return d.clt.Do(req)
+	response, err := d.clt.Do(req)
+	if err == nil && response.StatusCode != 200 {
+		return response, fmt.Errorf("not expected status %d - %s", response.StatusCode, response.Status)
+	}
+	return response, err
 }
 
 func newCsvReaderWithFirstLine(r io.Reader, expectedFirstLine string) (*csv.Reader, error) {
