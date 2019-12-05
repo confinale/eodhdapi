@@ -13,13 +13,16 @@ type EODPrice struct {
 	Code          string `json:"code,omitempty" bson:"code"`
 	Ex            string `json:"exchange_short_name,omitempty" bson:"exchange_short_name"`
 	Name          string
-	Date          string          `json:"date,omitempty" bson:"date"`
-	Open          decimal.Decimal `json:"open,omitempty" bson:"open"`
-	High          decimal.Decimal `json:"high,omitempty" bson:"high"`
-	Low           decimal.Decimal `json:"low,omitempty" bson:"low"`
-	Close         decimal.Decimal `json:"close,omitempty" bson:"close"`
-	AdjustedClose decimal.Decimal `json:"adjusted_close,omitempty" bson:"adjusted_close"`
-	Volume        decimal.Decimal `json:"volume,omitempty" bson:"volume"`
+	Date          string           `json:"date,omitempty" bson:"date"`
+	Open          *decimal.Decimal `json:"open,omitempty" bson:"open"`
+	High          *decimal.Decimal `json:"high,omitempty" bson:"high"`
+	Low           *decimal.Decimal `json:"low,omitempty" bson:"low"`
+	Close         *decimal.Decimal `json:"close,omitempty" bson:"close"`
+	AdjustedClose *decimal.Decimal `json:"adjusted_close,omitempty" bson:"adjusted_close"`
+	Volume        decimal.Decimal  `json:"volume,omitempty" bson:"volume"`
+
+	Price *decimal.Decimal `json:"price,omitempty" bson:"price"`
+	Yield *decimal.Decimal `json:"price,omitempty" bson:"price"`
 
 	MarketCapitalization *decimal.Decimal
 	EMA_50               *decimal.Decimal
@@ -55,7 +58,7 @@ func (d *EODhd) FetchPrices(ctx context.Context, info chan EODPrice, exchange *e
 	if err != nil {
 		return err
 	}
-	reader.skipMissingFields = 7
+	reader.skipMissingFields = 4
 
 	for reader.Next() {
 		i, err := buildPrice(reader)
@@ -104,6 +107,9 @@ func (d *EODhd) FetchTickerPrices(ctx context.Context, info chan EODPrice, symbo
 	reader.skipMissingFields = 7
 
 	for reader.Next() {
+		if s, err := reader.asString("Volume"); err == nil && s == "" {
+			continue
+		}
 		i, err := buildPriceTicker(reader, symbol, exchange)
 		if err != nil {
 			return err
@@ -135,22 +141,29 @@ func buildPriceTicker(r *csvReaderMap, code, exchange string) (EODPrice, error) 
 	if g.Date, err = r.asString("Date"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Open, err = r.asDecimal("Open"); err != nil {
+	if g.Open, err = r.asOptionalDecimal("Open"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.High, err = r.asDecimal("High"); err != nil {
+	if g.High, err = r.asOptionalDecimal("High"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Low, err = r.asDecimal("Low"); err != nil {
+	if g.Low, err = r.asOptionalDecimal("Low"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Close, err = r.asDecimal("Close"); err != nil {
+	if g.Close, err = r.asOptionalDecimal("Close"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.AdjustedClose, err = r.asDecimal("Adjusted_close"); err != nil {
+	if g.AdjustedClose, err = r.asOptionalDecimal("Adjusted_close"); err != nil {
 		return EODPrice{}, err
 	}
 	if g.Volume, err = r.asDecimal("Volume"); err != nil {
+		return EODPrice{}, err
+	}
+
+	if g.Price, err = r.asOptionalDecimal("Price"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Yield, err = r.asOptionalDecimal("Yield"); err != nil {
 		return EODPrice{}, err
 	}
 
@@ -199,22 +212,29 @@ func buildPrice(r *csvReaderMap) (EODPrice, error) {
 	if g.Date, err = r.asString("Date"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Open, err = r.asDecimal("Open"); err != nil {
+	if g.Open, err = r.asOptionalDecimal("Open"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.High, err = r.asDecimal("High"); err != nil {
+	if g.High, err = r.asOptionalDecimal("High"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Low, err = r.asDecimal("Low"); err != nil {
+	if g.Low, err = r.asOptionalDecimal("Low"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.Close, err = r.asDecimal("Close"); err != nil {
+	if g.Close, err = r.asOptionalDecimal("Close"); err != nil {
 		return EODPrice{}, err
 	}
-	if g.AdjustedClose, err = r.asDecimal("Adjusted_close"); err != nil {
+	if g.AdjustedClose, err = r.asOptionalDecimal("Adjusted_close"); err != nil {
 		return EODPrice{}, err
 	}
 	if g.Volume, err = r.asDecimal("Volume"); err != nil {
+		return EODPrice{}, err
+	}
+
+	if g.Price, err = r.asOptionalDecimal("Price"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Yield, err = r.asOptionalDecimal("Yield"); err != nil {
 		return EODPrice{}, err
 	}
 

@@ -131,7 +131,7 @@ func TestEODhd_FetchEOD_Ticker(t *testing.T) {
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
 
-	tickers := []string{"AAPL.US", "CL.COMM"}
+	tickers := []string{"AAPL.US", "CL.COMM", "APM.HM", "US084664CR08.BOND", "SYN.BE"}
 
 	for _, ti := range tickers {
 
@@ -151,7 +151,7 @@ func TestEODhd_FetchEOD_Ticker(t *testing.T) {
 			}(prices, done)
 
 			if err := d.FetchTickerPrices(context.Background(), prices, tis[0], tis[1],
-				time.Date(2019, 1, 25, 0, 0, 0, 0, time.UTC),
+				time.Date(2000, 1, 25, 0, 0, 0, 0, time.UTC),
 				time.Date(2019, 9, 25, 0, 0, 0, 0, time.UTC),
 				"d"); err != nil {
 				t.Errorf("FetchTickerPrices() error = %v", err)
