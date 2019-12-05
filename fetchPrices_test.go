@@ -131,7 +131,7 @@ func TestEODhd_FetchEOD_Ticker(t *testing.T) {
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
 
-	tickers := []string{"AAPL.US", "CL.COMM", "APM.HM", "US084664CR08.BOND", "SYN.BE"}
+	tickers := []string{"AAPL.US", "CL.COMM", "APM.HM", "US084664CR08.BOND", "SYN.BE", "CBCYB.US"}
 
 	for _, ti := range tickers {
 

@@ -43,6 +43,41 @@ func NewEOD(eodHdURL, eodHdToken string, transport http.RoundTripper) *EODhd {
 	}
 }
 
+type ErrUnknownStatus struct {
+	message string
+}
+
+func (e *ErrUnknownStatus) Error() string {
+	return e.message
+}
+
+type ErrNotFound struct {
+	message string
+}
+
+func (e *ErrNotFound) Error() string {
+	return e.message
+}
+
+type ErrTooManyRequests struct {
+	message string
+}
+
+func (e *ErrTooManyRequests) Error() string {
+	return e.message
+}
+
+func StatusError(response *http.Response) error {
+	switch response.StatusCode {
+	case 429:
+		return &ErrTooManyRequests{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+	case 404:
+		return &ErrNotFound{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+	default:
+		return &ErrUnknownStatus{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+	}
+}
+
 func (d *EODhd) readPath(path string, params ...urlParam) (*http.Response, error) {
 	req, err := http.NewRequest("GET", fmt.Sprintf("%s%s", d.baseURL, path), nil)
 
@@ -61,7 +96,7 @@ func (d *EODhd) readPath(path string, params ...urlParam) (*http.Response, error
 
 	response, err := d.clt.Do(req)
 	if err == nil && response.StatusCode != 200 {
-		return response, fmt.Errorf("not expected status %d - %s", response.StatusCode, response.Status)
+		return response, StatusError(response)
 	}
 	return response, err
 }
