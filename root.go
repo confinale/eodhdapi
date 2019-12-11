@@ -45,36 +45,62 @@ func NewEOD(eodHdURL, eodHdToken string, transport http.RoundTripper) *EODhd {
 
 type ErrUnknownStatus struct {
 	message string
+	code    int
 }
 
 func (e *ErrUnknownStatus) Error() string {
 	return e.message
 }
+func (e *ErrUnknownStatus) Code() int {
+	return e.code
+}
 
 type ErrNotFound struct {
 	message string
+	code    int
 }
 
 func (e *ErrNotFound) Error() string {
 	return e.message
 }
+func (e *ErrNotFound) Code() int {
+	return e.code
+}
 
 type ErrTooManyRequests struct {
 	message string
+	code    int
 }
 
 func (e *ErrTooManyRequests) Error() string {
 	return e.message
 }
+func (e *ErrTooManyRequests) Code() int {
+	return e.code
+}
+
+type ErrPaymentRequired struct {
+	message string
+	code    int
+}
+
+func (e *ErrPaymentRequired) Error() string {
+	return e.message
+}
+func (e *ErrPaymentRequired) Code() int {
+	return e.code
+}
 
 func StatusError(response *http.Response) error {
 	switch response.StatusCode {
 	case 429:
-		return &ErrTooManyRequests{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+		return &ErrTooManyRequests{message: fmt.Sprintf("unexpected status %d - %s", response.StatusCode, response.Status), code: response.StatusCode}
 	case 404:
-		return &ErrNotFound{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+		return &ErrNotFound{message: fmt.Sprintf("unexpected status %d - %s", response.StatusCode, response.Status), code: response.StatusCode}
+	case 402:
+		return &ErrPaymentRequired{message: fmt.Sprintf("unexpected status %d - %s", response.StatusCode, response.Status), code: response.StatusCode}
 	default:
-		return &ErrUnknownStatus{message: fmt.Sprintf("not expected status %d - %s", response.StatusCode, response.Status)}
+		return &ErrUnknownStatus{message: fmt.Sprintf("unexpected status %d - %s", response.StatusCode, response.Status), code: response.StatusCode}
 	}
 }
 
