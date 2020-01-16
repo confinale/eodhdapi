@@ -58,7 +58,7 @@ func (d *EODhd) FetchPrices(ctx context.Context, info chan EODPrice, exchange *e
 
 	defer res.Body.Close()
 
-	reader, err := newCsvReaderMap(res.Body, false, false)
+	reader, err := newCsvReaderMap(res.Body, false, true)
 	if err != nil {
 		return err
 	}

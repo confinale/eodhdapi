@@ -109,7 +109,7 @@ func TestEODhd_FetchEOD(t *testing.T) {
 				d <- count
 			}(prices, done)
 			if err := d.FetchPrices(tt.args.ctx, prices, tt.args.exchange, tt.args.date, tt.args.symbols...); (err != nil) != tt.wantErr {
-				t.Errorf("FetchFundamentals() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("FetchPrices() error = %v, wantErr %v", err, tt.wantErr)
 			}
 			close(prices)
 
