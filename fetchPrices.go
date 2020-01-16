@@ -33,6 +33,10 @@ type EODPrice struct {
 	Change               *decimal.Decimal
 	ChangePercent        *decimal.Decimal
 
+	Avgvol50d  *decimal.Decimal
+	Avgvol200d *decimal.Decimal
+	Avgvol14d  *decimal.Decimal
+
 	Ticker string `json:"tickers,omitempty" bson:"ticker"`
 }
 
@@ -54,7 +58,7 @@ func (d *EODhd) FetchPrices(ctx context.Context, info chan EODPrice, exchange *e
 
 	defer res.Body.Close()
 
-	reader, err := newCsvReaderMap(res.Body, false, true)
+	reader, err := newCsvReaderMap(res.Body, false, false)
 	if err != nil {
 		return err
 	}
@@ -192,6 +196,16 @@ func buildPriceTicker(r *csvReaderMap, code, exchange string) (EODPrice, error) 
 		return EODPrice{}, err
 	}
 
+	if g.Avgvol50d, err = r.asOptionalDecimal("Avgvol_50d"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Avgvol200d, err = r.asOptionalDecimal("Avgvol_200d"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Avgvol14d, err = r.asOptionalDecimal("Avgvol_14d"); err != nil {
+		return EODPrice{}, err
+	}
+
 	g.Ticker = g.Code + "." + g.Ex
 	return g, nil
 }
@@ -260,6 +274,16 @@ func buildPrice(r *csvReaderMap) (EODPrice, error) {
 		return EODPrice{}, err
 	}
 	if g.ChangePercent, err = r.asOptionalDecimal("Change_%"); err != nil {
+		return EODPrice{}, err
+	}
+
+	if g.Avgvol50d, err = r.asOptionalDecimal("Avgvol_50d"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Avgvol200d, err = r.asOptionalDecimal("Avgvol_200d"); err != nil {
+		return EODPrice{}, err
+	}
+	if g.Avgvol14d, err = r.asOptionalDecimal("Avgvol_14d"); err != nil {
 		return EODPrice{}, err
 	}
 
