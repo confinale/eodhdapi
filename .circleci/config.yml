@@ -16,7 +16,7 @@ commands:
             - eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>
       - run:
           name: Execute dividends tests
-          command: go test ./.. -run <<parameters.pattern>>
+          command: go test ./... -run <<parameters.pattern>>
 
       - save_cache:
           key: eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>-{{ .Branch }}
