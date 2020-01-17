@@ -192,7 +192,7 @@ func TestEODhd_FetchFundamentals_TestAll(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchFundamentals_TestAll")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
@@ -230,7 +230,7 @@ func TestEODhd_FetchFundamentalsTicker_TestETFS(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchFundamentalsTicker_TestETFS")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
@@ -260,7 +260,7 @@ func TestEODhd_FetchFundamentalsSymbol_TestAll(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchFundamentalsSymbol_TestAll")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)

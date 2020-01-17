@@ -126,7 +126,7 @@ func TestEODhd_FetchEOD_Ticker(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchEOD_Ticker")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
@@ -171,7 +171,7 @@ func TestEODhd_FetchEOD_TestAll(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchEOD_TestAll")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)

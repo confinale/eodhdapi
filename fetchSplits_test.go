@@ -193,7 +193,7 @@ func TestEODhd_FetchSplits_TestAll(t *testing.T) {
 		t.SkipNow()
 	}
 
-	c := diskcache.New("cache")
+	c := diskcache.New("cache/TestEODhd_FetchSplits_TestAll")
 	tr := freshcache.NewTransport(c)
 
 	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)

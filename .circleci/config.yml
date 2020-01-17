@@ -1,5 +1,28 @@
 version: 2.1
 
+
+
+commands:
+  run-with-cache:
+    description: Runs a pattern with fitting cache
+    parameters:
+      pattern:
+        description: "The Pattern."
+        type: string
+    steps:
+      - restore_cache:
+          keys:
+            - eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>-{{ .Branch }}
+            - eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>
+      - run:
+          name: Execute dividends tests
+          command: go test ./.. -run <<parameters.pattern>>
+
+      - save_cache:
+          key: eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>-{{ .Branch }}
+          paths:
+            - "cache/dividends"
+
 jobs:
   build-lib:
     docker:
@@ -30,25 +53,35 @@ jobs:
           paths:
             - "/go/pkg/mod"
 
+      - run-with-cache:
+          pattern: TestEODhd_FetchDividends_TestAll
 
-      - restore_cache:
-          keys:
-            - eodhd-cache-{{ .Environment.VCACHE }}-{{ .Branch }}
-            - eodhd-cache-{{ .Environment.VCACHE }}-
+      - run-with-cache:
+          pattern: TestEODhd_FetchFundamentals_TestAll
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchFundamentalsSymbol_TestAll
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchFundamentalsTicker_TestETFS
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchEOD_TestAll
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchEOD_Ticker
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchSplits_TestAll
 
       - run:
-          name: Run unit tests
+          name: Run tests
           # store the results of our tests in the $TEST_RESULTS directory
           command: |
             gotestsum --format=standard-verbose --junitfile ${TEST_RESULTS}/gotestsum-report.xml -- -timeout 25m -coverprofile=cover.out ./...
             go tool cover -html=cover.out -o coverage.html
             mv coverage.html $TEST_ARTIFACTS
           no_output_timeout: 30m
-
-      - save_cache:
-          key: eodhd-cache-{{ .Environment.VCACHE }}-{{ .Branch }}
-          paths:
-            - "cache"
 
       - store_artifacts: # upload test summary for display in Artifacts
           path: /tmp/test-results
