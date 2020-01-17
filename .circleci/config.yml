@@ -55,6 +55,12 @@ jobs:
             - "/go/pkg/mod"
 
       - run-with-cache:
+          pattern: TestEODhd_FetchEOD_Ticker
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchEOD_TestAll
+
+      - run-with-cache:
           pattern: TestEODhd_FetchFundamentalsSymbol_TestAll
 
       - run-with-cache:
@@ -65,12 +71,6 @@ jobs:
 
       - run-with-cache:
           pattern: TestEODhd_FetchFundamentals_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchEOD_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchEOD_Ticker
 
       - run-with-cache:
           pattern: TestEODhd_FetchSplits_TestAll
