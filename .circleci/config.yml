@@ -15,8 +15,9 @@ commands:
             - eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>-{{ .Branch }}
             - eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>
       - run:
-          name: Execute dividends tests
-          command: go test ./... -run <<parameters.pattern>>
+          name: Execute <<parameters.pattern>> tests
+          command: go test -v ./... -run <<parameters.pattern>>
+          no_output_timeout: 30m
 
       - save_cache:
           key: eodhd-cache-{{ .Environment.VCACHE }}-<<parameters.pattern>>-{{ .Branch }}
@@ -54,16 +55,16 @@ jobs:
             - "/go/pkg/mod"
 
       - run-with-cache:
-          pattern: TestEODhd_FetchDividends_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchFundamentals_TestAll
-
-      - run-with-cache:
           pattern: TestEODhd_FetchFundamentalsSymbol_TestAll
 
       - run-with-cache:
           pattern: TestEODhd_FetchFundamentalsTicker_TestETFS
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchDividends_TestAll
+
+      - run-with-cache:
+          pattern: TestEODhd_FetchFundamentals_TestAll
 
       - run-with-cache:
           pattern: TestEODhd_FetchEOD_TestAll
