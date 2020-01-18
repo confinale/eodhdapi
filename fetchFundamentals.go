@@ -89,6 +89,9 @@ func (d *EODhd) FetchFundamentalsSymbol(ctx context.Context, exchange, symbol st
 	urlParams := []urlParam{}
 
 	path := "/fundamentals/" + symbol + "." + exchange
+	if exchange == "BOND" {
+		path = "/bond-fundamentals/" + symbol
+	}
 	res, err := d.readPath(path, urlParams...)
 	if err != nil {
 		return fu, err
