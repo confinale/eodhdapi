@@ -989,6 +989,7 @@ type MutualFundData struct {
 	MarketCapitalization  MarketCapitalizations `json:"Market_Capitalization"`
 	SectorWeights         SectorWeightsGroup    `json:"Sector_Weights"`
 	WorldRegions          RegionWeights         `json:"World_Regions"`
+	TopCountries          interface{}           `json:"Top_Countries"` // do not use seems to be empty
 }
 
 type SectorWeightsGroup struct {

@@ -54,27 +54,6 @@ jobs:
           paths:
             - "/go/pkg/mod"
 
-      - run-with-cache:
-          pattern: TestEODhd_FetchEOD_Ticker
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchEOD_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchFundamentalsSymbol_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchFundamentalsTicker_TestETFS
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchDividends_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchFundamentals_TestAll
-
-      - run-with-cache:
-          pattern: TestEODhd_FetchSplits_TestAll
-
       - run:
           name: Run tests
           # store the results of our tests in the $TEST_RESULTS directory

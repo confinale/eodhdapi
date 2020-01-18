@@ -268,7 +268,7 @@ func TestEODhd_FetchFundamentalsSymbol_TestAll(t *testing.T) {
 	for _, e := range exchanges.All() {
 
 		t.Run(e.Code, func(t *testing.T) {
-			r := rand.New(rand.NewSource(40))
+			r := rand.New(rand.NewSource(42))
 			symbols, err := d.GetSymbols(context.Background(), e)
 			if err != nil {
 				t.Error(err)
@@ -280,7 +280,7 @@ func TestEODhd_FetchFundamentalsSymbol_TestAll(t *testing.T) {
 				s := symbols[intn]
 
 				t.Run(s.Ticker, func(t *testing.T) {
-					if _, err := d.FetchFundamentalsSymbol(context.Background(), s.Exchange, s.Code); err != nil {
+					if _, err := d.FetchFundamentalsSymbol(context.Background(), e.Code, s.Code); err != nil {
 						t.Errorf("FetchFundamentals() error = %v", err)
 					}
 				})
