@@ -129,7 +129,7 @@ func TestEODhd_FetchEOD_Ticker(t *testing.T) {
 	c := diskcache.New("cache/TestEODhd_FetchEOD_Ticker")
 	tr := freshcache.NewTransport(c)
 
-	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+	d := NewEOD(DefaultProxyURL, os.Getenv("EODHD_TOKEN"), tr)
 
 	tickers := []string{"AAPL.US", "CL.COMM", "APM.HM", "US084664CR08.BOND", "SYN.BE", "CBCYB.US"}
 
@@ -174,7 +174,7 @@ func TestEODhd_FetchEOD_TestAll(t *testing.T) {
 	c := diskcache.New("cache/TestEODhd_FetchEOD_TestAll")
 	tr := freshcache.NewTransport(c)
 
-	d := NewEOD(DefaultURL, os.Getenv("EODHD_TOKEN"), tr)
+	d := NewEOD(DefaultProxyURL, os.Getenv("EODHD_TOKEN"), tr)
 
 	for _, e := range exchanges.All() {
 

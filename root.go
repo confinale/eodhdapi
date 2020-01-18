@@ -23,6 +23,7 @@ type urlParam struct {
 }
 
 const DefaultURL = "https://eodhistoricaldata.com/api"
+const DefaultProxyURL = "https://eodhd-proxy.herokuapp.com/api"
 
 // NewEOD initializes a new eod historical data client
 func NewDefaultEOD(eodHdToken string) *EODhd {
