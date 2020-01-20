@@ -41,11 +41,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi(in *jlexer.Lexer, out *Yea
 		case "Count":
 			out.Count = int(in.Int())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -134,11 +130,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi1(in *jlexer.Lexer, out *We
 				(*out.RelativeToCategory).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -255,11 +247,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi2(in *jlexer.Lexer, out *Va
 				(*out.StockPortfolio).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -414,11 +402,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi3(in *jlexer.Lexer, out *Va
 				(*out.EnterpriseValueEbitda).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -565,11 +549,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi4(in *jlexer.Lexer, out *To
 				*out.Weight = string(in.String())
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -754,11 +734,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi5(in *jlexer.Lexer, out *Te
 				(*out.ShortPercent).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -943,11 +919,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi6(in *jlexer.Lexer, out *Sp
 		case "NumberDividendsByYear":
 			(out.NumberDividendsByYear).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1181,11 +1153,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi7(in *jlexer.Lexer, out *Sh
 				(*out.ShortPercentFloat).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1334,11 +1302,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi8(in *jlexer.Lexer, out *Sh
 		case "sharesMln":
 			out.SharesMln = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1393,7 +1357,125 @@ func (v *SharesOutstanding) UnmarshalJSON(data []byte) error {
 func (v *SharesOutstanding) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi8(l, v)
 }
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(in *jlexer.Lexer, out *SectorWeight) {
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(in *jlexer.Lexer, out *SectorWeightsGroup) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeString()
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "Cyclical":
+			(out.Cyclical).UnmarshalEasyJSON(in)
+		case "Defensive":
+			(out.Defensive).UnmarshalEasyJSON(in)
+		case "Sensitive":
+			(out.Sensitive).UnmarshalEasyJSON(in)
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(out *jwriter.Writer, in SectorWeightsGroup) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	if len(in.Cyclical) != 0 {
+		const prefix string = ",\"Cyclical\":"
+		first = false
+		out.RawString(prefix[1:])
+		{
+			out.RawByte('[')
+			for v3, v4 := range in.Cyclical {
+				if v3 > 0 {
+					out.RawByte(',')
+				}
+				(v4).MarshalEasyJSON(out)
+			}
+			out.RawByte(']')
+		}
+	}
+	if len(in.Defensive) != 0 {
+		const prefix string = ",\"Defensive\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v5, v6 := range in.Defensive {
+				if v5 > 0 {
+					out.RawByte(',')
+				}
+				(v6).MarshalEasyJSON(out)
+			}
+			out.RawByte(']')
+		}
+	}
+	if len(in.Sensitive) != 0 {
+		const prefix string = ",\"Sensitive\":"
+		if first {
+			first = false
+			out.RawString(prefix[1:])
+		} else {
+			out.RawString(prefix)
+		}
+		{
+			out.RawByte('[')
+			for v7, v8 := range in.Sensitive {
+				if v7 > 0 {
+					out.RawByte(',')
+				}
+				(v8).MarshalEasyJSON(out)
+			}
+			out.RawByte(']')
+		}
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v SectorWeightsGroup) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v SectorWeightsGroup) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *SectorWeightsGroup) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *SectorWeightsGroup) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(l, v)
+}
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(in *jlexer.Lexer, out *SectorWeight) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1421,11 +1503,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(in *jlexer.Lexer, out *Se
 		case "Benchmark":
 			out.Benchmark = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1434,7 +1512,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(in *jlexer.Lexer, out *Se
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(out *jwriter.Writer, in SectorWeight) {
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(out *jwriter.Writer, in SectorWeight) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -1480,27 +1558,27 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(out *jwriter.Writer, in S
 // MarshalJSON supports json.Marshaler interface
 func (v SectorWeight) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(&w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v SectorWeight) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi9(w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *SectorWeight) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(&r, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *SectorWeight) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi9(l, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(l, v)
 }
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(in *jlexer.Lexer, out *RegionWeight) {
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(in *jlexer.Lexer, out *RegionWeight) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1530,11 +1608,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(in *jlexer.Lexer, out *R
 		case "Benchmark":
 			out.Benchmark = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1543,7 +1617,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(in *jlexer.Lexer, out *R
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(out *jwriter.Writer, in RegionWeight) {
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(out *jwriter.Writer, in RegionWeight) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -1599,27 +1673,27 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v RegionWeight) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(&w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v RegionWeight) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi10(w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *RegionWeight) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(&r, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *RegionWeight) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi10(l, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(l, v)
 }
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(in *jlexer.Lexer, out *Performance) {
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(in *jlexer.Lexer, out *Performance) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1709,11 +1783,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(in *jlexer.Lexer, out *P
 				(*out.Returns10Y).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1722,7 +1792,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(in *jlexer.Lexer, out *P
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(out *jwriter.Writer, in Performance) {
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(out *jwriter.Writer, in Performance) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -1798,27 +1868,27 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v Performance) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(&w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v Performance) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi11(w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *Performance) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(&r, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *Performance) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi11(l, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(l, v)
 }
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(in *jlexer.Lexer, out *OutstandingShares) {
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(in *jlexer.Lexer, out *OutstandingShares) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1842,11 +1912,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(in *jlexer.Lexer, out *O
 		case "quarterly":
 			(out.Quarterly).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -1855,7 +1921,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(in *jlexer.Lexer, out *O
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(out *jwriter.Writer, in OutstandingShares) {
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in OutstandingShares) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -1865,11 +1931,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(out *jwriter.Writer, in 
 		out.RawString(prefix[1:])
 		{
 			out.RawByte('[')
-			for v3, v4 := range in.Annual {
-				if v3 > 0 {
+			for v9, v10 := range in.Annual {
+				if v9 > 0 {
 					out.RawByte(',')
 				}
-				(v4).MarshalEasyJSON(out)
+				(v10).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -1884,11 +1950,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v5, v6 := range in.Quarterly {
-				if v5 > 0 {
+			for v11, v12 := range in.Quarterly {
+				if v11 > 0 {
 					out.RawByte(',')
 				}
-				(v6).MarshalEasyJSON(out)
+				(v12).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -1899,27 +1965,27 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v OutstandingShares) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(&w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v OutstandingShares) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi12(w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *OutstandingShares) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(&r, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *OutstandingShares) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi12(l, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(l, v)
 }
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(in *jlexer.Lexer, out *MutualFundData) {
+func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi14(in *jlexer.Lexer, out *MutualFundData) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -1983,7 +2049,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(in *jlexer.Lexer, out *M
 		case "Market_Capitalization":
 			(out.MarketCapitalization).UnmarshalEasyJSON(in)
 		case "Sector_Weights":
-			easyjsonE48f2accDecodeGithubComConfinaleEodhdapi14(in, &out.SectorWeights)
+			(out.SectorWeights).UnmarshalEasyJSON(in)
 		case "World_Regions":
 			(out.WorldRegions).UnmarshalEasyJSON(in)
 		case "Top_Countries":
@@ -1995,11 +2061,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(in *jlexer.Lexer, out *M
 				out.TopCountries = in.Interface()
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -2008,7 +2070,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(in *jlexer.Lexer, out *M
 		in.Consumed()
 	}
 }
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in MutualFundData) {
+func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi14(out *jwriter.Writer, in MutualFundData) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -2198,11 +2260,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v7, v8 := range in.AssetAllocation {
-				if v7 > 0 {
+			for v13, v14 := range in.AssetAllocation {
+				if v13 > 0 {
 					out.RawByte(',')
 				}
-				(v8).MarshalEasyJSON(out)
+				(v14).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -2217,11 +2279,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v9, v10 := range in.ValueGrowth {
-				if v9 > 0 {
+			for v15, v16 := range in.ValueGrowth {
+				if v15 > 0 {
 					out.RawByte(',')
 				}
-				(v10).MarshalEasyJSON(out)
+				(v16).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -2236,11 +2298,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v11, v12 := range in.TopHoldings {
-				if v11 > 0 {
+			for v17, v18 := range in.TopHoldings {
+				if v17 > 0 {
 					out.RawByte(',')
 				}
-				(v12).MarshalEasyJSON(out)
+				(v18).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -2255,11 +2317,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v13, v14 := range in.MarketCapitalization {
-				if v13 > 0 {
+			for v19, v20 := range in.MarketCapitalization {
+				if v19 > 0 {
 					out.RawByte(',')
 				}
-				(v14).MarshalEasyJSON(out)
+				(v20).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -2272,7 +2334,7 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		} else {
 			out.RawString(prefix)
 		}
-		easyjsonE48f2accEncodeGithubComConfinaleEodhdapi14(out, in.SectorWeights)
+		(in.SectorWeights).MarshalEasyJSON(out)
 	}
 	if len(in.WorldRegions) != 0 {
 		const prefix string = ",\"World_Regions\":"
@@ -2284,11 +2346,11 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 		}
 		{
 			out.RawByte('[')
-			for v15, v16 := range in.WorldRegions {
-				if v15 > 0 {
+			for v21, v22 := range in.WorldRegions {
+				if v21 > 0 {
 					out.RawByte(',')
 				}
-				(v16).MarshalEasyJSON(out)
+				(v22).MarshalEasyJSON(out)
 			}
 			out.RawByte(']')
 		}
@@ -2315,123 +2377,25 @@ func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(out *jwriter.Writer, in 
 // MarshalJSON supports json.Marshaler interface
 func (v MutualFundData) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(&w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi14(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v MutualFundData) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi13(w, v)
+	easyjsonE48f2accEncodeGithubComConfinaleEodhdapi14(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *MutualFundData) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(&r, v)
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi14(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *MutualFundData) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi13(l, v)
-}
-func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi14(in *jlexer.Lexer, out *SectorWeightsGroup) {
-	isTopLevel := in.IsStart()
-	if in.IsNull() {
-		if isTopLevel {
-			in.Consumed()
-		}
-		in.Skip()
-		return
-	}
-	in.Delim('{')
-	for !in.IsDelim('}') {
-		key := in.UnsafeString()
-		in.WantColon()
-		if in.IsNull() {
-			in.Skip()
-			in.WantComma()
-			continue
-		}
-		switch key {
-		case "Cyclical":
-			(out.Cyclical).UnmarshalEasyJSON(in)
-		case "Defensive":
-			(out.Defensive).UnmarshalEasyJSON(in)
-		case "Sensitive":
-			(out.Sensitive).UnmarshalEasyJSON(in)
-		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
-		}
-		in.WantComma()
-	}
-	in.Delim('}')
-	if isTopLevel {
-		in.Consumed()
-	}
-}
-func easyjsonE48f2accEncodeGithubComConfinaleEodhdapi14(out *jwriter.Writer, in SectorWeightsGroup) {
-	out.RawByte('{')
-	first := true
-	_ = first
-	if len(in.Cyclical) != 0 {
-		const prefix string = ",\"Cyclical\":"
-		first = false
-		out.RawString(prefix[1:])
-		{
-			out.RawByte('[')
-			for v17, v18 := range in.Cyclical {
-				if v17 > 0 {
-					out.RawByte(',')
-				}
-				(v18).MarshalEasyJSON(out)
-			}
-			out.RawByte(']')
-		}
-	}
-	if len(in.Defensive) != 0 {
-		const prefix string = ",\"Defensive\":"
-		if first {
-			first = false
-			out.RawString(prefix[1:])
-		} else {
-			out.RawString(prefix)
-		}
-		{
-			out.RawByte('[')
-			for v19, v20 := range in.Defensive {
-				if v19 > 0 {
-					out.RawByte(',')
-				}
-				(v20).MarshalEasyJSON(out)
-			}
-			out.RawByte(']')
-		}
-	}
-	if len(in.Sensitive) != 0 {
-		const prefix string = ",\"Sensitive\":"
-		if first {
-			first = false
-			out.RawString(prefix[1:])
-		} else {
-			out.RawString(prefix)
-		}
-		{
-			out.RawByte('[')
-			for v21, v22 := range in.Sensitive {
-				if v21 > 0 {
-					out.RawByte(',')
-				}
-				(v22).MarshalEasyJSON(out)
-			}
-			out.RawByte(']')
-		}
-	}
-	out.RawByte('}')
+	easyjsonE48f2accDecodeGithubComConfinaleEodhdapi14(l, v)
 }
 func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi15(in *jlexer.Lexer, out *MorningStar) {
 	isTopLevel := in.IsStart()
@@ -2459,11 +2423,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi15(in *jlexer.Lexer, out *M
 		case "Sustainability_Ratio":
 			out.SustainabilityRatio = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -2582,11 +2542,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi16(in *jlexer.Lexer, out *M
 				(*out.Portfolio).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -2953,11 +2909,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi17(in *jlexer.Lexer, out *I
 				(*out.PreferredStockAndOtherAdjustments).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -3288,11 +3240,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi18(in *jlexer.Lexer, out *I
 		case "yearly":
 			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -3419,11 +3367,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi19(in *jlexer.Lexer, out *H
 				(*out.AssetsBackTickPercent).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -3752,11 +3696,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi20(in *jlexer.Lexer, out *H
 				(*out.QuarterlyEarningsGrowthYOY).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -4295,11 +4235,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi21(in *jlexer.Lexer, out *G
 				*out.FundFiscalYearEnd = string(in.String())
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -4804,11 +4740,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi22(in *jlexer.Lexer, out *F
 				(*out.MutualFundData).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -5028,11 +4960,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi23(in *jlexer.Lexer, out *F
 		case "Income_Statement":
 			(out.IncomeStatement).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -5161,11 +5089,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi24(in *jlexer.Lexer, out *E
 				(*out.SurprisePercent).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -5504,11 +5428,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi25(in *jlexer.Lexer, out *E
 				(*out.EpsRevisionsDownLast90Days).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -5809,11 +5729,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi26(in *jlexer.Lexer, out *E
 		case "Annual":
 			(out.Annual).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -5983,11 +5899,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi27(in *jlexer.Lexer, out *E
 				out.ValuationsGrowth = in.Interface()
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -6351,11 +6263,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi28(in *jlexer.Lexer, out *E
 		case "ActivitiesInvolvement":
 			(out.ActivitiesInvolvement).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -6539,11 +6447,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi29(in *jlexer.Lexer, out *C
 		case "Industry":
 			out.Industry = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -6890,11 +6794,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi30(in *jlexer.Lexer, out *C
 				(*out.CashAndCashEquivalentsChanges).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -7205,11 +7105,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi31(in *jlexer.Lexer, out *C
 		case "yearly":
 			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -7854,11 +7750,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi32(in *jlexer.Lexer, out *B
 				(*out.CommonStockSharesOutstanding).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -8469,11 +8361,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi33(in *jlexer.Lexer, out *B
 		case "yearly":
 			(out.Yearly).UnmarshalEasyJSON(in)
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -8628,11 +8516,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi34(in *jlexer.Lexer, out *A
 				(*out.Benchmark).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -8779,11 +8663,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi35(in *jlexer.Lexer, out *A
 				(*out.NetAssetsPercent).UnmarshalEasyJSON(in)
 			}
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}
@@ -8882,11 +8762,7 @@ func easyjsonE48f2accDecodeGithubComConfinaleEodhdapi36(in *jlexer.Lexer, out *A
 		case "Involvement":
 			out.Involvement = string(in.String())
 		default:
-			in.AddError(&jlexer.LexerError{
-				Offset: in.GetPos(),
-				Reason: "unknown field",
-				Data:   key,
-			})
+			in.SkipRecursive()
 		}
 		in.WantComma()
 	}

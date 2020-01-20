@@ -268,7 +268,7 @@ func TestEODhd_FetchFundamentalsSymbol_TestAll(t *testing.T) {
 	for _, e := range exchanges.All() {
 
 		t.Run(e.Code, func(t *testing.T) {
-			if e.Code == "COMM" {
+			if e.Code == "COMM" || e.Code == "BOND" { // exclude bonds for the moment
 				t.SkipNow()
 			}
 			r := rand.New(rand.NewSource(42))

@@ -1,0 +1,44 @@
+{
+  "ISIN": "US780153AW20",
+  "CUSIP": "780153AW2",
+  "Name": "ROYAL CARIBBEAN CRUISES LTD 3.7% 15Mar2028",
+  "UpdateDate": "2020-01-17",
+  "WKN": "A19SWB",
+  "Sedol": "BD4H0N0",
+  "FIGI": "BBG00JB1N793",
+  "Currency": "USD",
+  "Coupon": "3.700",
+  "Price": "102.70",
+  "LastTradeDate": "2020-01-17",
+  "Maturity_Date": "2028-03-14",
+  "YieldToMaturity": "3.198",
+  "Callable": "Yes",
+  "NextCallDate": "2027-12-15",
+  "MinimumSettlementAmount": "",
+  "ParIntegralMultiple": "1000 USD",
+  "ClassificationData": {
+    "BondType": "Unternehmensanleihen Welt Rest",
+    "DebtType": "Senior Unsecured Note",
+    "IndustryGroup": "Industrial",
+    "IndustrySubGroup": "Service\/Leisure",
+    "SubProductAsset": "CORP",
+    "SubProductAssetType": "Corporate Bond"
+  },
+  "Rating": {
+    "MoodyRating": "Baa2",
+    "MoodyRatingUpdateDate": "2020-01-17",
+    "SPRating": "BBB-",
+    "SPRatingUpdateDate": "2017-11-20"
+  },
+  "IssueData": {
+    "IssueDate": "2017-11-28",
+    "OfferingDate": "2017-11-20",
+    "FirstCouponDate": "2018-03-15",
+    "FirstTradingDay": "2017-11-28",
+    "CouponPaymentFrequency": null,
+    "Issuer": "Royal Caribbean Cruises Ltd.",
+    "IssuerDescription": "Royal Caribbean Cruises Ltd. is a global cruise company operating a fleet of vessels in the cruise vacation industry. The Company operates through brands which primarily serve the contemporary, premium and deluxe segments of the cruise vacation industry, which also includes the budget and luxury segments.",
+    "IssuerCountry": "USA",
+    "IssuerURL": "http:\/\/www.royalcaribbean.com\/"
+  }
+}
