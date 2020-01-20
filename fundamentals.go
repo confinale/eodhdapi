@@ -992,12 +992,6 @@ type MutualFundData struct {
 	TopCountries          interface{}           `json:"Top_Countries"` // do not use seems to be empty
 }
 
-type SectorWeightsGroup struct {
-	Cyclical  SectorWeights `json:"Cyclical"`
-	Defensive SectorWeights `json:"Defensive"`
-	Sensitive SectorWeights `json:"Sensitive"`
-}
-
 type SectorWeights []SectorWeight
 
 func (out *SectorWeights) UnmarshalEasyJSON(in *jlexer.Lexer) {
