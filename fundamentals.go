@@ -1,6 +1,6 @@
 package eodhdapi
 
-//go:generate go run github.com/mailru/easyjson/easyjson -omit_empty -disallow_unknown_fields -all fundamentals.go
+//go:generate go run github.com/mailru/easyjson/easyjson -omit_empty -all fundamentals.go
 
 import (
 	"fmt"
@@ -989,6 +989,7 @@ type MutualFundData struct {
 	MarketCapitalization  MarketCapitalizations `json:"Market_Capitalization"`
 	SectorWeights         SectorWeightsGroup    `json:"Sector_Weights"`
 	WorldRegions          RegionWeights         `json:"World_Regions"`
+	TopCountries          interface{}           `json:"Top_Countries"` // do not use seems to be empty
 }
 
 type SectorWeightsGroup struct {

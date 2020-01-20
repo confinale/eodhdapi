@@ -1,0 +1,281 @@
+{
+  "LastUpdate": "0001-01-01T00:00:00Z",
+  "General": {
+    "Code": "PSFYX",
+    "Type": "FUND",
+    "Name": "PACE Strategic Fixed Income Investments Class Y",
+    "Exchange": "NMFQS",
+    "CurrencyCode": "USD",
+    "CurrencyName": "US Dollar",
+    "CurrencySymbol": "$",
+    "CountryName": "USA",
+    "CountryISO": "US",
+    "Fund_Summary": "The investment seeks total return consisting of income and capital appreciation.\n The fund invests at least 80% of its net assets (plus the amount of any borrowing for investment purposes) in investment grade fixed income securities. It also invests, to a limited extent, in bonds that are below investment grade. The advisor may, but is not required to, use exchange-traded or over-the-counter derivative instruments for risk management purposes or to attempt to increase total returns.",
+    "Fund_Family": "UBS Asset Management"
+  },
+  "MutualFund_Data": {
+    "Prev_Close_Price": "14.10",
+    "Portfolio_Net_Assets": "768069568",
+    "Morning_Star_Rating": "4",
+    "Morning_Star_Risk_Rating": "5",
+    "Morning_Star_Category": "Intermediate Core-Plus Bond",
+    "Yield": "0.0350",
+    "Yield_YTD": "0.1039",
+    "Yield_1Year_YTD": "0.1039",
+    "Yield_3Year_YTD": "0.0478",
+    "Yield_5Year_YTD": "0.0364",
+    "Expense_Ratio": "1.2400",
+    "Asset_Allocation": [
+      {
+        "Type": "Cash",
+        "Net_%": "1.89",
+        "Long_%": "1.97",
+        "Short_%": "0.09",
+        "Category_Average": "-2.53"
+      },
+      {
+        "Type": "US Stock",
+        "Net_%": "0",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Category_Average": "0.01"
+      },
+      {
+        "Type": "Non US Stock",
+        "Net_%": "0",
+        "Long_%": "0",
+        "Short_%": "0",
+        "Category_Average": "0"
+      },
+      {
+        "Type": "Bond",
+        "Net_%": "96.78",
+        "Long_%": "138.27",
+        "Short_%": "41.49",
+        "Category_Average": "103.11"
+      },
+      {
+        "Type": "Other",
+        "Net_%": "1.33",
+        "Long_%": "1.33",
+        "Short_%": "0",
+        "Category_Average": "-0.59"
+      }
+    ],
+    "Top_Holdings": [
+      {
+        "Name": "5 Year Treasury Note Future Dec19",
+        "Owned": "90,300,000",
+        "Change": "90,300,000",
+        "Weight": "10.79"
+      },
+      {
+        "Name": "10 Year Treasury Note Future Dec19",
+        "Owned": "46,500,000",
+        "Change": "46,500,000",
+        "Weight": "6.07"
+      },
+      {
+        "Name": "Government National Mortgage Association 4%",
+        "Owned": "58,300,000",
+        "Change": "58,300,000",
+        "Weight": "6.07"
+      },
+      {
+        "Name": "United States Treasury Bonds 2.5%",
+        "Owned": "53,400,000",
+        "Change": "0",
+        "Weight": "5.69"
+      },
+      {
+        "Name": "Euro Bund Future Dec19",
+        "Owned": "27,600,000",
+        "Change": "27,600,000",
+        "Weight": "5.30"
+      },
+      {
+        "Name": "Long-Term Euro-BTP Futures Dec19",
+        "Owned": "25,600,000",
+        "Change": "25,600,000",
+        "Weight": "4.13"
+      },
+      {
+        "Name": "3 Month Euro Euribor Sept20",
+        "Owned": "35,250,000",
+        "Change": "35,250,000",
+        "Weight": "-3.96"
+      },
+      {
+        "Name": "Bwu00fp15 Irs Jpy P F .30000 Swu00fp15 Ccpvanilla",
+        "Owned": "3,620,000,000",
+        "Change": "0",
+        "Weight": "-3.44"
+      },
+      {
+        "Name": "Bwu00fp15 Irs Jpy R V 06mlibor Swuv0fp17 Ccpvanilla",
+        "Owned": "3,620,000,000",
+        "Change": "0",
+        "Weight": "3.36"
+      },
+      {
+        "Name": "3 Month Euro Euribor Dec20",
+        "Owned": "29,000,000",
+        "Change": "29,000,000",
+        "Weight": "-3.26"
+      },
+      {
+        "Name": "United States Treasury Notes 2.12%",
+        "Owned": "27,500,000",
+        "Change": "0",
+        "Weight": "2.78"
+      },
+      {
+        "Name": "Swpc0ija6 Cds Usd R F 1.00000 1 Ccpcdx",
+        "Owned": "25,400,000",
+        "Change": "25,400,000",
+        "Weight": "2.60"
+      },
+      {
+        "Name": "Swpc0ija6 Cds Usd P V 03mevent 2 Ccpcdx",
+        "Owned": "25,400,000",
+        "Change": "25,400,000",
+        "Weight": "-2.55"
+      },
+      {
+        "Name": "US Treasury Bond Future Dec19",
+        "Owned": "15,000,000",
+        "Change": "15,000,000",
+        "Weight": "-2.43"
+      },
+      {
+        "Name": "Bwu00iy84 Irs Jpy P F .30000 Swu00iy84 Ccpvanilla",
+        "Owned": "2,510,000,000",
+        "Change": "0",
+        "Weight": "-2.39"
+      },
+      {
+        "Name": "Bwu00iy84 Irs Jpy R V 06mlibor Swuv0iy86 Ccpvanilla",
+        "Owned": "2,510,000,000",
+        "Change": "0",
+        "Weight": "2.33"
+      },
+      {
+        "Name": "Swpc0hy52 Cds Usd R F 1.00000 1 Ccpcdx",
+        "Owned": "22,400,000",
+        "Change": "-63,800,000",
+        "Weight": "2.30"
+      },
+      {
+        "Name": "Swpc0hy52 Cds Usd P V 03mevent 2 Ccpcdx",
+        "Owned": "22,400,000",
+        "Change": "-63,800,000",
+        "Weight": "-2.24"
+      },
+      {
+        "Name": "Euro OAT Future Dec19",
+        "Owned": "10,300,000",
+        "Change": "10,300,000",
+        "Weight": "-1.94"
+      },
+      {
+        "Name": "United States Treasury Notes 0.75%",
+        "Owned": "16,966,528",
+        "Change": "473,744",
+        "Weight": "1.79"
+      },
+      {
+        "Name": "Swu00nyh3 Irs Jpy R F .38000 Swu00nyh3 Ccpvanilla",
+        "Owned": "1,810,000,000",
+        "Change": "0",
+        "Weight": "1.74"
+      },
+      {
+        "Name": "United States Treasury Notes 2%",
+        "Owned": "16,900,000",
+        "Change": "0",
+        "Weight": "1.70"
+      },
+      {
+        "Name": "Swu00nyh3 Irs Jpy P V 06mlibor Swuv0nyh5 Ccpvanilla",
+        "Owned": "1,810,000,000",
+        "Change": "0",
+        "Weight": "-1.68"
+      },
+      {
+        "Name": "Long Gilt Future Dec19",
+        "Owned": "8,400,000",
+        "Change": "8,400,000",
+        "Weight": "-1.45"
+      },
+      {
+        "Name": "United States Treasury Notes 0.12%",
+        "Owned": "12,665,133",
+        "Change": "23,638",
+        "Weight": "1.26"
+      }
+    ],
+    "Sector_Weights": {},
+    "Top_Countries": {
+      "0": {
+        "Amount_%": "84.43",
+        "Benchmark": null,
+        "Category_Average": "90.29",
+        "Country": "United States"
+      },
+      "1": {
+        "Amount_%": "4.08",
+        "Benchmark": null,
+        "Category_Average": "1.74",
+        "Country": "United Kingdom"
+      },
+      "2": {
+        "Amount_%": "2.10",
+        "Benchmark": null,
+        "Category_Average": "0.98",
+        "Country": "Netherlands"
+      },
+      "3": {
+        "Amount_%": "1.92",
+        "Benchmark": null,
+        "Category_Average": "0.39",
+        "Country": "Japan"
+      },
+      "4": {
+        "Amount_%": "1.06",
+        "Benchmark": null,
+        "Category_Average": "0.43",
+        "Country": "France"
+      },
+      "5": {
+        "Amount_%": "1.05",
+        "Benchmark": null,
+        "Category_Average": "1.23",
+        "Country": "Cayman Islands"
+      },
+      "6": {
+        "Amount_%": "0.94",
+        "Benchmark": null,
+        "Category_Average": "0.34",
+        "Country": "Germany"
+      },
+      "7": {
+        "Amount_%": "0.83",
+        "Benchmark": null,
+        "Category_Average": "0.26",
+        "Country": "Australia"
+      },
+      "8": {
+        "Amount_%": "0.72",
+        "Benchmark": null,
+        "Category_Average": "0.28",
+        "Country": "Switzerland"
+      },
+      "9": {
+        "Amount_%": "0.67",
+        "Benchmark": null,
+        "Category_Average": "0.93",
+        "Country": "Canada"
+      }
+    }
+  }
+}
