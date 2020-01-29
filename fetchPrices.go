@@ -22,22 +22,22 @@ type EODPrice struct {
 	Volume        decimal.Decimal  `json:"volume,omitempty" bson:"volume"`
 
 	Price *decimal.Decimal `json:"price,omitempty" bson:"price"`
-	Yield *decimal.Decimal `json:"price,omitempty" bson:"price"`
+	Yield *decimal.Decimal `json:"yield,omitempty" bson:"yield"`
 
-	MarketCapitalization *decimal.Decimal
-	EMA_50               *decimal.Decimal
-	EMA_200              *decimal.Decimal
-	High_250             *decimal.Decimal
-	Low_250              *decimal.Decimal
-	Prev_close           *decimal.Decimal
-	Change               *decimal.Decimal
-	ChangePercent        *decimal.Decimal
+	MarketCapitalization *decimal.Decimal `json:"market_capitalization,omitempty" bson:"market_capitalization"`
+	EMA_50               *decimal.Decimal `json:"ema_50,omitempty" bson:"ema_50"`
+	EMA_200              *decimal.Decimal `json:"ema_200,omitempty" bson:"ema_200"`
+	High_250             *decimal.Decimal `json:"high_250,omitempty" bson:"high_250"`
+	Low_250              *decimal.Decimal `json:"low_250,omitempty" bson:"low_250"`
+	Prev_close           *decimal.Decimal `json:"prev_close,omitempty" bson:"prev_close"`
+	Change               *decimal.Decimal `json:"change,omitempty" bson:"change"`
+	ChangePercent        *decimal.Decimal `json:"ticker,omitempty" bson:"change_percent"`
 
-	Avgvol50d  *decimal.Decimal
-	Avgvol200d *decimal.Decimal
-	Avgvol14d  *decimal.Decimal
+	Avgvol50d  *decimal.Decimal `json:"avg_vol_50d,omitempty" bson:"avg_vol_50d"`
+	Avgvol200d *decimal.Decimal `json:"avg_vol_200d,omitempty" bson:"avg_vol_200d"`
+	Avgvol14d  *decimal.Decimal `json:"avg_vol_14d,omitempty" bson:"avg_vol_14d"`
 
-	Ticker string `json:"tickers,omitempty" bson:"ticker"`
+	Ticker string `json:"ticker,omitempty" bson:"ticker"`
 }
 
 const dateFormat = "2006-01-02"
