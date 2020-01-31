@@ -2,6 +2,7 @@ package eodhdapi
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	freshcache "github.com/confinale/eodhdapi/util/afr"
 	"github.com/confinale/eodhdapi/util/afr/diskcache"
@@ -118,6 +119,72 @@ func TestEODhd_FetchEOD(t *testing.T) {
 			require.Equal(t, tt.wantPricesCount, count)
 		})
 	}
+}
+
+func TestEODhd_JsonSerialization(t *testing.T) {
+	server := httptest.NewTLSServer(http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {
+		if req.URL.Path != "/api/eod-bulk-last-day/F" {
+			rw.WriteHeader(404)
+			return
+		}
+		date := req.URL.Query().Get("date")
+		symbols := req.URL.Query().Get("symbols")
+		format := req.URL.Query().Get("fmt")
+
+		filename := fmt.Sprintf("test-data/eod-bulk-last-day/F_date_%s_%s.%s", date, symbols, format)
+		if _, err := os.Stat(filename); os.IsNotExist(err) {
+			t.Logf("file does not exist: %s", filename)
+			rw.WriteHeader(404)
+			return
+		}
+
+		bytes, err := ioutil.ReadFile(filename)
+		require.NoError(t, err)
+		_, err = rw.Write(bytes)
+		require.NoError(t, err)
+	}))
+
+	exchg := exchanges.All().GetByCode("F")
+	date := time.Date(2019, 9, 24, 0, 0, 0, 0, time.UTC)
+	symbols := []string{"CON", "BAYN"}
+
+	d := &EODhd{
+		token:   "TOKEN",
+		baseURL: server.URL + "/api",
+		clt:     server.Client(),
+	}
+
+	prices := make(chan EODPrice)
+	done := make(chan int, 1)
+
+	go func(f chan EODPrice, d chan int) {
+		count := 0
+		for v := range f {
+			if v.Code == "BAYN" {
+				if v.Ticker != "BAYN.US" {
+					t.Errorf("TestEODhd_JsonSerialization() ticker not expected: %v", v.Ticker)
+				}
+
+				data, err := json.Marshal(&v)
+				if err != nil {
+					t.Errorf("TestEODhd_JsonSerialization() error = %v", err)
+				}
+
+				target := `{"code":"BAYN","exchange_short_name":"US","Name":"Bay National Corporation","date":"2019-07-22","open":"0.0147","high":"0.0147","low":"0.0147","close":"0.0147","adjusted_close":"0.0147","volume":"100","market_capitalization":"0","ema_50":"0.014","ema_200":"0","high_250":"0","low_250":"0","prev_close":"0.0147","change":"0","change_percent":"0","ticker":"BAYN.US"}`
+
+				if target != string(data) {
+					t.Errorf("TestEODhd_JsonSerialization() not equal = \n%v\n#########\n%v", target, string(data))
+				}
+			}
+		}
+		d <- count
+	}(prices, done)
+	if err := d.FetchPrices(context.Background(), prices, exchg, date, symbols...); err != nil {
+		t.Errorf("TestEODhd_JsonSerialization() error = %v", err)
+	}
+	close(prices)
+
+	<-done
 }
 
 func TestEODhd_FetchEOD_Ticker(t *testing.T) {

@@ -31,7 +31,7 @@ type EODPrice struct {
 	Low_250              *decimal.Decimal `json:"low_250,omitempty" bson:"low_250"`
 	Prev_close           *decimal.Decimal `json:"prev_close,omitempty" bson:"prev_close"`
 	Change               *decimal.Decimal `json:"change,omitempty" bson:"change"`
-	ChangePercent        *decimal.Decimal `json:"ticker,omitempty" bson:"change_percent"`
+	ChangePercent        *decimal.Decimal `json:"change_percent,omitempty" bson:"change_percent"`
 
 	Avgvol50d  *decimal.Decimal `json:"avg_vol_50d,omitempty" bson:"avg_vol_50d"`
 	Avgvol200d *decimal.Decimal `json:"avg_vol_200d,omitempty" bson:"avg_vol_200d"`
