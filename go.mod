@@ -9,5 +9,5 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/shopspring/decimal v0.0.0-20200105231215-408a2507e114
 	github.com/stretchr/testify v1.4.0
-	golang.org/x/text v0.3.2
+	golang.org/x/text v0.3.6
 )
