@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: gomod
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  assignees:
+  - gitu
+  ignore:
+  - dependency-name: golang.org/x/text
+    versions:
+    - 0.3.5
+  - dependency-name: github.com/mailru/easyjson
+    versions:
+    - 0.7.6
